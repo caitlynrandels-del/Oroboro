@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Oroboro Live Visualizer</title>
+
+<style>
+html,body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#000;
+}
+
+canvas{
+    display:block;
+}
+</style>
+
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+
+<script>
+
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+
+function resize(){
+
+    canvas.width =
+    window.innerWidth;
+
+    canvas.height =
+    window.innerHeight;
+
+}
+
+resize();
+
+window.onresize = resize;
+
+
+
+// ===============================
+// OROBORO STATE
+// ===============================
+
+let particles=[];
+let nodes=[];
+let beams=[];
+
+let energy=0;
+let flash=0;
+let hue=200;
+
+
+
+// ===============================
+// DRUM EVENT
+// ===============================
+
+function drumHit(note,velocity){
+
+    let cx =
+    canvas.width/2;
+
+    let cy =
+    canvas.height/2;
+
+
+    hue =
+    (note*5)%360;
+
+
+
+    nodes.push({
+
+        x:cx,
+        y:cy,
+
+        radius:
+        velocity/4,
+
+        life:1,
+
+        hue:hue
+
+    });
+
+
+
+    for(
+        let i=0;
+        i<velocity;
+        i++
+    ){
+
+        let angle =
+        Math.random()*Math.PI*2;
+
+
+        particles.push({
+
+            x:cx,
+
+            y:cy,
+
+            vx:
+            Math.cos(angle)*
+            (2+velocity/20),
+
+            vy:
+            Math.sin(angle)*
+            (2+velocity/20),
+
+            life:1,
+
+            hue:hue
+
+        });
+
+    }
+
+
+
+    beams.push({
+
+        angle:
+        Math.random()*Math.PI*2,
+
+        length:
+        velocity*10,
+
+        life:1,
+
+        hue:hue
+
+    });
+
+
+
+    energy += velocity;
+
+
+
+    if(velocity>100){
+
+        flash=1;
+
+    }
+
+
+
+    // wildfire reset
+
+    if(energy>1500){
+
+        particles=[];
+        beams=[];
+
+        energy=0;
+
+    }
+
+}
+
+
+
+// ===============================
+// UPDATE
+// ===============================
+
+function update(){
+
+
+    particles.forEach(p=>{
+
+        p.x+=p.vx;
+        p.y+=p.vy;
+
+        p.life-=0.015;
+
+    });
+
+
+
+    particles =
+    particles.filter(
+        p=>p.life>0
+    );
+
+
+
+    nodes.forEach(n=>{
+
+        n.life-=0.008;
+
+    });
+
+
+    nodes =
+    nodes.filter(
+        n=>n.life>0
+    );
+
+
+
+    beams.forEach(b=>{
+
+        b.life-=0.02;
+
+    });
+
+
+    beams =
+    beams.filter(
+        b=>b.life>0
+    );
+
+
+    energy*=0.97;
+
+}
+
+
+
+// ===============================
+// DRAW
+// ===============================
+
+function draw(){
+
+
+    ctx.fillStyle =
+    "rgba(0,0,0,.12)";
+
+
+    ctx.fillRect(
+
+        0,
+        0,
+        canvas.width,
+        canvas.height
+
+    );
+
+
+
+    // atmospheric fog glow
+
+    let glow =
+    ctx.createRadialGradient(
+
+        canvas.width/2,
+        canvas.height/2,
+        20,
+
+        canvas.width/2,
+        canvas.height/2,
+        700
+
+    );
+
+
+    glow.addColorStop(
+
+        0,
+
+        `hsla(${hue},100%,60%,${0.15+energy/3000})`
+
+    );
+
+
+    glow.addColorStop(
+        1,
+        "transparent"
+    );
+
+
+
+    ctx.fillStyle=glow;
+
+
+    ctx.fillRect(
+
+        0,
+        0,
+        canvas.width,
+        canvas.height
+
+    );
+
+
+
+    // constellation lines
+
+    for(
+        let a of nodes
+    ){
+
+        for(
+            let b of nodes
+        ){
+
+            let d =
+            Math.hypot(
+
+                a.x-b.x,
+
+                a.y-b.y
+
+            );
+
+
+
+            if(d<250){
+
+                ctx.strokeStyle=
+                `hsla(${a.hue},100%,70%,.5)`;
+
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    a.x,
+                    a.y
+                );
+
+                ctx.lineTo(
+                    b.x,
+                    b.y
+                );
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+
+
+
+    // particles
+
+    for(
+        let p of particles
+    ){
+
+        ctx.fillStyle =
+        `hsla(${p.hue},100%,70%,${p.life})`;
+
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+
+            p.x,
+            p.y,
+            3,
+            0,
+            Math.PI*2
+
+        );
+
+        ctx.fill();
+
+    }
+
+
+
+
+    // laser beams
+
+    for(
+        let b of beams
+    ){
+
+        let cx =
+        canvas.width/2;
+
+        let cy =
+        canvas.height/2;
+
+
+
+        let x2 =
+        cx+
+        Math.cos(b.angle)
+        *
+        b.length;
+
+
+
+        let y2 =
+        cy+
+        Math.sin(b.angle)
+        *
+        b.length;
+
+
+
+        ctx.strokeStyle=
+        `hsla(${b.hue},100%,70%,${b.life})`;
+
+        ctx.lineWidth=3;
+
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            cx,
+            cy
+        );
+
+        ctx.lineTo(
+            x2,
+            y2
+        );
+
+        ctx.stroke();
+
+    }
+
+
+
+
+    if(flash>0){
+
+        ctx.fillStyle=
+        `rgba(255,255,255,${flash})`;
+
+        ctx.fillRect(
+
+            0,
+            0,
+            canvas.width,
+            canvas.height
+
+        );
+
+
+        flash*=0.9;
+
+    }
+
+
+
+    update();
+
+
+    requestAnimationFrame(draw);
+
+}
+
+
+draw();
+
+
+
+// ===============================
+// MIDI INPUT
+// ===============================
+
+navigator
+.requestMIDIAccess()
+.then(access=>{
+
+
+    for(
+        let input of access.inputs.values()
+    ){
+
+        input.onmidimessage =
+        event=>{
+
+
+            let [
+
+                command,
+                note,
+                velocity
+
+            ] = event.data;
+
+
+
+            if(
+                command===144 &&
+                velocity>0
+            ){
+
+                drumHit(
+                    note,
+                    velocity
+                );
+
+            }
+
+
+        };
+
+    }
+
+});
+
+
+
+// ===============================
+// TEST MODE
+// ===============================
+
+canvas.onclick=()=>{
+
+    drumHit(
+
+        Math.random()*100,
+
+        50+Math.random()*100
+
+    );
+
+};
+
+
+</script>
+
+</body>
+
+</html>
