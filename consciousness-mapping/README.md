@@ -14,10 +14,9 @@ Scientific paper and framework summary on state reduction and a relational simul
 Work in progress. Seeking feedback from experts (e.g., Professor Zhang).
 
 ### Current Materials
-- **[Oroboro_Framework_Summary.md](./Oroboro_Framework_Summary.md)** — Full November 2026 independent research summary (from PDF). Covers overview, core components (Nexus, Transcriber, Dictator, Levy, Genesis), applications, research status, and context.
+- **[Oroboro_Framework_Summary.md](./Oroboro_Framework_Summary.md)** — Full November 2026 independent research summary (from PDF).
+- **[Metastasis_HeatTrace_CaseStudy.md](./Metastasis_HeatTrace_CaseStudy.md)** — Speculative case study applying the framework to metastasis via heat-trace visualization and Intamin-style magnetic force events. Includes link to interactive simulation. Modeling exercise only.
 
-Drafts of the full technical paper and additional materials to be added as finalized.
-
-Related practical application: [Oroboro Relay](https://github.com/caitlynrandels-del/oroboro-relay) — state reduction applied to the 13 Nov 2026 FAA ATC communications crisis.
+Related practical application: [Oroboro Relay](https://github.com/caitlynrandels-del/oroboro-relay) — state reduction applied to the 13 Nov 2026 FAA ATC communications crisis. The metastasis mesh simulation lives in the same repository.
 
 Updated 2026-11-14.
