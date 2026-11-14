@@ -50,3 +50,12 @@ Live universe: [add your Netlify link here]
 Preview: `oroboro_preview.jpg`
 
 `<!DOCTYPE Oroboro>`
+
+---
+
+### Related Work
+
+- **Oroboro Relay** — Resilient ATC Companion applying state reduction and relational simulation to the 13 Nov 2026 FAA communications crisis. Independent sector processing + delta reconciliation. Prototype: https://github.com/caitlynrandels-del/oroboro-relay
+- **Consciousness Mapping** — Oroboro Structures for Consciousness Mapping paper (in progress). See /consciousness-mapping/ when available.
+
+Updated 2026-11-14.
