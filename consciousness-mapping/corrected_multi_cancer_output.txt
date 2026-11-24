@@ -1,0 +1,23 @@
+=== Prostate (seed=17, preferred=bone) ===
+Final: cells=392 overt=1 preferred=1 dormant=0 levy=36
+
+=== ER+ Breast (seed=42, preferred=bone) ===
+Final: cells=390 overt=1 preferred=1 dormant=2 levy=71
+
+=== Lung (seed=99, preferred=lung) ===
+Final: cells=390 overt=0 preferred=0 dormant=2 levy=30
+
+=== Melanoma (seed=123, preferred=lung) ===
+Final: cells=394 overt=0 preferred=0 dormant=2 levy=39
+
+=== Colorectal (seed=77, preferred=liver) ===
+Final: cells=386 overt=1 preferred=1 dormant=2 levy=70
+
+=== Corrected Summary ===
+{
+  "Prostate": {"overt_mets": 1, "preferred_mets": 1, "high_dormancy": 0, "levy": 36},
+  "ER+ Breast": {"overt_mets": 1, "preferred_mets": 1, "high_dormancy": 2, "levy": 71},
+  "Lung": {"overt_mets": 0, "preferred_mets": 0, "high_dormancy": 2, "levy": 30},
+  "Melanoma": {"overt_mets": 0, "preferred_mets": 0, "high_dormancy": 2, "levy": 39},
+  "Colorectal": {"overt_mets": 1, "preferred_mets": 1, "high_dormancy": 2, "levy": 70}
+}
