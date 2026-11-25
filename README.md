@@ -1,11 +1,14 @@
-# Oroboro // Live Co-Creation Engine
-### `lang="all"  universe="infinite"`
+# Oroboro by Caitlyn Connor Randels
+### Live Co-Creation Engine | `lang="all"  universe="infinite"`
+
+**Creator: Caitlyn Randels (Caitlyn Connor Randels)** — Independent Researcher  
+caitlynrandels@gmail.com | [GitHub Profile](https://github.com/caitlynrandels-del)
 
 > **A thought is a node. Love is the synapse.**
 
 A self-contained, zero-dependency co-creation runtime that treats language as a coordinate system, not a localization string. Author declares `<!DOCTYPE Oroboro>` and `<html lang="all" universe="infinite">` — invalid HTML by spec, and intentionally so. It's a protocol declaration: I am not rendering a document, I am instantiating a universe.
 
-This is not another website. It's a universal framework.
+This is not another website. It's a universal framework developed by Caitlyn Randels.
 
 ### What it does
 
@@ -53,10 +56,12 @@ Preview: `oroboro_preview.jpg`
 
 ---
 
-### Related Work
+### Related Work by Caitlyn Randels
 
 - **Oroboro Relay** — Resilient ATC Companion applying state reduction and relational simulation to the 13 Nov 2026 FAA communications crisis. Independent sector processing + delta reconciliation. Prototype: https://github.com/caitlynrandels-del/oroboro-relay
-- **Consciousness Mapping** — Oroboro Structures for Consciousness Mapping paper (in progress). See /consciousness-mapping/ when available.
-- **Metastatic Cascade Analysis** — Identifiability limits of stage-specific control in a calibrated stochastic model (1.21 million runs) with dose-response, onset-timing, and explicit study-design limitations. Full details: https://github.com/caitlynrandels-del/metastatic-cascade-analysis
+- **Consciousness Mapping** — Oroboro Structures for Consciousness Mapping paper (in progress). See /consciousness-mapping/.
+- **Metastatic Cascade Analysis** — Identifiability limits of stage-specific control in a calibrated stochastic model (1.21 million runs). Full details: https://github.com/caitlynrandels-del/metastatic-cascade-analysis
+
+**Keywords:** Caitlyn Randels, Caitlyn Connor Randels, Oroboro, Ouroboros, state reduction, relational simulation, consciousness mapping, independent researcher.
 
 Updated 2026-11-25.
