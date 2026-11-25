@@ -16,6 +16,7 @@ Work in progress. Seeking feedback from experts (e.g., Professor Zhang).
 ### Current Materials
 - **[Oroboro_Framework_Summary.md](./Oroboro_Framework_Summary.md)** — Full November 2026 independent research summary (from PDF).
 - **[Metastasis_HeatTrace_CaseStudy.md](./Metastasis_HeatTrace_CaseStudy.md)** — Speculative case study applying the framework to metastasis via heat-trace visualization and Intamin-style magnetic force events. Includes link to interactive simulation. Modeling exercise only.
+- **[Metastatic Cascade Analysis](https://github.com/caitlynrandels-del/metastatic-cascade-analysis)** — Refined analysis of a 1.21-million-run parameter sweep: Establishment-Stage Control and Onset Dependence in Metastatic Dissemination, Dormancy and Colonization (November 2026).
 - **[NaCl_Polarity_Mesh_Research_Note.md](./NaCl_Polarity_Mesh_Research_Note.md)** — Chat-session extract (23 Nov 2026) reducing NaCL++ / polarity mesh and testing observational equivalence on LAS airplane trajectories. Includes the unbreakable form (Levy weight 0.999).
 - **[Unbreakable_NaCl_Polarity_Mesh.md](./Unbreakable_NaCl_Polarity_Mesh.md)** — Short unbreakable statement from the same session.
 - **[nacl_polarity_mesh.py](./nacl_polarity_mesh.py)** — Python implementation of the Na–Cl polarity mesh (Genesis, mesh locking, Levy at 0.999, consensus, optional delta flip). Run with `python nacl_polarity_mesh.py`.
