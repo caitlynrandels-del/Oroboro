@@ -57,6 +57,6 @@ Preview: `oroboro_preview.jpg`
 
 - **Oroboro Relay** — Resilient ATC Companion applying state reduction and relational simulation to the 13 Nov 2026 FAA communications crisis. Independent sector processing + delta reconciliation. Prototype: https://github.com/caitlynrandels-del/oroboro-relay
 - **Consciousness Mapping** — Oroboro Structures for Consciousness Mapping paper (in progress). See /consciousness-mapping/ when available.
-- **Metastatic Cascade Analysis** — Calibration of a stochastic cascade model to public cohort data (1.21 million runs) with dose-response, interaction, onset-timing, and explicit study-design limitations (beyond data mapping). Full details and added limitations subsection: https://github.com/caitlynrandels-del/metastatic-cascade-analysis
+- **Metastatic Cascade Analysis** — Identifiability limits of stage-specific control in a calibrated stochastic model (1.21 million runs) with dose-response, onset-timing, and explicit study-design limitations. Full details: https://github.com/caitlynrandels-del/metastatic-cascade-analysis
 
 Updated 2026-11-25.
