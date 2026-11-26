@@ -30,6 +30,17 @@ The sponge is not a new class that replaces Nexus or Genesis. It is the missing 
 | Malleable Flubber / Play-Doh  | Deformable body of the sponge                       |
 | Heat-trace visualization      | Visible moisture / fill-level gradient              |
 
+## Openness to Additional Systems
+
+The simulation framework is designed to allow the introduction and exclusion of other systems that may or may not be helpful. These can include, among others:
+- Materials science properties (porosity, elasticity, saturation behavior)
+- Physics (fluid dynamics of absorption/release, pressure, diffusion, mechanical deformation)
+- Thermodynamics or heat-transfer analogies for the heat-trace
+- Additional biological layers (immune, stromal, extracellular-matrix mechanics)
+- Any other domain systems acting as background processors or modifiers
+
+Such systems can be turned on or off. The model recognizes and reports when a newly introduced system changes outcomes and remains open to emergent results from their interaction with the sponge and any external data.
+
 ## Implementation Notes (for simulation use)
 
 When integrated into a relational or agent-based simulation (e.g., metastasis cascade):
@@ -40,7 +51,7 @@ When integrated into a relational or agent-based simulation (e.g., metastasis ca
   - Membrane controlling entry
   - Logged fill-level gradient (heat-trace)
 - Results should be reported with the sponge both present and absent to show its influence.
-- The model remains open to emergent outcomes not previously defined.
+- The model remains open to emergent outcomes not previously defined and to the optional inclusion of additional domain systems.
 
 ## Status
 
