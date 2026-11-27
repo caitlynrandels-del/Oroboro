@@ -1,0 +1,28 @@
+{
+  "looped": {
+    "n_nodes": 49,
+    "n_edges": 89,
+    "n_frustrated0": 32,
+    "n_locked0": 57,
+    "inversion_holds": true,
+    "counts": {
+      "n_edges": 89,
+      "n_locked": 57,
+      "n_frustrated": 32,
+      "n_repaired": 0
+    }
+  },
+  "tree": {
+    "n_nodes": 49,
+    "n_edges": 49,
+    "n_frustrated0": 0,
+    "n_locked0": 49,
+    "inversion_holds": true,
+    "counts": {
+      "n_edges": 49,
+      "n_locked": 49,
+      "n_frustrated": 0,
+      "n_repaired": 0
+    }
+  }
+}
