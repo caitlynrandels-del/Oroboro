@@ -1,0 +1,98 @@
+WHOLE vs PARTS {"{'integrated': False}": True, "{'integrated': True}": True}
+BASE pre_integration 0.18 10.355 0.1729 4s
+BASE integrated_levy_gain_0.05 0.175 10.087 0.2218 8s
+BASE integrated_levy_gain_0.1 0.171 9.804 0.2675 13s
+BASE integrated_levy_gain_0.15 0.161 9.552 0.3378 17s
+BASE integrated_levy_gain_0.2 0.155 9.301 0.3897 21s
+BASE integrated_levy_gain_0.25 0.154 9.084 0.4152 25s
+BASE integrated_levy_gain_0.3 0.149 8.842 0.4615 29s
+BASE integrated_levy_gain_0.5 0.134 8.008 0.611 33s
+BASE integrated_levy_gain_1.0 0.091 6.356 0.9683 38s
+USING levy_gain 1.0 (calibration-best 0.05 )
+LOO baseline integrated_full 0.096 6.366 0.0302 0.0
+LOO baseline minus_principles_gate 0.096 6.366 0.0302 0.0
+LOO baseline minus_levy_feedback 0.178 10.406 0.0 0.01
+LOO baseline minus_damped_reconcile 0.178 10.406 0.0302 0.01
+LOO baseline minus_adaptive_niche 0.08 6.372 0.0302 0.0
+LOO baseline minus_looped_niche 0.112 6.36 0.0302 0.0
+LOO baseline pre_integration 0.178 10.406 0.0 0.0
+LOO valuation_threshold=0.80 integrated_full 0.0 0.304 0.0303 0.0
+LOO valuation_threshold=0.80 minus_principles_gate 0.0 0.304 0.0303 0.0
+LOO valuation_threshold=0.80 minus_levy_feedback 0.0 0.55 0.0 0.0
+LOO valuation_threshold=0.80 minus_damped_reconcile 0.0 0.55 0.0303 0.0
+LOO valuation_threshold=0.80 minus_adaptive_niche 0.0 0.304 0.0303 0.0
+LOO valuation_threshold=0.80 minus_looped_niche 0.0 0.304 0.0303 0.0
+LOO valuation_threshold=0.80 pre_integration 0.0 0.55 0.0 0.0
+LOO organ_perm_scale=0.4 integrated_full 0.0 1.44 0.0303 0.0
+LOO organ_perm_scale=0.4 minus_principles_gate 0.0 1.44 0.0303 0.0
+LOO organ_perm_scale=0.4 minus_levy_feedback 0.0 2.222 0.0 0.0
+LOO organ_perm_scale=0.4 minus_damped_reconcile 0.0 2.222 0.0303 0.0
+LOO organ_perm_scale=0.4 minus_adaptive_niche 0.0 1.44 0.0303 0.0
+LOO organ_perm_scale=0.4 minus_looped_niche 0.0 1.44 0.0303 0.0
+LOO organ_perm_scale=0.4 pre_integration 0.0 2.222 0.0 0.0
+LOO dorm_clear_mult=20 integrated_full 0.014 0.572 0.0302 0.0
+LOO dorm_clear_mult=20 minus_principles_gate 0.014 0.572 0.0302 0.0
+LOO dorm_clear_mult=20 minus_levy_feedback 0.022 0.806 0.0 0.0
+LOO dorm_clear_mult=20 minus_damped_reconcile 0.022 0.806 0.0301 0.0
+LOO dorm_clear_mult=20 minus_adaptive_niche 0.01 0.572 0.0302 0.0
+LOO dorm_clear_mult=20 minus_looped_niche 0.018 0.572 0.0302 0.0
+LOO dorm_clear_mult=20 pre_integration 0.022 0.806 0.0 0.0
+LOO colonization_barrier=0.3 integrated_full 0.036 6.398 0.0302 0.0
+LOO colonization_barrier=0.3 minus_principles_gate 0.036 6.398 0.0302 0.0
+LOO colonization_barrier=0.3 minus_levy_feedback 0.058 10.516 0.0 0.01
+LOO colonization_barrier=0.3 minus_damped_reconcile 0.058 10.516 0.0302 0.01
+LOO colonization_barrier=0.3 minus_adaptive_niche 0.032 6.4 0.0302 0.0
+LOO colonization_barrier=0.3 minus_looped_niche 0.044 6.392 0.0302 0.0
+LOO colonization_barrier=0.3 pre_integration 0.058 10.516 0.0 0.0
+TILT 0.0 0.102 6.34
+TILT 0.3 0.203 8.675
+TILT 0.6 0.297 10.26
+  sweep 50/454 138s
+  sweep 100/454 173s
+  sweep 150/454 206s
+  sweep 200/454 237s
+  sweep 250/454 269s
+  sweep 300/454 294s
+  sweep 350/454 326s
+  sweep 400/454 353s
+  sweep 450/454 382s
+CORR {
+ "integrated_frustrated_end_vs_dorm": {
+  "r": -0.8293419564184028,
+  "p": 2.4788972688880058e-116,
+  "ci_lo": -0.8728606472720991,
+  "ci_hi": -0.775858372639748,
+  "n": 454
+ },
+ "integrated_dorm_on_frustrated_vs_dorm": {
+  "r": 0.991456150488249,
+  "p": 0.0,
+  "ci_lo": 0.9883769041005172,
+  "ci_hi": 0.992996968166474,
+  "n": 454
+ },
+ "integrated_vs_pre_dorm": {
+  "r": 0.9879587372333731,
+  "p": 0.0,
+  "ci_lo": 0.9832083470034942,
+  "ci_hi": 0.9910053810076987,
+  "n": 454
+ },
+ "integrated_vs_pre_povert": {
+  "r": 0.8701057457064789,
+  "p": 5.588973739398219e-141,
+  "ci_lo": 0.8291380145462002,
+  "ci_hi": 0.9050600801741898,
+  "n": 454
+ },
+ "integrated_vs_original_dorm": {
+  "r": 0.9890300891867733,
+  "p": 0.0,
+  "ci_lo": 0.9844821062494611,
+  "ci_hi": 0.9918998539625071,
+  "n": 454
+ }
+}
+CHECKS {'census': True, 'levy': True, 'consensus': True, 'pipeline_levy': True, 'genesis_closed': True}
+CLEAR BOTH 328
+DONE 386s
