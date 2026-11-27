@@ -1,0 +1,2602 @@
+{
+  "constants": {
+    "well_known": {
+      "g_m_s2": 9.80665,
+      "mu_earth_m3_s2": 398600441800000.0,
+      "r_earth_m": 6371000.0,
+      "rho0_kg_m3": 1.225,
+      "karman_m": 100000.0,
+      "mph_to_m_s": 0.44704
+    },
+    "assumptions": {
+      "scale_height_m": 8500.0,
+      "reference_leo_altitude_m": 200000.0,
+      "cd_blunt": 0.5,
+      "cd_slender": 0.3,
+      "area_blunt_m2": 0.2,
+      "area_slender_m2": 0.008,
+      "masses_kg": [
+        5.0,
+        20.0,
+        50.0
+      ],
+      "duty_cycle_on_fraction": 0.5,
+      "pulse_on_s": 0.4,
+      "coast_s": 0.4,
+      "isolator_fn_hz": 0.5,
+      "isolator_zeta": 0.2,
+      "tmd_mass_ratio": 0.05,
+      "tmd_zeta": 0.15,
+      "viscous_zeta": 0.25,
+      "structure_fn_hz": 2.0,
+      "bowl_radius_m": 2500.0,
+      "straight_angles_deg": [
+        30,
+        45,
+        60,
+        80,
+        90
+      ],
+      "goldilocks_mph": [
+        1000.0,
+        2000.0,
+        3000.0
+      ],
+      "comparison_mph": [
+        60.0,
+        200.0,
+        500.0,
+        1000.0,
+        2000.0,
+        3000.0,
+        5000.0,
+        17000.0
+      ],
+      "accel_g_table": [
+        1.0,
+        2.0,
+        3.0,
+        5.0,
+        10.0
+      ],
+      "coaster_like_note": "tens of m/s; illustrative 60 mph is an order-of-magnitude assumption, not an Intamin specification",
+      "intamin_note": "LSM/LIM sequenced contactless pulses are a well-known coaster architecture; no numerical Intamin motor specification is used",
+      "las_templates_note": "schematic path templates only; not FAA or LAS procedures"
+    },
+    "levy_weights": {
+      "pulse": 7,
+      "coast": 1,
+      "isolation_engage": 3,
+      "damper_reconcile": 4,
+      "mesh_lock": 5,
+      "release": 8,
+      "goldilocks_in_band": 10,
+      "failed_reach_leo_speed": 2,
+      "dictator_ingest": 1
+    }
+  },
+  "oasis": {
+    "config": {
+      "weights": {
+        "novelty": 0.3,
+        "tension_alignment": 0.25,
+        "structural_coherence": 0.25,
+        "emotional_resonance": 0.2
+      },
+      "valuation_threshold": 0.65,
+      "buffer_ratio": 0.5,
+      "buffer_threshold_initial": 0.325,
+      "default_tension": 0.5
+    },
+    "chosen_inputs_not_derived_from_text": {
+      "position": {
+        "x": 2.0,
+        "y": 1.0,
+        "z": -2.0
+      },
+      "position_source": "operator-chosen lab coordinate; required by PrinciplesGate.AdaptOrDie; not derived from text",
+      "tension_source": "config default_tension=0.5 (not derived from text)",
+      "comfort": 1.0,
+      "frustration": 0.0,
+      "resonance_source": "untagged_resonance=0.0 (no family-name match in the engineering text)"
+    },
+    "input_source": "Caitlyn Randels conversation thread supplied as the primary input. The engineering-concept arc was scored and simulated. Items on patentability, copyright, and outreach were retained only as session context.",
+    "isolated_fresh_world": {
+      "engineering_arc": {
+        "text": "A magnetic coaster-style track with intermittent segments driven by Intamin-style\nlinear synchronous and linear induction motors. Sequenced magnetic pulses accelerate\nor decelerate a vehicle without continuous physical contact; segments can be isolated\nwhile whole-system control is kept, the same analogy used in the Metastasis Heat-Trace\ncase study for discrete detach and attach events.\n\nUse that track idea to launch lightweight drones or supplies toward space without\nfull rocket fuel. Combine the track with Las Vegas Harry Reid (LAS) airplane\napproach-pass trajectories as path templates, in the same observational sense as\nthe earlier LAS trajectory reduction that used a NaCl-style polarity mesh, Levy\nweights, mesh consensus, and delta reconciliation.\n\nThe layman's biggest problem is the roughly 17,000 mph orbital-speed figure: a\ntrack that reaches that speed under modest acceleration would be many miles long,\nand a shorter track would mean crushing acceleration.\n\nThe inverse of the Epcot Spaceship Earth geodesic sphere is a concave bowl\ngeodesic shell, used alongside the actual sphere. Intermittent magnetic segments\nsit on the bowl panels and produce a natural pitch-up, mapping onto LAS-style\npasses as structured path templates.\n\nRockets carry propellant and engines and face vibration; they accelerate gradually\nwhile climbing out of the atmosphere. A magnetic track that reached very high speed\nwhile still in thick air would face a different problem. Look for a Goldilocks zone:\nthere is no need for super speed at the bottom. Skyscraper earthquake technology \u2014\nbase isolation, tuned mass dampers, and viscous dampers \u2014 supplies a controlled\nenergy-absorption and force-metering logic.\n\nA Goldilocks sketch: magnetic assist to an intermediate speed, for example about\n1,000 to 3,000 mph, delivered as intermittent pulses, then a small thruster or\nupper stage. Damper logic meters forces. Inverse-Epcot bowl geometry plus LAS-style\npasses supply the path structure.",
+        "result": {
+          "status": "COMMITTED_AND_EXECUTED",
+          "score": 0.65,
+          "baseScore": 0.65,
+          "threshold": 0.65,
+          "nextThreshold": 0.65,
+          "principle": "All Oroboro principles passed.",
+          "principle_name": "All Oroboro principles passed.",
+          "blocked_principle": null,
+          "reason": null,
+          "anchorId": "iso-engineering-arc",
+          "features": {
+            "novelty": 1.0,
+            "tension": 0.5,
+            "coherence": 0.9,
+            "resonance": 0.0,
+            "recursion": 0
+          },
+          "rationale": "rules: spatial novelty 1.00, text novelty 1.00, 307 words -> coherence 0.90",
+          "notes": [],
+          "word_count": 307,
+          "score_breakdown": {
+            "0.30*novelty": 0.3,
+            "0.25*tension": 0.125,
+            "0.25*coherence": 0.225,
+            "0.20*resonance": 0.0
+          },
+          "metrics": {
+            "threshold": 0.65,
+            "bufferThreshold": 0.325,
+            "homeostasis": 0.6667,
+            "resting": false,
+            "committed": 1,
+            "buffered": 0,
+            "recycled": 0,
+            "family": 0
+          }
+        }
+      }
+    },
+    "gate_constraint_no_position": {
+      "note": "Same engineering-arc text, position omitted. Expected AdaptOrDie block; this is a coordinate rule, not a judgment of the concept.",
+      "result": {
+        "status": "BLOCKED",
+        "score": 0.65,
+        "baseScore": 0.65,
+        "threshold": 0.65,
+        "nextThreshold": null,
+        "principle": "AdaptOrDie",
+        "principle_name": "AdaptOrDie",
+        "blocked_principle": "AdaptOrDie",
+        "reason": "AdaptOrDie: Zero or missing coordinate - confront reality, not null.",
+        "anchorId": "iso-no-position",
+        "features": {
+          "novelty": 1.0,
+          "tension": 0.5,
+          "coherence": 0.9,
+          "resonance": 0.0,
+          "recursion": 0
+        },
+        "rationale": "rules: spatial novelty 1.00, text novelty 1.00, 307 words -> coherence 0.90",
+        "notes": [],
+        "word_count": 307,
+        "score_breakdown": {
+          "0.30*novelty": 0.3,
+          "0.25*tension": 0.125,
+          "0.25*coherence": 0.225,
+          "0.20*resonance": 0.0
+        },
+        "metrics": {
+          "threshold": 0.65,
+          "bufferThreshold": 0.325,
+          "homeostasis": 0.6667,
+          "resting": false,
+          "committed": 0,
+          "buffered": 0,
+          "recycled": 0,
+          "family": 0
+        }
+      }
+    },
+    "sequential_chunks_then_full": {
+      "results": [
+        {
+          "key": "intermittent_magnetic_track",
+          "result": {
+            "status": "COMMITTED_AND_EXECUTED",
+            "score": 0.65,
+            "baseScore": 0.65,
+            "threshold": 0.65,
+            "nextThreshold": 0.65,
+            "principle": "All Oroboro principles passed.",
+            "principle_name": "All Oroboro principles passed.",
+            "blocked_principle": null,
+            "reason": null,
+            "anchorId": "seq-intermittent_magnetic_track",
+            "features": {
+              "novelty": 1.0,
+              "tension": 0.5,
+              "coherence": 0.9,
+              "resonance": 0.0,
+              "recursion": 0
+            },
+            "rationale": "rules: spatial novelty 1.00, text novelty 1.00, 37 words -> coherence 0.90",
+            "notes": [],
+            "word_count": 37,
+            "score_breakdown": {
+              "0.30*novelty": 0.3,
+              "0.25*tension": 0.125,
+              "0.25*coherence": 0.225,
+              "0.20*resonance": 0.0
+            },
+            "metrics": {
+              "threshold": 0.65,
+              "bufferThreshold": 0.325,
+              "homeostasis": 0.6667,
+              "resting": false,
+              "committed": 1,
+              "buffered": 0,
+              "recycled": 0,
+              "family": 0
+            }
+          }
+        },
+        {
+          "key": "inverse_epcot_bowl",
+          "result": {
+            "status": "BUFFERED_FOR_MUTATION",
+            "score": 0.6356,
+            "baseScore": 0.6356,
+            "threshold": 0.65,
+            "nextThreshold": 0.65,
+            "principle": "All Oroboro principles passed.",
+            "principle_name": "All Oroboro principles passed.",
+            "blocked_principle": null,
+            "reason": null,
+            "anchorId": "seq-inverse_epcot_bowl",
+            "features": {
+              "novelty": 0.9519,
+              "tension": 0.5,
+              "coherence": 0.9,
+              "resonance": 0.0,
+              "recursion": 0
+            },
+            "rationale": "rules: spatial novelty 1.00, text novelty 0.90, 32 words -> coherence 0.90",
+            "notes": [],
+            "word_count": 32,
+            "score_breakdown": {
+              "0.30*novelty": 0.2856,
+              "0.25*tension": 0.125,
+              "0.25*coherence": 0.225,
+              "0.20*resonance": 0.0
+            },
+            "metrics": {
+              "threshold": 0.65,
+              "bufferThreshold": 0.325,
+              "homeostasis": 0.6666,
+              "resting": false,
+              "committed": 1,
+              "buffered": 1,
+              "recycled": 0,
+              "family": 0
+            }
+          }
+        },
+        {
+          "key": "las_approach_templates",
+          "result": {
+            "status": "BUFFERED_FOR_MUTATION",
+            "score": 0.6402,
+            "baseScore": 0.6402,
+            "threshold": 0.65,
+            "nextThreshold": 0.6501,
+            "principle": "All Oroboro principles passed.",
+            "principle_name": "All Oroboro principles passed.",
+            "blocked_principle": null,
+            "reason": null,
+            "anchorId": "seq-las_approach_templates",
+            "features": {
+              "novelty": 0.9672,
+              "tension": 0.5,
+              "coherence": 0.9,
+              "resonance": 0.0,
+              "recursion": 0
+            },
+            "rationale": "rules: spatial novelty 1.00, text novelty 0.93, 39 words -> coherence 0.90",
+            "notes": [],
+            "word_count": 39,
+            "score_breakdown": {
+              "0.30*novelty": 0.2902,
+              "0.25*tension": 0.125,
+              "0.25*coherence": 0.225,
+              "0.20*resonance": 0.0
+            },
+            "metrics": {
+              "threshold": 0.6501,
+              "bufferThreshold": 0.3251,
+              "homeostasis": 0.6663,
+              "resting": false,
+              "committed": 1,
+              "buffered": 2,
+              "recycled": 0,
+              "family": 0
+            }
+          }
+        },
+        {
+          "key": "seismic_dampers",
+          "result": {
+            "status": "BUFFERED_FOR_MUTATION",
+            "score": 0.6418,
+            "baseScore": 0.6418,
+            "threshold": 0.6501,
+            "nextThreshold": 0.6504,
+            "principle": "All Oroboro principles passed.",
+            "principle_name": "All Oroboro principles passed.",
+            "blocked_principle": null,
+            "reason": null,
+            "anchorId": "seq-seismic_dampers",
+            "features": {
+              "novelty": 0.9727,
+              "tension": 0.5,
+              "coherence": 0.9,
+              "resonance": 0.0,
+              "recursion": 0
+            },
+            "rationale": "rules: spatial novelty 1.00, text novelty 0.95, 27 words -> coherence 0.90",
+            "notes": [],
+            "word_count": 27,
+            "score_breakdown": {
+              "0.30*novelty": 0.2918,
+              "0.25*tension": 0.125,
+              "0.25*coherence": 0.225,
+              "0.20*resonance": 0.0
+            },
+            "metrics": {
+              "threshold": 0.6504,
+              "bufferThreshold": 0.3252,
+              "homeostasis": 0.6659,
+              "resting": false,
+              "committed": 1,
+              "buffered": 3,
+              "recycled": 0,
+              "family": 0
+            }
+          }
+        },
+        {
+          "key": "goldilocks_band",
+          "result": {
+            "status": "BUFFERED_FOR_MUTATION",
+            "score": 0.636,
+            "baseScore": 0.636,
+            "threshold": 0.6504,
+            "nextThreshold": 0.6506,
+            "principle": "All Oroboro principles passed.",
+            "principle_name": "All Oroboro principles passed.",
+            "blocked_principle": null,
+            "reason": null,
+            "anchorId": "seq-goldilocks_band",
+            "features": {
+              "novelty": 0.9533,
+              "tension": 0.5,
+              "coherence": 0.9,
+              "resonance": 0.0,
+              "recursion": 0
+            },
+            "rationale": "rules: spatial novelty 1.00, text novelty 0.91, 59 words -> coherence 0.90",
+            "notes": [],
+            "word_count": 59,
+            "score_breakdown": {
+              "0.30*novelty": 0.286,
+              "0.25*tension": 0.125,
+              "0.25*coherence": 0.225,
+              "0.20*resonance": 0.0
+            },
+            "metrics": {
+              "threshold": 0.6506,
+              "bufferThreshold": 0.3253,
+              "homeostasis": 0.6652,
+              "resting": false,
+              "committed": 1,
+              "buffered": 4,
+              "recycled": 0,
+              "family": 0
+            }
+          }
+        }
+      ],
+      "full_arc_after_chunks": {
+        "status": "BUFFERED_FOR_MUTATION",
+        "score": 0.6153,
+        "baseScore": 0.6153,
+        "threshold": 0.6506,
+        "nextThreshold": 0.651,
+        "principle": "All Oroboro principles passed.",
+        "principle_name": "All Oroboro principles passed.",
+        "blocked_principle": null,
+        "reason": null,
+        "anchorId": "seq-full-arc",
+        "features": {
+          "novelty": 0.8844,
+          "tension": 0.5,
+          "coherence": 0.9,
+          "resonance": 0.0,
+          "recursion": 0
+        },
+        "rationale": "rules: spatial novelty 1.00, text novelty 0.77, 307 words -> coherence 0.90",
+        "notes": [],
+        "word_count": 307,
+        "score_breakdown": {
+          "0.30*novelty": 0.2653,
+          "0.25*tension": 0.125,
+          "0.25*coherence": 0.225,
+          "0.20*resonance": 0.0
+        },
+        "metrics": {
+          "threshold": 0.651,
+          "bufferThreshold": 0.3255,
+          "homeostasis": 0.6645,
+          "resting": false,
+          "committed": 1,
+          "buffered": 5,
+          "recycled": 0,
+          "family": 0
+        }
+      },
+      "final_metrics": {
+        "threshold": 0.651,
+        "bufferThreshold": 0.3255,
+        "homeostasis": 0.6645,
+        "resting": false,
+        "committed": 1,
+        "buffered": 5,
+        "recycled": 0,
+        "family": 0
+      },
+      "committed_ids": [
+        "seq-intermittent_magnetic_track"
+      ],
+      "buffered_ids": [
+        "seq-inverse_epcot_bowl",
+        "seq-las_approach_templates",
+        "seq-seismic_dampers",
+        "seq-goldilocks_band",
+        "seq-full-arc"
+      ],
+      "recycled_ids": [],
+      "export_oroboro_levy": [
+        {
+          "text": "A magnetic coaster-style track with intermittent segments driven by Intamin-style linear synchronous and linear induction motors. Sequenced magnetic pulses accelerate a vehicle without continuous contact; segments can be isolated while whole-system control is kept.",
+          "weight": 7,
+          "anchorId": "seq-intermittent_magnetic_track"
+        }
+      ]
+    },
+    "export_oroboro": {
+      "format": "oroboro-oasis-export",
+      "version": 1,
+      "exportedAt": "2026-11-27T21:11:17Z",
+      "nexus": [
+        {
+          "key": "oasis:anchor:seq-intermittent_magnetic_track",
+          "value": {
+            "id": "seq-intermittent_magnetic_track",
+            "text": "A magnetic coaster-style track with intermittent segments driven by Intamin-style linear synchronous and linear induction motors. Sequenced magnetic pulses accelerate a vehicle without continuous contact; segments can be isolated while whole-system control is kept.",
+            "position": {
+              "x": 2.0,
+              "y": 1.0,
+              "z": -2.0
+            },
+            "score": 0.65,
+            "baseScore": 0.65,
+            "features": {
+              "novelty": 1.0,
+              "tension": 0.5,
+              "coherence": 0.9,
+              "resonance": 0.0,
+              "recursion": 0
+            },
+            "familyTags": [],
+            "visibility": "shared",
+            "device": "magnetic-launch-case-study",
+            "surface": null,
+            "worldAnchorId": null,
+            "createdAt": "2026-11-27T21:11:17Z",
+            "principle": "All Oroboro principles passed.",
+            "notes": [],
+            "rationale": "rules: spatial novelty 1.00, text novelty 1.00, 37 words -> coherence 0.90",
+            "reasoner": "rules",
+            "status": "COMMITTED_AND_EXECUTED"
+          }
+        }
+      ],
+      "transcriber": [
+        {
+          "source": "oasis",
+          "text": "A magnetic coaster-style track with intermittent segments driven by Intamin-style linear synchronous and linear induction motors. Sequenced magnetic pulses accelerate a vehicle without continuous contact; segments can be isolated while whole-system control is kept.",
+          "anchorId": "seq-intermittent_magnetic_track",
+          "createdAt": "2026-11-27T21:11:17Z"
+        }
+      ],
+      "levy": [
+        {
+          "text": "A magnetic coaster-style track with intermittent segments driven by Intamin-style linear synchronous and linear induction motors. Sequenced magnetic pulses accelerate a vehicle without continuous contact; segments can be isolated while whole-system control is kept.",
+          "weight": 7,
+          "anchorId": "seq-intermittent_magnetic_track"
+        }
+      ]
+    }
+  },
+  "companion": {
+    "empty_chronicle": {
+      "status_before": {
+        "reply": "Ms. Minutes. Genesis: \u201cI am the OG avatar\u201d. Nexus 2 entries, chronicle 0, levy 0, mind grown 0.",
+        "kind": "status",
+        "status": {
+          "userId": "magnetic-launch-empty",
+          "rootTag": "I am the OG avatar",
+          "nexusEntries": 2,
+          "chronicleEntries": 0,
+          "levyTotal": 0.0,
+          "mindGrown": 0,
+          "protected": false
+        }
+      },
+      "engineering_arc": {
+        "reply": "Nothing in your chronicle matches that yet. I wrote it down.",
+        "kind": "recall",
+        "status": {
+          "userId": "magnetic-launch-empty",
+          "rootTag": "I am the OG avatar",
+          "nexusEntries": 2,
+          "chronicleEntries": 1,
+          "levyTotal": 1.0,
+          "mindGrown": 0,
+          "protected": false
+        }
+      },
+      "summary_after": {
+        "userId": "magnetic-launch-empty",
+        "rootTag": "I am the OG avatar",
+        "nexusEntries": 2,
+        "chronicleEntries": 1,
+        "levyTotal": 1.0,
+        "mindGrown": 0,
+        "protected": false
+      }
+    },
+    "seeded_chronicle": {
+      "remember_replies": [
+        {
+          "reply": "Kept: \u201cThe Metastasis Heat-Trace case study maps Intamin-style sequenced linear motors to discrete detach and attach pulses.\u201d. That's 1 entries in your chronicle.",
+          "kind": "remember",
+          "status": {
+            "userId": "magnetic-launch-seeded",
+            "rootTag": "I am the OG avatar",
+            "nexusEntries": 2,
+            "chronicleEntries": 1,
+            "levyTotal": 1.0,
+            "mindGrown": 0,
+            "protected": false
+          }
+        },
+        {
+          "reply": "Kept: \u201cA NaCl polarity mesh note applied the same Genesis-mesh-Levy-consensus-delta loop to schematic LAS airspace trajectories, observational equivalence only.\u201d. That's 2 entries in your chronicle.",
+          "kind": "remember",
+          "status": {
+            "userId": "magnetic-launch-seeded",
+            "rootTag": "I am the OG avatar",
+            "nexusEntries": 2,
+            "chronicleEntries": 2,
+            "levyTotal": 2.0,
+            "mindGrown": 0,
+            "protected": false
+          }
+        },
+        {
+          "reply": "Kept: \u201cFind a Goldilocks zone for launching lightweight drones or supplies toward space without full rocket fuel: magnetic assist to an intermediate speed of about 1,000 to 3,000 mph as intermittent pulses, then a small upper stage. There is no need for super speed at the bottom. Compare honestly with the roughly 17,000 mph orbital-speed figure.\u201d. That's 3 entries in your chronicle.",
+          "kind": "remember",
+          "status": {
+            "userId": "magnetic-launch-seeded",
+            "rootTag": "I am the OG avatar",
+            "nexusEntries": 2,
+            "chronicleEntries": 3,
+            "levyTotal": 3.0,
+            "mindGrown": 0,
+            "protected": false
+          }
+        }
+      ],
+      "ask": {
+        "reply": "From your chronicle: \u201cFind a Goldilocks zone for launching lightweight drones or supplies toward space\u201d | \u201cA NaCl polarity mesh note applied the same Genesis-mesh-Levy-consensus-delta loo\u201d",
+        "kind": "recall",
+        "status": {
+          "userId": "magnetic-launch-seeded",
+          "rootTag": "I am the OG avatar",
+          "nexusEntries": 2,
+          "chronicleEntries": 4,
+          "levyTotal": 4.0,
+          "mindGrown": 0,
+          "protected": false
+        }
+      },
+      "summary_after": {
+        "userId": "magnetic-launch-seeded",
+        "rootTag": "I am the OG avatar",
+        "nexusEntries": 2,
+        "chronicleEntries": 4,
+        "levyTotal": 4.0,
+        "mindGrown": 0,
+        "protected": false
+      }
+    }
+  },
+  "meshes": {
+    "note": "nacl_polarity_mesh.py was executed as written. The same Mesh operators were then applied to a frequency-1 icosahedral geodesic and to a schematic LAS sector mesh. The LAS mesh is observational equivalence only and is not a model of actual ATC procedures. There is no separate stored LAS-trajectory simulator on the box beyond this polarity-mesh tie-in and the earlier note.",
+    "nacl_as_written": {
+      "invert_false_return": "[Transcriber] [Nexus] 2 locked edges",
+      "invert_true_return": "[Transcriber] [Nexus] 2 locked edges",
+      "invert_false": {
+        "run_return": "[Transcriber] [Nexus] 2 locked edges",
+        "n_edges": 3,
+        "n_locked": 2,
+        "edges": [
+          {
+            "a": "Na0",
+            "b": "Cl0",
+            "locked": true,
+            "state": "membrane_lock",
+            "weight": 0.999,
+            "opposite": true
+          },
+          {
+            "a": "Na0",
+            "b": "Na1",
+            "locked": false,
+            "state": "open",
+            "weight": 0.999,
+            "opposite": false
+          },
+          {
+            "a": "Cl0",
+            "b": "Na2",
+            "locked": true,
+            "state": "membrane_lock",
+            "weight": 0.999,
+            "opposite": true
+          }
+        ]
+      },
+      "invert_true": {
+        "run_return": "[Transcriber] [Nexus] 2 locked edges",
+        "n_edges": 3,
+        "n_locked": 2,
+        "edges": [
+          {
+            "a": "Na0",
+            "b": "Cl0",
+            "locked": true,
+            "state": "membrane_lock",
+            "weight": 0.999,
+            "opposite": true
+          },
+          {
+            "a": "Na0",
+            "b": "Na1",
+            "locked": false,
+            "state": "open",
+            "weight": 0.999,
+            "opposite": false
+          },
+          {
+            "a": "Cl0",
+            "b": "Na2",
+            "locked": true,
+            "state": "membrane_lock",
+            "weight": 0.999,
+            "opposite": true
+          }
+        ]
+      }
+    },
+    "geodesic_icosahedron": {
+      "n_vertices": 12,
+      "n_bowl_hemisphere_vertices_z_le_0": 8,
+      "n_edges": 30,
+      "locked_before_invert": 26,
+      "locked_after_invert": 26,
+      "open_after_invert": 4,
+      "levy_weight_on_edges": 0.999,
+      "invert_preserves_lock_count": true
+    },
+    "las_sector_mesh": {
+      "nodes": [
+        "ArrivalA",
+        "ArrivalB",
+        "Departure",
+        "Runway",
+        "Hold",
+        "Weather"
+      ],
+      "n_edges": 7,
+      "locked_before_invert": 4,
+      "locked_after_invert": 4,
+      "locked_edges_before": [
+        "ArrivalA-Runway",
+        "ArrivalB-Runway",
+        "Departure-Runway",
+        "Hold-Weather"
+      ],
+      "open_edges_before": [
+        "ArrivalA-ArrivalB",
+        "ArrivalA-Departure",
+        "Hold-ArrivalA"
+      ],
+      "invert_preserves_lock_count": true
+    }
+  },
+  "highlights": {
+    "best_apogee_in_1000_3000_mph": {
+      "vehicle": "slender_20kg",
+      "mass_kg": 20.0,
+      "cd": 0.3,
+      "area_m2": 0.008,
+      "speed_mph": 3000.0,
+      "in_goldilocks_example_band": true,
+      "angle_deg": 90,
+      "apogee_m": 34224.996121766046,
+      "apogee_km": 34.22499612176605,
+      "reached_karman": false,
+      "reached_200km": false,
+      "v_at_apogee_m_s": 0.09263886698599799,
+      "v_at_apogee_mph": 0.20722724361577932,
+      "t_apogee_s": 79.33000000000368,
+      "peak_q_pa": 1101644.24832,
+      "peak_heating_proxy_si": 2669752253.783975,
+      "impacted_during_window": true,
+      "v0_m_s": 1341.12,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_7p8kms_at_release_m_s": 6458.88,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.395346106171,
+      "t_end_s": 168.55999999999167
+    },
+    "best_apogee_at_17000_mph": {
+      "vehicle": "slender_20kg",
+      "mass_kg": 20.0,
+      "cd": 0.3,
+      "area_m2": 0.008,
+      "speed_mph": 17000.0,
+      "in_goldilocks_example_band": false,
+      "angle_deg": 90,
+      "apogee_m": 972609.9897588706,
+      "apogee_km": 972.6099897588706,
+      "reached_karman": true,
+      "reached_200km": true,
+      "v_at_apogee_m_s": 0.06931022584228093,
+      "v_at_apogee_mph": 0.15504255959708513,
+      "t_apogee_s": 500.31999999968997,
+      "peak_q_pa": 35375020.862720005,
+      "peak_heating_proxy_si": 485796030475.5805,
+      "impacted_during_window": false,
+      "v0_m_s": 7599.68,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_7p8kms_at_release_m_s": 200.3199999999997,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.418674747315,
+      "t_end_s": 700.3299999995081
+    },
+    "best_apogee_slender_20_at_3000_mph": {
+      "vehicle": "slender_20kg",
+      "mass_kg": 20.0,
+      "cd": 0.3,
+      "area_m2": 0.008,
+      "speed_mph": 3000.0,
+      "in_goldilocks_example_band": true,
+      "angle_deg": 90,
+      "apogee_m": 34224.996121766046,
+      "apogee_km": 34.22499612176605,
+      "reached_karman": false,
+      "reached_200km": false,
+      "v_at_apogee_m_s": 0.09263886698599799,
+      "v_at_apogee_mph": 0.20722724361577932,
+      "t_apogee_s": 79.33000000000368,
+      "peak_q_pa": 1101644.24832,
+      "peak_heating_proxy_si": 2669752253.783975,
+      "impacted_during_window": true,
+      "v0_m_s": 1341.12,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_7p8kms_at_release_m_s": 6458.88,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.395346106171,
+      "t_end_s": 168.55999999999167
+    },
+    "best_apogee_blunt_20_at_3000_mph": {
+      "vehicle": "blunt_20kg",
+      "mass_kg": 20.0,
+      "cd": 0.5,
+      "area_m2": 0.2,
+      "speed_mph": 3000.0,
+      "in_goldilocks_example_band": true,
+      "angle_deg": 90,
+      "apogee_m": 1061.4410556843504,
+      "apogee_km": 1.0614410556843503,
+      "reached_karman": false,
+      "reached_200km": false,
+      "v_at_apogee_m_s": 0.060716321763107955,
+      "v_at_apogee_mph": 0.13581854367194873,
+      "t_apogee_s": 9.13999999999985,
+      "peak_q_pa": 1101644.24832,
+      "peak_heating_proxy_si": 2669752253.783975,
+      "impacted_during_window": true,
+      "v0_m_s": 1341.12,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_7p8kms_at_release_m_s": 6458.88,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.427268651394,
+      "t_end_s": 31.40000000000211
+    },
+    "best_apogee_slender_20_at_1000_mph": {
+      "vehicle": "slender_20kg",
+      "mass_kg": 20.0,
+      "cd": 0.3,
+      "area_m2": 0.008,
+      "speed_mph": 1000.0,
+      "in_goldilocks_example_band": true,
+      "angle_deg": 90,
+      "apogee_m": 6773.906959082931,
+      "apogee_km": 6.7739069590829315,
+      "reached_karman": false,
+      "reached_200km": false,
+      "v_at_apogee_m_s": 0.04292756092730761,
+      "v_at_apogee_mph": 0.09602621896767093,
+      "t_apogee_s": 35.28000000000155,
+      "peak_q_pa": 122404.91648000001,
+      "peak_heating_proxy_si": 98879713.10311024,
+      "impacted_during_window": true,
+      "v0_m_s": 447.04,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_7p8kms_at_release_m_s": 7352.96,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.445057412229,
+      "t_end_s": 74.45000000000118
+    },
+    "any_in_band_reached_karman": false,
+    "any_in_band_reached_200km": false,
+    "any_at_17000_reached_karman": true,
+    "any_flight_reached_vcirc": false,
+    "speed_fraction": {
+      "1000_mph_over_vcirc200": 0.05739753349591137,
+      "2000_mph_over_vcirc200": 0.11479506699182274,
+      "3000_mph_over_vcirc200": 0.17219260048773408,
+      "17000_mph_over_vcirc200": 0.9757580694304933,
+      "residual_gap_at_3000_mph_m_s": 6447.367984973157,
+      "residual_gap_at_1000_mph_m_s": 7341.447984973157,
+      "residual_gap_at_17000_mph_m_s": 188.80798497315664
+    },
+    "kinematic_3g_selected": [
+      {
+        "speed_mph": 1000.0,
+        "speed_m_s": 447.04,
+        "peak_accel_g": 3.0,
+        "peak_accel_m_s2": 29.41995,
+        "continuous_length_m": 3396.415724703815,
+        "continuous_length_km": 3.3964157247038154,
+        "continuous_length_mi": 2.110434888192838,
+        "intermittent_length_m": 6792.83144940763,
+        "intermittent_length_km": 6.792831449407631,
+        "intermittent_length_mi": 4.220869776385676,
+        "duty_cycle": 0.5,
+        "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+      },
+      {
+        "speed_mph": 3000.0,
+        "speed_m_s": 1341.12,
+        "peak_accel_g": 3.0,
+        "peak_accel_m_s2": 29.41995,
+        "continuous_length_m": 30567.741522334327,
+        "continuous_length_km": 30.567741522334327,
+        "continuous_length_mi": 18.99391399373554,
+        "intermittent_length_m": 61135.483044668654,
+        "intermittent_length_km": 61.13548304466865,
+        "intermittent_length_mi": 37.98782798747108,
+        "duty_cycle": 0.5,
+        "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+      },
+      {
+        "speed_mph": 17000.0,
+        "speed_m_s": 7599.68,
+        "peak_accel_g": 3.0,
+        "peak_accel_m_s2": 29.41995,
+        "continuous_length_m": 981564.1444394026,
+        "continuous_length_km": 981.5641444394026,
+        "continuous_length_mi": 609.9156826877303,
+        "intermittent_length_m": 1963128.2888788052,
+        "intermittent_length_km": 1963.1282888788053,
+        "intermittent_length_mi": 1219.8313653754606,
+        "duty_cycle": 0.5,
+        "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+      }
+    ],
+    "sea_level_drag_selected": [
+      {
+        "vehicle": "slender_20kg",
+        "speed_mph": 1000.0,
+        "speed_m_s": 447.04,
+        "drag_accel_m_s2": 14.6885899776,
+        "drag_accel_g": 1.4978193345943824
+      },
+      {
+        "vehicle": "slender_20kg",
+        "speed_mph": 3000.0,
+        "speed_m_s": 1341.12,
+        "drag_accel_m_s2": 132.1973097984,
+        "drag_accel_g": 13.480374011349442
+      },
+      {
+        "vehicle": "slender_20kg",
+        "speed_mph": 17000.0,
+        "speed_m_s": 7599.68,
+        "drag_accel_m_s2": 4245.0025035264,
+        "drag_accel_g": 432.86978769777653
+      },
+      {
+        "vehicle": "blunt_20kg",
+        "speed_mph": 1000.0,
+        "speed_m_s": 447.04,
+        "drag_accel_m_s2": 612.0245824000001,
+        "drag_accel_g": 62.409138941432616
+      },
+      {
+        "vehicle": "blunt_20kg",
+        "speed_mph": 3000.0,
+        "speed_m_s": 1341.12,
+        "drag_accel_m_s2": 5508.2212416,
+        "drag_accel_g": 561.6822504728934
+      },
+      {
+        "vehicle": "blunt_20kg",
+        "speed_mph": 17000.0,
+        "speed_m_s": 7599.68,
+        "drag_accel_m_s2": 176875.10431360005,
+        "drag_accel_g": 18036.24115407403
+      }
+    ],
+    "geometry_slender20_3000mph_80deg": [
+      {
+        "vehicle": "slender_20kg",
+        "speed_target_mph": 3000.0,
+        "design_angle_deg": 80.0,
+        "geometry": "straight",
+        "track": {
+          "reached_target": true,
+          "v_end_m_s": 1341.1590386329563,
+          "v_end_mph": 3000.087326934852,
+          "v_target_m_s": 1341.12,
+          "length_m": 185605.89810967582,
+          "length_km": 185.60589810967582,
+          "length_mi": 115.3301581946904,
+          "time_s": 293.17000000067173,
+          "exit_angle_deg": 80.0,
+          "exit_x_m": 32230.12597097926,
+          "exit_alt_m": 182786.1274632088,
+          "pulses": 367,
+          "peak_q_pa": 14868.4419480469,
+          "peak_push_m_s2": 29.41995,
+          "geometry_requested": "straight",
+          "n_steps": 146585
+        },
+        "flight": {
+          "apogee_km": 278.2222957275119,
+          "reached_karman": true,
+          "v_at_apogee_m_s": 229.547161895884,
+          "peak_q_pa": 24.87588379749989,
+          "speed_gap_to_vcirc200_at_apogee_m_s": 7558.940823077273
+        }
+      },
+      {
+        "vehicle": "slender_20kg",
+        "speed_target_mph": 3000.0,
+        "design_angle_deg": 80.0,
+        "geometry": "concave_bowl",
+        "track": {
+          "reached_target": true,
+          "v_end_m_s": 1341.1470475298197,
+          "v_end_mph": 3000.0605036010643,
+          "v_target_m_s": 1341.12,
+          "length_m": 185887.5122182226,
+          "length_km": 185.8875122182226,
+          "length_mi": 115.50514508906896,
+          "time_s": 276.38000000059156,
+          "exit_angle_deg": 80.0,
+          "exit_x_m": 34135.06015932004,
+          "exit_alt_m": 181691.56087793544,
+          "pulses": 346,
+          "peak_q_pa": 23699.10892041608,
+          "peak_push_m_s2": 29.41995,
+          "geometry_requested": "concave_bowl",
+          "n_steps": 138190
+        },
+        "flight": {
+          "apogee_km": 277.09387273639254,
+          "reached_karman": true,
+          "v_at_apogee_m_s": 229.54572775893118,
+          "peak_q_pa": 28.639422341870297,
+          "speed_gap_to_vcirc200_at_apogee_m_s": 7558.942257214226
+        }
+      },
+      {
+        "vehicle": "slender_20kg",
+        "speed_target_mph": 3000.0,
+        "design_angle_deg": 80.0,
+        "geometry": "convex_sphere",
+        "track": {
+          "reached_target": false,
+          "v_end_m_s": 502.2311652472152,
+          "v_end_mph": 1123.4591205422673,
+          "v_target_m_s": 1341.12,
+          "length_m": 384458.37854320585,
+          "length_km": 384.45837854320587,
+          "length_mi": 238.89136104102406,
+          "time_s": 800.0019999949062,
+          "exit_angle_deg": 0.0,
+          "exit_x_m": 383429.6474446993,
+          "exit_alt_m": 2066.0354604173785,
+          "pulses": 1000,
+          "peak_q_pa": 124013.68245019978,
+          "peak_push_m_s2": 29.41995,
+          "geometry_requested": "convex_sphere",
+          "n_steps": 400001
+        },
+        "flight": {
+          "apogee_km": 2.0660354604173787,
+          "reached_karman": false,
+          "v_at_apogee_m_s": 502.2311652472152,
+          "peak_q_pa": 121158.11081915979,
+          "speed_gap_to_vcirc200_at_apogee_m_s": 7286.256819725942
+        }
+      }
+    ],
+    "geometry_slender20_17000mph_80deg": [
+      {
+        "vehicle": "slender_20kg",
+        "speed_target_mph": 17000.0,
+        "design_angle_deg": 80.0,
+        "geometry": "straight",
+        "track": {
+          "reached_target": false,
+          "v_end_m_s": 3896.359334278605,
+          "v_end_mph": 8715.907601732742,
+          "v_target_m_s": 7599.68,
+          "length_m": 1512992.4415302693,
+          "length_km": 1512.9924415302694,
+          "length_mi": 940.1299172397382,
+          "time_s": 800.0019999949062,
+          "exit_angle_deg": 80.0,
+          "exit_x_m": 262728.38029557106,
+          "exit_alt_m": 1490006.6866678812,
+          "pulses": 1000,
+          "peak_q_pa": 14868.4419480469,
+          "peak_push_m_s2": 29.41995,
+          "geometry_requested": "straight",
+          "n_steps": 400001
+        },
+        "flight": {
+          "apogee_km": 2838.355978374893,
+          "reached_karman": true,
+          "v_at_apogee_m_s": 577.5347737303409,
+          "peak_q_pa": 6.899449621020568e-70,
+          "speed_gap_to_vcirc200_at_apogee_m_s": 7210.953211242816
+        }
+      },
+      {
+        "vehicle": "slender_20kg",
+        "speed_target_mph": 17000.0,
+        "design_angle_deg": 80.0,
+        "geometry": "concave_bowl",
+        "track": {
+          "reached_target": false,
+          "v_end_m_s": 3981.028529093408,
+          "v_end_mph": 8905.307196433,
+          "v_target_m_s": 7599.68,
+          "length_m": 1579372.7078167473,
+          "length_km": 1579.3727078167472,
+          "length_mi": 981.3767024431987,
+          "time_s": 800.0019999949062,
+          "exit_angle_deg": 80.0,
+          "exit_x_m": 276111.22498085053,
+          "exit_alt_m": 1554006.585211096,
+          "pulses": 1000,
+          "peak_q_pa": 23699.10892041608,
+          "peak_push_m_s2": 29.41995,
+          "geometry_requested": "concave_bowl",
+          "n_steps": 400001
+        },
+        "flight": {
+          "apogee_km": 2998.2813148111554,
+          "reached_karman": true,
+          "v_at_apogee_m_s": 584.7347080169059,
+          "peak_q_pa": 3.868211626022698e-73,
+          "speed_gap_to_vcirc200_at_apogee_m_s": 7203.753276956251
+        }
+      },
+      {
+        "vehicle": "slender_20kg",
+        "speed_target_mph": 17000.0,
+        "design_angle_deg": 80.0,
+        "geometry": "convex_sphere",
+        "track": {
+          "reached_target": false,
+          "v_end_m_s": 502.2311652472152,
+          "v_end_mph": 1123.4591205422673,
+          "v_target_m_s": 7599.68,
+          "length_m": 384458.37854320585,
+          "length_km": 384.45837854320587,
+          "length_mi": 238.89136104102406,
+          "time_s": 800.0019999949062,
+          "exit_angle_deg": 0.0,
+          "exit_x_m": 383429.6474446993,
+          "exit_alt_m": 2066.0354604173785,
+          "pulses": 1000,
+          "peak_q_pa": 124013.68245019978,
+          "peak_push_m_s2": 29.41995,
+          "geometry_requested": "convex_sphere",
+          "n_steps": 400001
+        },
+        "flight": {
+          "apogee_km": 2.0660354604173787,
+          "reached_karman": false,
+          "v_at_apogee_m_s": 502.2311652472152,
+          "peak_q_pa": 121158.11081915979,
+          "speed_gap_to_vcirc200_at_apogee_m_s": 7286.256819725942
+        }
+      }
+    ]
+  },
+  "damper": {
+    "assumptions": {
+      "isolator_fn_hz": 0.5,
+      "isolator_zeta": 0.2,
+      "viscous_zeta": 0.25,
+      "tmd_mass_ratio": 0.05,
+      "tmd_effective_zeta": 0.36180339887498947,
+      "ringdown_cycles": 8,
+      "isolation_eval_freq_hz": 10.0
+    },
+    "transmissibility_curve": [
+      {
+        "f_hz": 0.2,
+        "r": 0.4,
+        "T": 1.1843250485271888
+      },
+      {
+        "f_hz": 0.5,
+        "r": 1.0,
+        "T": 2.692582403567252
+      },
+      {
+        "f_hz": 1.0,
+        "r": 2.0,
+        "T": 0.4124614907210137
+      },
+      {
+        "f_hz": 2.0,
+        "r": 4.0,
+        "T": 0.12507687915325047
+      },
+      {
+        "f_hz": 5.0,
+        "r": 10.0,
+        "T": 0.04161357862091648
+      },
+      {
+        "f_hz": 10.0,
+        "r": 20.0,
+        "T": 0.020202099480190874
+      },
+      {
+        "f_hz": 20.0,
+        "r": 40.0,
+        "T": 0.010025276446701403
+      }
+    ],
+    "peak_input_m_s2": 29.41995,
+    "undamped_residual_after_8_cycles_m_s2": 29.41995,
+    "viscous_residual_after_8_cycles_m_s2": 0.00010259743775255089,
+    "viscous_plus_tmd_residual_after_8_cycles_m_s2": 3.7193401272934483e-07,
+    "isolated_transmitted_peak_at_10hz_m_s2": 0.5943447566022415,
+    "isolation_transmissibility_at_10hz": 0.020202099480190874,
+    "claim_limit": "These figures meter peak residual and transmitted spike under the stated oscillator assumptions. They do not reduce the integrated impulse required to reach a given exit speed."
+  },
+  "relational": {
+    "genesis": {
+      "rootTag": "I am the OG avatar",
+      "foundationalWeight": "Infinity"
+    },
+    "dictator": {
+      "exists": true,
+      "definition": "OroboroDictator in oroboro-core.js is a real-time stream-to-text path that feeds finalized text into OroboroTranscriber. This run passed the written engineering-arc text through processAudioText. No audio and no speech recognition were used.",
+      "ingested_chars": 1988,
+      "ingested_critical": true
+    },
+    "levy": {
+      "totalWeight": 2225.0,
+      "n_entries": 606,
+      "weight_table": {
+        "pulse": 7,
+        "coast": 1,
+        "isolation_engage": 3,
+        "damper_reconcile": 4,
+        "mesh_lock": 5,
+        "release": 8,
+        "goldilocks_in_band": 10,
+        "failed_reach_leo_speed": 2,
+        "dictator_ingest": 1
+      }
+    },
+    "nexus_metrics": {
+      "deltas": 800,
+      "reconciliations": 2,
+      "isolations": 200
+    },
+    "n_pulse_segments": 200,
+    "recombine_undamped": {
+      "observable": {
+        "n": 400,
+        "mean_delta": 0.17173074899593066,
+        "spread": 0.5,
+        "residual": 0.5,
+        "damping": 0.0,
+        "coherent": false
+      },
+      "matchedWholeSystem": false
+    },
+    "recombine_isolated_and_viscous": {
+      "observable": {
+        "n": 400,
+        "mean_delta": -0.15734943979447522,
+        "spread": 0.17091981120959412,
+        "residual": 0.1281898584071956,
+        "damping": 0.25,
+        "coherent": true
+      },
+      "matchedWholeSystem": true
+    },
+    "transcriber_n_chronicles": 607,
+    "transcriber_critical_count": 1
+  },
+  "selected_flights": [
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 60.0,
+      "angle_deg": 45.0,
+      "apogee_km": 0.01817916720919311,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 18.908315604529275,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7769.579669368628
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 60.0,
+      "angle_deg": 80.0,
+      "apogee_km": 0.035298666667193175,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 4.644677412486247,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7783.843307560671
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 60.0,
+      "angle_deg": 90.0,
+      "apogee_km": 0.03639808673970401,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.06335092468253005,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.424634048474
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 3.4863396972995253,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 207.95330999665742,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7580.534674976499
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 6.567731362422928,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 54.322819595446255,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7734.165165377711
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 6.7739069590829315,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.04292756092730761,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.445057412229
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 9.106559752075933,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 302.8301866310108,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7485.657798342146
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 17.960218311337755,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 87.59326892146679,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7700.89471605169
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 18.585268873468973,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.011569412688346686,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.476415560469
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 15.318559453589842,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 394.01681202855707,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7394.4711729446
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 32.92631173111219,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 123.73048376898241,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7664.757501204174
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 34.22499612176605,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.09263886698599799,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.395346106171
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 291.9781054014592,
+      "reached_karman": true,
+      "v_at_apogee_m_s": 2108.5941906173853,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 5679.893794355772
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 926.6848631571075,
+      "reached_karman": true,
+      "v_at_apogee_m_s": 608.2891171930196,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7180.198867780137
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 972.6099897588706,
+      "reached_karman": true,
+      "v_at_apogee_m_s": 0.06931022584228093,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.418674747315
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 60.0,
+      "angle_deg": 45.0,
+      "apogee_km": 0.016689532968215643,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 16.916358888737555,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7771.571626084419
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 60.0,
+      "angle_deg": 80.0,
+      "apogee_km": 0.031912440289743244,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 4.188156095180617,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7784.299828877976
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 60.0,
+      "angle_deg": 90.0,
+      "apogee_km": 0.03290052345860749,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.0006449437401033764,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.487340029416
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 0.423791967776604,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 37.88618317925543,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7750.601801793901
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 0.6731737243523821,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 9.769975817788803,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7778.718009155368
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 0.6886768543096259,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.04904795587456849,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.438937017282
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 0.5826787196546793,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 38.4142778843866,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7750.07370708877
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 0.9037372321244329,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 9.954925346064664,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7778.533059627092
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 0.9233708051852882,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.0011827100868761903,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.48680226307
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 0.6762920683454722,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 38.66122312341115,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7749.826761849746
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 1.0393857120620087,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 10.044240481217848,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7778.4437444919395
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 1.0614410556843503,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.060716321763107955,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.427268651394
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 1.0380013230470941,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 39.49985640184413,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7748.988128571313
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 1.567939574833028,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 10.360354624360827,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7778.127630348796
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 1.599701216749847,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.009793733474042166,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.478191239683
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 60.0,
+      "angle_deg": 45.0,
+      "apogee_km": 0.01805631102249026,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 18.737250251340786,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7769.750734721816
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 60.0,
+      "angle_deg": 80.0,
+      "apogee_km": 0.0350160257127136,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 4.605412004663458,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7783.882572968493
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 60.0,
+      "angle_deg": 90.0,
+      "apogee_km": 0.03610638443659991,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.01887089518246661,
+      "peak_q_pa": 440.6576993279999,
+      "v0_fraction_of_7p8kms": 0.0034387692307692305,
+      "speed_gap_to_vcirc200_at_release_m_s": 7761.665584973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.469114077974
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 1.97307237019483,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 121.25455935886974,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7667.233425614288
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 3.49048642178718,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 32.01625184388734,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7756.4717331292695
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 1000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 3.591425709232688,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.010730595141776253,
+      "peak_q_pa": 122404.91648000001,
+      "v0_fraction_of_7p8kms": 0.057312820512820516,
+      "speed_gap_to_vcirc200_at_release_m_s": 7341.447984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.4772543780155
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 3.6927214717445893,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 139.24698821645765,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7649.240996756699
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 6.478633059596643,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 38.72452583634294,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7749.763459136814
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 2000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 6.667337653410621,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.022431991035735482,
+      "peak_q_pa": 489619.66592000006,
+      "v0_fraction_of_7p8kms": 0.11462564102564103,
+      "speed_gap_to_vcirc200_at_release_m_s": 6894.407984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.465552982121
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 4.971100027171895,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 150.33549460155885,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7638.152490371598
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 8.839319633539766,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 43.543154883155374,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7744.944830090001
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 3000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 9.107683637573384,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.09135113388922504,
+      "peak_q_pa": 1101644.24832,
+      "v0_fraction_of_7p8kms": 0.1719384615384615,
+      "speed_gap_to_vcirc200_at_release_m_s": 6447.367984973157,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.396633839267
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 45.0,
+      "apogee_km": 14.002335866689682,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 236.7875621344152,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7551.700422838741
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 80.0,
+      "apogee_km": 35.0120495666815,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 104.30920230227184,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7684.178782670885
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 17000.0,
+      "angle_deg": 90.0,
+      "apogee_km": 37.07325569324475,
+      "reached_karman": false,
+      "v_at_apogee_m_s": 0.07267145074044502,
+      "peak_q_pa": 35375020.862720005,
+      "v0_fraction_of_7p8kms": 0.9743179487179487,
+      "speed_gap_to_vcirc200_at_release_m_s": 188.80798497315664,
+      "speed_gap_to_vcirc200_at_apogee_m_s": 7788.415313522417
+    }
+  ],
+  "figures": [
+    "/workspace/oroboro-research/magnetic_launch_case_study/outputs/fig01_track_length.png",
+    "/workspace/oroboro-research/magnetic_launch_case_study/outputs/fig02_apogee.png",
+    "/workspace/oroboro-research/magnetic_launch_case_study/outputs/fig03_sea_level_drag.png"
+  ],
+  "constants_computed": {
+    "v_circ_200km_m_s": 7788.487984973157,
+    "v_circ_200km_km_s": 7.788487984973157,
+    "v_circ_200km_mph": 17422.35143381612,
+    "v_esc_surface_m_s": 11186.135691389076,
+    "v_esc_surface_km_s": 11.186135691389076,
+    "v_17000_mph_m_s": 7599.68,
+    "v_17000_mph_vs_vcirc200_ratio": 0.9757580694304933,
+    "note": "The conversation used ~17,000 mph as the layman's orbital-speed figure. Circular speed at 200 km computed from mu and R_E is about 17,450 mph (7.78 km/s). 17,000 mph is 7.60 km/s, a rounded lower figure."
+  },
+  "kinematic_track_table": [
+    {
+      "speed_mph": 60.0,
+      "speed_m_s": 26.822,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 36.6812898268012,
+      "continuous_length_km": 0.036681289826801196,
+      "continuous_length_mi": 0.02279269679248265,
+      "intermittent_length_m": 73.3625796536024,
+      "intermittent_length_km": 0.07336257965360239,
+      "intermittent_length_mi": 0.0455853935849653,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 60.0,
+      "speed_m_s": 26.822,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 18.3406449134006,
+      "continuous_length_km": 0.018340644913400598,
+      "continuous_length_mi": 0.011396348396241325,
+      "intermittent_length_m": 36.6812898268012,
+      "intermittent_length_km": 0.036681289826801196,
+      "intermittent_length_mi": 0.02279269679248265,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 60.0,
+      "speed_m_s": 26.822,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 12.227096608933733,
+      "continuous_length_km": 0.012227096608933733,
+      "continuous_length_mi": 0.007597565597494217,
+      "intermittent_length_m": 24.454193217867466,
+      "intermittent_length_km": 0.024454193217867466,
+      "intermittent_length_mi": 0.015195131194988434,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 60.0,
+      "speed_m_s": 26.822,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 7.33625796536024,
+      "continuous_length_km": 0.00733625796536024,
+      "continuous_length_mi": 0.0045585393584965305,
+      "intermittent_length_m": 14.67251593072048,
+      "intermittent_length_km": 0.01467251593072048,
+      "intermittent_length_mi": 0.009117078716993061,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 60.0,
+      "speed_m_s": 26.822,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 3.66812898268012,
+      "continuous_length_km": 0.00366812898268012,
+      "continuous_length_mi": 0.0022792696792482653,
+      "intermittent_length_m": 7.33625796536024,
+      "intermittent_length_km": 0.00733625796536024,
+      "intermittent_length_mi": 0.0045585393584965305,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 407.56988696445785,
+      "continuous_length_km": 0.40756988696445784,
+      "continuous_length_mi": 0.2532521865831406,
+      "intermittent_length_m": 815.1397739289157,
+      "intermittent_length_km": 0.8151397739289157,
+      "intermittent_length_mi": 0.5065043731662812,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 203.78494348222893,
+      "continuous_length_km": 0.20378494348222892,
+      "continuous_length_mi": 0.1266260932915703,
+      "intermittent_length_m": 407.56988696445785,
+      "intermittent_length_km": 0.40756988696445784,
+      "intermittent_length_mi": 0.2532521865831406,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 135.8566289881526,
+      "continuous_length_km": 0.1358566289881526,
+      "continuous_length_mi": 0.08441739552771353,
+      "intermittent_length_m": 271.7132579763052,
+      "intermittent_length_km": 0.2717132579763052,
+      "intermittent_length_mi": 0.16883479105542706,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 81.51397739289158,
+      "continuous_length_km": 0.08151397739289158,
+      "continuous_length_mi": 0.050650437316628126,
+      "intermittent_length_m": 163.02795478578315,
+      "intermittent_length_km": 0.16302795478578316,
+      "intermittent_length_mi": 0.10130087463325625,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 40.75698869644579,
+      "continuous_length_km": 0.04075698869644579,
+      "continuous_length_mi": 0.025325218658314063,
+      "intermittent_length_m": 81.51397739289158,
+      "intermittent_length_km": 0.08151397739289158,
+      "intermittent_length_mi": 0.050650437316628126,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 2547.3117935278615,
+      "continuous_length_km": 2.5473117935278613,
+      "continuous_length_mi": 1.5828261661446288,
+      "intermittent_length_m": 5094.623587055723,
+      "intermittent_length_km": 5.094623587055723,
+      "intermittent_length_mi": 3.1656523322892576,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 1273.6558967639307,
+      "continuous_length_km": 1.2736558967639307,
+      "continuous_length_mi": 0.7914130830723144,
+      "intermittent_length_m": 2547.3117935278615,
+      "intermittent_length_km": 2.5473117935278613,
+      "intermittent_length_mi": 1.5828261661446288,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 849.1039311759538,
+      "continuous_length_km": 0.8491039311759538,
+      "continuous_length_mi": 0.5276087220482095,
+      "intermittent_length_m": 1698.2078623519076,
+      "intermittent_length_km": 1.6982078623519077,
+      "intermittent_length_mi": 1.055217444096419,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 509.46235870557234,
+      "continuous_length_km": 0.5094623587055723,
+      "continuous_length_mi": 0.31656523322892577,
+      "intermittent_length_m": 1018.9247174111447,
+      "intermittent_length_km": 1.0189247174111447,
+      "intermittent_length_mi": 0.6331304664578515,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 254.73117935278617,
+      "continuous_length_km": 0.25473117935278616,
+      "continuous_length_mi": 0.15828261661446288,
+      "intermittent_length_m": 509.46235870557234,
+      "intermittent_length_km": 0.5094623587055723,
+      "intermittent_length_mi": 0.31656523322892577,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 10189.247174111446,
+      "continuous_length_km": 10.189247174111445,
+      "continuous_length_mi": 6.331304664578515,
+      "intermittent_length_m": 20378.494348222892,
+      "intermittent_length_km": 20.37849434822289,
+      "intermittent_length_mi": 12.66260932915703,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 5094.623587055723,
+      "continuous_length_km": 5.094623587055723,
+      "continuous_length_mi": 3.1656523322892576,
+      "intermittent_length_m": 10189.247174111446,
+      "intermittent_length_km": 10.189247174111445,
+      "intermittent_length_mi": 6.331304664578515,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 3396.415724703815,
+      "continuous_length_km": 3.3964157247038154,
+      "continuous_length_mi": 2.110434888192838,
+      "intermittent_length_m": 6792.83144940763,
+      "intermittent_length_km": 6.792831449407631,
+      "intermittent_length_mi": 4.220869776385676,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 2037.8494348222894,
+      "continuous_length_km": 2.0378494348222893,
+      "continuous_length_mi": 1.266260932915703,
+      "intermittent_length_m": 4075.6988696445787,
+      "intermittent_length_km": 4.075698869644579,
+      "intermittent_length_mi": 2.532521865831406,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 1018.9247174111447,
+      "continuous_length_km": 1.0189247174111447,
+      "continuous_length_mi": 0.6331304664578515,
+      "intermittent_length_m": 2037.8494348222894,
+      "intermittent_length_km": 2.0378494348222893,
+      "intermittent_length_mi": 1.266260932915703,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 40756.988696445784,
+      "continuous_length_km": 40.75698869644578,
+      "continuous_length_mi": 25.32521865831406,
+      "intermittent_length_m": 81513.97739289157,
+      "intermittent_length_km": 81.51397739289156,
+      "intermittent_length_mi": 50.65043731662812,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 20378.494348222892,
+      "continuous_length_km": 20.37849434822289,
+      "continuous_length_mi": 12.66260932915703,
+      "intermittent_length_m": 40756.988696445784,
+      "intermittent_length_km": 40.75698869644578,
+      "intermittent_length_mi": 25.32521865831406,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 13585.66289881526,
+      "continuous_length_km": 13.585662898815261,
+      "continuous_length_mi": 8.441739552771352,
+      "intermittent_length_m": 27171.32579763052,
+      "intermittent_length_km": 27.171325797630523,
+      "intermittent_length_mi": 16.883479105542705,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 8151.3977392891575,
+      "continuous_length_km": 8.151397739289157,
+      "continuous_length_mi": 5.065043731662812,
+      "intermittent_length_m": 16302.795478578315,
+      "intermittent_length_km": 16.302795478578314,
+      "intermittent_length_mi": 10.130087463325625,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 4075.6988696445787,
+      "continuous_length_km": 4.075698869644579,
+      "continuous_length_mi": 2.532521865831406,
+      "intermittent_length_m": 8151.3977392891575,
+      "intermittent_length_km": 8.151397739289157,
+      "intermittent_length_mi": 5.065043731662812,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 91703.224567003,
+      "continuous_length_km": 91.70322456700299,
+      "continuous_length_mi": 56.981741981206625,
+      "intermittent_length_m": 183406.449134006,
+      "intermittent_length_km": 183.40644913400598,
+      "intermittent_length_mi": 113.96348396241325,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 45851.6122835015,
+      "continuous_length_km": 45.851612283501495,
+      "continuous_length_mi": 28.490870990603312,
+      "intermittent_length_m": 91703.224567003,
+      "intermittent_length_km": 91.70322456700299,
+      "intermittent_length_mi": 56.981741981206625,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 30567.741522334327,
+      "continuous_length_km": 30.567741522334327,
+      "continuous_length_mi": 18.99391399373554,
+      "intermittent_length_m": 61135.483044668654,
+      "intermittent_length_km": 61.13548304466865,
+      "intermittent_length_mi": 37.98782798747108,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 18340.6449134006,
+      "continuous_length_km": 18.3406449134006,
+      "continuous_length_mi": 11.396348396241326,
+      "intermittent_length_m": 36681.2898268012,
+      "intermittent_length_km": 36.6812898268012,
+      "intermittent_length_mi": 22.79269679248265,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 9170.3224567003,
+      "continuous_length_km": 9.1703224567003,
+      "continuous_length_mi": 5.698174198120663,
+      "intermittent_length_m": 18340.6449134006,
+      "intermittent_length_km": 18.3406449134006,
+      "intermittent_length_mi": 11.396348396241326,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 254731.1793527861,
+      "continuous_length_km": 254.7311793527861,
+      "continuous_length_mi": 158.28261661446285,
+      "intermittent_length_m": 509462.3587055722,
+      "intermittent_length_km": 509.4623587055722,
+      "intermittent_length_mi": 316.5652332289257,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 127365.58967639305,
+      "continuous_length_km": 127.36558967639306,
+      "continuous_length_mi": 79.14130830723143,
+      "intermittent_length_m": 254731.1793527861,
+      "intermittent_length_km": 254.7311793527861,
+      "intermittent_length_mi": 158.28261661446285,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 84910.39311759536,
+      "continuous_length_km": 84.91039311759536,
+      "continuous_length_mi": 52.76087220482095,
+      "intermittent_length_m": 169820.78623519072,
+      "intermittent_length_km": 169.82078623519072,
+      "intermittent_length_mi": 105.5217444096419,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 50946.23587055722,
+      "continuous_length_km": 50.94623587055722,
+      "continuous_length_mi": 31.656523322892568,
+      "intermittent_length_m": 101892.47174111444,
+      "intermittent_length_km": 101.89247174111443,
+      "intermittent_length_mi": 63.313046645785136,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 25473.11793527861,
+      "continuous_length_km": 25.47311793527861,
+      "continuous_length_mi": 15.828261661446284,
+      "intermittent_length_m": 50946.23587055722,
+      "intermittent_length_km": 50.94623587055722,
+      "intermittent_length_mi": 31.656523322892568,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "peak_accel_g": 1.0,
+      "peak_accel_m_s2": 9.80665,
+      "continuous_length_m": 2944692.433318208,
+      "continuous_length_km": 2944.692433318208,
+      "continuous_length_mi": 1829.747048063191,
+      "intermittent_length_m": 5889384.866636416,
+      "intermittent_length_km": 5889.384866636416,
+      "intermittent_length_mi": 3659.494096126382,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "peak_accel_g": 2.0,
+      "peak_accel_m_s2": 19.6133,
+      "continuous_length_m": 1472346.216659104,
+      "continuous_length_km": 1472.346216659104,
+      "continuous_length_mi": 914.8735240315955,
+      "intermittent_length_m": 2944692.433318208,
+      "intermittent_length_km": 2944.692433318208,
+      "intermittent_length_mi": 1829.747048063191,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "peak_accel_g": 3.0,
+      "peak_accel_m_s2": 29.41995,
+      "continuous_length_m": 981564.1444394026,
+      "continuous_length_km": 981.5641444394026,
+      "continuous_length_mi": 609.9156826877303,
+      "intermittent_length_m": 1963128.2888788052,
+      "intermittent_length_km": 1963.1282888788053,
+      "intermittent_length_mi": 1219.8313653754606,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "peak_accel_g": 5.0,
+      "peak_accel_m_s2": 49.03325,
+      "continuous_length_m": 588938.4866636416,
+      "continuous_length_km": 588.9384866636417,
+      "continuous_length_mi": 365.9494096126382,
+      "intermittent_length_m": 1177876.9733272833,
+      "intermittent_length_km": 1177.8769733272834,
+      "intermittent_length_mi": 731.8988192252764,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    },
+    {
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "peak_accel_g": 10.0,
+      "peak_accel_m_s2": 98.0665,
+      "continuous_length_m": 294469.2433318208,
+      "continuous_length_km": 294.46924333182085,
+      "continuous_length_mi": 182.9747048063191,
+      "intermittent_length_m": 588938.4866636416,
+      "intermittent_length_km": 588.9384866636417,
+      "intermittent_length_mi": 365.9494096126382,
+      "duty_cycle": 0.5,
+      "note": "vacuum, no gravity, constant peak a; kinematic v^2/2a only"
+    }
+  ],
+  "sea_level_drag": [
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 60.0,
+      "speed_m_s": 26.8224,
+      "drag_accel_m_s2": 0.21151569567743994,
+      "drag_accel_g": 0.021568598418159102
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "drag_accel_m_s2": 2.3501743964160005,
+      "drag_accel_g": 0.23965109353510125
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "drag_accel_m_s2": 14.6885899776,
+      "drag_accel_g": 1.4978193345943824
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "drag_accel_m_s2": 58.7543599104,
+      "drag_accel_g": 5.99127733837753
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "drag_accel_m_s2": 235.0174396416,
+      "drag_accel_g": 23.96510935351012
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "drag_accel_m_s2": 528.7892391936,
+      "drag_accel_g": 53.92149604539777
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "drag_accel_m_s2": 1468.8589977599997,
+      "drag_accel_g": 149.78193345943822
+    },
+    {
+      "vehicle": "slender_5kg",
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "drag_accel_m_s2": 16980.0100141056,
+      "drag_accel_g": 1731.4791507911061
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 60.0,
+      "speed_m_s": 26.8224,
+      "drag_accel_m_s2": 0.052878923919359985,
+      "drag_accel_g": 0.005392149604539776
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "drag_accel_m_s2": 0.5875435991040001,
+      "drag_accel_g": 0.05991277338377531
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "drag_accel_m_s2": 3.6721474944,
+      "drag_accel_g": 0.3744548336485956
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "drag_accel_m_s2": 14.6885899776,
+      "drag_accel_g": 1.4978193345943824
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "drag_accel_m_s2": 58.7543599104,
+      "drag_accel_g": 5.99127733837753
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "drag_accel_m_s2": 132.1973097984,
+      "drag_accel_g": 13.480374011349442
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "drag_accel_m_s2": 367.21474943999993,
+      "drag_accel_g": 37.445483364859555
+    },
+    {
+      "vehicle": "slender_20kg",
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "drag_accel_m_s2": 4245.0025035264,
+      "drag_accel_g": 432.86978769777653
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 60.0,
+      "speed_m_s": 26.8224,
+      "drag_accel_m_s2": 2.20328849664,
+      "drag_accel_g": 0.22467290018915737
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "drag_accel_m_s2": 24.480983296,
+      "drag_accel_g": 2.4963655576573043
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "drag_accel_m_s2": 153.00614560000002,
+      "drag_accel_g": 15.602284735358154
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "drag_accel_m_s2": 612.0245824000001,
+      "drag_accel_g": 62.409138941432616
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "drag_accel_m_s2": 2448.0983296000004,
+      "drag_accel_g": 249.63655576573046
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "drag_accel_m_s2": 5508.2212416,
+      "drag_accel_g": 561.6822504728934
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "drag_accel_m_s2": 15300.614559999998,
+      "drag_accel_g": 1560.2284735358148
+    },
+    {
+      "vehicle": "blunt_20kg",
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "drag_accel_m_s2": 176875.10431360005,
+      "drag_accel_g": 18036.24115407403
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 60.0,
+      "speed_m_s": 26.8224,
+      "drag_accel_m_s2": 0.8813153986560001,
+      "drag_accel_g": 0.08986916007566295
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 200.0,
+      "speed_m_s": 89.408,
+      "drag_accel_m_s2": 9.7923933184,
+      "drag_accel_g": 0.9985462230629216
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 500.0,
+      "speed_m_s": 223.52,
+      "drag_accel_m_s2": 61.20245824000001,
+      "drag_accel_g": 6.240913894143262
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 1000.0,
+      "speed_m_s": 447.04,
+      "drag_accel_m_s2": 244.80983296000005,
+      "drag_accel_g": 24.963655576573046
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 2000.0,
+      "speed_m_s": 894.08,
+      "drag_accel_m_s2": 979.2393318400002,
+      "drag_accel_g": 99.85462230629219
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 3000.0,
+      "speed_m_s": 1341.12,
+      "drag_accel_m_s2": 2203.28849664,
+      "drag_accel_g": 224.6729001891574
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 5000.0,
+      "speed_m_s": 2235.2,
+      "drag_accel_m_s2": 6120.245824,
+      "drag_accel_g": 624.091389414326
+    },
+    {
+      "vehicle": "blunt_50kg",
+      "speed_mph": 17000.0,
+      "speed_m_s": 7599.68,
+      "drag_accel_m_s2": 70750.04172544001,
+      "drag_accel_g": 7214.49646162961
+    }
+  ],
+  "context_123_not_scored_as_legal_advice": "Earlier in the same conversation: patentability of Oroboro, state reduction, Vision Pro work, and metastasis modeling was discussed in general terms (Alice/Mayo, ideas unlikely to be patentable, copyright covering expression not ideas, and public GitHub disclosures). Copyright of a thought process was distinguished from copyright of code and wording. Outreach had received no responses, and practical paths for attorneys, consultants, and university or SBDC help were mentioned. Those points are session context only."
+}

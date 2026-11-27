@@ -1,0 +1,138 @@
+MAGNETIC-ASSIST / INVERSE-EPCOT / LAS / DAMPER CASE STUDY — RAW SYSTEM OUTPUT
+Input source: Caitlyn Randels conversation thread (engineering arc scored and simulated).
+
+Computed constants:
+  v_circ(200 km) = 7788.488 m/s = 7.7885 km/s = 17422.4 mph
+  v_esc(surface) = 11186.136 m/s = 11.1861 km/s
+  17,000 mph     = 7599.680 m/s (0.9758 of v_circ_200km)
+  1,000 / 2,000 / 3,000 mph = 447.040 / 894.080 / 1341.120 m/s
+
+Oasis isolated fresh world, engineering arc:
+  status=COMMITTED_AND_EXECUTED score=0.65 features={'novelty': 1.0, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  breakdown={'0.30*novelty': 0.3, '0.25*tension': 0.125, '0.25*coherence': 0.225, '0.20*resonance': 0.0} principle=All Oroboro principles passed. reason=None
+  rationale=rules: spatial novelty 1.00, text novelty 1.00, 307 words -> coherence 0.90
+Oasis same text, no position:
+  status=BLOCKED blocked_principle=AdaptOrDie reason=AdaptOrDie: Zero or missing coordinate - confront reality, not null.
+Oasis sequential chunks:
+  intermittent_magnetic_track: status=COMMITTED_AND_EXECUTED score=0.65 features={'novelty': 1.0, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  inverse_epcot_bowl: status=BUFFERED_FOR_MUTATION score=0.6356 features={'novelty': 0.9519, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  las_approach_templates: status=BUFFERED_FOR_MUTATION score=0.6402 features={'novelty': 0.9672, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  seismic_dampers: status=BUFFERED_FOR_MUTATION score=0.6418 features={'novelty': 0.9727, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  goldilocks_band: status=BUFFERED_FOR_MUTATION score=0.636 features={'novelty': 0.9533, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  full_arc_after_chunks: status=BUFFERED_FOR_MUTATION score=0.6153 features={'novelty': 0.8844, 'tension': 0.5, 'coherence': 0.9, 'resonance': 0.0, 'recursion': 0}
+  committed=['seq-intermittent_magnetic_track']
+  buffered=['seq-inverse_epcot_bowl', 'seq-las_approach_templates', 'seq-seismic_dampers', 'seq-goldilocks_band', 'seq-full-arc']
+
+Ms. Minutes empty chronicle:
+  kind=recall
+  reply=Nothing in your chronicle matches that yet. I wrote it down.
+Ms. Minutes seeded ask:
+  kind=recall
+  reply=From your chronicle: “Find a Goldilocks zone for launching lightweight drones or supplies toward space” | “A NaCl polarity mesh note applied the same Genesis-mesh-Levy-consensus-delta loo”
+
+NaCl as written: invert=False -> [Transcriber] [Nexus] 2 locked edges
+NaCl as written: invert=True  -> [Transcriber] [Nexus] 2 locked edges
+Geodesic icosahedron: 12 vertices, 30 edges, locked 26 before invert / 26 after; bowl hemisphere vertices z<=0: 8; invert preserves lock count: True
+LAS sector mesh: locked 4 -> 4 after invert; locked edges ['ArrivalA-Runway', 'ArrivalB-Runway', 'Departure-Runway', 'Hold-Weather']; open ['ArrivalA-ArrivalB', 'ArrivalA-Departure', 'Hold-ArrivalA']; invert preserves lock count: True
+
+Speed fractions of v_circ(200 km):
+  1000_mph_over_vcirc200: 0.05739753349591137
+  2000_mph_over_vcirc200: 0.11479506699182274
+  3000_mph_over_vcirc200: 0.17219260048773408
+  17000_mph_over_vcirc200: 0.9757580694304933
+  residual_gap_at_3000_mph_m_s: 6447.367984973157
+  residual_gap_at_1000_mph_m_s: 7341.447984973157
+  residual_gap_at_17000_mph_m_s: 188.80798497315664
+Any in-band flight reached Karman? False
+Any in-band flight reached 200 km? False
+Any 17,000 mph flight reached Karman? True
+
+Selected sea-level drag:
+  {'vehicle': 'slender_20kg', 'speed_mph': 1000.0, 'speed_m_s': 447.04, 'drag_accel_m_s2': 14.6885899776, 'drag_accel_g': 1.4978193345943824}
+  {'vehicle': 'slender_20kg', 'speed_mph': 3000.0, 'speed_m_s': 1341.12, 'drag_accel_m_s2': 132.1973097984, 'drag_accel_g': 13.480374011349442}
+  {'vehicle': 'slender_20kg', 'speed_mph': 17000.0, 'speed_m_s': 7599.68, 'drag_accel_m_s2': 4245.0025035264, 'drag_accel_g': 432.86978769777653}
+  {'vehicle': 'blunt_20kg', 'speed_mph': 1000.0, 'speed_m_s': 447.04, 'drag_accel_m_s2': 612.0245824000001, 'drag_accel_g': 62.409138941432616}
+  {'vehicle': 'blunt_20kg', 'speed_mph': 3000.0, 'speed_m_s': 1341.12, 'drag_accel_m_s2': 5508.2212416, 'drag_accel_g': 561.6822504728934}
+  {'vehicle': 'blunt_20kg', 'speed_mph': 17000.0, 'speed_m_s': 7599.68, 'drag_accel_m_s2': 176875.10431360005, 'drag_accel_g': 18036.24115407403}
+Selected 3 g kinematic lengths:
+  1000.0 mph: continuous 3.396 km (2.11 mi); intermittent 6.793 km (4.22 mi)
+  3000.0 mph: continuous 30.568 km (18.99 mi); intermittent 61.135 km (37.99 mi)
+  17000.0 mph: continuous 981.564 km (609.92 mi); intermittent 1963.128 km (1219.83 mi)
+
+Best apogees:
+  best_apogee_in_1000_3000_mph: slender_20kg 3000.0 mph 90 deg -> apogee 34.225 km, Karman=False, v_apogee=0.09 m/s, peak_q=1101644.2 Pa
+  best_apogee_slender_20_at_3000_mph: slender_20kg 3000.0 mph 90 deg -> apogee 34.225 km, Karman=False, v_apogee=0.09 m/s, peak_q=1101644.2 Pa
+  best_apogee_blunt_20_at_3000_mph: blunt_20kg 3000.0 mph 90 deg -> apogee 1.061 km, Karman=False, v_apogee=0.06 m/s, peak_q=1101644.2 Pa
+  best_apogee_slender_20_at_1000_mph: slender_20kg 1000.0 mph 90 deg -> apogee 6.774 km, Karman=False, v_apogee=0.04 m/s, peak_q=122404.9 Pa
+  best_apogee_at_17000_mph: slender_20kg 17000.0 mph 90 deg -> apogee 972.610 km, Karman=True, v_apogee=0.07 m/s, peak_q=35375020.9 Pa
+
+Geometry comparison (slender 20 kg, 3,000 mph target, 80 deg, 3 g peak, intermittent):
+  straight: reached=True v_end=3000.1 mph, L=185.606 km (115.33 mi), t=293.17 s, exit_angle=80.00 deg, exit_alt=182786.1 m, pulses=367, apogee=278.222 km, Karman=True
+  concave_bowl: reached=True v_end=3000.1 mph, L=185.888 km (115.51 mi), t=276.38 s, exit_angle=80.00 deg, exit_alt=181691.6 m, pulses=346, apogee=277.094 km, Karman=True
+  convex_sphere: reached=False v_end=1123.5 mph, L=384.458 km (238.89 mi), t=800.00 s, exit_angle=0.00 deg, exit_alt=2066.0 m, pulses=1000, apogee=2.066 km, Karman=False
+Geometry comparison (slender 20 kg, 17,000 mph target, 80 deg, 3 g peak, intermittent):
+  straight: reached=False v_end=8715.9 mph, L=1512.992 km (940.13 mi), t=800.00 s, exit_angle=80.00 deg, exit_alt=1490006.7 m, pulses=1000, apogee=2838.356 km, Karman=True
+  concave_bowl: reached=False v_end=8905.3 mph, L=1579.373 km (981.38 mi), t=800.00 s, exit_angle=80.00 deg, exit_alt=1554006.6 m, pulses=1000, apogee=2998.281 km, Karman=True
+  convex_sphere: reached=False v_end=1123.5 mph, L=384.458 km (238.89 mi), t=800.00 s, exit_angle=0.00 deg, exit_alt=2066.0 m, pulses=1000, apogee=2.066 km, Karman=False
+
+Damper / isolation:
+  T(10 Hz)=0.020202
+  isolated transmitted peak=0.5943 m/s^2
+  viscous residual after 8 cycles=0.0001 m/s^2
+  viscous+TMD residual after 8 cycles=0.0000 m/s^2
+  undamped residual=29.4200 m/s^2
+
+Relational recombine:
+  undamped: {'observable': {'n': 400, 'mean_delta': 0.17173074899593066, 'spread': 0.5, 'residual': 0.5, 'damping': 0.0, 'coherent': False}, 'matchedWholeSystem': False}
+  isolated+viscous: {'observable': {'n': 400, 'mean_delta': -0.15734943979447522, 'spread': 0.17091981120959412, 'residual': 0.1281898584071956, 'damping': 0.25, 'coherent': True}, 'matchedWholeSystem': True}
+  levy total=2225.0 entries=606
+  nexus metrics={'deltas': 800, 'reconciliations': 2, 'isolations': 200}
+
+Selected flights (compact):
+  slender_20kg 60 mph 45 deg: apogee=0.018 km Karman=False v_apogee=18.91 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  slender_20kg 60 mph 80 deg: apogee=0.035 km Karman=False v_apogee=4.64 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  slender_20kg 60 mph 90 deg: apogee=0.036 km Karman=False v_apogee=0.06 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  slender_20kg 1000 mph 45 deg: apogee=3.486 km Karman=False v_apogee=207.95 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  slender_20kg 1000 mph 80 deg: apogee=6.568 km Karman=False v_apogee=54.32 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  slender_20kg 1000 mph 90 deg: apogee=6.774 km Karman=False v_apogee=0.04 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  slender_20kg 2000 mph 45 deg: apogee=9.107 km Karman=False v_apogee=302.83 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  slender_20kg 2000 mph 80 deg: apogee=17.960 km Karman=False v_apogee=87.59 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  slender_20kg 2000 mph 90 deg: apogee=18.585 km Karman=False v_apogee=0.01 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  slender_20kg 3000 mph 45 deg: apogee=15.319 km Karman=False v_apogee=394.02 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  slender_20kg 3000 mph 80 deg: apogee=32.926 km Karman=False v_apogee=123.73 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  slender_20kg 3000 mph 90 deg: apogee=34.225 km Karman=False v_apogee=0.09 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  slender_20kg 17000 mph 45 deg: apogee=291.978 km Karman=True v_apogee=2108.59 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  slender_20kg 17000 mph 80 deg: apogee=926.685 km Karman=True v_apogee=608.29 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  slender_20kg 17000 mph 90 deg: apogee=972.610 km Karman=True v_apogee=0.07 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  blunt_20kg 60 mph 45 deg: apogee=0.017 km Karman=False v_apogee=16.92 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  blunt_20kg 60 mph 80 deg: apogee=0.032 km Karman=False v_apogee=4.19 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  blunt_20kg 60 mph 90 deg: apogee=0.033 km Karman=False v_apogee=0.00 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  blunt_20kg 1000 mph 45 deg: apogee=0.424 km Karman=False v_apogee=37.89 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  blunt_20kg 1000 mph 80 deg: apogee=0.673 km Karman=False v_apogee=9.77 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  blunt_20kg 1000 mph 90 deg: apogee=0.689 km Karman=False v_apogee=0.05 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  blunt_20kg 2000 mph 45 deg: apogee=0.583 km Karman=False v_apogee=38.41 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  blunt_20kg 2000 mph 80 deg: apogee=0.904 km Karman=False v_apogee=9.95 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  blunt_20kg 2000 mph 90 deg: apogee=0.923 km Karman=False v_apogee=0.00 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  blunt_20kg 3000 mph 45 deg: apogee=0.676 km Karman=False v_apogee=38.66 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  blunt_20kg 3000 mph 80 deg: apogee=1.039 km Karman=False v_apogee=10.04 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  blunt_20kg 3000 mph 90 deg: apogee=1.061 km Karman=False v_apogee=0.06 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  blunt_20kg 17000 mph 45 deg: apogee=1.038 km Karman=False v_apogee=39.50 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  blunt_20kg 17000 mph 80 deg: apogee=1.568 km Karman=False v_apogee=10.36 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  blunt_20kg 17000 mph 90 deg: apogee=1.600 km Karman=False v_apogee=0.01 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  slender_5kg 60 mph 45 deg: apogee=0.018 km Karman=False v_apogee=18.74 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  slender_5kg 60 mph 80 deg: apogee=0.035 km Karman=False v_apogee=4.61 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  slender_5kg 60 mph 90 deg: apogee=0.036 km Karman=False v_apogee=0.02 m/s peak_q=440.7 Pa gap_release=7761.7 m/s
+  slender_5kg 1000 mph 45 deg: apogee=1.973 km Karman=False v_apogee=121.25 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  slender_5kg 1000 mph 80 deg: apogee=3.490 km Karman=False v_apogee=32.02 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  slender_5kg 1000 mph 90 deg: apogee=3.591 km Karman=False v_apogee=0.01 m/s peak_q=122404.9 Pa gap_release=7341.4 m/s
+  slender_5kg 2000 mph 45 deg: apogee=3.693 km Karman=False v_apogee=139.25 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  slender_5kg 2000 mph 80 deg: apogee=6.479 km Karman=False v_apogee=38.72 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  slender_5kg 2000 mph 90 deg: apogee=6.667 km Karman=False v_apogee=0.02 m/s peak_q=489619.7 Pa gap_release=6894.4 m/s
+  slender_5kg 3000 mph 45 deg: apogee=4.971 km Karman=False v_apogee=150.34 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  slender_5kg 3000 mph 80 deg: apogee=8.839 km Karman=False v_apogee=43.54 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  slender_5kg 3000 mph 90 deg: apogee=9.108 km Karman=False v_apogee=0.09 m/s peak_q=1101644.2 Pa gap_release=6447.4 m/s
+  slender_5kg 17000 mph 45 deg: apogee=14.002 km Karman=False v_apogee=236.79 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  slender_5kg 17000 mph 80 deg: apogee=35.012 km Karman=False v_apogee=104.31 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+  slender_5kg 17000 mph 90 deg: apogee=37.073 km Karman=False v_apogee=0.07 m/s peak_q=35375020.9 Pa gap_release=188.8 m/s
+
+Figures: /workspace/oroboro-research/magnetic_launch_case_study/outputs/fig01_track_length.png, /workspace/oroboro-research/magnetic_launch_case_study/outputs/fig02_apogee.png, /workspace/oroboro-research/magnetic_launch_case_study/outputs/fig03_sea_level_drag.png
