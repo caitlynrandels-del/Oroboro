@@ -1,0 +1,27 @@
+ONDULATORY-STRING / WIREFRAME ADDENDUM — RAW OUTPUT
+Wireframe: placeholder joints in example_joints.json (NOT extracted from game video).
+  16 joints, 15 bones, tree=True, hubs=['hip', 'neck'], leaves=['head', 'l_ankle', 'l_wrist', 'r_ankle', 'r_wrist']
+  Laplacian: n_zero=1, n_positive_modes=15
+  eigenvalues: 0.000000, 0.085409, 0.198062, 0.198062, 0.491519, 0.832625, 1.320357, 1.554958, 1.554958, 1.741822, 2.825785, 3.055061, 3.246980, 3.246980, 4.362340, 5.285083
+
+Existing skeletal run (run_report.json):
+  t=0.0: matched=True residual=1.421e-14 bone_length=99.927884 crossing=0 isolated_chunks=10
+  t=1.0: matched=True residual=1.421e-14 bone_length=99.927884 crossing=2 isolated_chunks=9
+
+Polarity A hub-leaf: hub-leaf (interpretation A): deg>=3 +1, deg==1 -1, deg==2 +1
+  invert=False locked 5/15 ['head-neck', 'l_elbow-l_wrist', 'r_elbow-r_wrist', 'l_knee-l_ankle', 'r_knee-r_ankle']; open ['neck-spine', 'spine-hip', 'neck-l_shoulder', 'neck-r_shoulder', 'l_shoulder-l_elbow', 'r_shoulder-r_elbow', 'hip-l_hip', 'hip-r_hip', 'l_hip-l_knee', 'r_hip-r_knee']
+  invert=True  locked 5/15 (count preserved=True)
+Polarity B filament: ondulatory filament (interpretation B): alternate charge along the tree from hip (Genesis origin +1)
+  invert=False locked 15/15 ['head-neck', 'neck-spine', 'spine-hip', 'neck-l_shoulder', 'neck-r_shoulder', 'l_shoulder-l_elbow', 'r_shoulder-r_elbow', 'l_elbow-l_wrist', 'r_elbow-r_wrist', 'hip-l_hip', 'hip-r_hip', 'l_hip-l_knee', 'r_hip-r_knee', 'l_knee-l_ankle', 'r_knee-r_ankle']; open []
+  invert=True  locked 15/15 (count preserved=True)
+
+Pulse period T=0.80 s (0.40 on + 0.40 coast from the launch run).
+  1000 mph straight: reached=True L=26.182 km t=113.14s pulses=142 Lambda_exit=357.641 m Lambda_mean=185.128 m n_laid=142 n_exit_fit=73.207 chirp=1.9319 string n_real=146.413 nearest=146 detune=0.4133 tube n_real=146.913 nearest=147 detune=-0.0867 string-mean n_real=282.850 nearest=283 detune=-0.1500
+  1000 mph concave_bowl: reached=True L=26.398 km t=96.23s pulses=121 Lambda_exit=357.641 m Lambda_mean=219.455 m n_laid=121 n_exit_fit=73.812 chirp=1.6297 string n_real=147.624 nearest=148 detune=-0.3760 tube n_real=148.124 nearest=148 detune=0.1240 string-mean n_real=240.580 nearest=241 detune=-0.4200
+  1000 mph convex_sphere: reached=True L=14.337 km t=65.20s pulses=82 Lambda_exit=357.643 m Lambda_mean=175.914 m n_laid=82 n_exit_fit=40.087 chirp=2.0331 string n_real=80.175 nearest=80 detune=0.1748 tube n_real=80.675 nearest=81 detune=-0.3252 string-mean n_real=163.000 nearest=163 detune=0.0000
+  2000 mph straight: reached=True L=87.253 km t=205.04s pulses=257 Lambda_exit=715.272 m Lambda_mean=340.427 m n_laid=257 n_exit_fit=121.986 chirp=2.1011 string n_real=243.972 nearest=244 detune=-0.0284 tube n_real=244.472 nearest=244 detune=0.4716 string-mean n_real=512.610 nearest=513 detune=-0.3900
+  2000 mph concave_bowl: reached=True L=87.549 km t=188.25s pulses=236 Lambda_exit=715.265 m Lambda_mean=372.045 m n_laid=236 n_exit_fit=122.400 chirp=1.9225 string n_real=244.800 nearest=245 detune=-0.1995 tube n_real=245.300 nearest=245 detune=0.3005 string-mean n_real=470.635 nearest=471 detune=-0.3650
+  2000 mph convex_sphere: reached=False L=384.458 km t=800.00s pulses=1000 Lambda_exit=401.785 m Lambda_mean=384.457 m n_laid=1000 n_exit_fit=956.876 chirp=1.0451 string n_real=1913.752 nearest=1914 detune=-0.2479 tube n_real=1914.252 nearest=1914 detune=0.2521 string-mean n_real=2000.005 nearest=2000 detune=0.0050
+  3000 mph straight: reached=True L=185.606 km t=293.17s pulses=367 Lambda_exit=1072.927 m Lambda_mean=506.480 m n_laid=367 n_exit_fit=172.990 chirp=2.1184 string n_real=345.980 nearest=346 detune=-0.0196 tube n_real=346.480 nearest=346 detune=0.4804 string-mean n_real=732.925 nearest=733 detune=-0.0750
+  3000 mph concave_bowl: reached=True L=185.888 km t=276.38s pulses=346 Lambda_exit=1072.918 m Lambda_mean=538.064 m n_laid=346 n_exit_fit=173.254 chirp=1.9940 string n_real=346.508 nearest=347 detune=-0.4916 tube n_real=347.008 nearest=347 detune=0.0084 string-mean n_real=690.950 nearest=691 detune=-0.0500
+  3000 mph convex_sphere: reached=False L=384.458 km t=800.00s pulses=1000 Lambda_exit=401.785 m Lambda_mean=384.457 m n_laid=1000 n_exit_fit=956.876 chirp=1.0451 string n_real=1913.752 nearest=1914 detune=-0.2479 tube n_real=1914.252 nearest=1914 detune=0.2521 string-mean n_real=2000.005 nearest=2000 detune=0.0050

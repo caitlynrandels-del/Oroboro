@@ -1,0 +1,615 @@
+{
+  "input_quotes": {
+    "ondulatory_stack": "Shrink wrap porcelain ninja stars socks 3d printer filament straw/tube. Bubbles. This is an example of ondulatory strings that I know is incredibly pertinent, but I'm not really sure what to do with it right now.",
+    "wireframe": "We also have the wireframe model from the avalanche game analysis that helps."
+  },
+  "wireframe_source": {
+    "path": "/workspace/oroboro-skeletal/example_joints.json",
+    "honest_status": "EXAMPLE DATA ONLY. These joint positions were invented as a fixed placeholder so the chunking pipeline can be tested. They were NOT extracted from the Oct 28, 2026 Avalanche vs Devils highlights, and no video was downloaded or watched to produce this file.",
+    "n_bones": 15,
+    "n_joints": 16,
+    "n_skeletons_in_example": 2,
+    "n_frames": 2,
+    "degrees": {
+      "head": 1,
+      "neck": 4,
+      "spine": 2,
+      "hip": 3,
+      "l_shoulder": 2,
+      "r_shoulder": 2,
+      "l_elbow": 2,
+      "r_elbow": 2,
+      "l_wrist": 1,
+      "r_wrist": 1,
+      "l_hip": 2,
+      "r_hip": 2,
+      "l_knee": 2,
+      "r_knee": 2,
+      "l_ankle": 1,
+      "r_ankle": 1
+    },
+    "hubs_deg_ge_3": [
+      "hip",
+      "neck"
+    ],
+    "leaves_deg_1": [
+      "head",
+      "l_ankle",
+      "l_wrist",
+      "r_ankle",
+      "r_wrist"
+    ],
+    "chain_deg_2": [
+      "l_elbow",
+      "l_hip",
+      "l_knee",
+      "l_shoulder",
+      "r_elbow",
+      "r_hip",
+      "r_knee",
+      "r_shoulder",
+      "spine"
+    ],
+    "connected_tree": true
+  },
+  "existing_skeletal_run": {
+    "path": "/workspace/oroboro-skeletal/run_report.json",
+    "levy_total": 8.0,
+    "frames": [
+      {
+        "t": 0.0,
+        "matchedWholeSystem": true,
+        "residual_vs_whole": 1.4210854715202004e-14,
+        "total_bone_length": 99.92788413823835,
+        "crossing_count": 0,
+        "n_isolated_chunks": 10
+      },
+      {
+        "t": 1.0,
+        "matchedWholeSystem": true,
+        "residual_vs_whole": 1.4210854715202004e-14,
+        "total_bone_length": 99.92788413823835,
+        "crossing_count": 2,
+        "n_isolated_chunks": 9
+      }
+    ]
+  },
+  "laplacian": {
+    "n_nodes": 16,
+    "n_edges": 15,
+    "is_tree": true,
+    "n_zero_eigenvalues": 1,
+    "eigenvalues": [
+      5.201424982390133e-16,
+      0.08540927349239362,
+      0.19806226419516149,
+      0.19806226419516215,
+      0.4915188008193282,
+      0.8326253107726734,
+      1.3203568144378774,
+      1.5549581320873702,
+      1.5549581320873702,
+      1.7418216173931547,
+      2.825784551885356,
+      3.055061021974012,
+      3.2469796037174676,
+      3.246979603717469,
+      4.3623398328574385,
+      5.285082776367764
+    ],
+    "n_positive_modes": 15
+  },
+  "polarity_mesh": {
+    "interpretation_A_hub_leaf": {
+      "rule": "hub-leaf (interpretation A): deg>=3 +1, deg==1 -1, deg==2 +1",
+      "invert_false": {
+        "n_nodes": 16,
+        "n_edges": 15,
+        "n_locked": 5,
+        "n_open": 10,
+        "locked": [
+          "head-neck",
+          "l_elbow-l_wrist",
+          "r_elbow-r_wrist",
+          "l_knee-l_ankle",
+          "r_knee-r_ankle"
+        ],
+        "open": [
+          "neck-spine",
+          "spine-hip",
+          "neck-l_shoulder",
+          "neck-r_shoulder",
+          "l_shoulder-l_elbow",
+          "r_shoulder-r_elbow",
+          "hip-l_hip",
+          "hip-r_hip",
+          "l_hip-l_knee",
+          "r_hip-r_knee"
+        ],
+        "levy_weight": 0.999
+      },
+      "invert_true": {
+        "n_nodes": 16,
+        "n_edges": 15,
+        "n_locked": 5,
+        "n_open": 10,
+        "locked": [
+          "head-neck",
+          "l_elbow-l_wrist",
+          "r_elbow-r_wrist",
+          "l_knee-l_ankle",
+          "r_knee-r_ankle"
+        ],
+        "open": [
+          "neck-spine",
+          "spine-hip",
+          "neck-l_shoulder",
+          "neck-r_shoulder",
+          "l_shoulder-l_elbow",
+          "r_shoulder-r_elbow",
+          "hip-l_hip",
+          "hip-r_hip",
+          "l_hip-l_knee",
+          "r_hip-r_knee"
+        ],
+        "levy_weight": 0.999
+      }
+    },
+    "interpretation_B_filament": {
+      "rule": "ondulatory filament (interpretation B): alternate charge along the tree from hip (Genesis origin +1)",
+      "origin": "hip",
+      "invert_false": {
+        "n_nodes": 16,
+        "n_edges": 15,
+        "n_locked": 15,
+        "n_open": 0,
+        "locked": [
+          "head-neck",
+          "neck-spine",
+          "spine-hip",
+          "neck-l_shoulder",
+          "neck-r_shoulder",
+          "l_shoulder-l_elbow",
+          "r_shoulder-r_elbow",
+          "l_elbow-l_wrist",
+          "r_elbow-r_wrist",
+          "hip-l_hip",
+          "hip-r_hip",
+          "l_hip-l_knee",
+          "r_hip-r_knee",
+          "l_knee-l_ankle",
+          "r_knee-r_ankle"
+        ],
+        "open": [],
+        "levy_weight": 0.999
+      },
+      "invert_true": {
+        "n_nodes": 16,
+        "n_edges": 15,
+        "n_locked": 15,
+        "n_open": 0,
+        "locked": [
+          "head-neck",
+          "neck-spine",
+          "spine-hip",
+          "neck-l_shoulder",
+          "neck-r_shoulder",
+          "l_shoulder-l_elbow",
+          "r_shoulder-r_elbow",
+          "l_elbow-l_wrist",
+          "r_elbow-r_wrist",
+          "hip-l_hip",
+          "hip-r_hip",
+          "l_hip-l_knee",
+          "r_hip-r_knee",
+          "l_knee-l_ankle",
+          "r_knee-r_ankle"
+        ],
+        "open": [],
+        "levy_weight": 0.999
+      }
+    }
+  },
+  "pulse_period_s_from_launch_run": 0.8,
+  "rails_slender20_80deg": [
+    {
+      "speed_target_mph": 1000.0,
+      "geometry": "straight",
+      "reached_target": true,
+      "length_m": 26181.666470145472,
+      "length_km": 26.181666470145473,
+      "time_s": 113.13999999991772,
+      "pulses": 142,
+      "v_end_m_s": 447.05081563254953,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 357.64065250603966,
+      "Lambda_mean_m": 185.12756917210191,
+      "n_spatial_periods_laid": 142,
+      "t_over_T": 141.42499999989715,
+      "n_exit_speed_periods_that_fit": 73.2066287394533,
+      "chirp_ratio_Lambda_exit_over_mean": 1.9318605764955665,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 146.4132574789066,
+        "nearest_n": 146,
+        "detuning_from_integer": 0.41325747890658704,
+        "Lambda_mode_m": 358.6529653444585,
+        "Lambda_target_m": 357.64065250603966,
+        "relative_wavelength_mismatch": -0.00282254138745678
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 146.9132574789066,
+        "nearest_n": 147,
+        "detuning_from_integer": -0.08674252109341296,
+        "Lambda_mode_m": 357.4288937903819,
+        "Lambda_target_m": 357.64065250603966,
+        "relative_wavelength_mismatch": 0.0005924499091613836
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 282.8499999997943,
+        "nearest_n": 283,
+        "detuning_from_integer": -0.1500000002056936,
+        "Lambda_mode_m": 185.02944501869592,
+        "Lambda_target_m": 185.12756917210191,
+        "relative_wavelength_mismatch": 0.0005303164228594844
+      }
+    },
+    {
+      "speed_target_mph": 1000.0,
+      "geometry": "concave_bowl",
+      "reached_target": true,
+      "length_m": 26398.221024513037,
+      "length_km": 26.398221024513038,
+      "time_s": 96.23199999995713,
+      "pulses": 121,
+      "v_end_m_s": 447.0517176820619,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 357.64137414564954,
+      "Lambda_mean_m": 219.45482604143987,
+      "n_spatial_periods_laid": 121,
+      "t_over_T": 120.2899999999464,
+      "n_exit_speed_periods_that_fit": 73.81198858094744,
+      "chirp_ratio_Lambda_exit_over_mean": 1.6296810628266418,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 147.62397716189489,
+        "nearest_n": 148,
+        "detuning_from_integer": -0.37602283810511494,
+        "Lambda_mode_m": 356.7327165474735,
+        "Lambda_target_m": 357.64137414564954,
+        "relative_wavelength_mismatch": 0.0025471664246839885
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 148.12397716189489,
+        "nearest_n": 148,
+        "detuning_from_integer": 0.12397716189488506,
+        "Lambda_mode_m": 357.9419799933971,
+        "Lambda_target_m": 357.64137414564954,
+        "relative_wavelength_mismatch": -0.000839817245669635
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 240.57999999989278,
+        "nearest_n": 241,
+        "detuning_from_integer": -0.4200000001072226,
+        "Lambda_mode_m": 219.0723736474111,
+        "Lambda_target_m": 219.45482604143987,
+        "relative_wavelength_mismatch": 0.0017457810296259342
+      }
+    },
+    {
+      "speed_target_mph": 1000.0,
+      "geometry": "convex_sphere",
+      "reached_target": true,
+      "length_m": 14336.991240458055,
+      "length_km": 14.336991240458055,
+      "time_s": 65.20000000002945,
+      "pulses": 82,
+      "v_end_m_s": 447.0540838791876,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 357.6432671033501,
+      "Lambda_mean_m": 175.91400295032614,
+      "n_spatial_periods_laid": 82,
+      "t_over_T": 81.5000000000368,
+      "n_exit_speed_periods_that_fit": 40.08740708745124,
+      "chirp_ratio_Lambda_exit_over_mean": 2.033057409331649,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 80.17481417490248,
+        "nearest_n": 80,
+        "detuning_from_integer": 0.17481417490247964,
+        "Lambda_mode_m": 358.4247810114514,
+        "Lambda_target_m": 357.6432671033501,
+        "relative_wavelength_mismatch": -0.0021804125984143143
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 80.67481417490248,
+        "nearest_n": 81,
+        "detuning_from_integer": -0.32518582509752036,
+        "Lambda_mode_m": 356.1985401356039,
+        "Lambda_target_m": 357.6432671033501,
+        "relative_wavelength_mismatch": 0.0040559598228455535
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 163.0000000000736,
+        "nearest_n": 163,
+        "detuning_from_integer": 7.361222742474638e-11,
+        "Lambda_mode_m": 175.91400295040557,
+        "Lambda_target_m": 175.91400295032614,
+        "relative_wavelength_mismatch": -4.5157677345546446e-13
+      }
+    },
+    {
+      "speed_target_mph": 2000.0,
+      "geometry": "straight",
+      "reached_target": true,
+      "length_m": 87253.01877523311,
+      "length_km": 87.25301877523312,
+      "time_s": 205.04400000025095,
+      "pulses": 257,
+      "v_end_m_s": 894.0899816003111,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 715.2719852802489,
+      "Lambda_mean_m": 340.42651830875843,
+      "n_spatial_periods_laid": 257,
+      "t_over_T": 256.30500000031367,
+      "n_exit_speed_periods_that_fit": 121.98579081920386,
+      "chirp_ratio_Lambda_exit_over_mean": 2.1011053687407366,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 243.9715816384077,
+        "nearest_n": 244,
+        "detuning_from_integer": -0.028418361592287056,
+        "Lambda_mode_m": 715.1886784855174,
+        "Lambda_target_m": 715.2719852802489,
+        "relative_wavelength_mismatch": 0.00011648226158724205
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 244.4715816384077,
+        "nearest_n": 244,
+        "detuning_from_integer": 0.47158163840771294,
+        "Lambda_mode_m": 716.6572384002719,
+        "Lambda_target_m": 715.2719852802489,
+        "relative_wavelength_mismatch": -0.0019329367594404735
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 512.6100000006273,
+        "nearest_n": 513,
+        "detuning_from_integer": -0.3899999993726624,
+        "Lambda_mode_m": 340.16771452332597,
+        "Lambda_target_m": 340.42651830875843,
+        "relative_wavelength_mismatch": 0.0007608123122299304
+      }
+    },
+    {
+      "speed_target_mph": 2000.0,
+      "geometry": "concave_bowl",
+      "reached_target": true,
+      "length_m": 87548.60273558056,
+      "length_km": 87.54860273558056,
+      "time_s": 188.25400000017078,
+      "pulses": 236,
+      "v_end_m_s": 894.0812775984367,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 715.2650220787494,
+      "Lambda_mean_m": 372.04458969477895,
+      "n_spatial_periods_laid": 236,
+      "t_over_T": 235.31750000021347,
+      "n_exit_speed_periods_that_fit": 122.40022933197704,
+      "chirp_ratio_Lambda_exit_over_mean": 1.9225249926777448,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 244.8004586639541,
+        "nearest_n": 245,
+        "detuning_from_integer": -0.19954133604591107,
+        "Lambda_mode_m": 714.6824713108617,
+        "Lambda_target_m": 715.2650220787494,
+        "relative_wavelength_mismatch": 0.0008151183095608919
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 245.3004586639541,
+        "nearest_n": 245,
+        "detuning_from_integer": 0.30045866395408893,
+        "Lambda_mode_m": 716.1439896571006,
+        "Lambda_target_m": 715.2650220787494,
+        "relative_wavelength_mismatch": -0.001227361523723819
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 470.6350000004269,
+        "nearest_n": 471,
+        "detuning_from_integer": -0.364999999573115,
+        "Lambda_mode_m": 371.7562748856924,
+        "Lambda_target_m": 372.04458969477895,
+        "relative_wavelength_mismatch": 0.0007755479290166885
+      }
+    },
+    {
+      "speed_target_mph": 2000.0,
+      "geometry": "convex_sphere",
+      "reached_target": false,
+      "length_m": 384458.37854320585,
+      "length_km": 384.45837854320587,
+      "time_s": 800.0019999949062,
+      "pulses": 1000,
+      "v_end_m_s": 502.2311652472152,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 401.78493219777215,
+      "Lambda_mean_m": 384.4574174021103,
+      "n_spatial_periods_laid": 1000,
+      "t_over_T": 1000.0024999936327,
+      "n_exit_speed_periods_that_fit": 956.8760491843492,
+      "chirp_ratio_Lambda_exit_over_mean": 1.0450700494029972,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 1913.7520983686984,
+        "nearest_n": 1914,
+        "detuning_from_integer": -0.2479016313016018,
+        "Lambda_mode_m": 401.73289293960903,
+        "Lambda_target_m": 401.78493219777215,
+        "relative_wavelength_mismatch": 0.0001295369611941206
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 1914.2520983686984,
+        "nearest_n": 1914,
+        "detuning_from_integer": 0.2520983686983982,
+        "Lambda_mode_m": 401.83786625890343,
+        "Lambda_target_m": 401.78493219777215,
+        "relative_wavelength_mismatch": -0.00013172989799118765
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 2000.0049999872654,
+        "nearest_n": 2000,
+        "detuning_from_integer": 0.004999987265364325,
+        "Lambda_mode_m": 384.45837854320587,
+        "Lambda_target_m": 384.4574174021103,
+        "relative_wavelength_mismatch": -2.499987382770865e-06
+      }
+    },
+    {
+      "speed_target_mph": 3000.0,
+      "geometry": "straight",
+      "reached_target": true,
+      "length_m": 185605.89810967582,
+      "length_km": 185.60589810967582,
+      "time_s": 293.17000000067173,
+      "pulses": 367,
+      "v_end_m_s": 1341.1590386329563,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 1072.9272309063651,
+      "Lambda_mean_m": 506.4799211631492,
+      "n_spatial_periods_laid": 367,
+      "t_over_T": 366.46250000083967,
+      "n_exit_speed_periods_that_fit": 172.99020172401023,
+      "chirp_ratio_Lambda_exit_over_mean": 2.1184003275832723,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 345.98040344802047,
+        "nearest_n": 346,
+        "detuning_from_integer": -0.01959655197953225,
+        "Lambda_mode_m": 1072.86646306171,
+        "Lambda_target_m": 1072.9272309063651,
+        "relative_wavelength_mismatch": 5.664064144735895e-05
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 346.48040344802047,
+        "nearest_n": 346,
+        "detuning_from_integer": 0.48040344802046775,
+        "Lambda_mode_m": 1074.419091807096,
+        "Lambda_target_m": 1072.9272309063651,
+        "relative_wavelength_mismatch": -0.0013885279143929724
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 732.9250000016793,
+        "nearest_n": 733,
+        "detuning_from_integer": -0.07499999832066351,
+        "Lambda_mode_m": 506.4280985257185,
+        "Lambda_target_m": 506.4799211631492,
+        "relative_wavelength_mismatch": 0.000102329704022253
+      }
+    },
+    {
+      "speed_target_mph": 3000.0,
+      "geometry": "concave_bowl",
+      "reached_target": true,
+      "length_m": 185887.5122182226,
+      "length_km": 185.8875122182226,
+      "time_s": 276.38000000059156,
+      "pulses": 346,
+      "v_end_m_s": 1341.1470475298197,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 1072.9176380238557,
+      "Lambda_mean_m": 538.0635710769947,
+      "n_spatial_periods_laid": 346,
+      "t_over_T": 345.47500000073944,
+      "n_exit_speed_periods_that_fit": 173.25422346546372,
+      "chirp_ratio_Lambda_exit_over_mean": 1.9940350837658283,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 346.50844693092745,
+        "nearest_n": 347,
+        "detuning_from_integer": -0.4915530690725518,
+        "Lambda_mode_m": 1071.397764946528,
+        "Lambda_target_m": 1072.9176380238557,
+        "relative_wavelength_mismatch": 0.0014185889937931287
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 347.00844693092745,
+        "nearest_n": 347,
+        "detuning_from_integer": 0.008446930927448193,
+        "Lambda_mode_m": 1072.9437934673742,
+        "Lambda_target_m": 1072.9176380238557,
+        "relative_wavelength_mismatch": -2.4377272768402734e-05
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 690.9500000014789,
+        "nearest_n": 691,
+        "detuning_from_integer": -0.04999999852111614,
+        "Lambda_mode_m": 538.0246373899352,
+        "Lambda_target_m": 538.0635710769947,
+        "relative_wavelength_mismatch": 7.236413419353191e-05
+      }
+    },
+    {
+      "speed_target_mph": 3000.0,
+      "geometry": "convex_sphere",
+      "reached_target": false,
+      "length_m": 384458.37854320585,
+      "length_km": 384.45837854320587,
+      "time_s": 800.0019999949062,
+      "pulses": 1000,
+      "v_end_m_s": 502.2311652472152,
+      "pulse_period_s": 0.8,
+      "Lambda_exit_m": 401.78493219777215,
+      "Lambda_mean_m": 384.4574174021103,
+      "n_spatial_periods_laid": 1000,
+      "t_over_T": 1000.0024999936327,
+      "n_exit_speed_periods_that_fit": 956.8760491843492,
+      "chirp_ratio_Lambda_exit_over_mean": 1.0450700494029972,
+      "string_mode_at_exit_spacing": {
+        "kind": "string",
+        "n_real": 1913.7520983686984,
+        "nearest_n": 1914,
+        "detuning_from_integer": -0.2479016313016018,
+        "Lambda_mode_m": 401.73289293960903,
+        "Lambda_target_m": 401.78493219777215,
+        "relative_wavelength_mismatch": 0.0001295369611941206
+      },
+      "closed_open_tube_mode_at_exit_spacing": {
+        "kind": "closed-open",
+        "n_real": 1914.2520983686984,
+        "nearest_n": 1914,
+        "detuning_from_integer": 0.2520983686983982,
+        "Lambda_mode_m": 401.83786625890343,
+        "Lambda_target_m": 401.78493219777215,
+        "relative_wavelength_mismatch": -0.00013172989799118765
+      },
+      "string_mode_at_mean_spacing": {
+        "kind": "string",
+        "n_real": 2000.0049999872654,
+        "nearest_n": 2000,
+        "detuning_from_integer": 0.004999987265364325,
+        "Lambda_mode_m": 384.45837854320587,
+        "Lambda_target_m": 384.4574174021103,
+        "relative_wavelength_mismatch": -2.499987382770865e-06
+      }
+    }
+  ],
+  "chirp": {
+    "note": "On a rail that starts from rest, the spatial period of a fixed pulse cycle, Lambda = v(t) * T, grows as speed grows. The number of periods actually laid equals the pulse count (approximately t/T). A uniform standing-wave mode uses one wavelength. Exit-speed spacing is longer than mean spacing, so fewer uniform exit-speed periods fit in L than pulses that were laid. That mismatch is the chirp."
+  }
+}
