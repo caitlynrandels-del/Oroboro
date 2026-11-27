@@ -7,3 +7,5 @@
 - `outputs/`: `conjunctive_check.json`, `conjunctive_vs_isolated_key.csv`, `conjunctive_vs_isolated_corr.csv`
 
 Note: the comparison states that `oroboro-core.js` still used `Math.random()*0.1` for its delta. That was true when it was written. The same day it was replaced in [oroboro-relay](https://github.com/caitlynrandels-del/oroboro-relay) with a deterministic delta and `OroboroPipeline`.
+
+PDF page view (SVG page images): [Oroboro_CrossDomain_Comparison](pdf-pages/Oroboro_CrossDomain_Comparison/view.html).
