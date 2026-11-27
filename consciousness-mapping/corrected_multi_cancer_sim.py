@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# SUPERSEDED (2026-11-27): NON-NATIVE, NON-INTEGRATED RUN. Kept for history.
+# Audit: this sim draws from Python `random` and calls no Oroboro component in a loop
+# (no NaCl polarity mesh / odd loops, no mesh consensus, no deterministic delta
+# reconciliation, Levy/Nexus/Transcriber/Genesis absent or ledger-only, no Oasis or
+# PrinciplesGate). Native, integrated replacement:
+#   https://github.com/caitlynrandels-del/Oroboro/tree/main/research/metastasis-native
+# Speculative in-silico modeling only. No clinical, medical or engineering claims.
 """
 Oroboro Metastasis Architecture Testbed – Corrected Multi-Cancer Runs
 Each cancer gets its own seed and organ permissiveness.

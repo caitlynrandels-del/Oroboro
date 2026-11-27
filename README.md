@@ -63,6 +63,8 @@ Preview: `oroboro_preview.jpg`
 - **Metastatic Cascade Analysis** — Identifiability limits of stage-specific control in a calibrated stochastic model (1.21 million runs). Full details: https://github.com/caitlynrandels-del/metastatic-cascade-analysis
 - **Epilepsy / seizure adaptation** — The metastasis relational testbed (v4) was adapted to seizure dynamics (117 scenarios, about 1.13 million simulated people), including a candidate psilocin receptor on-off gate mapping from Balabandian et al. 2025 (mouse PTZ/MES; 5-HT1A / CB1 / kynurenine). Speculative modeling only; no clinical claims. https://github.com/caitlynrandels-del/epilepsy-sim
 
+- **Latest research (27 Nov 2026)**: [research/](research/). This holds the native metastasis cascade rerun with every Oroboro component in one loop ([PIPELINE.md](research/PIPELINE.md)), the magnetic-launch case study with its goal-seek, tilt/torque and geography addenda, and the cross-domain comparison. Older non-native sims are marked superseded. Speculative in-silico modeling only; no clinical, medical or engineering claims.
+
 **Keywords:** Caitlyn Randels, Caitlyn Connor Randels, Oroboro, Ouroboros, state reduction, relational simulation, consciousness mapping, independent researcher.
 
-Updated 2026-11-26.
+Updated 2026-11-27.

@@ -13,6 +13,9 @@ Scientific paper and framework summary on state reduction and a relational simul
 ### Status
 Work in progress. Seeking feedback from experts (e.g., Professor Zhang).
 
+### Superseded sims (audit 27 Nov 2026)
+`corrected_multi_cancer_sim.py`, `metastasis_data_informed_sim.py` and `metastasis_extended_sim.py` are **superseded**. They draw from Python `random`, keep Levy only as a running ledger, and have no polarity mesh, consensus or reconciliation loop. They are kept for history with a header banner. The native replacement, with every component in one loop, is [../research/metastasis-native](../research/metastasis-native). Speculative modeling only; no clinical claims.
+
 ### Current Materials
 - **[Oroboro_Research_Submission.md](./Oroboro_Research_Submission.md)** — Full November 2026 research submission paper detailing the complete Oroboro framework and the entire public repository collection as a unified body of work.
 - **[Oroboro_Framework_Summary.md](./Oroboro_Framework_Summary.md)** — Full November 2026 independent research summary (from PDF).
@@ -25,4 +28,4 @@ Work in progress. Seeking feedback from experts (e.g., Professor Zhang).
 
 Related practical application: [Oroboro Relay](https://github.com/caitlynrandels-del/oroboro-relay) — state reduction applied to the 13 Nov 2026 FAA ATC communications crisis. The metastasis mesh simulation lives in the same repository.
 
-Updated 2026-11-26 (epilepsy cross-link added).
+Updated 2026-11-27 (superseded-sim note; see ../research/).
