@@ -61,7 +61,8 @@ Preview: `oroboro_preview.jpg`
 - **Oroboro Relay** — Resilient ATC Companion applying state reduction and relational simulation to the 13 Nov 2026 FAA communications crisis. Independent sector processing + delta reconciliation. Prototype: https://github.com/caitlynrandels-del/oroboro-relay
 - **Consciousness Mapping** — Oroboro Structures for Consciousness Mapping paper (in progress). See /consciousness-mapping/.
 - **Metastatic Cascade Analysis** — Identifiability limits of stage-specific control in a calibrated stochastic model (1.21 million runs). Full details: https://github.com/caitlynrandels-del/metastatic-cascade-analysis
+- **Epilepsy / seizure adaptation** — The metastasis relational testbed (v4) was adapted to seizure dynamics (117 scenarios, about 1.13 million simulated people), including a candidate psilocin receptor on-off gate mapping from Balabandian et al. 2025 (mouse PTZ/MES; 5-HT1A / CB1 / kynurenine). Speculative modeling only; no clinical claims. https://github.com/caitlynrandels-del/epilepsy-sim
 
 **Keywords:** Caitlyn Randels, Caitlyn Connor Randels, Oroboro, Ouroboros, state reduction, relational simulation, consciousness mapping, independent researcher.
 
-Updated 2026-11-25.
+Updated 2026-11-26.
