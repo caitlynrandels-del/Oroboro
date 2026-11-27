@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>A Dream-Catcher Weave on a Detected Pose</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.9in 0.9in 0.9in; }
+html, body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 11pt; line-height: 1.38; color: #1a1a1a; }
+h1 { font-size: 16.5pt; color: #1f3a5f; margin: 0 0 0.15em 0; line-height: 1.2; }
+h2 { font-size: 13.5pt; color: #1f3a5f; margin: 1.15em 0 0.4em 0; border-bottom: 0.6pt solid #1f3a5f; padding-bottom: 0.12em; }
+h3 { font-size: 12pt; color: #1f3a5f; margin: 0.9em 0 0.3em 0; }
+p { margin: 0 0 0.55em 0; text-align: justify; }
+ul { margin: 0.2em 0 0.6em 1.2em; padding: 0; }
+li { margin: 0 0 0.25em 0; }
+code { font-family: "Liberation Mono", Menlo, monospace; font-size: 9.5pt; }
+table { border-collapse: collapse; width: 100%; margin: 0.4em 0 0.9em 0; font-size: 8.7pt; }
+th, td { border: 0.6pt solid #666; padding: 3px 5px; vertical-align: top; text-align: left; }
+th { background: #e8eef5; color: #1f3a5f; }
+figure { margin: 0.9em 0; page-break-inside: avoid; }
+img { width: 100%; max-width: 6.5in; height: auto; }
+figcaption { font-size: 9.5pt; font-style: italic; color: #333; margin-top: 0.3em; }
+hr { border: none; border-top: 0.6pt solid #aaa; margin: 1.2em 0; }
+</style></head><body>
+<h1>Oroboro Structures for Consciousness Mapping</h1>
+<h2>Follow-on: A Dream-Catcher Weave on a Detected Pose</h2>
+<h3>Loops, Frustration, and Pulse Spread Versus the Tree-Only Wireframe</h3>
+<p><strong>Status:</strong> Speculative modeling exercise only. Not an engineering design, a claim about a player&#x27;s body, or a statement that a dream-catcher is a launch structure. No operational claims. The official highlight was used for personal analysis only; it is not redistributed, not committed, and not shown in the figure.</p>
+<p>Prepared 27 November 2026 as a follow-on to the ondulatory-string addendum. It does the next step named there: replace the placeholder tree with the best available pose, and give the mesh actual loops by laying a dream-catcher weave over it.</p>
+<h3>Pose data: what was used</h3>
+<p>The addendum had used invented placeholder joints from <code>example_joints.json</code>, and had noted that a prior MediaPipe probe of the 28 October 2026 Avalanche vs Devils highlights stored only summary counts, not coordinates. This run installed MediaPipe Tasks PoseLandmarker (lite, IMAGE mode, up to eight poses, confidence 0.4) on the box, used the already-stored lite model, and estimated poses on six frames extracted from the personal-use highlight. The broadcast stills are kept only in a work folder and are not part of the published figure.</p>
+<p>Results of the six-frame survey:</p>
+<ul>
+<li>Clip 0:05 and 1:30 (wide ice) — 0 poses in this run. The earlier probe had reported a detection on those times; a zero here is a detection result, not a claim that no players are on the ice. MediaPipe Pose is built for a nearby person, not a wide shot of many small figures.</li>
+<li>Clip 4:10 — two poses, 11 of 13 body joints at visibility ≥ 0.5 each.</li>
+<li>Clip 6:40 (a close view of number 91) — one pose, 10 of 13 body joints at visibility ≥ 0.5.</li>
+<li>Clip 8:36 — one pose, <strong>12 of 13</strong> body joints at visibility ≥ 0.5, mean body visibility <strong>0.825</strong>. This is the most complete detection and is the graph used below.</li>
+<li>Clip 9:30 — one pose, 9 of 13 body joints at visibility ≥ 0.5.</li>
+</ul>
+<p><strong>Real pose data were used.</strong> No player pose was invented, and a COCO-17 rest-pose template was not needed. The kinematic tree is built from the clip-8:36 landmarks (published BlazePose / MediaPipe names), plus two midpoints labeled as derived, not detected: mid-hip (Genesis) as the average of the detected hips, and neck as the average of the detected shoulders. The right knee is included at visibility <strong>0.431</strong>, above the keep threshold of 0.30 but below 0.50; that one bone is treated as a weaker observation and is drawn dashed in the figure. All other body joints in this pose are at visibility ≥ 0.50.</p>
+<p>The tree has <strong>15 vertices and 14 edges</strong>. It is acyclic (cycle rank 0), of the same kind as the earlier placeholder tree, but its coordinates come from a detected frame rather than from example data.</p>
+<h3>The dream-catcher weave</h3>
+<p>The weave is a hoop plus an inward web, constructed as follows (all of these numbers are declared assumptions, not measurements of a physical object):</p>
+<ul>
+<li>The hoop is a regular 12-gon in the image plane, centered at mid-hip (Genesis). Its radius is 1.15 times the maximum distance of the neck, shoulders, and hips from that center (127.37 px in this frame), so the hoop sits around the torso envelope.</li>
+<li>Four inward rounds follow. Each new vertex starts at the midpoint of a previous-round segment and is scaled in toward the center. The innermost round is left as a hole of radius 0.20 R (25.47 px), not collapsed to a point.</li>
+<li>Each new vertex attaches to both ends of the parent segment, which makes triangular cells — the &quot;knit.&quot;</li>
+<li>Neck and both shoulders are tied to the nearest hoop vertex; both hips, which sit near Genesis, are tied to the nearest vertex of the inner hole ring.</li>
+</ul>
+<p>The inverse-Epcot bowl is mapped, as an interpretation, as a pressure-balanced circular shell in the same plane, a little outside the hoop; the hoop is the rim, the web hangs inward, and the hole is at Genesis. That is a 2-D reading of the parent-run bowl, not a new 3-D shell computation.</p>
+<p>The woven graph is the kinematic tree plus hoop, web, and ties: <strong>75 vertices, 175 edges</strong>, one connected component.</p>
+<h3>Observable claims (modeling only)</h3>
+<p>Each claim is tied to this run. Tree means the 15-joint detected kinematic tree alone. Woven means that tree plus the dream-catcher.</p>
+<p><strong>1. The weave turns a tree into a mesh with 101 independent loops; the tree has none.</strong> Cycle rank, E − V + C, is <strong>0</strong> for the tree and <strong>101</strong> for the woven graph (175 − 75 + 1). The placeholder wireframe in the addendum was also a tree (16 vertices, 15 edges, no cycles). The sock-like knit appears only once the hoop and the midpoint web are added.</p>
+<p><strong>2. Odd cells in the weave frustrate a two-color polarity: the tree can lock completely, the weave cannot.</strong> Both graphs were passed through the existing <code>nacl_polarity_mesh.py</code> operators under the same two charge rules as the addendum, then inverted and restabilized. The tree is bipartite (0 two-color conflicts). Interpretation B (alternate charge by BFS level from mid-hip) locked <strong>14 of 14</strong> tree edges; interpretation A (hub-and-leaf) locked <strong>5 of 14</strong>. The woven graph is not bipartite: a BFS two-coloring finds <strong>59</strong> conflicts, which are the triangular cells of the midpoint weave. Under interpretation B, <strong>116 of 175</strong> edges lock and <strong>59</strong> stay open — exactly the conflict count. Under interpretation A only <strong>5 of 175</strong> lock, because most weave vertices have degree greater than 1 and are given the same charge. Invert-and-restabilize preserved the lock count in every case. The unbreakable NaCl observable still holds in the weaker form: opposite ends lock, and the frustrated odd-cycle edges stay open. That frustration is a real property of this weave, not a failure of the invert step.</p>
+<p>Levy bookkeeping (0.999 on locked edges, 0.25 on open edges, the two weights already present in the NaCl mesh code) totals <strong>13.986</strong> on the tree under rule B and <strong>130.634</strong> on the weave under rule B. Those figures scale with edge count and lock fraction; they are not physical energies.</p>
+<p><strong>3. Loops raise algebraic connectivity and let a pulse leave the origin and fill the graph more thoroughly.</strong> The Laplacian of each graph has one zero eigenvalue (one component). The Fiedler value (algebraic connectivity) rises from <strong>0.122019</strong> on the tree to <strong>0.176666</strong> on the weave. A unit pulse at mid-hip, stepped by a conservative lazy random walk, behaves as follows:</p>
+<table>
+<tr><th>Steps k</th><th>Tree: mass at origin</th><th>Tree: participation</th><th>Tree: nodes reached (mass &gt; 10⁻³)</th><th>Weave: mass at origin</th><th>Weave: participation</th><th>Weave: nodes reached</th></tr>
+<tr><td>--------:</td><td>---------------------:</td><td>--------------------:</td><td>----------------------------------:</td><td>----------------------:</td><td>---------------------:</td><td>---------------------:</td></tr>
+<tr><td>1</td><td>0.5000</td><td>2.56</td><td>4</td><td>0.5000</td><td>3.17</td><td>4</td></tr>
+<tr><td>2</td><td>0.3542</td><td>3.57</td><td>9</td><td>0.3222</td><td>5.66</td><td>12</td></tr>
+<tr><td>4</td><td>0.2374</td><td>4.79</td><td>15 (all)</td><td>0.1808</td><td>10.33</td><td>30</td></tr>
+<tr><td>8</td><td>0.1611</td><td>5.26</td><td>15</td><td>0.0923</td><td>16.49</td><td>51</td></tr>
+<tr><td>16</td><td>0.1275</td><td>5.39</td><td>15</td><td>0.0483</td><td>29.86</td><td>70</td></tr>
+<tr><td>32</td><td>0.1159</td><td>5.65</td><td>15</td><td>0.0250</td><td>76.09</td><td>75 (all)</td></tr>
+</table>
+<p>On the tree the pulse has already reached every joint by step 4, then can only slosh among those 15 nodes; mass at Genesis is still 0.116 at step 32. On the weave the same step lets mass run out along the web, participation is much larger, and mass at Genesis has fallen to 0.025 by step 32, with all 75 nodes active. The loops do not just add vertices; they change how an ondulatory pulse leaves the origin.</p>
+<p><strong>4. State reduction and delta reconciliation still recombine to the whole, with loops present.</strong> The woven edge set was split into four independent parts — tree, hoop, web, and ties — and their lengths were summed. The residual against the whole-graph length (6,221.909 px) was <strong>7.28×10⁻¹²</strong>, <code>matchedWholeSystem: true</code>. That is a bookkeeping identity, of the same kind as the 1.42×10⁻¹⁴ residual on the placeholder skeleton. It confirms the parts were recombined without loss; it does not validate a physical model of yarn or ice.</p>
+<p>Nexus is the joint and vertex register; Genesis remains mid-hip; Levy and mesh consensus are the lock counts above; discrete pulses are the random-walk steps. The figure shows the detected tree, the hoop, the web, the ties, the center hole, and a dashed circular shell for the inverse-Epcot reading. A still from the highlight is not included.</p>
+<h3>Limits</h3>
+<p>Only one pose, from one frame, was woven. Other detections exist and were not built out. The right knee is a weaker landmark. The dream-catcher counts (12-gon, four rounds, hole fraction 0.20, hoop scale 1.15) are assumptions. The shell around the hoop is an interpretive circle, not a 3-D bowl. Laplacian modes have no hertz. Diffusion is a discrete lazy walk, not a wave equation and not the magnetic-rail pulse train. MediaPipe can miss players on wide ice; a missed detection is not a count of people.</p>
+<h3>Next possible steps</h3>
+<ul>
+<li>Weave the other usable detections (clip 4:10 and 6:40) and report whether the 59-edge frustration and the Fiedler rise recur.</li>
+<li>If a later pose stream is dense enough, let the hoop radius follow the torso from frame to frame and watch lock counts move.</li>
+<li>Drive the woven mesh with the chirped pulse lattice from the magnetic-launch run and report overlap with the frustrated odd cells, still as modeling only.</li>
+</ul>
+<p>No claim is made that this is a player&#x27;s measured anatomy, a textile, or a launch design. It records what changed when a detected tree was given a dream-catcher of closed loops.</p>
+<hr/>
+<p><em>Source: MediaPipe pose estimates from the personal-use 28 October 2026 highlight (clip 8:36), the dream-catcher construction above, and the prior magnetic-launch and ondulatory-string notes. Related: Ondulatory_Strings_Wireframe_Addendum.md, Magnetic_Launch_Goldilocks_CaseStudy.md. Figure: outputs/fig05_dreamcatcher_weave.png.</em></p>
+<figure>
+<img src="figures/fig05_dreamcatcher_weave.svg" alt="Detected kinematic tree with a dream-catcher weave"/>
+<figcaption>Figure 1. Detected kinematic tree from clip 8:36 (cyan; the dashed bone is the right knee, visibility 0.431) with a 12-gon dream-catcher hoop, inward midpoint web, joint ties, a center hole at mid-hip (Genesis), and a dashed circular shell for the inverse-Epcot reading. The highlight still is not shown.</figcaption>
+</figure>
+
+</body></html>
