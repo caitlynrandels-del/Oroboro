@@ -38,7 +38,7 @@ class Edge:
     state: str = "open"
     weight: float = 0.0
     organ: Optional[int] = None
-    kind: str = "generic"       # circ, shed, hoop, spoke, organ_hub, return, approach
+    kind: str = "generic"       # circ, shed, hoop, spoke, organ_hub, return, approach, lure, magnet, flush
     repaired: bool = False      # adaptive-niche: treated as lockable even if odd-loop
 
     @property
@@ -157,22 +157,38 @@ def _odd_cycles_count(n_nodes: int, edge_index: List[Tuple[int, int]], cap: int 
 
 
 def build_system_mesh(organs: List[str], hoop_n: int = 8, circulation_nodes: int = 8,
-                      include_loops: bool = True) -> Tuple[PolarityMesh, Dict]:
+                      include_loops: bool = True, extraction: bool = False,
+                      extraction_coloring: str = "preserve") -> Tuple[PolarityMesh, Dict]:
     """
     Full native mesh:
       Genesis origin -- circulation ring -- approach edges into each organ's
       dream-catcher (hoop + hub + spokes) -- return edges back to circulation.
     If include_loops is False, the niche is a tree (organ-hub-hoop spokes only,
     no hoop ring, no return edges): a control ablation with no odd faces.
+    If extraction is True, a filter node and an extract (collection) node are
+    added, with lure edges from each circulation node to the filter, flush
+    edges from each organ hub and hoop entry to the filter, and a magnet edge
+    from the filter to extract.
+
+    extraction_coloring:
+      "preserve" (default) — 2-color the Genesis / circulation / niche mesh first,
+        then attach the extract branch and color only the new nodes from an
+        already-colored neighbor. Existing ring and niche charges do not change.
+      "joint" — put the extract star in the same BFS as the ring. A hub attached
+        to every circulation node is a shortcut and can recode the ring.
     """
     origin = IonicOrigin()
     nodes = ["genesis"]
     edges: List[Edge] = []
     meta = dict(organs=list(organs), hoop_n=hoop_n, include_loops=include_loops,
+                extraction=bool(extraction),
+                extraction_coloring=str(extraction_coloring or "preserve"),
                 circ_nodes=[], organ_nodes=[], hub_nodes=[], hoop_nodes=[],
                 spoke_idx=[[] for _ in organs], hoop_idx=[[] for _ in organs],
                 return_idx=[[] for _ in organs], approach_idx=[[] for _ in organs],
-                niche_edge_idx=[[] for _ in organs])
+                niche_edge_idx=[[] for _ in organs],
+                lure_idx=[], magnet_idx=[], flush_idx=[],
+                filter_node=None, extract_node=None)
 
     # Circulation ring (vascular loop). Kept even in the niche-ablation, because it
     # models recirculation of the vessel compartment, not the organ web.
@@ -227,12 +243,78 @@ def build_system_mesh(organs: List[str], hoop_n: int = 8, circulation_nodes: int
         edges.append(e)
         meta["approach_idx"][o].append(len(edges) - 1)
 
-    mesh = PolarityMesh(nodes, edges, origin)
-    mesh.assign_charges_from("genesis", origin.Na)
-    mesh.process_polarities()
-    mesh.apply_levy()
-    meta["n_nodes"] = len(nodes)
-    meta["n_edges"] = len(edges)
+    # Extraction / collection branch (optional). Filter sits on the way to extract.
+    # Edges use the same NaCl lock rule as the rest of the mesh.
+    extract_edges: List[Edge] = []
+    if extraction:
+        meta["filter_node"] = "filter"
+        meta["extract_node"] = "extract"
+        extract_edges.append(Edge("filter", "extract", kind="magnet"))
+        for cnode in circ:
+            extract_edges.append(Edge(cnode, "filter", kind="lure"))
+        for o, name in enumerate(organs):
+            extract_edges.append(Edge(meta["hub_nodes"][o], "filter", kind="flush", organ=o))
+            hoops_o = meta["hoop_nodes"][o]
+            if hoops_o:
+                extract_edges.append(Edge(hoops_o[0], "filter", kind="flush", organ=o))
+
+    coloring = str(extraction_coloring or "preserve")
+    if extraction and coloring == "joint":
+        nodes += ["filter", "extract"]
+        for e in extract_edges:
+            edges.append(e)
+            if e.kind == "magnet":
+                meta["magnet_idx"].append(len(edges) - 1)
+            elif e.kind == "lure":
+                meta["lure_idx"].append(len(edges) - 1)
+            elif e.kind == "flush":
+                meta["flush_idx"].append(len(edges) - 1)
+        mesh = PolarityMesh(nodes, edges, origin)
+        mesh.assign_charges_from("genesis", origin.Na)
+        mesh.process_polarities()
+        mesh.apply_levy()
+    else:
+        mesh = PolarityMesh(nodes, edges, origin)
+        mesh.assign_charges_from("genesis", origin.Na)
+        if extraction:
+            for n in ("filter", "extract"):
+                mesh.nodes.append(n)
+                mesh.adj[n] = []
+            for e in extract_edges:
+                mesh.edges.append(e)
+                ei = len(mesh.edges) - 1
+                mesh.adj.setdefault(e.node_a, []).append(ei)
+                mesh.adj.setdefault(e.node_b, []).append(ei)
+                if e.kind == "magnet":
+                    meta["magnet_idx"].append(ei)
+                elif e.kind == "lure":
+                    meta["lure_idx"].append(ei)
+                elif e.kind == "flush":
+                    meta["flush_idx"].append(ei)
+            # Color only the new nodes from an already-colored neighbor (no re-BFS).
+            pending = ["filter", "extract"]
+            guard = 0
+            while pending and guard < 8:
+                guard += 1
+                nxt = []
+                for n in pending:
+                    colored = False
+                    for ei in mesh.adj.get(n, []):
+                        e = mesh.edges[ei]
+                        other = e.node_b if e.node_a == n else e.node_a
+                        if other in mesh.charge:
+                            mesh.charge[n] = -mesh.charge[other]
+                            colored = True
+                            break
+                    if not colored:
+                        nxt.append(n)
+                pending = nxt
+            for n in pending:
+                mesh.charge[n] = origin.Na
+        mesh.process_polarities()
+        mesh.apply_levy()
+    meta["n_nodes"] = len(mesh.nodes)
+    meta["n_edges"] = len(mesh.edges)
     meta["n_frustrated0"] = sum(1 for e in mesh.edges if not e.locked)
     meta["n_locked0"] = sum(1 for e in mesh.edges if e.locked)
     meta["inversion_holds"] = None  # computed once outside the hot path

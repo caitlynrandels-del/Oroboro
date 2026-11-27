@@ -6,7 +6,8 @@
     "detach": 7,
     "fail": 2,
     "colonize": 14,
-    "exit": 4
+    "exit": 4,
+    "extract": 4
   },
   "cell_init": {
     "immune_evasion_lo": 0.3,
@@ -119,14 +120,21 @@
     "integrated": true,
     "principles_gate": true,
     "levy_feedback": true,
-    "levy_gain": 1.0
+    "levy_gain": 1.0,
+    "light": false,
+    "light_mode": "off",
+    "light_strength": 0.0,
+    "light_timing": "upstream",
+    "extraction": false
   },
   "levy_weight_documentation": {
     "clear": "circulation, dormancy or Oasis-recycle clearance pulse",
     "detach": "Genesis shed / magnetic detach pulse into circulation",
     "fail": "failed seeding or failed colonization after a reawakening pulse",
     "colonize": "successful lock on a lockable niche path (overt colony)",
-    "exit": "DOCUMENTED Levy-weighted reawakening / origami-unfold pulse (+4). Not an undocumented constant."
+    "exit": "DOCUMENTED Levy-weighted reawakening / origami-unfold pulse (+4). Not an undocumented constant.",
+    "extract": "DOCUMENTED directed-transport pulse to the extraction / collection node. Recycles the same Levy +4 weight as the reawakening / origami-unfold exit pulse; not a new invented constant. Counts a successful move, not a clearance or a kill."
   },
-  "_note_integration": "2026-11-27: conjunctive pipeline on by default (integrated, principles_gate, levy_feedback). Set integrated=false to reproduce the pre-integration native run."
+  "_note_integration": "2026-11-27: conjunctive pipeline on by default (integrated, principles_gate, levy_feedback). Set integrated=false to reproduce the pre-integration native run.",
+  "_note_light": "2026-11-27: optional light-transport extraction node. Off by default so the calibrated conjunctive baseline is unchanged. When light=true, an extraction branch is added to the polarity mesh and Oasis-gated directed moves run on the same monthly loop (Dictator -> Transcriber -> Levy -> damper -> Nexus)."
 }

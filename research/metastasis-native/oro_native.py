@@ -36,8 +36,8 @@ _INV_CACHE = {}
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 M64 = (1 << 64) - 1
-KINDS = ["clear", "detach", "fail", "colonize", "exit"]
-CIRC, DORM, OVERT, CLEARED, LOST, PENDING = 0, 1, 2, 3, 4, -1
+KINDS = ["clear", "detach", "fail", "colonize", "exit", "extract"]
+CIRC, DORM, OVERT, CLEARED, LOST, PENDING, EXTRACTED = 0, 1, 2, 3, 4, -1, 5
 
 
 def load_params(path=None):
@@ -210,6 +210,14 @@ class Part:
         self.principles = PrinciplesGate()
         self.fails = np.zeros(n, dtype=np.int8)
         self.adapted = 0
+        # Light-transport flags (no-op unless native["light"] is on)
+        self.tagged = np.zeros(n, dtype=np.bool_)
+        self.leaky = np.zeros(n, dtype=np.bool_)
+        self.located = np.zeros(n, dtype=np.bool_)
+        self.organ_extracted_overt = {}
+        self.extracted_from = dict(circ=0, dorm=0, overt=0)
+        self.n_tagged_ever = 0; self.n_leaky_ever = 0; self.n_located_ever = 0
+        self.extract_attempts = 0; self.extract_commits = 0
 
     def summary(self):
         a = (self.state == CIRC) | (self.state == DORM)
@@ -233,6 +241,7 @@ class Part:
         if new.any():
             st[new] = CIRC; self.levy.add("detach", int(new.sum()))
             if record: self.events += [(m, "detach", int(i), -1) for i in ids[new]]
+        self._light_step(m, S_env, cfg, P, lev, seed, mesh, meta, native, record)
         organs = cfg["organs"]; perm = cfg["perm_eff"](lev)
         # tilt / torque: rotational bias on the circulation loop's organ encounter weights
         tilt = float(native.get("tilt", 0.0)); phase = float(native.get("torque_phase", 0.0))
@@ -255,29 +264,45 @@ class Part:
                 arr = U(seed, ids[rem], m, 11) < P["arrest_p"]
                 ai = rem[arr]
                 if len(ai):
-                    cum = np.cumsum(perm / perm.sum())
-                    org = np.minimum(np.searchsorted(cum, U(seed, ids[ai], m, 12), side="right"), len(perm) - 1)
-                    g = self._gate(ai, perm[org], S_env, seed, m, 12, thr)
-                    self.ledger_gate["recycle"] += int((g == 0).sum()); self.ledger_gate["buffer"] += int((g == 1).sum())
-                    self.ledger_gate["commit"] += int((g == 2).sum())
-                    rec = ai[g == 0]
-                    if len(rec):
-                        st[rec] = CLEARED; self.levy.add("clear", len(rec)); self.cleared_by["recycle"] += len(rec)
-                        if record: self.events += [(m, "recycle", int(i), -1) for i in ids[rec]]
-                    cm = g == 2; ci2 = ai[cm]; o2 = org[cm]
-                    if len(ci2):
-                        fo = self.fit[ci2] * perm[o2] * (P["fit_mix"][0] + P["fit_mix"][1] * self.epi[ci2])
-                        ok = fo >= P["seed_threshold"]
-                        bad = ci2[~ok]
-                        if len(bad):
-                            st[bad] = LOST; self.levy.add("fail", len(bad)); self.lost_seed += len(bad)
-                            if record: self.events += [(m, "fail", int(i), int(o)) for i, o in zip(ids[bad], o2[~ok])]
-                        good = ci2[ok]; og = o2[ok]
-                        if len(good):
-                            st[good] = DORM; self.organ[good] = og; self.d[good] = P["dormancy"]["initial_depth"]
-                            self._seat_on_niche(good, og, mesh, meta, native, seed, m)
-                            for o in og:
-                                self.heat[int(o)] = self.heat.get(int(o), 0.0) + 0.1
+                    lc = _light_cfg(native)
+                    up_lure = (lc["on"] and lc["do_lure"] and lc["timing"] == "upstream"
+                               and m >= lc["start"] and lc["strength"] > 0)
+                    if up_lure:
+                        perm_use = np.concatenate([perm, [lc["strength"]]])
+                    else:
+                        perm_use = perm
+                    cum = np.cumsum(perm_use / perm_use.sum())
+                    org = np.minimum(np.searchsorted(cum, U(seed, ids[ai], m, 12), side="right"), len(perm_use) - 1)
+                    if up_lure:
+                        is_ex = org == len(perm)
+                        ex_i = ai[is_ex]
+                        if len(ex_i):
+                            # Oasis recycle on an extract proposal is a refused move, not a clearance.
+                            self._try_extract(ex_i, meta.get("lure_idx") or [], S_env, P, seed, m, 40,
+                                              mesh, meta, native, record, attempt_all=True)
+                        ai = ai[~is_ex]; org = org[~is_ex]
+                    if len(ai):
+                        g = self._gate(ai, perm[org], S_env, seed, m, 12, thr)
+                        self.ledger_gate["recycle"] += int((g == 0).sum()); self.ledger_gate["buffer"] += int((g == 1).sum())
+                        self.ledger_gate["commit"] += int((g == 2).sum())
+                        rec = ai[g == 0]
+                        if len(rec):
+                            st[rec] = CLEARED; self.levy.add("clear", len(rec)); self.cleared_by["recycle"] += len(rec)
+                            if record: self.events += [(m, "recycle", int(i), -1) for i in ids[rec]]
+                        cm = g == 2; ci2 = ai[cm]; o2 = org[cm]
+                        if len(ci2):
+                            fo = self.fit[ci2] * perm[o2] * (P["fit_mix"][0] + P["fit_mix"][1] * self.epi[ci2])
+                            ok = fo >= P["seed_threshold"]
+                            bad = ci2[~ok]
+                            if len(bad):
+                                st[bad] = LOST; self.levy.add("fail", len(bad)); self.lost_seed += len(bad)
+                                if record: self.events += [(m, "fail", int(i), int(o)) for i, o in zip(ids[bad], o2[~ok])]
+                            good = ci2[ok]; og = o2[ok]
+                            if len(good):
+                                st[good] = DORM; self.organ[good] = og; self.d[good] = P["dormancy"]["initial_depth"]
+                                self._seat_on_niche(good, og, mesh, meta, native, seed, m)
+                                for o in og:
+                                    self.heat[int(o)] = self.heat.get(int(o), 0.0) + 0.1
 
         # --- dormant cells (origami-folded). Reawakening = documented Levy +4 pulse.
         di = np.nonzero(st == DORM)[0]
@@ -373,6 +398,176 @@ class Part:
             ei = lockable[int(self.ids[cell]) % len(lockable)]
             self.edge[cell] = ei
             self.frust[cell] = (not mesh.edges[ei].locked)
+
+    def _light_step(self, m, S_env, cfg, P, lev, seed, mesh, meta, native, record=False):
+        """Directed light-transport to the extraction node, on the conjunctive loop.
+
+        Marks (tag / leaky / locate) and Oasis-gated moves happen before monthly
+        clearance so a directed exit can compete with other fates. Recycle on an
+        extract proposal is a refused move, not a clearance. Speculative only.
+        """
+        lc = _light_cfg(native)
+        if not lc["on"] or not meta.get("extraction") or m < lc["start"] or lc["strength"] <= 0:
+            return
+        st = self.state; ids = self.ids; n = len(ids)
+        if n == 0:
+            return
+        if lc["timing"] == "circulation":
+            elig = (st == CIRC)
+        elif lc["timing"] == "post_settling":
+            elig = (st == DORM) | (st == OVERT)
+        else:
+            elig = (st == CIRC) | (st == DORM) | (st == OVERT)
+        strength = lc["strength"]
+
+        if lc["do_tag"]:
+            cand = elig & (~self.tagged)
+            if cand.any():
+                idx = np.nonzero(cand)[0]
+                hit = U(seed, ids[idx], m, 32) < strength
+                if hit.any():
+                    self.tagged[idx[hit]] = True
+                    self.n_tagged_ever += int(hit.sum())
+        if lc["do_pa"]:
+            cand = elig & (~self.located)
+            if cand.any():
+                idx = np.nonzero(cand)[0]
+                hit = U(seed, ids[idx], m, 36) < strength
+                if hit.any():
+                    self.located[idx[hit]] = True
+                    self.n_located_ever += int(hit.sum())
+        if lc["do_flush"]:
+            cand = elig & (~self.leaky)
+            if cand.any():
+                idx = np.nonzero(cand)[0]
+                hit = U(seed, ids[idx], m, 34) < strength
+                hi = idx[hit]
+                if len(hi):
+                    self.leaky[hi] = True
+                    self.n_leaky_ever += len(hi)
+                    seated = (st[hi] == DORM) | (st[hi] == OVERT)
+                    if seated.any():
+                        # Documented Levy +4 unfold pulse; not a second Genesis detach.
+                        self.d[hi[seated]] *= P["dormancy"]["exit_factor"]
+                        self.levy.add("exit", int(seated.sum()))
+                        if record:
+                            self.events += [(m, "exit", int(ids[i]), int(self.organ[i])) for i in hi[seated]]
+
+        # Moves. Combined mode can apply several; a cell is extracted at most once.
+        if lc["do_lure"]:
+            if lc["timing"] == "circulation":
+                idx = np.nonzero((st == CIRC) & elig)[0]
+                self._try_extract(idx, meta.get("lure_idx") or [], S_env, P, seed, m, 30,
+                                  mesh, meta, native, record, p=strength)
+            elif lc["timing"] != "upstream":
+                # post-settling: directed bias out of the niche along flush edges
+                idx = np.nonzero(((st == DORM) | (st == OVERT)) & elig)[0]
+                self._try_extract(idx, meta.get("flush_idx") or [], S_env, P, seed, m, 31,
+                                  mesh, meta, native, record, p=strength)
+            else:
+                # upstream: niche pull here; CIRC lure competes at the arrest gate
+                idx = np.nonzero(((st == DORM) | (st == OVERT)) & elig)[0]
+                self._try_extract(idx, meta.get("flush_idx") or [], S_env, P, seed, m, 31,
+                                  mesh, meta, native, record, p=strength)
+        if lc["do_tag"]:
+            idx = np.nonzero(elig & self.tagged & (st != EXTRACTED))[0]
+            pool = (meta.get("magnet_idx") or []) + (meta.get("lure_idx") or []) + (meta.get("flush_idx") or [])
+            self._try_extract(idx, pool, S_env, P, seed, m, 33, mesh, meta, native, record, p=strength)
+        if lc["do_flush"]:
+            # Streams are fixed by compartment so whole vs parts stays deterministic.
+            idx = np.nonzero(elig & self.leaky & (st != EXTRACTED))[0]
+            circ_i = idx[st[idx] == CIRC]
+            seat_i = idx[(st[idx] == DORM) | (st[idx] == OVERT)]
+            self._try_extract(circ_i, meta.get("lure_idx") or [], S_env, P, seed, m, 35,
+                              mesh, meta, native, record, p=strength)
+            self._try_extract(seat_i, meta.get("flush_idx") or [], S_env, P, seed, m, 38,
+                              mesh, meta, native, record, p=strength)
+        if lc["do_pa"]:
+            idx = np.nonzero(elig & self.located & (st != EXTRACTED))[0]
+            pool = (meta.get("lure_idx") or []) + (meta.get("flush_idx") or [])
+            self._try_extract(idx, pool, S_env, P, seed, m, 37, mesh, meta, native, record, p=strength)
+
+    def _try_extract(self, idx, edge_pool, S_env, P, seed, m, stream, mesh, meta, native, record,
+                     p=1.0, attempt_all=False):
+        """Oasis-gated move onto a directed extract edge. Prefers lockable polarity paths."""
+        if len(idx) == 0 or not edge_pool:
+            return
+        st = self.state; ids = self.ids
+        live = idx[st[idx] != EXTRACTED]
+        if len(live) == 0:
+            return
+        if not attempt_all:
+            att = U(seed, ids[live], m, stream) < float(p)
+            live = live[att]
+        if len(live) == 0:
+            return
+        self.extract_attempts += len(live)
+        extract_perm = float(np.clip(_light_cfg(native)["strength"] or p, 1e-6, 1.0))
+        if native.get("light_oasis", True):
+            g = self._gate(live, np.full(len(live), extract_perm), S_env, seed, m, stream, S_env["thr"])
+            self.ledger_gate["recycle"] += int((g == 0).sum())
+            self.ledger_gate["buffer"] += int((g == 1).sum())
+            self.ledger_gate["commit"] += int((g == 2).sum())
+            # Recycle/buffer = refused move, stay in place (not a clearance).
+            cm = live[g == 2]
+        else:
+            # Ablation: skip Oasis/PrinciplesGate on the extract proposal only.
+            self.ledger_gate["commit"] += len(live)
+            cm = live
+        if len(cm) == 0:
+            return
+        locked = [i for i in edge_pool if mesh.edges[i].locked]
+        frust = [i for i in edge_pool if not mesh.edges[i].locked]
+        hop = float(native.get("hop_from_frustrated", 0.2))
+        if locked:
+            ok = np.ones(len(cm), dtype=bool)
+            pool = locked
+        elif frust:
+            ok = U(seed, ids[cm], m, stream + 1) < hop
+            pool = frust
+        else:
+            return
+        use = cm[ok]
+        if len(use) == 0:
+            return
+        upick = U(seed, ids[use], m, stream + 2)
+        for k, cell in enumerate(use):
+            ei = pool[int(upick[k] * len(pool)) % len(pool)]
+            self.edge[int(cell)] = int(ei)
+            self.frust[int(cell)] = (not mesh.edges[ei].locked)
+        # Bookkeeping per prior state
+        for cell in use:
+            prev = int(st[int(cell)])
+            org = int(self.organ[int(cell)])
+            if prev == CIRC:
+                self.extracted_from["circ"] += 1
+            elif prev == DORM:
+                self.extracted_from["dorm"] += 1
+            elif prev == OVERT:
+                self.extracted_from["overt"] += 1
+                if org >= 0:
+                    self.organ_extracted_overt[org] = self.organ_extracted_overt.get(org, 0) + 1
+        self.extract_commits += len(use)
+        st[use] = EXTRACTED
+        self.levy.add("extract", len(use))
+        if record:
+            self.events += [(m, "extract", int(ids[i]), int(self.organ[i])) for i in use]
+
+
+def _light_cfg(native):
+    """Resolve light-transport flags. Off unless native['light'] is true."""
+    mode = str(native.get("light_mode") or "off")
+    timing = str(native.get("light_timing") or "upstream")
+    on = bool(native.get("light", False)) and mode not in ("off", "", "none")
+    start = native.get("light_start_month")
+    if start is None:
+        start = 61 if timing == "post_settling" else 1
+    return dict(on=on, mode=mode, timing=timing, start=int(start),
+                strength=float(native.get("light_strength", 0.0) or 0.0),
+                do_lure=mode in ("lure", "combined"),
+                do_tag=mode in ("tag_magnet", "combined"),
+                do_flush=mode in ("flush", "combined"),
+                do_pa=mode in ("photoacoustic", "combined"))
 
 
 def make_cfg(name, P):
@@ -473,9 +668,13 @@ def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None
     lev = dict(NEUTRAL); lev.update(lever or {}); base_lev = dict(NEUTRAL)
     cfg = make_cfg(name, P); sd = seed if seed is not None else cfg["seed"]
     native = _native_flags(P, native_overrides)
+    extraction = bool(native.get("light", False) or native.get("extraction", False))
+    extraction_coloring = str(native.get("extraction_coloring") or "preserve")
     mesh, meta = build_system_mesh(cfg["organs"], hoop_n=int(native.get("hoop_n", 8)),
                                    circulation_nodes=int(native.get("circulation_nodes", 8)),
-                                   include_loops=bool(native.get("include_loops", True)))
+                                   include_loops=bool(native.get("include_loops", True)),
+                                   extraction=extraction,
+                                   extraction_coloring=extraction_coloring)
     nshed = shed_schedule(cfg, sd, P, lev, base_lev)
     ids, sm = [], []
     for m, n in enumerate(nshed, start=1):
@@ -486,11 +685,13 @@ def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None
     parts = [Part(k, ids[pidx == k], sm[pidx == k], sd, P) for k in range(nparts)]
     nexus = Nexus(); genesis = Genesis(); transcriber = Transcriber(); dictator = Dictator(transcriber)
     nexus.register("genesis", genesis.mirror(name, sd))
-    key = (tuple(cfg["organs"]), bool(native.get("include_loops", True)))
+    key = (tuple(cfg["organs"]), bool(native.get("include_loops", True)), extraction, extraction_coloring)
     if key not in _INV_CACHE:
         _INV_CACHE[key] = mesh_inversion_holds(cfg["organs"], hoop_n=int(native.get("hoop_n", 8)),
                                                circulation_nodes=int(native.get("circulation_nodes", 8)),
-                                               include_loops=bool(native.get("include_loops", True)))
+                                               include_loops=bool(native.get("include_loops", True)),
+                                               extraction=extraction,
+                                               extraction_coloring=extraction_coloring)
     meta["inversion_holds"] = _INV_CACHE[key]
     nexus.register("mesh", dict(n_nodes=meta["n_nodes"], n_edges=meta["n_edges"],
                                 n_frustrated0=meta["n_frustrated0"], inversion=meta["inversion_holds"]))
@@ -578,26 +779,51 @@ def recombine(parts, cfg, P, nexus, genesis, seed, n_shed, record, name, sig, me
     frust_cell = np.concatenate([p.frust for p in parts]) if parts else np.zeros(0, dtype=np.bool_)
     n_circ = int((state == CIRC).sum()); n_dorm = int((state == DORM).sum()); n_overt = int((state == OVERT).sum())
     n_clr = int((state == CLEARED).sum()); n_lost = int((state == LOST).sum())
+    n_extracted = int((state == EXTRACTED).sum())
     dorm_high = int(((state == DORM) & (d > P["dormancy"]["high_cutoff"])).sum())
     dorm_frust = int(((state == DORM) & frust_cell).sum())
-    col_org = {}; heat_col = {}
+    col_org = {}; heat_col = {}; ext_overt_org = {}
+    extracted_from = dict(circ=0, dorm=0, overt=0)
+    n_tagged_ever = n_leaky_ever = n_located_ever = extract_attempts = extract_commits = 0
     for p in parts:
         for o, c in p.organ_colonized.items(): col_org[o] = col_org.get(o, 0) + c
         for k, v in p.heat.items():
             if isinstance(k, tuple): heat_col[k[1]] = heat_col.get(k[1], 0) + v
+        for o, c in getattr(p, "organ_extracted_overt", {}).items():
+            ext_overt_org[o] = ext_overt_org.get(o, 0) + c
+        for k in extracted_from:
+            extracted_from[k] += getattr(p, "extracted_from", {}).get(k, 0)
+        n_tagged_ever += int(getattr(p, "n_tagged_ever", 0))
+        n_leaky_ever += int(getattr(p, "n_leaky_ever", 0))
+        n_located_ever += int(getattr(p, "n_located_ever", 0))
+        extract_attempts += int(getattr(p, "extract_attempts", 0))
+        extract_commits += int(getattr(p, "extract_commits", 0))
     census_org = {int(o): int(((state == OVERT) & (organ == o)).sum()) for o in set(organ[state == OVERT].tolist()) if len(state)}
-    agree = {o: (col_org.get(o, 0) == census_org.get(o, 0) == int(heat_col.get(o, 0))) for o in set(col_org) | set(census_org)}
+    # Current overt occupancy = cumulative colonize minus overt-to-extract; heat stays cumulative.
+    agree = {o: (census_org.get(o, 0) == col_org.get(o, 0) - ext_overt_org.get(o, 0)
+                 and int(heat_col.get(o, 0)) == col_org.get(o, 0))
+             for o in set(col_org) | set(census_org) | set(ext_overt_org)}
     consensus_ok = all(agree.values()) if agree else True
-    census_ok = (n_shed == n_circ + n_dorm + n_overt + n_clr + n_lost) and counts["detach"] == n_shed
+    census_ok = (n_shed == n_circ + n_dorm + n_overt + n_clr + n_lost + n_extracted) and counts["detach"] == n_shed
     levy_ok = abs(levy_running - levy_counts) < 1e-9
     nexus.metrics["reconciliations"] += 1
     pref = cfg["pref_idx"]
     overt_pref = col_org.get(pref, 0)
     fc = mesh.counts()
+    n_frust_circ = sum(1 for e in mesh.edges if (not e.locked) and e.kind in ("circ", "shed"))
+    n_frust_niche = sum(1 for e in mesh.edges if (not e.locked) and e.kind in ("spoke", "hoop", "return", "approach", "organ_hub"))
+    n_frust_extract = sum(1 for e in mesh.edges if (not e.locked) and e.kind in ("lure", "magnet", "flush"))
+    n_lock_extract = sum(1 for e in mesh.edges if e.locked and e.kind in ("lure", "magnet", "flush"))
+    n_extract_edges = sum(1 for e in mesh.edges if e.kind in ("lure", "magnet", "flush"))
     res = dict(cancer=name, seed=seed, preferred=cfg["preferred"], shed=n_shed, cleared=n_clr, lost_failed_seeding=n_lost,
                circ_alive=n_circ, dorm_alive=n_dorm, dorm_high=dorm_high, overt=n_overt, overt_preferred=overt_pref,
-               overt_other=n_overt - overt_pref, levy=levy_running,
-               ev_clear=counts["clear"], ev_detach=counts["detach"], ev_fail=counts["fail"], ev_colonize=counts["colonize"], ev_exit=counts["exit"],
+               overt_other=n_overt - overt_pref, extracted=n_extracted,
+               extracted_circ=extracted_from["circ"], extracted_dorm=extracted_from["dorm"], extracted_overt=extracted_from["overt"],
+               extract_yield=(n_extracted / n_shed) if n_shed else 0.0,
+               extract_attempts=extract_attempts, extract_commits=extract_commits,
+               n_tagged_ever=n_tagged_ever, n_leaky_ever=n_leaky_ever, n_located_ever=n_located_ever,
+               levy=levy_running,
+               ev_clear=counts["clear"], ev_detach=counts["detach"], ev_fail=counts["fail"], ev_colonize=counts["colonize"], ev_exit=counts["exit"], ev_extract=counts.get("extract", 0),
                clr_circ=sum(p.cleared_by["circ"] for p in parts), clr_dorm=sum(p.cleared_by["dorm"] for p in parts),
                clr_recycle=sum(p.cleared_by["recycle"] for p in parts),
                gate_recycle=sum(p.ledger_gate["recycle"] for p in parts), gate_buffer=sum(p.ledger_gate["buffer"] for p in parts),
@@ -610,7 +836,11 @@ def recombine(parts, cfg, P, nexus, genesis, seed, n_shed, record, name, sig, me
                dorm_on_frustrated=dorm_frust,
                inversion_holds=bool(meta["inversion_holds"]),
                damper_pressure=float(pressure),
-               include_loops=bool(meta["include_loops"]))
+               include_loops=bool(meta["include_loops"]),
+               extraction_mesh=bool(meta.get("extraction", False)),
+               n_frustrated_circ=int(n_frust_circ), n_frustrated_niche=int(n_frust_niche),
+               n_frustrated_extract=int(n_frust_extract), n_locked_extract=int(n_lock_extract),
+               n_extract_edges=int(n_extract_edges))
     if sig:
         import hashlib
         allids = np.concatenate([p.ids for p in parts]); o = np.argsort(allids, kind="stable")
@@ -629,7 +859,7 @@ def recombine(parts, cfg, P, nexus, genesis, seed, n_shed, record, name, sig, me
 
 
 RECON_KEYS = ["shed", "cleared", "lost_failed_seeding", "circ_alive", "dorm_alive", "dorm_high", "overt", "overt_preferred",
-              "levy", "ev_clear", "ev_detach", "ev_fail", "ev_colonize", "ev_exit"]
+              "extracted", "levy", "ev_clear", "ev_detach", "ev_fail", "ev_colonize", "ev_exit", "ev_extract"]
 
 
 def reconcile_whole_vs_parts(a, b):
