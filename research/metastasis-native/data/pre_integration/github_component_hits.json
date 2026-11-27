@@ -1,0 +1,640 @@
+{
+  "n_repos_with_hits": 12,
+  "repos": [
+    {
+      "repo": "AegisMesh",
+      "components": {
+        "homeostasis": {
+          "n_files": 4,
+          "examples": [
+            "README.md",
+            "sky-logistics-app/app.js",
+            "sky-logistics-app/README.md",
+            "sky-logistics-app/index.html"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "Oroboro",
+      "components": {
+        "nacl_polarity_mesh": {
+          "n_files": 2,
+          "examples": [
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/nacl_polarity_mesh.py"
+          ]
+        },
+        "polarity_mesh": {
+          "n_files": 5,
+          "examples": [
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md",
+            "consciousness-mapping/nacl_polarity_mesh.py",
+            "consciousness-mapping/Unbreakable_NaCl_Polarity_Mesh.md",
+            "consciousness-mapping/NaCl_Polarity_Mesh_Research_Note.md"
+          ]
+        },
+        "mesh_consensus": {
+          "n_files": 6,
+          "examples": [
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md",
+            "consciousness-mapping/nacl_polarity_mesh.py",
+            "consciousness-mapping/Unbreakable_NaCl_Polarity_Mesh.md",
+            "consciousness-mapping/NaCl_Polarity_Mesh_Research_Note.md"
+          ]
+        },
+        "delta_reconciliation": {
+          "n_files": 14,
+          "examples": [
+            "README.md",
+            "\u2b07\ufe0f-Download-Oroboro_For_My_Daughters.html",
+            "consciousness-mapping/metastasis_data_informed_sim.py",
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/metastasis_extended_sim.py"
+          ]
+        },
+        "levy": {
+          "n_files": 11,
+          "examples": [
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/Sponge_Absorption_Mechanic.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md",
+            "consciousness-mapping/Oroboro_Metastasis_Relational_Simulation_Paper.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md"
+          ]
+        },
+        "nexus": {
+          "n_files": 8,
+          "examples": [
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/Sponge_Absorption_Mechanic.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md",
+            "consciousness-mapping/Oroboro_Metastasis_Relational_Simulation_Paper.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md",
+            "consciousness-mapping/nacl_polarity_mesh.py"
+          ]
+        },
+        "genesis": {
+          "n_files": 9,
+          "examples": [
+            "index.html.txt",
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/Sponge_Absorption_Mechanic.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md"
+          ]
+        },
+        "transcriber": {
+          "n_files": 7,
+          "examples": [
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md",
+            "consciousness-mapping/Oroboro_Metastasis_Relational_Simulation_Paper.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md",
+            "consciousness-mapping/nacl_polarity_mesh.py",
+            "consciousness-mapping/Unbreakable_NaCl_Polarity_Mesh.md"
+          ]
+        },
+        "dictator": {
+          "n_files": 4,
+          "examples": [
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md",
+            "consciousness-mapping/Oroboro_Metastasis_Relational_Simulation_Paper.md",
+            "consciousness-mapping/Oroboro_Research_Submission.md"
+          ]
+        },
+        "homeostasis": {
+          "n_files": 1,
+          "examples": [
+            "consciousness-mapping/Oroboro_Research_Submission.md"
+          ]
+        },
+        "sponge": {
+          "n_files": 5,
+          "examples": [
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/Sponge_Absorption_Mechanic.md",
+            "consciousness-mapping/Operational_Update_Sequence.md",
+            "consciousness-mapping/v4_Metastasis_Run_Summary.md",
+            "consciousness-mapping/Epilepsy_Adaptation_and_Psilocin_Gate.md"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 13,
+          "examples": [
+            "README.md",
+            "consciousness-mapping/metastasis_data_informed_sim.py",
+            "consciousness-mapping/Oroboro_Framework_Summary.md",
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/metastasis_extended_sim.py",
+            "consciousness-mapping/Sponge_Absorption_Mechanic.md"
+          ]
+        },
+        "metastasis": {
+          "n_files": 12,
+          "examples": [
+            "README.md",
+            "consciousness-mapping/metastasis_data_informed_sim.py",
+            "consciousness-mapping/README.md",
+            "consciousness-mapping/metastasis_extended_sim.py",
+            "consciousness-mapping/Sponge_Absorption_Mechanic.md",
+            "consciousness-mapping/Metastasis_HeatTrace_CaseStudy.md"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "Oroboro_Auto",
+      "components": {
+        "delta_reconciliation": {
+          "n_files": 1,
+          "examples": [
+            "oroboro-netlify-drop/index.html"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "Orroboro-Wildfire-Sim-3D-Spatial-",
+      "components": {
+        "delta_reconciliation": {
+          "n_files": 1,
+          "examples": [
+            "Oroboro-Wildfire-3D-Spatial.html"
+          ]
+        },
+        "oasis": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "SimulationEngine---Template---Stateful-Particle-Engine",
+      "components": {
+        "oasis": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "The-Live-Rig-Power-Play",
+      "components": {
+        "delta_reconciliation": {
+          "n_files": 1,
+          "examples": [
+            "Etulosba-Supreme-Midi-Visualizer.html"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "caitlynrandels-del",
+      "components": {
+        "mesh_consensus": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        },
+        "delta_reconciliation": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "epilepsy-sim",
+      "components": {
+        "nacl_polarity_mesh": {
+          "n_files": 2,
+          "examples": [
+            "MAPPING.md",
+            "paper/build_part1.py"
+          ]
+        },
+        "polarity_mesh": {
+          "n_files": 3,
+          "examples": [
+            "MAPPING.md",
+            "GATE_NOTE.md",
+            "paper/build_part1.py"
+          ]
+        },
+        "mesh_consensus": {
+          "n_files": 7,
+          "examples": [
+            "RESULTS_SUMMARY.md",
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "GATE_NOTE.md",
+            "code/preflight.py",
+            "code/epi_core.py"
+          ]
+        },
+        "delta_reconciliation": {
+          "n_files": 20,
+          "examples": [
+            "CELL_SHADING.md",
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "PREFLIGHT.md",
+            "README_PLAIN.md",
+            "MAPPING.md"
+          ]
+        },
+        "levy": {
+          "n_files": 19,
+          "examples": [
+            "CELL_SHADING.md",
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "PUBLIC_DATA_INPUTS.md"
+          ]
+        },
+        "nexus": {
+          "n_files": 13,
+          "examples": [
+            "CELL_SHADING.md",
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "GATE_NOTE.md"
+          ]
+        },
+        "genesis": {
+          "n_files": 10,
+          "examples": [
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "GATE_NOTE.md",
+            "ITERATION_LOG.md"
+          ]
+        },
+        "transcriber": {
+          "n_files": 9,
+          "examples": [
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "GATE_NOTE.md",
+            "ITERATION_LOG.md"
+          ]
+        },
+        "dictator": {
+          "n_files": 6,
+          "examples": [
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "GATE_NOTE.md",
+            "code/preflight.py",
+            "code/epi_core.py",
+            "paper/build_part2.py"
+          ]
+        },
+        "homeostasis": {
+          "n_files": 5,
+          "examples": [
+            "PREFLIGHT.md",
+            "MAPPING.md",
+            "PARAMETERS.md",
+            "code/preflight.py",
+            "code/epi_core.py"
+          ]
+        },
+        "sponge": {
+          "n_files": 29,
+          "examples": [
+            "CELL_SHADING.md",
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "PREFLIGHT.md",
+            "README_PLAIN.md",
+            "MAPPING.md"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 8,
+          "examples": [
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "code/epi_core.py",
+            "paper/build_part2.py",
+            "paper/README.md",
+            "paper/build_part1.py"
+          ]
+        },
+        "metastasis": {
+          "n_files": 15,
+          "examples": [
+            "RESULTS_SUMMARY.md",
+            "README.md",
+            "README_PLAIN.md",
+            "MAPPING.md",
+            "GATE_NOTE.md",
+            "code/sponge.py"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "metastatic-cascade-analysis",
+      "components": {
+        "delta_reconciliation": {
+          "n_files": 2,
+          "examples": [
+            "README.md",
+            "Metastatic_Cascade_Computational_Modeling_Study.md"
+          ]
+        },
+        "levy": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        },
+        "sponge": {
+          "n_files": 6,
+          "examples": [
+            "README.md",
+            "v4_Run_Summary.md",
+            "metastatic_cascade_model.py",
+            "Metastatic_Cascade_Computational_Modeling_Study.md",
+            "Sponge_and_Layer_Effects_in_a_Calibrated_Metastatic_Cascade_Model.md",
+            "papers/README.md"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 1,
+          "examples": [
+            "README.md"
+          ]
+        },
+        "metastasis": {
+          "n_files": 4,
+          "examples": [
+            "Operational_Update_Sequence.md",
+            "Study_Design_Limitations_Beyond_Data.md",
+            "Sponge_and_Layer_Effects_in_a_Calibrated_Metastatic_Cascade_Model.md",
+            "papers/README.md"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "oroboro-os",
+      "components": {
+        "mesh_consensus": {
+          "n_files": 1,
+          "examples": [
+            "docs/Avalanche_Devils_Seating_Nodes_Overlays.md"
+          ]
+        },
+        "delta_reconciliation": {
+          "n_files": 1,
+          "examples": [
+            "docs/Avalanche_Devils_Seating_Nodes_Overlays.md"
+          ]
+        },
+        "nexus": {
+          "n_files": 1,
+          "examples": [
+            "docs/Avalanche_Devils_Seating_Nodes_Overlays.md"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 2,
+          "examples": [
+            "docs/Epic_Universe_Correlation_Pipeline.md",
+            "docs/Avalanche_Devils_Seating_Nodes_Overlays.md"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "oroboro-relay",
+      "components": {
+        "nacl_polarity_mesh": {
+          "n_files": 1,
+          "examples": [
+            "nacl_polarity_mesh.py"
+          ]
+        },
+        "polarity_mesh": {
+          "n_files": 2,
+          "examples": [
+            "nacl_polarity_mesh.py",
+            "docs/NaCl_Polarity_Mesh_Research_Note.md"
+          ]
+        },
+        "mesh_consensus": {
+          "n_files": 3,
+          "examples": [
+            "nacl_polarity_mesh.py",
+            "index.html",
+            "swift/Sources/OroboroRelay/OroboroRelayApp.swift"
+          ]
+        },
+        "delta_reconciliation": {
+          "n_files": 8,
+          "examples": [
+            "README.md",
+            "index.html",
+            "UPDATE-ALL-2026-11-14.md",
+            "OroboroRelayVisionOS.swift",
+            "oroboro-core.js",
+            "metastasis-sim/index.html"
+          ]
+        },
+        "levy": {
+          "n_files": 8,
+          "examples": [
+            "README.md",
+            "index.html",
+            "UPDATE-ALL-2026-11-14.md",
+            "oroboro-core.js",
+            "docs/NaCl_Polarity_Mesh_Research_Note.md",
+            "metastasis-sim/index.html"
+          ]
+        },
+        "nexus": {
+          "n_files": 9,
+          "examples": [
+            "README.md",
+            "nacl_polarity_mesh.py",
+            "index.html",
+            "UPDATE-ALL-2026-11-14.md",
+            "OroboroRelayVisionOS.swift",
+            "oroboro-core.js"
+          ]
+        },
+        "genesis": {
+          "n_files": 7,
+          "examples": [
+            "README.md",
+            "nacl_polarity_mesh.py",
+            "index.html",
+            "UPDATE-ALL-2026-11-14.md",
+            "oroboro-core.js",
+            "docs/NaCl_Polarity_Mesh_Research_Note.md"
+          ]
+        },
+        "transcriber": {
+          "n_files": 7,
+          "examples": [
+            "README.md",
+            "nacl_polarity_mesh.py",
+            "UPDATE-ALL-2026-11-14.md",
+            "OroboroRelayVisionOS.swift",
+            "oroboro-core.js",
+            "swift/README.md"
+          ]
+        },
+        "dictator": {
+          "n_files": 8,
+          "examples": [
+            "README.md",
+            "index.html",
+            "UPDATE-ALL-2026-11-14.md",
+            "OroboroRelayVisionOS.swift",
+            "oroboro-core.js",
+            "metastasis-sim/index.html"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 8,
+          "examples": [
+            "README.md",
+            "index.html",
+            "UPDATE-ALL-2026-11-14.md",
+            "oroboro-core.js",
+            "docs/NaCl_Polarity_Mesh_Research_Note.md",
+            "metastasis-sim/index.html"
+          ]
+        },
+        "metastasis": {
+          "n_files": 2,
+          "examples": [
+            "README.md",
+            "metastasis-sim/index.html"
+          ]
+        }
+      }
+    },
+    {
+      "repo": "sky-ari-ai",
+      "components": {
+        "loops_cycles": {
+          "n_files": 2,
+          "examples": [
+            "sky-ari-OASIS-ULTIMATE/OroboroCorePrinciplesGate_REAL.cs",
+            "sky-ari-OASIS-ULTIMATE/OroboroCorePrinciplesGate_REAL_1.cs"
+          ]
+        },
+        "delta_reconciliation": {
+          "n_files": 2,
+          "examples": [
+            "Sky-Ari-Oasis-Roadmap.html",
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html"
+          ]
+        },
+        "levy": {
+          "n_files": 4,
+          "examples": [
+            "visionOS-Oasis-Complete/README.md",
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html",
+            "visionOS-Oasis-Complete/run-oasis.js",
+            "visionOS-Oasis-Complete/SkyAriOasis/OasisEngine.swift"
+          ]
+        },
+        "nexus": {
+          "n_files": 4,
+          "examples": [
+            "visionOS-Oasis-Complete/README.md",
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html",
+            "visionOS-Oasis-Complete/run-oasis.js",
+            "visionOS-Oasis-Complete/SkyAriOasis/OasisEngine.swift"
+          ]
+        },
+        "genesis": {
+          "n_files": 4,
+          "examples": [
+            "visionOS-Oasis-Complete/README.md",
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html",
+            "visionOS-Oasis-Complete/run-oasis.js",
+            "visionOS-Oasis-Complete/SkyAriOasis/OasisEngine.swift"
+          ]
+        },
+        "transcriber": {
+          "n_files": 4,
+          "examples": [
+            "visionOS-Oasis-Complete/README.md",
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html",
+            "visionOS-Oasis-Complete/run-oasis.js",
+            "visionOS-Oasis-Complete/SkyAriOasis/OasisEngine.swift"
+          ]
+        },
+        "dictator": {
+          "n_files": 1,
+          "examples": [
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html"
+          ]
+        },
+        "homeostasis": {
+          "n_files": 29,
+          "examples": [
+            "README.md",
+            "Sky Autonomous Cognitive Logistics Mesh.txt",
+            "sky-logistics-mesh-v2/app.js",
+            "sky-logistics-mesh-v2/index.html",
+            "sky-ari-OASIS-ULTIMATE/OASIS_MAP_FROM_YOUR_FILES_1_1.md",
+            "sky-ari-OASIS-ULTIMATE/OASIS_MAP_FROM_YOUR_FILES.md"
+          ]
+        },
+        "oasis": {
+          "n_files": 21,
+          "examples": [
+            "Sky-Ari-Oasis-Roadmap.html",
+            "sky-ari-OASIS-ULTIMATE/OASIS_MAP_FROM_YOUR_FILES_1_1.md",
+            "sky-ari-OASIS-ULTIMATE/OASIS_MAP_FROM_YOUR_FILES.md",
+            "sky-ari-OASIS-ULTIMATE/bridge_server.py",
+            "sky-ari-OASIS-ULTIMATE/OroboroCorePrinciplesGate_REAL.cs",
+            "sky-ari-OASIS-ULTIMATE/OASIS_MAP_FROM_YOUR_FILES_1_2.md"
+          ]
+        },
+        "relational_sim": {
+          "n_files": 1,
+          "examples": [
+            "visionOS-Oasis-Complete/oasis-inside-oroboro.html"
+          ]
+        }
+      }
+    }
+  ]
+}
