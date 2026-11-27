@@ -1,0 +1,250 @@
+{
+  "note": "Speculative modeling only. No biological or clinical claims.",
+  "nseed": 40,
+  "cancers": [
+    "Prostate",
+    "ER+ Breast",
+    "Lung",
+    "Melanoma",
+    "Colorectal"
+  ],
+  "levy_gains": [
+    0.05,
+    1.0
+  ],
+  "modes": [
+    "lure",
+    "tag_magnet",
+    "flush",
+    "photoacoustic",
+    "combined"
+  ],
+  "timings": [
+    "upstream",
+    "circulation",
+    "post_settling"
+  ],
+  "strengths": [
+    0.2,
+    0.5,
+    0.8
+  ],
+  "post_settling_start_month": 61,
+  "mesh": {
+    "none": {
+      "n_nodes": 49,
+      "n_edges": 89,
+      "n_frustrated0": 32,
+      "n_locked0": 57,
+      "inversion_holds": true,
+      "by_kind": {
+        "shed": {
+          "n": 1,
+          "locked": 1,
+          "frustrated": 0
+        },
+        "circ": {
+          "n": 8,
+          "locked": 8,
+          "frustrated": 0
+        },
+        "organ_hub": {
+          "n": 4,
+          "locked": 4,
+          "frustrated": 0
+        },
+        "spoke": {
+          "n": 32,
+          "locked": 28,
+          "frustrated": 4
+        },
+        "hoop": {
+          "n": 32,
+          "locked": 8,
+          "frustrated": 24
+        },
+        "return": {
+          "n": 8,
+          "locked": 4,
+          "frustrated": 4
+        },
+        "approach": {
+          "n": 4,
+          "locked": 4,
+          "frustrated": 0
+        }
+      }
+    },
+    "preserve": {
+      "n_nodes": 51,
+      "n_edges": 106,
+      "n_frustrated0": 40,
+      "n_locked0": 66,
+      "inversion_holds": true,
+      "by_kind": {
+        "shed": {
+          "n": 1,
+          "locked": 1,
+          "frustrated": 0
+        },
+        "circ": {
+          "n": 8,
+          "locked": 8,
+          "frustrated": 0
+        },
+        "organ_hub": {
+          "n": 4,
+          "locked": 4,
+          "frustrated": 0
+        },
+        "spoke": {
+          "n": 32,
+          "locked": 28,
+          "frustrated": 4
+        },
+        "hoop": {
+          "n": 32,
+          "locked": 8,
+          "frustrated": 24
+        },
+        "return": {
+          "n": 8,
+          "locked": 4,
+          "frustrated": 4
+        },
+        "approach": {
+          "n": 4,
+          "locked": 4,
+          "frustrated": 0
+        },
+        "magnet": {
+          "n": 1,
+          "locked": 1,
+          "frustrated": 0
+        },
+        "lure": {
+          "n": 8,
+          "locked": 4,
+          "frustrated": 4
+        },
+        "flush": {
+          "n": 8,
+          "locked": 4,
+          "frustrated": 4
+        }
+      }
+    },
+    "joint": {
+      "n_nodes": 51,
+      "n_edges": 106,
+      "n_frustrated0": 44,
+      "n_locked0": 62,
+      "inversion_holds": true,
+      "by_kind": {
+        "shed": {
+          "n": 1,
+          "locked": 1,
+          "frustrated": 0
+        },
+        "circ": {
+          "n": 8,
+          "locked": 4,
+          "frustrated": 4
+        },
+        "organ_hub": {
+          "n": 4,
+          "locked": 4,
+          "frustrated": 0
+        },
+        "spoke": {
+          "n": 32,
+          "locked": 28,
+          "frustrated": 4
+        },
+        "hoop": {
+          "n": 32,
+          "locked": 8,
+          "frustrated": 24
+        },
+        "return": {
+          "n": 8,
+          "locked": 2,
+          "frustrated": 6
+        },
+        "approach": {
+          "n": 4,
+          "locked": 2,
+          "frustrated": 2
+        },
+        "magnet": {
+          "n": 1,
+          "locked": 1,
+          "frustrated": 0
+        },
+        "lure": {
+          "n": 8,
+          "locked": 6,
+          "frustrated": 2
+        },
+        "flush": {
+          "n": 8,
+          "locked": 6,
+          "frustrated": 2
+        }
+      }
+    }
+  },
+  "whole_vs_parts_consistent": {
+    "no_light_g0.05": true,
+    "combined_up_s0.5_g0.05": true,
+    "flush_up_s0.5_g0.05": true,
+    "combined_joint": true
+  },
+  "correlations_sweep_g0.05": {
+    "frustrated_end_vs_dorm": {
+      "r": 0.09177152665017303,
+      "p": 0.5487956223392921,
+      "ci_lo": -0.24862770522404576,
+      "ci_hi": 0.443922050185552,
+      "n": 45
+    },
+    "frustrated_niche_vs_dorm": {
+      "r": 0.09177152665017303,
+      "p": 0.5487956223392921,
+      "ci_lo": -0.24862770522404576,
+      "ci_hi": 0.443922050185552,
+      "n": 45
+    },
+    "extract_yield_vs_dorm": {
+      "r": -0.6779973649538865,
+      "p": 3.109788979474238e-07,
+      "ci_lo": -0.8458899590975062,
+      "ci_hi": -0.45075811120532827,
+      "n": 45
+    },
+    "extract_yield_vs_povert": {
+      "r": -0.616390807035862,
+      "p": 6.540470033304475e-06,
+      "ci_lo": -0.8020417100916426,
+      "ci_hi": -0.3720090717206334,
+      "n": 45
+    },
+    "extracted_vs_dorm": {
+      "r": -0.6778656126482213,
+      "p": 3.1325252686518754e-07,
+      "ci_lo": -0.8453946809128513,
+      "ci_hi": -0.45075811120532827,
+      "n": 45
+    }
+  },
+  "all_checks": {
+    "census": true,
+    "levy": true,
+    "consensus": true,
+    "pipeline_levy": true,
+    "genesis_closed": true,
+    "inversion": true,
+    "whole_vs_parts": true
+  },
+  "runtime_s": 131.19946813583374
+}
