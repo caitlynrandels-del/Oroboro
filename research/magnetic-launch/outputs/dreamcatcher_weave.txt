@@ -1,0 +1,41 @@
+DREAM-CATCHER WEAVE — RAW OUTPUT
+Real pose used: yes. Method: MediaPipe Tasks PoseLandmarker lite, IMAGE mode, num_poses=8, conf=0.4
+Primary: t=515.999s file=t515_999.jpg body >=0.5: 12/13 mean_vis=0.825
+Visibility by joint: nose=0.991, l_shoulder=1.000, r_shoulder=1.000, l_elbow=0.970, r_elbow=0.592, l_wrist=0.935, r_wrist=0.654, l_hip=0.999, r_hip=0.998, l_knee=0.818, r_knee=0.431, l_ankle=0.782, r_ankle=0.556
+Derived points: mid_hip, neck
+Frame survey:
+  t=250.0 poses>=0.5 body 11 mean=0.801
+  t=250.0 poses>=0.5 body 11 mean=0.725
+  t=400.0 poses>=0.5 body 10 mean=0.811
+  t=515.999 poses>=0.5 body 12 mean=0.825
+  t=570.003 poses>=0.5 body 9 mean=0.744
+
+TREE: V=15 E=14 components=1 cycle_rank=0
+  bipartite=True 2color_conflicts=0
+  Fiedler=0.122019 lambda_max=5.427775 n_zero=1
+  polarity A locked 5/14 open 9; invert_stable=True; levy_lockedmix=7.245
+  polarity B locked 14/14 open 0; invert_stable=True; levy_lockedmix=13.986
+  pulse k=1: mass_origin=0.5000 participation=2.56 n_active=4 radius=1
+  pulse k=2: mass_origin=0.3542 participation=3.57 n_active=9 radius=2
+  pulse k=4: mass_origin=0.2374 participation=4.79 n_active=15 radius=4
+  pulse k=8: mass_origin=0.1611 participation=5.26 n_active=15 radius=4
+  pulse k=16: mass_origin=0.1275 participation=5.39 n_active=15 radius=4
+  pulse k=32: mass_origin=0.1159 participation=5.65 n_active=15 radius=4
+
+WOVEN: V=75 E=175 components=1 cycle_rank=101
+  bipartite=False 2color_conflicts=59
+  Fiedler=0.176666 lambda_max=8.612089 n_zero=1
+  polarity A locked 5/175 open 170; invert_stable=True; levy_lockedmix=47.495
+  polarity B locked 116/175 open 59; invert_stable=True; levy_lockedmix=130.634
+  pulse k=1: mass_origin=0.5000 participation=3.17 n_active=4 radius=1
+  pulse k=2: mass_origin=0.3222 participation=5.66 n_active=12 radius=2
+  pulse k=4: mass_origin=0.1808 participation=10.33 n_active=30 radius=4
+  pulse k=8: mass_origin=0.0923 participation=16.49 n_active=51 radius=4
+  pulse k=16: mass_origin=0.0483 participation=29.86 n_active=70 radius=6
+  pulse k=32: mass_origin=0.0250 participation=76.09 n_active=75 radius=7
+
+Reconcile residual (edge lengths, px): 7.276e-12 matched=True
+  parts={'tree': 603.925, 'hoop': 791.187, 'web': 4723.89, 'ties': 102.907} whole=6221.909
+Ties: ['neck-hoop-0', 'l_shoulder-hoop-0', 'r_shoulder-hoop-11', 'l_hip-web-4-1', 'r_hip-web-4-7']
+Hoop R=127.37px hole=25.47px
+Figure: /workspace/oroboro-research/magnetic_launch_case_study/outputs/fig05_dreamcatcher_weave.png
