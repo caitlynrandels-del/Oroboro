@@ -1,0 +1,132 @@
+{
+  "_note": "Speculative modeling only; no biological or clinical claims. Cascade rates are carried over from the original oro_cascade calibration. Native mesh, Oasis, damper, repair, tilt and Levy +4 reawakening pulse are documented here.",
+  "months": 120,
+  "levy_weights": {
+    "clear": 1,
+    "detach": 7,
+    "fail": 2,
+    "colonize": 14,
+    "exit": 4
+  },
+  "cell_init": {
+    "immune_evasion_lo": 0.3,
+    "immune_evasion_span": 0.4
+  },
+  "fit_mix": [
+    0.55,
+    0.45
+  ],
+  "shed_rate": 2.0,
+  "circ_clear_p": 0.6,
+  "arrest_p": 0.5,
+  "seed_threshold": 0.15,
+  "dorm_clear_p": 0.01,
+  "exit_p": 0.005,
+  "col_threshold_pref": 0.3,
+  "col_threshold_other": 0.42,
+  "col_accept": 0.65,
+  "dormancy": {
+    "initial_depth": 0.8,
+    "restore_rate": 0.25,
+    "exit_factor": 0.5,
+    "fail_gain": 0.2,
+    "high_cutoff": 0.5
+  },
+  "salience": {
+    "valuation_threshold": 0.65,
+    "weights": [
+      0.3,
+      0.25,
+      0.25,
+      0.2
+    ],
+    "weights_tension": [
+      0.5,
+      0.25,
+      0.1,
+      0.2
+    ],
+    "tension_hi": 0.8
+  },
+  "homeostasis": {
+    "rest_load": 40,
+    "rest_bump": 0.2
+  },
+  "cancers": {
+    "Prostate": {
+      "seed": 17,
+      "organ_permissiveness": {
+        "bone": 0.85,
+        "lung": 0.25,
+        "liver": 0.18,
+        "lymph": 0.3
+      }
+    },
+    "ER+ Breast": {
+      "seed": 42,
+      "organ_permissiveness": {
+        "bone": 0.7,
+        "lung": 0.4,
+        "liver": 0.35,
+        "brain": 0.2
+      }
+    },
+    "Lung": {
+      "seed": 99,
+      "organ_permissiveness": {
+        "lung": 0.6,
+        "bone": 0.45,
+        "liver": 0.4,
+        "brain": 0.5
+      }
+    },
+    "Melanoma": {
+      "seed": 123,
+      "organ_permissiveness": {
+        "lung": 0.55,
+        "skin": 0.5,
+        "liver": 0.4,
+        "brain": 0.45
+      }
+    },
+    "Colorectal": {
+      "seed": 77,
+      "organ_permissiveness": {
+        "liver": 0.75,
+        "lung": 0.4,
+        "bone": 0.25,
+        "peritoneum": 0.35
+      }
+    }
+  },
+  "native": {
+    "hoop_n": 8,
+    "bowl_depth": 0.5,
+    "repair_rate": 0.08,
+    "rebuild_rate": 0.04,
+    "melt_lo": 0.15,
+    "melt_hi": 0.85,
+    "heat_decay": 0.15,
+    "damper_gain": 0.08,
+    "damper_alpha": 0.35,
+    "tilt": 0.0,
+    "torque_phase": 0.0,
+    "hop_from_frustrated": 0.2,
+    "include_loops": true,
+    "adaptive_niche": true,
+    "damped_reconcile": true,
+    "circulation_nodes": 8,
+    "integrated": true,
+    "principles_gate": true,
+    "levy_feedback": true,
+    "levy_gain": 1.0
+  },
+  "levy_weight_documentation": {
+    "clear": "circulation, dormancy or Oasis-recycle clearance pulse",
+    "detach": "Genesis shed / magnetic detach pulse into circulation",
+    "fail": "failed seeding or failed colonization after a reawakening pulse",
+    "colonize": "successful lock on a lockable niche path (overt colony)",
+    "exit": "DOCUMENTED Levy-weighted reawakening / origami-unfold pulse (+4). Not an undocumented constant."
+  },
+  "_note_integration": "2026-11-27: conjunctive pipeline on by default (integrated, principles_gate, levy_feedback). Set integrated=false to reproduce the pre-integration native run."
+}
