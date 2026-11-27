@@ -8,6 +8,9 @@
 3. `Dreamcatcher_Weave_FollowOn.md`: dream-catcher weave on one detected pose (no video stills; raw landmarks not published)
 4. `Magnetic_Launch_GoalSeek_Continuation.md`: goal-seek recycling, rocket materials at drone scale, origami, onboard autonomy, atmospheric tiers, feathers, hollow bones, helix, spinning dual Epcot, non-spinning interior, heat-driven feather regrowth, tilt/torque
 5. `Geography_Launch_Sites_Addendum.md`: launch-site geography
+6. `Redstone_Repeater_Comparator_Addendum.md`: a repeater and a comparator on the residual gap, plus a no-track pad ascent with Earth rotation as a gated side pulse (**conjunctive**)
+
+HTML versions of each document are alongside (figures load from `figures/`). PDF page views: [Redstone](pdf-pages/Redstone_Repeater_Comparator_Addendum/view.html) and [Geography](pdf-pages/Geography_Launch_Sites_Addendum/view.html).
 
 ## Correction carried in this update
 The earlier **256 m/s** staged residual is **invalid**. It came from a 900 s coast that had not yet reached apogee. Under the Kepler vacuum apogee of the same staged state, the two-burn residual is **~1,148 m/s**, with the perigee still underground. The staged state already overshoots, and adding Earth rotation makes the ellipse larger (1,430–1,558 m/s). Do not compare 256 m/s with any boost.
@@ -18,7 +21,22 @@ The earlier **256 m/s** staged residual is **invalid**. It came from a 900 s coa
 - Geography: Baikonur ranks best at ~66 m/s for the 0° 80 km exit, and Las Vegas and Mt Charleston come in at 118–119 m/s. Coastal sites are favored for ocean downrange safety, not Δv. Kourou is best when the target orbit is equatorial. A plane change to equatorial costs 4.82 km/s from LAS and 0.71 km/s from Kourou.
 - Hollow bones help mass. Feathers are limited. The spinning dual Epcot isolates the interior, but the outward pull remains. Heat-driven regrowth has a narrow window. The simple closed-loop onboard controller hurt the flights.
 
-## Conjunctive-use audit: all scripts are NON-CONJUNCTIVE (kept for history)
+## Redstone repeater / comparator results (model outputs)
+- **Repeater** (a paid two-burn at apogee and at the 200 km apsis, using the rocket equation on the vehicle's own mass, I_sp 450 s):
+  - The filament budget f_p = 0.05 (226 m/s) locks all 14 real sites on the 0° / 80 km exit, but not the 5° darts or the staged stack.
+  - The payload fraction f_p = 0.30 (1,574 m/s) locks every due-east site on all four setups. That is a mass-bookkeeping result, and it turns the dart into a staged vehicle.
+  - Closing the 407 m/s evac-dart leftover needs f_p ≈ 0.088 (1.11 kg of 12.56 kg).
+- **Comparator** (subtracting Earth rotation by gating due-east admission through Oasis/PrinciplesGate):
+  - It never beat always-best-azimuth (0 of 14 sites). It beats always-due-east only on the staged config (1,144 vs 1,507 m/s mean).
+  - Best azimuth, e.g. 40–65° on the 0° exit, gives 37 m/s at Baikonur and 38 m/s at LAS, versus 66 and 119 m/s due east.
+  - AdaptOrDie blocks only the zero-coordinate equator reference.
+- **No-track** (rail removed, pad start): no configuration locked. Thick-air drag and heating bind first. Even f_p 0.85 at 450 s leaves 631–756 m/s, with a heating proxy of ~5,200 K. Reserving a 500 m/s repeater made the ascent worse.
+- Lock means a residual ≤ 1 m/s and a perigee ≥ 100 km. Nothing locked without a paid repeater on a recycled high-altitude exit. No site is recommended.
+
+## In progress (not pushed yet)
+Light-sail push, the kite / fishing-line runs, and the light-transport extraction cascade runs are in progress. Their files (`Light_Sail_Push_Addendum*`, `Light_Transport_Extraction*`, `fig12`, `run_light_sail_push.py`, and the light/extraction changes to the native cascade) will be pushed when finished.
+
+## Conjunctive-use audit
 | Script | Verdict |
 |---|---|
 | `run_magnetic_launch_case_study.py` | Components exercised as isolated blocks (Oasis, meshes, sweep, dampers, recombine as separate stages) |
@@ -27,11 +45,12 @@ The earlier **256 m/s** staged residual is **invalid**. It came from a 900 s coa
 | `run_goal_seek_recycle.py` | Oasis-style search plus a compact onboard loop. Genesis, Dictator, Transcriber, PrinciplesGate and the NaCl mesh are not in the integrator |
 | `run_tilt_torque.py` | No Oroboro component calls |
 | `run_geography_addendum.py` | No Oroboro component calls |
+| `run_redstone_repeater_comparator.py` | **CONJUNCTIVE**: Genesis → Nexus register → Oasis admission → PrinciplesGate → NaCl consensus → Dictator → Transcriber → Levy (total weight 968) → damped deterministic recombine, in one loop |
 
-Each script carries this verdict in its header. The conjunctive baseline is [`../metastasis-native`](../metastasis-native) and [`../cross-domain/scripts/run_conjunctive_check.py`](../cross-domain/scripts/run_conjunctive_check.py). A launch rebuild on the [one-loop pipeline](../PIPELINE.md) is pending.
+The first six scripts are non-conjunctive and kept for history. Each script carries its verdict in its header. The conjunctive baseline is [`../metastasis-native`](../metastasis-native) and [`../cross-domain/scripts/run_conjunctive_check.py`](../cross-domain/scripts/run_conjunctive_check.py). A launch rebuild on the [one-loop pipeline](../PIPELINE.md) is pending.
 
 ## Figures (SVG)
-`figures/fig01_track_length.svg`, `fig02_apogee.svg`, `fig03_sea_level_drag.svg`, `fig05_dreamcatcher_weave.svg`, `fig06_goal_seek_pareto.svg`, `fig07_heat_regrowth_bands.svg`, `fig08_nonspin_interior.svg`, `fig09_tilt_torque.svg`, `fig10_geography.svg`
+`figures/fig01_track_length.svg`, `fig02_apogee.svg`, `fig03_sea_level_drag.svg`, `fig05_dreamcatcher_weave.svg`, `fig06_goal_seek_pareto.svg`, `fig07_heat_regrowth_bands.svg`, `fig08_nonspin_interior.svg`, `fig09_tilt_torque.svg`, `fig10_geography.svg`, `fig11_redstone_repeater_comparator.svg` (PNG pixels wrapped in SVG)
 
 ## Outputs and reproducibility
-`outputs/` holds the JSON/TXT results. Not published: `heat_path_series.json` (1.9 MB, can be regenerated by `run_goal_seek_recycle.py`), `dreamcatcher_weave.json` and pose landmarks (derived from a personal-use clip), and `work/` frames. Scripts expect the Oasis bridge from the sky-ari-ai build (`/workspace/oasis-build/...`) on the project computer. The NaCl mesh path points to `../../consciousness-mapping` in this repo.
+`outputs/` holds the JSON/TXT results. Now published: `heat_path_series.json` and `redstone_repeater_comparator.json`. Not published: `dreamcatcher_weave.json` and pose landmarks (derived from a personal-use clip), and `work/` frames. Scripts expect the Oasis bridge from the sky-ari-ai build (`/workspace/oasis-build/...`) on the project computer. The NaCl mesh path points to `../../consciousness-mapping` in this repo.
