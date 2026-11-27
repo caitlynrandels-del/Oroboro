@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<title>A Native Mesh Restart of the Metastasis Cascade</title>
+<style>
+@page { size: Letter; margin: 0.85in 0.9in 0.9in 0.9in; }
+html, body { font-family: "Liberation Serif", "Times New Roman", Times, serif; font-size: 11pt; line-height: 1.38; color: #1a1a1a; }
+h1 { font-size: 16.5pt; color: #1f3a5f; margin: 0 0 0.15em 0; line-height: 1.2; }
+h2 { font-size: 13.5pt; color: #1f3a5f; margin: 1.15em 0 0.4em 0; border-bottom: 0.6pt solid #1f3a5f; padding-bottom: 0.12em; }
+h3 { font-size: 12pt; color: #1f3a5f; margin: 0.9em 0 0.3em 0; }
+p { margin: 0 0 0.55em 0; text-align: justify; overflow-wrap: break-word; }
+ul { margin: 0.2em 0 0.6em 1.2em; padding: 0; }
+li { margin: 0 0 0.25em 0; }
+code { font-family: "Liberation Mono", Menlo, monospace; font-size: 9.5pt; overflow-wrap: anywhere; }
+ em { overflow-wrap: break-word; }
+table { border-collapse: collapse; width: 100%; margin: 0.4em 0 0.9em 0; font-size: 8.5pt; }
+th, td { border: 0.6pt solid #666; padding: 3px 5px; vertical-align: top; text-align: left; }
+th { background: #e8eef5; color: #1f3a5f; }
+td.num, th.num { text-align: right; }
+figure { margin: 0.9em 0; page-break-inside: avoid; }
+img { width: 100%; max-width: 6.5in; height: auto; }
+figcaption { font-size: 9.5pt; font-style: italic; color: #333; margin-top: 0.3em; }
+hr { border: none; border-top: 0.6pt solid #aaa; margin: 1.2em 0; }
+table { page-break-inside: avoid; }
+</style></head><body>
+
+<h1>Oroboro Structures for Consciousness Mapping</h1>
+<h2>Case Study Addendum: A Native Mesh Restart of the Metastasis Cascade</h2>
+<h3>Speculative modeling only</h3>
+<p><strong>Status:</strong> Speculative modeling exercise only. Not a medical treatment, protocol, diagnostic tool, or claim of clinical or biological efficacy. No operational claims. This note restarts the in-silico cascade so that loops, mesh consensus, and reconciliation are native Oroboro state, then re-tests whether a frustrated-loop count tracks the dormant pool.</p>
+<p>Prepared 27 November 2026 (America/Los_Angeles) after a full public-GitHub rescan of <code>caitlynrandels-del</code> and a from-scratch rebuild, left in <code>metastasis_native/</code> under the research workspace. Original cascade files were not overwritten.</p>
+
+<h2>1. Why this restart</h2>
+<p>The user instruction was that the cascade should already have loops if it is using her systems, and that the full GitHub archive is what those systems are. A previous overlay idea — that the stubborn dormant pool looked like odd-sided dream-catcher loops that can never lock — had been stopped before it produced a result, because that overlay would have bolted a loop count onto a sim that might not contain her mesh at all.</p>
+<p>This run therefore did three things, in order: rescan every public repository; audit the existing metastasis sims with file and line evidence; and, because those sims were not natively looped, rebuild the cascade from scratch with her polarity mesh as the core state, injecting the launch-chat mechanisms only where they become a real rule.</p>
+
+<h2>2. GitHub rescan</h2>
+<p>All 30 public repositories of <code>caitlynrandels-del</code> were shallow-cloned on 27 November 2026 into <code>/tmp/gscan2</code>. A prior workspace inventory of 27 repos (snapshots from 24 November) was stale. New or freshly pushed repos include <code>metastatic-cascade-analysis</code>, <code>epilepsy-sim</code>, <code>caitlynrandels-del</code>, and updates to <code>Oroboro</code> and <code>oroboro-relay</code>.</p>
+<p>The file <code>sky-ari-ai/Oroboro AI Companion</code> was not opened or copied. It is known to contain an exposed Gemini API key; that key was not used.</p>
+<p>Canonical implementations located in the scan:</p>
+<table>
+<tr><th>Component</th><th>Where it actually lives</th></tr>
+<tr><td>Genesis / IonicOrigin</td><td><code>Oroboro/consciousness-mapping/nacl_polarity_mesh.py</code>; <code>oroboro-relay/oroboro-core.js</code> (<code>OroboroGenesis</code>); <code>oroboro-os/oroboro</code></td></tr>
+<tr><td>Nexus registry</td><td><code>oroboro-relay/oroboro-core.js</code>; <code>oroboro-os/oroboro</code>; epilepsy-sim <code>epi_core.py</code></td></tr>
+<tr><td>Transcriber / Dictator</td><td><code>oroboro-relay/oroboro-core.js</code>. <code>oroboro-os/oroboro</code> has Transcriber and Levy but not Dictator.</td></tr>
+<tr><td>Levy ledger</td><td><code>oroboro-core.js</code>; <code>nacl_polarity_mesh.py</code> (<code>apply_levy</code>); event weights in the metastasis scripts</td></tr>
+<tr><td>NaCl polarity mesh</td><td><code>nacl_polarity_mesh.py</code> in Oroboro (identical copy in oroboro-relay). Four nodes, three edges — a tree. Opposite charges lock. No odd-cycle or frustration test.</td></tr>
+<tr><td>Mesh consensus</td><td>Two different meanings. Polarity: <code>Mesh.consensus()</code> returns locked edges. Cascade / epilepsy sims: event ledger, heat-trace and census must agree.</td></tr>
+<tr><td>Delta reconciliation</td><td>Intended recombination of independent parts. In <code>oroboro-core.js</code> the delta is a <code>Math.random()</code> stub. In the relay metastasis sketch, reconcile is a log line. In <code>oro_cascade.py</code> / <code>epi_core.py</code> it is a whole-versus-parts accounting check, not in-step feedback.</td></tr>
+<tr><td>Oasis / salience gate</td><td>Commit / buffer / recycle at threshold 0.65 in <code>oro_cascade.py</code>. OASIS itself lives in <code>sky-ari-ai</code>.</td></tr>
+<tr><td>Homeostasis / sponge</td><td>Homeostasis in sky-ari-ai and as a rest-load bump in <code>oro_cascade.py</code>. Sponge in <code>Sponge_Absorption_Mechanic.md</code>, <code>epilepsy-sim/code/sponge.py</code>, and <code>metastatic-cascade-analysis</code>.</td></tr>
+<tr><td>Odd-loop frustration / dream-catcher weave</td><td><strong>Not implemented in any public repo.</strong> The only GitHub hit on “frustration” is an Oasis user-friction reroute in <code>OroboroCorePrinciplesGate_REAL.cs</code>, which is a psychological gate, not a mesh. The odd-loop result lives in the launch-chat workspace studies.</td></tr>
+</table>
+<p>A longer repo-by-repo listing is in <code>notes/github_scan_inventory.md</code>.</p>
+
+<h2>3. Verdict: the existing metastasis sims are not native</h2>
+<p><strong>Verdict: not native.</strong> Loops, polarity-mesh consensus, and frustrated odd-loop edges are not part of the core state of any current metastasis sim. The leftover overlay run was already stopped and produced no result. The cascade was restarted from scratch rather than patched.</p>
+<p>Evidence:</p>
+<ul>
+<li><code>nacl_polarity_mesh.py</code> (Oroboro lines 66–73, 32–46): Genesis, Edge, Mesh, Levy, Nexus, Transcriber, invert-and-restabilize are all present — and the demo graph is a <strong>tree</strong> (four nodes, three edges). <code>consensus()</code> returns opposite-charge locks. There is no cycle walk and no frustrated-edge state.</li>
+<li><code>metastasis_extended_sim.py</code> lines 88–91 and <code>metastasis_data_informed_sim.py</code> lines 118–121: a class named <code>MetastasisMesh</code> is a list of cells. <code>reconcile()</code> only logs counts with Levy weight 0 and returns a dictionary. It does not feed back into the next step.</li>
+<li><code>corrected_multi_cancer_sim.py</code>: no reconcile method at all. Line 80, <code>log(..., 4)</code>, is a spontaneous exit attempt with an <strong>undocumented</strong> Levy weight of +4.</li>
+<li><code>oroboro-relay/metastasis-sim/index.html</code> lines 133–136: <code>reconcile()</code> writes a timestamp and the sentence “Delta reconciliation complete.” It does not recombine anything. Placement and pulses use <code>Math.random()</code> (lines 75–76, 111–114, 124).</li>
+<li><code>oroboro-relay/oroboro-core.js</code> line 124: <code>delta: Math.random() * 0.1  // small reconciliation delta</code> — the known stub.</li>
+<li><code>/workspace/oroboro-prevention-sim/oro_cascade.py</code> is the most complete workspace cascade (Genesis, Nexus, Levy, Oasis gate, homeostasis, Dictator chronicle, counter-based RNG, and a documented +4 exit at lines 17 and 185). Its “mesh consensus” (lines 275–277) is agreement among the event ledger, heat-trace and census, not a polarity mesh. <code>reconcile_whole_vs_parts</code> (lines 311–316) is an accounting identity. There is still no graph, no circulation loop, no dream-catcher niche, and no frustrated edge.</li>
+<li><code>metastatic-cascade-analysis/metastatic_cascade_model.py</code>: a sponge compartment and <code>random.random</code> transitions. No Oroboro components and no loops.</li>
+</ul>
+<p>The components exist in her archive. They were not the core state of the metastasis sims that produced the 454-setting sweep.</p>
+
+<h2>4. What was rebuilt</h2>
+<p>A new sim was written at <code>/workspace/oroboro-research/metastasis_native/</code> (originals left untouched). Its monthly state <strong>is</strong> a polarity mesh:</p>
+<ul>
+<li><strong>Genesis</strong> is the ionic origin of the primary site. Shed events are magnetic-style detach pulses (Levy +7) from Genesis into a circulation ring.</li>
+<li><strong>Nexus</strong> registers the origin, the mesh, and each month’s reduced part summaries, then recombines them.</li>
+<li><strong>Cells, vessels, organs and niches are mesh nodes.</strong> Each target organ is wrapped in a dream-catcher: an 8-node even hoop, a hub, and spokes, sitting on an inverse-Epcot bowl. Return edges close recirculation and reawakening loops. For a four-organ cancer this is 49 nodes and 89 edges, with 32 edges frustrated at construction and 57 locked. Invert-and-restabilize preserves the lock set (<code>inversion_holds = True</code>).</li>
+<li><strong>Mesh consensus</strong> runs every step: opposite charges lock; odd-loop edges that cannot 2-color stay frustrated, unless the adaptive niche has marked them repaired.</li>
+<li><strong>Delta reconciliation is real feedback.</strong> A leaky integrator, in the spirit of a viscous / tuned-mass damper, turns occupancy spikes into a raised Oasis admission threshold. It never lowers the threshold when the system is slack. A separate whole-versus-parts accounting check still recombines exactly (all count deltas 0, signatures equal) on the Prostate seed used as a probe.</li>
+<li><strong>The +4 exit is a documented Levy-weighted reawakening / origami-unfold pulse.</strong> It is listed in <code>params.json</code> next to clear +1, detach +7, fail +2, and colonize +14. A cell on a frustrated edge cannot colonize until it hops onto a lockable path or the edge is repaired.</li>
+<li><strong>Oasis</strong> is the commit / buffer / recycle gate (threshold 0.65, recycle below half), including the homeostasis rest-load bump.</li>
+<li><strong>Adaptive niche</strong> (labeled <code>repair_rate = 0.08</code>, <code>rebuild_rate = 0.04</code>, melt window 0.15–0.85): heat from fail, exit and colonize pulses can mark a frustrated edge repaired; after dormant clearance, a repaired edge may be restored to frustrated (heat-driven web regrowth).</li>
+<li><strong>Tilt / torque</strong> is a rotational bias on the circulation loop’s organ-encounter weights, <code>w<sub>i</sub> ← w<sub>i</sub> (1 + tilt · cos(θ<sub>i</sub> − φ))</code>. Default tilt is 0 so the 454-setting sweep stays comparable. A side probe is reported below.</li>
+<li><strong>Dictator / Transcriber</strong> chronicle colonize, exit and recycle events when recording is on.</li>
+<li><strong>State reduction</strong> still partitions cells into independent parts that see only local state plus last month’s Nexus summary.</li>
+</ul>
+<p>Cascade timing rates (shed, clearance, arrest, fit thresholds, 120 months, five organotropism configurations) were recycled from the original <code>oro_cascade</code> calibration so that a close baseline could be asked for.</p>
+
+<h3>Launch-chat mappings that became mechanisms</h3>
+<table>
+<tr><th>Mapping</th><th>How it is a rule in this sim</th></tr>
+<tr><td>Inverse-Epcot bowl</td><td><code>bowl_depth</code> is the chance an arresting cell falls into the web (spokes / hub) rather than the hoop.</td></tr>
+<tr><td>Dream-catcher weave / odd-loop frustration</td><td>Native niche geometry; odd faces cannot fully lock.</td></tr>
+<tr><td>Magnetic pulses</td><td>Discrete Levy-weighted detach, clear, fail, exit and colonize events.</td></tr>
+<tr><td>Origami fold / unfold</td><td>Dormancy depth is a fold; the +4 pulse is the unfold attempt.</td></tr>
+<tr><td>Skyscraper dampers</td><td>In-step damped occupancy feedback on the Oasis threshold.</td></tr>
+<tr><td>Heat-driven feather regrowth / onboard adaptation</td><td>Labeled repair and rebuild rates on frustrated niche edges, inside a melt window.</td></tr>
+<tr><td>Tilt / torque</td><td>Rotational bias of the circulation loop (side probe; default 0).</td></tr>
+</table>
+
+<h3>Launch-chat mappings not used, and why</h3>
+<ul>
+<li><strong>Helix force reduction.</strong> This cascade has no launch-force variable. The circulation compartment is already a closed ring; a helix would have been redundant geometry.</li>
+<li><strong>Feathers / hollow-bone mass scaling.</strong> There is no mass or aerodynamics in the cell model.</li>
+<li><strong>Spinning dual-Epcot fling, and a non-spinning interior.</strong> The bowl is a static landing shell, not a rotating launcher.</li>
+<li><strong>Atmospheric tiers / air currents.</strong> There is no atmosphere compartment here.</li>
+<li><strong>Smart magnets as a physical track.</strong> Already represented as the discrete magnetic-style pulses above.</li>
+</ul>
+
+<h2>5. Calibration against the original baseline</h2>
+<p>Original cascade baseline (2,500 runs): colony probability <strong>21.72%</strong>, mean overt <strong>0.255</strong>, dormant pool <strong>10.380</strong>, shed <strong>239.89</strong>, Levy <strong>1912.7</strong>.</p>
+<p>Native mesh baseline (1,000 runs, 200 seeds × five cancers): colony probability <strong>18.00%</strong>, mean overt <strong>0.210</strong>, dormant pool <strong>10.355</strong>, shed <strong>239.55</strong>, Levy <strong>1909.6</strong>. Census, Levy bookkeeping, ledger-heat-census consensus, and inversion all held.</p>
+<p>The dormant pool and the shed stream match to a fraction of a cell. Colony probability is about four points lower. That residual is the native loop rule: a frustrated odd-loop edge cannot lock, so some +4 unfold pulses fail. Confirming that reading, a tree-niche ablation (no hoop ring, no return edges, zero frustrated edges) raises colony probability to <strong>20.6%</strong>, almost back to the original 21.7%, while the dormant pool stays at 10.38. The loops tax colonization; they do not, by themselves, set the size of the 10.4-cell pool. At baseline only <strong>2.07</strong> of those 10.36 dormant cells sit on a frustrated edge. The rest sit on lockable hoop edges, waiting for a +4 pulse.</p>
+
+<h2>6. Priority check: does frustrated-loop count track the dormant pool?</h2>
+<p>The recycled 454 unique lever settings were re-run on the native sim (40 seeds × five cancers = 200 runs per setting). Nothing already settled in the original timing rates was re-derived. Native dormant-pool means track the original ones almost perfectly (Spearman <strong>0.999</strong>, 95% CI 0.998–0.999). Native colony probabilities track as well (Pearson <strong>0.989</strong>, CI 0.984–0.992), sitting slightly lower for the reason above.</p>
+<p>Three different “frustrated counts” were scored against the dormant pool. Bootstrap CIs are 2,000 resamples.</p>
+<table>
+<tr><th>Predictor (native) vs dormant pool</th><th class="num">Spearman r (95% CI)</th><th class="num">Pearson r (95% CI)</th><th>Notes</th></tr>
+<tr><td>Dynamic frustrated-edge count at end of run</td><td class="num"><strong>−0.819</strong> (−0.863, −0.765)</td><td class="num"><strong>−0.771</strong> (−0.818, −0.721)</td><td>Opposite of the overlay prediction</td></tr>
+<tr><td>Month-averaged frustrated-edge count</td><td class="num"><strong>−0.824</strong> (−0.867, −0.772)</td><td class="num"><strong>−0.782</strong> (−0.828, −0.732)</td><td>Same direction</td></tr>
+<tr><td>Static frustrated-edge count at construction (F<sub>0</sub>)</td><td class="num">undefined</td><td class="num">undefined</td><td>F<sub>0</sub> is 32 in every setting (four organs, same wheel). It cannot track anything.</td></tr>
+<tr><td>Cells sitting on frustrated edges</td><td class="num"><strong>+0.990</strong> (0.987, 0.993)</td><td class="num"><strong>+0.985</strong> (0.982, 0.987)</td><td>Circular: a subset of the dormant pool</td></tr>
+<tr><td>Shuffled frustrated-edge count (control)</td><td class="num"><strong>+0.007</strong> (−0.084, 0.093)</td><td class="num">—</td><td>Null, as it should be</td></tr>
+<tr><td>Frustrated-edge count, partial on cells released (shed)</td><td class="num">—</td><td class="num"><strong>−0.745</strong> (p = 2.4×10<sup>−81</sup>)</td><td>The negative link is not just a shed effect</td></tr>
+<tr><td>Shed vs dormant pool, for scale</td><td class="num"><strong>+0.229</strong> (0.142, 0.310)</td><td class="num"><strong>+0.298</strong> (0.246, 0.350)</td><td>Weaker than the frustrated-edge link</td></tr>
+</table>
+<p><strong>The overlay prediction does not hold</strong> once the mesh, repair, and loops are native. Dynamic frustrated-edge count is strongly and negatively associated with the dormant pool. The reason is the adaptive niche: settings that admit many cells also generate heat, repair odd-loop edges, and therefore leave fewer frustrated edges — while at the same time filling the dormant pool on mostly lockable hoop edges. Settings that shut the door upstream (high Oasis threshold, low organ permissiveness) leave the mesh unrepaired at 32 frustrated edges and almost no dormant cells.</p>
+<p>The strong positive correlation of “cells on frustrated edges” with the dormant pool is a circularity, and is reported only so it is not mistaken for confirmation. At baseline that occupancy is about 20% of the pool; it scales with the pool because it is part of the pool. The shuffle control on the edge count is consistent with noise. F<sub>0</sub> cannot be used as a predictor because the organ count, and therefore the constructed wheel, is the same in every setting.</p>
+<figure>
+<img src="../charts/frustrated_vs_dormant_pre_integration.svg" alt="Frustrated-edge count and frustrated occupancy against the dormant pool"/>
+<figcaption>Figure. Left: dynamic frustrated-edge count versus dormant pool (negative). Right: cells occupying frustrated edges versus the same pool (positive, and circular).</figcaption>
+</figure>
+
+<h2>7. Comparison table and ablations</h2>
+<p>Native values below are 100 seeds × five cancers (500 runs), except the calibrated baseline, which is 1,000 runs. Original values are from the 2,500-run sweep.</p>
+<table>
+<tr><th>Setting</th><th class="num">Orig. p(colony)</th><th class="num">Native p(colony)</th><th class="num">Orig. dormant</th><th class="num">Native dormant</th></tr>
+<tr><td>Baseline</td><td class="num">0.217</td><td class="num">0.180</td><td class="num">10.380</td><td class="num">10.355</td></tr>
+<tr><td>Valuation threshold 0.80</td><td class="num">0.001</td><td class="num">0.000</td><td class="num">0.530</td><td class="num">0.550</td></tr>
+<tr><td>Valuation threshold 0.85</td><td class="num">0.000</td><td class="num">0.000</td><td class="num">0.138</td><td class="num">0.140</td></tr>
+<tr><td>Organ permissiveness ×0.4</td><td class="num">0.002</td><td class="num">0.000</td><td class="num">2.275</td><td class="num">2.222</td></tr>
+<tr><td>Organ permissiveness ×0.2</td><td class="num">0.000</td><td class="num">0.000</td><td class="num">0.050</td><td class="num">0.046</td></tr>
+<tr><td>Dormant clearance ×10</td><td class="num">0.054</td><td class="num">0.042</td><td class="num">1.813</td><td class="num">1.816</td></tr>
+<tr><td>Dormant clearance ×20</td><td class="num">0.029</td><td class="num">0.022</td><td class="num">0.834</td><td class="num">0.806</td></tr>
+<tr><td>Dormant clearance ×50</td><td class="num">0.008</td><td class="num">0.006</td><td class="num">0.258</td><td class="num">0.216</td></tr>
+<tr><td>Dormant maintenance 1.0 (post-settling)</td><td class="num">0.000</td><td class="num">0.000</td><td class="num">10.588</td><td class="num">10.562</td></tr>
+<tr><td>Colonization barrier 0.3 (post-settling)</td><td class="num">0.079</td><td class="num">0.058</td><td class="num">10.514</td><td class="num">10.516</td></tr>
+<tr><td>Colonization barrier 0.5 (post-settling)</td><td class="num">0.006</td><td class="num">0.000</td><td class="num">10.584</td><td class="num">10.562</td></tr>
+</table>
+<p>The original qualitative pattern is preserved. Upstream levers (admission threshold, organ permissiveness) shrink both colonies and the dormant pool. Post-settling levers that block unfolding or colonization (maintenance, barrier) clear or suppress colonies and <strong>leave the 10.5-cell pool in place</strong>. Dormant-clearance multipliers shrink the pool because they remove cells, not because they unlock loops.</p>
+<p>Ablations, at baseline and at those same settings:</p>
+<ul>
+<li><strong>Ablate the looped niche</strong> (tree: no hoop, no return edges). Frustrated-edge count goes to 0. Colony probability rises (baseline 0.178 → 0.206). The dormant pool barely moves. The same pattern appears under clearance and barrier settings: loops tax colonization, they do not set pool size.</li>
+<li><strong>Ablate damped reconciliation.</strong> At every setting tested here the result is identical to the full native run. Occupancy stays well below the homeostasis rest load of 40, so the damper, which only meters spikes, never engages. It is implemented as real feedback and is silent on this calibrated cascade.</li>
+<li><strong>Ablate the adaptive niche</strong> (<code>repair_rate = 0</code>). Frustrated-edge count freezes at 32. Colony probability falls slightly (baseline 0.178 → 0.154). Cells on frustrated edges roughly double (2.14 → 4.62). Repair is what lets the frustrated-edge count vary across the 454 settings, and it is what produced the negative correlation above.</li>
+</ul>
+
+<h2>8. Tilt and torque</h2>
+<p>Tilt was not used in the 454-setting sweep (default 0). A side probe on the baseline lever, 80 seeds × five cancers, shows that a circulation-loop rotational bias is a real variable: it concentrates encounters and raises both outcomes.</p>
+<table>
+<tr><th class="num">Tilt</th><th class="num">p(colony)</th><th class="num">Mean overt</th><th class="num">Dormant pool</th><th class="num">Preferred-organ share of colonies</th></tr>
+<tr><td class="num">0.0</td><td class="num">0.165</td><td class="num">0.188</td><td class="num">10.40</td><td class="num">0.973</td></tr>
+<tr><td class="num">0.3</td><td class="num">0.348</td><td class="num">0.408</td><td class="num">13.22</td><td class="num">0.988</td></tr>
+<tr><td class="num">0.6</td><td class="num">0.438</td><td class="num">0.553</td><td class="num">15.19</td><td class="num">0.991</td></tr>
+</table>
+<p>Torque phase was held at 0; it would only rotate which organ is favored. Tilt is therefore included as a documented circulation-loop parameter, and is not required to close the native-mesh baseline.</p>
+
+<h2>9. Observable claims (modeling only)</h2>
+<p>Each claim is tied to this restart. None is a biological or clinical statement.</p>
+<p><strong>1. The public GitHub systems contain Genesis, Nexus, Transcriber, Dictator, Levy, a NaCl polarity mesh, Oasis/salience, homeostasis and sponge notes — and the metastasis sims that were actually run did not use a looped polarity mesh as core state.</strong></p>
+<p><strong>2. A from-scratch native mesh, with dream-catcher niches and return edges, 2-colors with leftover frustrated edges (32 of 89 on a four-organ wheel).</strong> A tree ablation of the same niche has zero frustrated edges. Invert-and-restabilize holds in both cases.</p>
+<p><strong>3. Recycled cascade rates plus that mesh reproduce the original dormant pool (10.36 versus 10.38) and slightly under-reproduce colony probability (18.0% versus 21.7%).</strong> A tree ablation closes most of that colony gap (20.6%).</p>
+<p><strong>4. Across the 454 recycled settings, dynamic frustrated-edge count is negatively associated with the dormant pool (Spearman −0.819, CI −0.863 to −0.765).</strong> The association survives a partial on cells released and vanishes under a shuffle. A static construction count cannot be used: it does not vary. Occupancy of frustrated edges is a circular predictor.</p>
+<p><strong>5. Post-settling maintenance and colonization barriers still leave a ~10.5-cell pool after colonies are gone.</strong> That pool is mostly on lockable hoop edges, not on odd-loop edges, which is why loop ablation does not empty it.</p>
+<p><strong>6. Adaptive repair is the mechanism that makes frustrated-edge count move.</strong> Damped reconciliation is implemented and is silent at this load. Tilt raises both colonies and the pool when it is turned on.</p>
+
+<h2>10. Next possible steps</h2>
+<ul>
+<li>Lower the homeostasis rest load, or raise shed, until the damper actually engages, and report whether spike-metering then changes the dormant pool.</li>
+<li>Let hoop size differ by organ, so F<sub>0</sub> is no longer a constant, and repeat the correlation.</li>
+<li>Weave a Miura-style even-faced niche (the launch-chat fold that locked completely) as a second ablation, against the triangular dream-catcher.</li>
+<li>Leave tilt and torque free in a small additional sweep, rather than only as a probe.</li>
+</ul>
+<p>No claim is made that this describes metastatic biology, predicts a clinical reservoir, or recommends an intervention. It records what changed when the cascade was restarted with her mesh, loops, and reconciliation as native state.</p>
+<hr/>
+<p style="text-align:left;"><em>Sources: fresh clones of the 30 public caitlynrandels-del repositories (27 November 2026); /workspace/oroboro-prevention-sim/oro_cascade.py and data/COMBINED_all_condition_summaries.csv (original 454 settings and baseline); this restart at /workspace/oroboro-research/metastasis_native/. Related: Metastasis_HeatTrace_CaseStudy.md, Dreamcatcher_Weave_FollowOn.md, Magnetic_Launch_Goldilocks_CaseStudy.md. Figure: notes/frustrated_vs_dormant.png. Full inventory: notes/github_scan_inventory.md.</em></p>
+</body></html>
