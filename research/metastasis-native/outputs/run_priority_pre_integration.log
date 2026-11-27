@@ -1,0 +1,283 @@
+MESH looped {'n_nodes': 49, 'n_edges': 89, 'n_frustrated0': 32, 'n_locked0': 57, 'inversion_holds': True, 'counts': {'n_edges': 89, 'n_locked': 57, 'n_frustrated': 32, 'n_repaired': 0}} 
+TREE {'n_nodes': 49, 'n_edges': 49, 'n_frustrated0': 0, 'n_locked0': 49, 'inversion_holds': True, 'counts': {'n_edges': 49, 'n_locked': 49, 'n_frustrated': 0, 'n_repaired': 0}}
+WHOLE vs PARTS True
+=== baseline 200 seeds ===
+BASELINE {'condition': 'baseline', 'experiment': 'native_baseline', 'runs': 1000, 'shed_mean': 239.545, 'p_overt_any': 0.18, 'overt_mean': 0.21, 'dorm_alive_mean': 10.355, 'p_dorm_any': 1.0, 'p_eliminated': 0.0, 'levy_mean': 1909.554, 'n_frustrated_mean': 22.961, 'n_frustrated_series_mean': 28.235108333333333, 'n_frustrated0_mean': 32.0, 'dorm_on_frustrated_mean': 2.068, 'n_repaired_mean': 9.039, 'census_ok': True, 'levy_ok': True, 'consensus_ok': True, 'inversion_holds': True}
+TILT tilt=0.0 {'condition': 'tilt=0.0', 'experiment': 'tilt', 'runs': 400, 'shed_mean': 238.955, 'p_overt_any': 0.165, 'overt_mean': 0.1875, 'dorm_alive_mean': 10.3975, 'p_dorm_any': 1.0, 'p_eliminated': 0.0, 'levy_mean': 1904.32, 'n_frustrated_mean': 22.65, 'n_frustrated_series_mean': 28.124125, 'n_frustrated0_mean': 32.0, 'dorm_on_frustrated_mean': 2.0525, 'n_repaired_mean': 9.35, 'census_ok': True, 'levy_ok': True, 'consensus_ok': True, 'inversion_holds': True, 'overt_pref_share': 0.9733333333333334}
+TILT tilt=0.3 {'condition': 'tilt=0.3', 'experiment': 'tilt', 'runs': 400, 'shed_mean': 238.955, 'p_overt_any': 0.3475, 'overt_mean': 0.4075, 'dorm_alive_mean': 13.2225, 'p_dorm_any': 1.0, 'p_eliminated': 0.0, 'levy_mean': 1906.5475, 'n_frustrated_mean': 23.6025, 'n_frustrated_series_mean': 28.235645833333333, 'n_frustrated0_mean': 32.0, 'dorm_on_frustrated_mean': 2.2325, 'n_repaired_mean': 8.3975, 'census_ok': True, 'levy_ok': True, 'consensus_ok': True, 'inversion_holds': True, 'overt_pref_share': 0.9877300613496932}
+TILT tilt=0.6 {'condition': 'tilt=0.6', 'experiment': 'tilt', 'runs': 400, 'shed_mean': 238.955, 'p_overt_any': 0.4375, 'overt_mean': 0.5525, 'dorm_alive_mean': 15.1925, 'p_dorm_any': 1.0, 'p_eliminated': 0.0, 'levy_mean': 1907.7325, 'n_frustrated_mean': 23.9125, 'n_frustrated_series_mean': 28.238416666666666, 'n_frustrated0_mean': 32.0, 'dorm_on_frustrated_mean': 2.4825, 'n_repaired_mean': 8.0875, 'census_ok': True, 'levy_ok': True, 'consensus_ok': True, 'inversion_holds': True, 'overt_pref_share': 0.9909502262443439}
+=== key baseline / native_full ===
+   0.178 10.406 22.796
+=== key baseline / ablate_looped_niche ===
+   0.206 10.382 0.0
+=== key baseline / ablate_damped_reconcile ===
+   0.178 10.406 22.796
+=== key baseline / ablate_adaptive_niche ===
+   0.154 10.424 32.0
+=== key valuation_threshold=0.80 / native_full ===
+   0.0 0.55 31.666
+=== key valuation_threshold=0.80 / ablate_looped_niche ===
+   0.0 0.55 0.0
+=== key valuation_threshold=0.80 / ablate_damped_reconcile ===
+   0.0 0.55 31.666
+=== key valuation_threshold=0.80 / ablate_adaptive_niche ===
+   0.0 0.55 32.0
+=== key valuation_threshold=0.85 / native_full ===
+   0.0 0.14 31.974
+=== key valuation_threshold=0.85 / ablate_looped_niche ===
+   0.0 0.14 0.0
+=== key valuation_threshold=0.85 / ablate_damped_reconcile ===
+   0.0 0.14 31.974
+=== key valuation_threshold=0.85 / ablate_adaptive_niche ===
+   0.0 0.14 32.0
+=== key organ_perm_scale=0.4 / native_full ===
+   0.0 2.222 29.134
+=== key organ_perm_scale=0.4 / ablate_looped_niche ===
+   0.0 2.222 0.0
+=== key organ_perm_scale=0.4 / ablate_damped_reconcile ===
+   0.0 2.222 29.134
+=== key organ_perm_scale=0.4 / ablate_adaptive_niche ===
+   0.0 2.222 32.0
+=== key organ_perm_scale=0.2 / native_full ===
+   0.0 0.046 31.99
+=== key organ_perm_scale=0.2 / ablate_looped_niche ===
+   0.0 0.046 0.0
+=== key organ_perm_scale=0.2 / ablate_damped_reconcile ===
+   0.0 0.046 31.99
+=== key organ_perm_scale=0.2 / ablate_adaptive_niche ===
+   0.0 0.046 32.0
+=== key dorm_clear_mult=10 / native_full ===
+   0.042 1.816 22.95
+=== key dorm_clear_mult=10 / ablate_looped_niche ===
+   0.056 1.812 0.0
+=== key dorm_clear_mult=10 / ablate_damped_reconcile ===
+   0.042 1.816 22.95
+=== key dorm_clear_mult=10 / ablate_adaptive_niche ===
+   0.038 1.816 32.0
+=== key dorm_clear_mult=20 / native_full ===
+   0.022 0.806 22.86
+=== key dorm_clear_mult=20 / ablate_looped_niche ===
+   0.028 0.806 0.0
+=== key dorm_clear_mult=20 / ablate_damped_reconcile ===
+   0.022 0.806 22.86
+=== key dorm_clear_mult=20 / ablate_adaptive_niche ===
+   0.016 0.806 32.0
+=== key dorm_clear_mult=50 / native_full ===
+   0.006 0.216 22.794
+=== key dorm_clear_mult=50 / ablate_looped_niche ===
+   0.01 0.216 0.0
+=== key dorm_clear_mult=50 / ablate_damped_reconcile ===
+   0.006 0.216 22.794
+=== key dorm_clear_mult=50 / ablate_adaptive_niche ===
+   0.002 0.216 32.0
+=== key dorm_maintenance=1.0 / native_full ===
+   0.0 10.562 22.796
+=== key dorm_maintenance=1.0 / ablate_looped_niche ===
+   0.0 10.562 0.0
+=== key dorm_maintenance=1.0 / ablate_damped_reconcile ===
+   0.0 10.562 22.796
+=== key dorm_maintenance=1.0 / ablate_adaptive_niche ===
+   0.0 10.562 32.0
+=== key colonization_barrier=0.3 / native_full ===
+   0.058 10.516 22.798
+=== key colonization_barrier=0.3 / ablate_looped_niche ===
+   0.068 10.508 0.0
+=== key colonization_barrier=0.3 / ablate_damped_reconcile ===
+   0.058 10.516 22.798
+=== key colonization_barrier=0.3 / ablate_adaptive_niche ===
+   0.052 10.52 32.0
+=== key colonization_barrier=0.5 / native_full ===
+   0.0 10.562 22.796
+=== key colonization_barrier=0.5 / ablate_looped_niche ===
+   0.0 10.562 0.0
+=== key colonization_barrier=0.5 / ablate_damped_reconcile ===
+   0.0 10.562 22.796
+=== key colonization_barrier=0.5 / ablate_adaptive_niche ===
+   0.0 10.562 32.0
+=== sweep 454 settings, 40 seeds x 5 cancers ===
+  1/454  elapsed 1s  last p_overt=0.175 dorm=10.48 frust=22.5
+  25/454  elapsed 16s  last p_overt=0.055 dorm=10.63 frust=22.5
+  50/454  elapsed 33s  last p_overt=0.000 dorm=0.00 frust=32.0
+  75/454  elapsed 50s  last p_overt=0.000 dorm=10.65 frust=22.5
+  100/454  elapsed 67s  last p_overt=0.025 dorm=0.74 frust=22.6
+  125/454  elapsed 86s  last p_overt=0.130 dorm=7.15 frust=23.5
+  150/454  elapsed 100s  last p_overt=0.000 dorm=1.08 frust=30.4
+  175/454  elapsed 114s  last p_overt=0.010 dorm=2.21 frust=29.4
+  200/454  elapsed 131s  last p_overt=0.005 dorm=0.58 frust=29.9
+  225/454  elapsed 148s  last p_overt=0.000 dorm=2.22 frust=28.8
+  250/454  elapsed 163s  last p_overt=0.030 dorm=3.35 frust=27.8
+  275/454  elapsed 175s  last p_overt=0.000 dorm=0.02 frust=32.0
+  300/454  elapsed 188s  last p_overt=0.005 dorm=3.44 frust=27.5
+  325/454  elapsed 202s  last p_overt=0.000 dorm=0.01 frust=31.9
+  350/454  elapsed 217s  last p_overt=0.000 dorm=1.09 frust=31.3
+  375/454  elapsed 230s  last p_overt=0.000 dorm=0.94 frust=29.0
+  400/454  elapsed 243s  last p_overt=0.000 dorm=0.28 frust=31.7
+  425/454  elapsed 258s  last p_overt=0.000 dorm=0.82 frust=31.4
+  450/454  elapsed 273s  last p_overt=0.000 dorm=1.00 frust=28.6
+sweep done 454 in 274.1285026073456
+/workspace/oroboro-research/metastasis_native/run_priority.py:97: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r, p = stats.spearmanr(x, y)
+/workspace/oroboro-research/metastasis_native/run_priority.py:99: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  return stats.spearmanr(a, b).correlation
+/usr/local/lib/python3.13/dist-packages/numpy/lib/_nanfunctions_impl.py:1396: RuntimeWarning: All-NaN slice encountered
+  return _nanquantile_unchecked(
+/workspace/oroboro-research/metastasis_native/run_priority.py:101: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  r, p = stats.pearsonr(x, y)
+/workspace/oroboro-research/metastasis_native/run_priority.py:103: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  return stats.pearsonr(a, b)[0]
+{
+  "n_settings": 454,
+  "frustrated_end_vs_dorm": {
+    "spearman": {
+      "r": -0.8186171298489878,
+      "p": 6.3806639466827434e-111,
+      "ci_lo": -0.8632178894291929,
+      "ci_hi": -0.7652158282675048,
+      "n": 454
+    },
+    "pearson": {
+      "r": -0.7706971677510205,
+      "p": 1.658571596032627e-90,
+      "ci_lo": -0.8175105402468937,
+      "ci_hi": -0.7213999837140022,
+      "n": 454
+    }
+  },
+  "frustrated_series_vs_dorm": {
+    "spearman": {
+      "r": -0.8234543011151441,
+      "p": 2.5703711058165365e-113,
+      "ci_lo": -0.8667211326000529,
+      "ci_hi": -0.7718658279882845,
+      "n": 454
+    },
+    "pearson": {
+      "r": -0.7819786405351513,
+      "p": 7.674985116860816e-95,
+      "ci_lo": -0.8282586938996359,
+      "ci_hi": -0.7317994331394009,
+      "n": 454
+    }
+  },
+  "frustrated0_vs_dorm": {
+    "spearman": {
+      "r": NaN,
+      "p": NaN,
+      "ci_lo": NaN,
+      "ci_hi": NaN,
+      "n": 454
+    },
+    "pearson": {
+      "r": NaN,
+      "p": NaN,
+      "ci_lo": NaN,
+      "ci_hi": NaN,
+      "n": 454
+    }
+  },
+  "dorm_on_frustrated_vs_dorm": {
+    "spearman": {
+      "r": 0.9905284479263412,
+      "p": 0.0,
+      "ci_lo": 0.9869576527940286,
+      "ci_hi": 0.9927005016463767,
+      "n": 454
+    },
+    "pearson": {
+      "r": 0.9846100614908666,
+      "p": 0.0,
+      "ci_lo": 0.9817783959969425,
+      "ci_hi": 0.9871751996958555,
+      "n": 454
+    }
+  },
+  "partial_frustrated_end_vs_dorm_given_shed": {
+    "r": -0.7445152261867038,
+    "p": 2.4237234639609353e-81,
+    "n": 454
+  },
+  "partial_dorm_on_frustrated_vs_dorm_given_shed": {
+    "r": 0.983780127942701,
+    "p": 0.0,
+    "n": 454
+  },
+  "shuffled_frustrated_end_vs_dorm": {
+    "r": 0.006707234376774589,
+    "p": 0.8866688773373337,
+    "ci_lo": -0.08406798212952829,
+    "ci_hi": 0.09287270292952426,
+    "n": 454
+  },
+  "frustrated_end_vs_frust_occupancy_fraction": {
+    "r": 0.624297382307507,
+    "p": 2.0066005920371415e-50,
+    "ci_lo": 0.5326590590726397,
+    "ci_hi": 0.7067404348345038,
+    "n": 454
+  },
+  "shed_vs_dorm": {
+    "spearman": {
+      "r": 0.228590692595403,
+      "p": 8.542665099963254e-07,
+      "ci_lo": 0.14200516942419214,
+      "ci_hi": 0.3097864622464242,
+      "n": 454
+    },
+    "pearson": {
+      "r": 0.29834536980257537,
+      "p": 8.713596675476755e-11,
+      "ci_lo": 0.2459847531163982,
+      "ci_hi": 0.3497945184099374,
+      "n": 454
+    }
+  },
+  "native_frust_vs_original_dorm": {
+    "spearman": {
+      "r": -0.8273817573846897,
+      "p": 2.5762948752764207e-115,
+      "ci_lo": -0.8697078037297529,
+      "ci_hi": -0.7761666137273288,
+      "n": 454
+    },
+    "pearson": {
+      "r": -0.7740215159631776,
+      "p": 9.30271862017093e-92,
+      "ci_lo": -0.8200388835442671,
+      "ci_hi": -0.7256404124743611,
+      "n": 454
+    }
+  },
+  "native_dorm_vs_original_dorm": {
+    "spearman": {
+      "r": 0.9990283247779718,
+      "p": 0.0,
+      "ci_lo": 0.9983420587951392,
+      "ci_hi": 0.9992578206907815,
+      "n": 454
+    },
+    "pearson": {
+      "r": 0.9996870520319472,
+      "p": 0.0,
+      "ci_lo": 0.999601832063209,
+      "ci_hi": 0.9997559027220244,
+      "n": 454
+    }
+  },
+  "native_povert_vs_original_povert": {
+    "spearman": {
+      "r": 0.8805321965001212,
+      "p": 1.1892196393401282e-148,
+      "ci_lo": 0.849048261958458,
+      "ci_hi": 0.906968976259632,
+      "n": 454
+    },
+    "pearson": {
+      "r": 0.9891325051216386,
+      "p": 0.0,
+      "ci_lo": 0.9844215739150243,
+      "ci_hi": 0.9923971759744467,
+      "n": 454
+    }
+  }
+}
+DONE in 357.6924457550049 s
