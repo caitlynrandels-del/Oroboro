@@ -48,13 +48,25 @@ Across the 454 settings, the frustrated-edge count vs the dormant pool is Spearm
 
 ![pre-integration vs conjunctive](charts/integrated_vs_pre_integration.svg)
 
+## Light as directed transport to an extraction node (27 Nov 2026; model outputs)
+Speculative modeling only. This is not a treatment, protocol or clinical claim. Light is modeled as a directed transport signal on the native polarity mesh. It moves occupancy to a collection node; it does not kill occupancy in place. There are 5 modes (lure, tag + magnet, flush, photoacoustic, combined), 3 timings (upstream, circulation, post-settling) and 3 strengths, at Levy gains 0.05 and 1.0. **Light is off by default** (`params.json`: `light=false`, `extraction=false`). With it off, the code reproduces the earlier integrated run bit-for-bit (checked on 25 seeds).
+- The extraction node alone, with no transport, changes nothing about fates.
+- **All 45 sweep conditions (gain 0.05) shrink both the colony rate and the dormant pool** against the matched baseline (17.5%, 10.22). None shrinks only one of them. Example: combined, upstream, 0.5 → 0.0%, 0.67. Combined, upstream, 0.8 → pool 0.045.
+- Upstream is more efficient. Circulation has the higher raw yield. Post-settling still leaves more behind. Almost no occupancy is moved out of overt colonies.
+- The circulation ring stays locked. The correlation between frustrated loops and the pool does not carry over (Spearman 0.09, not significant).
+- **Oasis is load-bearing:** skipping Oasis admission on extract proposals only raises the yield from 15% to 77% and turns the exit into an ungated drain. PrinciplesGate, Levy feedback, the damper, adaptive niches and loops barely move the result at gain 0.05.
+- All checks pass on every condition: census, Levy, consensus, pipeline Levy, Genesis closure, mesh inversion and whole-vs-parts. These were re-checked before the push, with light on and off.
+
+Note: [`notes/Light_Transport_Extraction.md`](notes/Light_Transport_Extraction.md) ([page view](notes/pdf-pages/Light_Transport_Extraction/view.html)). Figure: [`charts/fig_light_transport.svg`](charts/fig_light_transport.svg). Data: `data/light_transport/`. Run: `python3 run_light_transport.py`.
+
 ## Files
 - `oro_native.py` (sim and components), `oro_mesh.py` (looped polarity mesh), `params.json`
 - `run_integrated.py`: conjunctive rerun (`--calibrate` picks the calibration-best gain)
 - `run_priority.py`: original pre-integration driver
 - `data/integrated/` (gain 1.0), `data/integrated_levy_gain_0.05/`, `data/pre_integration/` (published restart, superseded)
 - `charts/`, `outputs/*.log`
-- `notes/Native_Mesh_Restart_HeatTrace.md` (pre-integration write-up)
+- `notes/Native_Mesh_Restart_HeatTrace.md` (pre-integration write-up; [page view](notes/pdf-pages/Native_Mesh_Restart_HeatTrace/view.html))
+- `run_light_transport.py`, `data/light_transport/`, `notes/Light_Transport_Extraction.md`
 - `notes/github_scan_inventory.md`
 
 Run: `python3 run_integrated.py` (numpy, pandas, scipy, matplotlib).
