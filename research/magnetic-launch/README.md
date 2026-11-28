@@ -12,8 +12,9 @@
 7. `Light_Sail_Push_Addendum.md`: a ground-laser light-sail push after the rail, on the recycled exits (**conjunctive**)
 8. `Guidance_Kite_Line_Straw_Addendum.md`: kite, fishing-line, lane-keeping, Earth-field magnets, and STRAW on the recycled no-track ascent (**conjunctive**)
 9. `Fur_Fabric_Adaptive_Addendum.md`: Pixar-referenced fur / fabric ("furn") dynamics and an adaptive polygon mesh on the recycled kite, line, STRAW, and light-sail setups (**conjunctive**)
+10. `Plumbing_Dynamics_Addendum.md`: sealed-channel / plumbing dynamics on the recycled evacuated STRAW, plus a plumbing hook on the native extraction mesh (**conjunctive**)
 
-HTML versions of each document are alongside (figures load from `figures/`). PDF page views (SVG page images): [Goldilocks](pdf-pages/Magnetic_Launch_Goldilocks_CaseStudy/view.html), [Ondulatory](pdf-pages/Ondulatory_Strings_Wireframe_Addendum/view.html), [Dreamcatcher](pdf-pages/Dreamcatcher_Weave_FollowOn/view.html) (its only raster is the skeleton-only fig05; no video stills), [GoalSeek](pdf-pages/Magnetic_Launch_GoalSeek_Continuation/view.html), [Geography](pdf-pages/Geography_Launch_Sites_Addendum/view.html), [Redstone](pdf-pages/Redstone_Repeater_Comparator_Addendum/view.html), [Light sail](pdf-pages/Light_Sail_Push_Addendum/view.html), [Guidance / kite / line / straw](pdf-pages/Guidance_Kite_Line_Straw_Addendum/view.html), [Fur / fabric adaptive](pdf-pages/Fur_Fabric_Adaptive_Addendum/view.html).
+HTML versions of each document are alongside (figures load from `figures/`). PDF page views (SVG page images): [Goldilocks](pdf-pages/Magnetic_Launch_Goldilocks_CaseStudy/view.html), [Ondulatory](pdf-pages/Ondulatory_Strings_Wireframe_Addendum/view.html), [Dreamcatcher](pdf-pages/Dreamcatcher_Weave_FollowOn/view.html) (its only raster is the skeleton-only fig05; no video stills), [GoalSeek](pdf-pages/Magnetic_Launch_GoalSeek_Continuation/view.html), [Geography](pdf-pages/Geography_Launch_Sites_Addendum/view.html), [Redstone](pdf-pages/Redstone_Repeater_Comparator_Addendum/view.html), [Light sail](pdf-pages/Light_Sail_Push_Addendum/view.html), [Guidance / kite / line / straw](pdf-pages/Guidance_Kite_Line_Straw_Addendum/view.html), [Fur / fabric adaptive](pdf-pages/Fur_Fabric_Adaptive_Addendum/view.html), [Plumbing](pdf-pages/Plumbing_Dynamics_Addendum/view.html).
 
 ## Correction carried in this update
 The earlier **256 m/s** staged residual is **invalid**. It came from a 900 s coast that had not yet reached apogee. Under the Kepler vacuum apogee of the same staged state, the two-burn residual is **~1,148 m/s**, with the perigee still underground. The staged state already overshoots, and adding Earth rotation makes the ellipse larger (1,430–1,558 m/s). Do not compare 256 m/s with any boost.
@@ -56,8 +57,15 @@ The earlier **256 m/s** staged residual is **invalid**. It came from a 900 s coa
 - **Adaptive polygons change how leftover, drag, and secondary motion are booked. They do not produce a lock.** Zero of the coupled runs locked, as with the 0/240 no-track and 0/46 guided baselines.
 - Evacuated STRAW leftover stays the recycled **595 m/s** (a furn liner is not Δv). A gated adaptive sail is 554 m/s versus a 551 m/s confirmatory fixed-open rerun (recycled best sail leftover remains 514 m/s). A gated line is better than a fixed line (1,361 vs 2,378 m/s) but is still a brake versus no line. A gated kite is worse than baseline. No site or device is recommended.
 
+## Plumbing / sealed-channel results (model outputs)
+- Launch, on the recycled evacuated STRAW: leftover stays **595 m/s** until the channel is already substantially leaked (`leak_frac` = 10⁻² is still 595.0 m/s; `leak_frac` = 1 recovers the no-track **661.3 m/s** exactly). Sixteen airlock stages at a small leak are indistinguishable from a tight evac at the leftover digit.
+- A pressure-gradient (pneumatic) push does not close the gap. A late 0.1 bar push along the open-loop channel raises the leftover from 595 to **666 m/s**. A 1 bar evac-80 case leaves **2,934 m/s** and does not lock. Fifteen further cases were unbound (no apogee state), including 1 bar and 10 bar pushes on the 200 km and 1,031 km channels.
+- **0 of 49** new launch runs locked, plus the recycled 0/240 no-track baseline. No site or device is recommended.
+- Cancer hook: **plumbing is off by default** and is a strict no-op (no RNG, no state change) unless `native["plumbing"]` is on. The light-off, no-plumbing signature is unchanged (checked 25/25 against the previously published integrated code before this push).
+- When the sealed channel is on, **Oasis is a restrictive valve**. Perfect seal, upstream, strength 0.5: yield 0.132, p(overt) 0.175 → 0.000, dormant pool 10.215 → 1.270, with a leftover pool. Skipping Oasis on extract hops raises yield to 0.684; that ablation is not a setting to chase. Census, Levy, consensus, inversion and whole-versus-parts checks held. Speculative mesh accounting only; not a therapy.
+
 ## In progress (not pushed yet)
-A plumbing / sealed-channel transport run (`Plumbing_*`, `fig15`, `metastasis_native` plumbing code and `data/plumbing`) and a combined shareable report (`combined_report/`) are in progress. Those files will be pushed when finished.
+A combined shareable report (`combined_report/`) is in progress and will be pushed when finished.
 
 ## Conjunctive-use audit
 | Script | Verdict |
@@ -72,11 +80,12 @@ A plumbing / sealed-channel transport run (`Plumbing_*`, `fig15`, `metastasis_na
 | `run_light_sail_push.py` | **CONJUNCTIVE**: same one loop as redstone (Genesis → Nexus → Oasis → PrinciplesGate → NaCl → Dictator → Transcriber → Levy → damped recombine) |
 | `run_guidance_kite_line_straw.py` | **CONJUNCTIVE**: same one loop (Levy total weight 101) |
 | `run_fur_fabric_adaptive.py` | **CONJUNCTIVE**: same one loop (Levy total weight 237,052, dominated by hair-proximity untangle events, not orbit locks) |
+| `run_plumbing_dynamics.py` | **CONJUNCTIVE**: same one loop (Levy total weight 2,676 in this ledger) |
 
 The first six scripts are non-conjunctive and kept for history. Each script carries its verdict in its header. The conjunctive baseline is [`../metastasis-native`](../metastasis-native) and [`../cross-domain/scripts/run_conjunctive_check.py`](../cross-domain/scripts/run_conjunctive_check.py). A launch rebuild on the [one-loop pipeline](../PIPELINE.md) is pending.
 
 ## Figures (SVG)
-`figures/fig01_track_length.svg`, `fig02_apogee.svg`, `fig03_sea_level_drag.svg`, `fig05_dreamcatcher_weave.svg`, `fig06_goal_seek_pareto.svg`, `fig07_heat_regrowth_bands.svg`, `fig08_nonspin_interior.svg`, `fig09_tilt_torque.svg`, `fig10_geography.svg`, `fig11_redstone_repeater_comparator.svg`, `fig12_light_sail_push.svg`, `fig13_guidance_kite_line_straw.svg`, `fig14_fur_fabric_adaptive.svg` (PNG pixels wrapped in SVG)
+`figures/fig01_track_length.svg`, `fig02_apogee.svg`, `fig03_sea_level_drag.svg`, `fig05_dreamcatcher_weave.svg`, `fig06_goal_seek_pareto.svg`, `fig07_heat_regrowth_bands.svg`, `fig08_nonspin_interior.svg`, `fig09_tilt_torque.svg`, `fig10_geography.svg`, `fig11_redstone_repeater_comparator.svg`, `fig12_light_sail_push.svg`, `fig13_guidance_kite_line_straw.svg`, `fig14_fur_fabric_adaptive.svg`, `fig15_plumbing_dynamics.svg` (PNG pixels wrapped in SVG)
 
 ## Outputs and reproducibility
-`outputs/` holds the JSON/TXT results. Now published: `heat_path_series.json`, `redstone_repeater_comparator.json`, `light_sail_push.json`, `guidance_kite_line_straw.json` and `fur_fabric_adaptive.json`. Not published: `dreamcatcher_weave.json` and pose landmarks (derived from a personal-use clip), and `work/` frames. Scripts expect the Oasis bridge from the sky-ari-ai build (`/workspace/oasis-build/...`) on the project computer. The NaCl mesh path points to `../../consciousness-mapping` in this repo.
+`outputs/` holds the JSON/TXT results. Now published: `heat_path_series.json`, `redstone_repeater_comparator.json`, `light_sail_push.json`, `guidance_kite_line_straw.json`, `fur_fabric_adaptive.json` and `plumbing_dynamics.json`. Not published: `dreamcatcher_weave.json` and pose landmarks (derived from a personal-use clip), and `work/` frames. Scripts expect the Oasis bridge from the sky-ari-ai build (`/workspace/oasis-build/...`) on the project computer. The NaCl mesh path points to `../../consciousness-mapping` in this repo.
