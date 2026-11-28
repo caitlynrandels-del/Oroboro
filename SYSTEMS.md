@@ -56,7 +56,8 @@ Apps and front ends that use these systems: relay [`OroboroRelayVisionOS.swift`]
 ## Reports
 
 - **Combined studies report** (40 pages, plain language and technical side by side): [Markdown](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/Oroboro_Studies_Combined_Report.md) · [HTML](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/Oroboro_Studies_Combined_Report.html) · [page-image view](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/pdf-pages/view.html)
-- **One-page engineering brief**: [HTML](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/Oroboro_OnePage_Engineer_Brief.html) · [page image](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/pdf-pages/Oroboro_OnePage_Engineer_Brief/page-01.svg)
+- **One-page engineering brief v2** (built by the integrated pipeline pass): [HTML](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/Oroboro_OnePage_Engineer_Brief_v2.html) · [page view](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/pdf-pages/Oroboro_OnePage_Engineer_Brief_v2/view.html) · [integrated-pass scripts and results](https://github.com/caitlynrandels-del/Oroboro/tree/main/research/combined-report/integrated-pass)
+- *Superseded:* one-page brief v1: [HTML](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/Oroboro_OnePage_Engineer_Brief.html) · [page view](https://github.com/caitlynrandels-del/Oroboro/blob/main/research/combined-report/pdf-pages/Oroboro_OnePage_Engineer_Brief/view.html)
 - The per-addendum PDF page views are under each study's `pdf-pages/` folder.
 
 The GitHub connector stores text only, so the PDF binaries stay on the project computer. The page-image views (SVG) show the PDFs as rendered.
