@@ -1,0 +1,1379 @@
+{
+ "task": "t96u",
+ "status": "speculative structural analogy; no clinical/biological/engineering claim; no invented data",
+ "generated": "2026-11-28T02:10:07+00:00",
+ "code": {
+  "modified": "research/metastasis-native/oro_native.py",
+  "sha1": "aa05ba4a9788e06574581bd436ff80a712346ba5",
+  "backup": "git history (version before this commit)",
+  "toggles_off_bit_identical": "90/90 runs (sigcheck.py)"
+ },
+ "mapping": {
+  "zipper": {
+   "teeth": "NaCl polarity edges",
+   "slider": "Oasis re-test of skipped teeth in dormant block",
+   "tolerance": "teeth skip if |fit-perm|*size+(1-material)*U > tau",
+   "tape": "damper alpha/tape",
+   "spring": "levy_gain*spring",
+   "attachment": "seating anchor (cells stay in circulation if unanchored)"
+  },
+  "dna": {
+   "pairing": "polarity pairs",
+   "unzip_reanneal": "delta-reconciliation reseat of frustrated occupants + ledger of overt cells unzipped to circulation",
+   "proofreading": "NEW rule inside PrinciplesGate: hold commit if mismatch > threshold"
+  },
+  "mrna": "Levy EMA uses mrna_decay (transient) vs Nexus record (persistent)",
+  "rbc": "plumbing leak*(1-seal), hop+deform*(1-hop)",
+  "wbc": "dormant patrol through Oasis gate; recycle (strict) or non-commit (lenient) -> cleared"
+ },
+ "cancer": {
+  "g1.0": {
+   "baseline": {
+    "p_overt_any": 0.135,
+    "dorm_alive_mean": 6.3,
+    "n_frustrated_mean": 24.78,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "zipper": {
+    "p_overt_any": 0.13,
+    "dorm_alive_mean": 6.305,
+    "n_frustrated_mean": 24.78,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 1.62,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "dna": {
+    "p_overt_any": 0.14,
+    "dorm_alive_mean": 6.305,
+    "n_frustrated_mean": 24.78,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.035,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 3.07,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "mrna": {
+    "p_overt_any": 0.06,
+    "dorm_alive_mean": 4.81,
+    "n_frustrated_mean": 25.77,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "rbc": {
+    "p_overt_any": 0.135,
+    "dorm_alive_mean": 6.3,
+    "n_frustrated_mean": 24.78,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "wbc": {
+    "p_overt_any": 0.135,
+    "dorm_alive_mean": 6.3,
+    "n_frustrated_mean": 24.78,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 23.245,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "wbc_lenient": {
+    "p_overt_any": 0.07,
+    "dorm_alive_mean": 2.25,
+    "n_frustrated_mean": 23.815,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 11.265,
+    "wbc_cleared_mean": 6.28,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined": {
+    "p_overt_any": 0.065,
+    "dorm_alive_mean": 4.795,
+    "n_frustrated_mean": 25.77,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.02,
+    "zip_skips_mean": 1.23,
+    "dna_reannealed_mean": 2.03,
+    "wbc_patrolled_mean": 18.245,
+    "wbc_cleared_mean": 0.035,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_zipper": {
+    "p_overt_any": 0.065,
+    "dorm_alive_mean": 4.795,
+    "n_frustrated_mean": 25.77,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.02,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 2.465,
+    "wbc_patrolled_mean": 18.245,
+    "wbc_cleared_mean": 0.035,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_dna": {
+    "p_overt_any": 0.06,
+    "dorm_alive_mean": 4.795,
+    "n_frustrated_mean": 25.77,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 1.23,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 18.26,
+    "wbc_cleared_mean": 0.035,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_mrna": {
+    "p_overt_any": 0.14,
+    "dorm_alive_mean": 6.305,
+    "n_frustrated_mean": 24.78,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.035,
+    "zip_skips_mean": 1.62,
+    "dna_reannealed_mean": 2.47,
+    "wbc_patrolled_mean": 23.24,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_rbc": {
+    "p_overt_any": 0.065,
+    "dorm_alive_mean": 4.795,
+    "n_frustrated_mean": 25.77,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.02,
+    "zip_skips_mean": 1.23,
+    "dna_reannealed_mean": 2.03,
+    "wbc_patrolled_mean": 18.245,
+    "wbc_cleared_mean": 0.035,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_wbc": {
+    "p_overt_any": 0.065,
+    "dorm_alive_mean": 4.81,
+    "n_frustrated_mean": 25.77,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.02,
+    "zip_skips_mean": 1.23,
+    "dna_reannealed_mean": 2.025,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_wbc_lenient": {
+    "p_overt_any": 0.025,
+    "dorm_alive_mean": 1.575,
+    "n_frustrated_mean": 24.9,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.01,
+    "zip_skips_mean": 1.37,
+    "dna_reannealed_mean": 1.52,
+    "wbc_patrolled_mean": 8.315,
+    "wbc_cleared_mean": 5.435,
+    "dna_unzipped_overt_mean": 0.0
+   }
+  },
+  "g0.05": {
+   "baseline": {
+    "p_overt_any": 0.175,
+    "dorm_alive_mean": 10.215,
+    "n_frustrated_mean": 22.515,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "zipper": {
+    "p_overt_any": 0.17,
+    "dorm_alive_mean": 10.22,
+    "n_frustrated_mean": 22.515,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 2.23,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "dna": {
+    "p_overt_any": 0.195,
+    "dorm_alive_mean": 10.21,
+    "n_frustrated_mean": 22.515,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.05,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 4.5,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "mrna": {
+    "p_overt_any": 0.165,
+    "dorm_alive_mean": 10.0,
+    "n_frustrated_mean": 22.615,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "rbc": {
+    "p_overt_any": 0.175,
+    "dorm_alive_mean": 10.215,
+    "n_frustrated_mean": 22.515,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "wbc": {
+    "p_overt_any": 0.175,
+    "dorm_alive_mean": 10.215,
+    "n_frustrated_mean": 22.515,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 34.885,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "wbc_lenient": {
+    "p_overt_any": 0.12,
+    "dorm_alive_mean": 4.93,
+    "n_frustrated_mean": 21.97,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 20.085,
+    "wbc_cleared_mean": 6.97,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined": {
+    "p_overt_any": 0.18,
+    "dorm_alive_mean": 10.0,
+    "n_frustrated_mean": 22.615,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.045,
+    "zip_skips_mean": 2.2,
+    "dna_reannealed_mean": 3.535,
+    "wbc_patrolled_mean": 34.23,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_zipper": {
+    "p_overt_any": 0.18,
+    "dorm_alive_mean": 10.0,
+    "n_frustrated_mean": 22.615,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.045,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 4.37,
+    "wbc_patrolled_mean": 34.23,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_dna": {
+    "p_overt_any": 0.16,
+    "dorm_alive_mean": 10.005,
+    "n_frustrated_mean": 22.615,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 2.19,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 34.255,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_mrna": {
+    "p_overt_any": 0.195,
+    "dorm_alive_mean": 10.21,
+    "n_frustrated_mean": 22.515,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.05,
+    "zip_skips_mean": 2.24,
+    "dna_reannealed_mean": 3.665,
+    "wbc_patrolled_mean": 34.855,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_rbc": {
+    "p_overt_any": 0.18,
+    "dorm_alive_mean": 10.0,
+    "n_frustrated_mean": 22.615,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.045,
+    "zip_skips_mean": 2.2,
+    "dna_reannealed_mean": 3.535,
+    "wbc_patrolled_mean": 34.23,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_minus_wbc": {
+    "p_overt_any": 0.18,
+    "dorm_alive_mean": 10.0,
+    "n_frustrated_mean": 22.615,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.045,
+    "zip_skips_mean": 2.2,
+    "dna_reannealed_mean": 3.535,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_wbc_lenient": {
+    "p_overt_any": 0.145,
+    "dorm_alive_mean": 4.69,
+    "n_frustrated_mean": 22.095,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.03,
+    "zip_skips_mean": 2.42,
+    "dna_reannealed_mean": 2.81,
+    "wbc_patrolled_mean": 19.52,
+    "wbc_cleared_mean": 6.98,
+    "dna_unzipped_overt_mean": 0.0
+   }
+  }
+ },
+ "tau_sweep": {
+  "g1.0": {
+   "tau0.1": {
+    "zipper": 0.065,
+    "combined": 0.02,
+    "proof": 0.11
+   },
+   "tau0.2": {
+    "zipper": 0.095,
+    "combined": 0.055,
+    "proof": 0.06
+   },
+   "tau0.3": {
+    "zipper": 0.12,
+    "combined": 0.065,
+    "proof": 0.04
+   },
+   "tau0.4": {
+    "zipper": 0.13,
+    "combined": 0.065,
+    "proof": 0.025
+   },
+   "tau0.5": {
+    "zipper": 0.13,
+    "combined": 0.065,
+    "proof": 0.02
+   },
+   "tau0.6": {
+    "zipper": 0.135,
+    "combined": 0.065,
+    "proof": 0.005
+   },
+   "tau0.8": {
+    "zipper": 0.135,
+    "combined": 0.065,
+    "proof": 0.0
+   },
+   "tau1.0": {
+    "zipper": 0.135,
+    "combined": 0.065,
+    "proof": 0.0
+   }
+  },
+  "g0.05": {
+   "tau0.1": {
+    "zipper": 0.095,
+    "combined": 0.07,
+    "proof": 0.315
+   },
+   "tau0.2": {
+    "zipper": 0.13,
+    "combined": 0.12,
+    "proof": 0.215
+   },
+   "tau0.3": {
+    "zipper": 0.155,
+    "combined": 0.165,
+    "proof": 0.155
+   },
+   "tau0.4": {
+    "zipper": 0.17,
+    "combined": 0.18,
+    "proof": 0.09
+   },
+   "tau0.5": {
+    "zipper": 0.17,
+    "combined": 0.18,
+    "proof": 0.045
+   },
+   "tau0.6": {
+    "zipper": 0.175,
+    "combined": 0.185,
+    "proof": 0.015
+   },
+   "tau0.8": {
+    "zipper": 0.175,
+    "combined": 0.185,
+    "proof": 0.0
+   },
+   "tau1.0": {
+    "zipper": 0.175,
+    "combined": 0.185,
+    "proof": 0.0
+   }
+  }
+ },
+ "levers": {
+  "g1.0": {
+   "baseline_thr080": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 0.315,
+    "n_frustrated_mean": 31.89,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_thr080": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 0.21,
+    "n_frustrated_mean": 31.965,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.065,
+    "dna_reannealed_mean": 0.09,
+    "wbc_patrolled_mean": 0.63,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "baseline_perm04": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 1.39,
+    "n_frustrated_mean": 29.75,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_perm04": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 1.165,
+    "n_frustrated_mean": 30.06,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.02,
+    "zip_skips_mean": 1.65,
+    "dna_reannealed_mean": 0.085,
+    "wbc_patrolled_mean": 4.39,
+    "wbc_cleared_mean": 0.015,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "baseline_maint1": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 6.41,
+    "n_frustrated_mean": 24.765,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_maint1": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 4.84,
+    "n_frustrated_mean": 25.785,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 1.225,
+    "dna_reannealed_mean": 2.04,
+    "wbc_patrolled_mean": 18.365,
+    "wbc_cleared_mean": 0.035,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "baseline_barrier05": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 6.41,
+    "n_frustrated_mean": 24.765,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_barrier05": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 4.835,
+    "n_frustrated_mean": 25.785,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.015,
+    "zip_skips_mean": 1.225,
+    "dna_reannealed_mean": 2.04,
+    "wbc_patrolled_mean": 18.36,
+    "wbc_cleared_mean": 0.035,
+    "dna_unzipped_overt_mean": 0.0
+   }
+  },
+  "g0.05": {
+   "baseline_thr080": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 0.555,
+    "n_frustrated_mean": 31.715,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_thr080": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 0.535,
+    "n_frustrated_mean": 31.715,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.125,
+    "dna_reannealed_mean": 0.28,
+    "wbc_patrolled_mean": 1.585,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "baseline_perm04": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 2.195,
+    "n_frustrated_mean": 28.935,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_perm04": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 2.155,
+    "n_frustrated_mean": 28.96,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.025,
+    "zip_skips_mean": 2.96,
+    "dna_reannealed_mean": 0.145,
+    "wbc_patrolled_mean": 7.97,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "baseline_maint1": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 10.35,
+    "n_frustrated_mean": 22.52,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_maint1": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 10.135,
+    "n_frustrated_mean": 22.62,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 2.18,
+    "dna_reannealed_mean": 3.57,
+    "wbc_patrolled_mean": 34.65,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "baseline_barrier05": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 10.35,
+    "n_frustrated_mean": 22.52,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.0,
+    "zip_skips_mean": 0.0,
+    "dna_reannealed_mean": 0.0,
+    "wbc_patrolled_mean": 0.0,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   },
+   "combined_barrier05": {
+    "p_overt_any": 0.0,
+    "dorm_alive_mean": 10.135,
+    "n_frustrated_mean": 22.62,
+    "consensus_fail_runs": 0.0,
+    "pg_score_mod_mean": 0.0,
+    "pg_veto_mean": 0.0,
+    "pg_proof_mean": 0.045,
+    "zip_skips_mean": 2.18,
+    "dna_reannealed_mean": 3.565,
+    "wbc_patrolled_mean": 34.65,
+    "wbc_cleared_mean": 0.0,
+    "dna_unzipped_overt_mean": 0.0
+   }
+  }
+ },
+ "plumbing_consensus": {
+  "plumb_perfect_up": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.27,
+   "n_frustrated_mean": 33.03,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_perfect_up+dna_ledger_only": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.27,
+   "n_frustrated_mean": 33.03,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_perfect_up+rbc": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.27,
+   "n_frustrated_mean": 33.03,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_perfect_up+combined": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.24,
+   "n_frustrated_mean": 33.18,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 1.115,
+   "dna_reannealed_mean": 1.14,
+   "wbc_patrolled_mean": 5.655,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.6_seal1_up": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.535,
+   "n_frustrated_mean": 30.675,
+   "consensus_fail_runs": 1.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.6_seal1_up+dna_ledger_only": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.535,
+   "n_frustrated_mean": 30.675,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.6_seal1_up+rbc": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.415,
+   "n_frustrated_mean": 31.705,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.6_seal1_up+combined": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.42,
+   "n_frustrated_mean": 31.89,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.01,
+   "zip_skips_mean": 1.375,
+   "dna_reannealed_mean": 1.31,
+   "wbc_patrolled_mean": 6.445,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.3_seal0.5_up": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.475,
+   "n_frustrated_mean": 31.12,
+   "consensus_fail_runs": 1.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.3_seal0.5_up+dna_ledger_only": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.475,
+   "n_frustrated_mean": 31.12,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.3_seal0.5_up+rbc": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.335,
+   "n_frustrated_mean": 32.06,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.3_seal0.5_up+combined": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.325,
+   "n_frustrated_mean": 32.275,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.01,
+   "zip_skips_mean": 1.305,
+   "dna_reannealed_mean": 1.255,
+   "wbc_patrolled_mean": 6.135,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.3_seal0_up": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.535,
+   "n_frustrated_mean": 30.675,
+   "consensus_fail_runs": 1.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.3_seal0_up+dna_ledger_only": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.535,
+   "n_frustrated_mean": 30.675,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.3_seal0_up+rbc": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.415,
+   "n_frustrated_mean": 31.705,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.3_seal0_up+combined": {
+   "p_overt_any": 0.0,
+   "dorm_alive_mean": 1.42,
+   "n_frustrated_mean": 31.89,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.01,
+   "zip_skips_mean": 1.375,
+   "dna_reannealed_mean": 1.31,
+   "wbc_patrolled_mean": 6.445,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.3_post": {
+   "p_overt_any": 0.01,
+   "dorm_alive_mean": 2.2,
+   "n_frustrated_mean": 29.8,
+   "consensus_fail_runs": 1.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.3_post+dna_ledger_only": {
+   "p_overt_any": 0.01,
+   "dorm_alive_mean": 2.2,
+   "n_frustrated_mean": 29.8,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.005
+  },
+  "plumb_leak0.3_post+rbc": {
+   "p_overt_any": 0.01,
+   "dorm_alive_mean": 2.075,
+   "n_frustrated_mean": 29.885,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.0,
+   "zip_skips_mean": 0.0,
+   "dna_reannealed_mean": 0.0,
+   "wbc_patrolled_mean": 0.0,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  },
+  "plumb_leak0.3_post+combined": {
+   "p_overt_any": 0.005,
+   "dorm_alive_mean": 2.05,
+   "n_frustrated_mean": 29.92,
+   "consensus_fail_runs": 0.0,
+   "pg_score_mod_mean": 0.0,
+   "pg_veto_mean": 0.0,
+   "pg_proof_mean": 0.015,
+   "zip_skips_mean": 2.45,
+   "dna_reannealed_mean": 2.76,
+   "wbc_patrolled_mean": 16.85,
+   "wbc_cleared_mean": 0.0,
+   "dna_unzipped_overt_mean": 0.0
+  }
+ },
+ "frustrated_vs_pool": {
+  "baseline_g1.0": {
+   "spearman": -0.8548068094568972,
+   "p": 3.638813418833631e-18,
+   "n_settings": 60,
+   "runs_per_setting": 40
+  },
+  "combined_g1.0": {
+   "spearman": -0.8255702311332495,
+   "p": 4.851040476606668e-16,
+   "n_settings": 60,
+   "runs_per_setting": 40
+  },
+  "baseline_g0.05": {
+   "spearman": -0.8003867483332275,
+   "p": 1.6679437468613492e-14,
+   "n_settings": 60,
+   "runs_per_setting": 40
+  },
+  "combined_g0.05": {
+   "spearman": -0.7979575943619603,
+   "p": 2.284402712811673e-14,
+   "n_settings": 60,
+   "runs_per_setting": 40
+  }
+ },
+ "slider_followup": [
+  {
+   "gain": 1.0,
+   "material": 1.0,
+   "slider": 0.0,
+   "tol": 0.3,
+   "p_overt_any": 0.12,
+   "dorm_alive_mean": 6.315,
+   "zip_skips": 4.26,
+   "zip_rezips": 0.0,
+   "n_frustrated": 24.78
+  },
+  {
+   "gain": 1.0,
+   "material": 1.0,
+   "slider": 0.5,
+   "tol": 0.3,
+   "p_overt_any": 0.12,
+   "dorm_alive_mean": 6.315,
+   "zip_skips": 4.26,
+   "zip_rezips": 0.0,
+   "n_frustrated": 24.78
+  },
+  {
+   "gain": 1.0,
+   "material": 0.7,
+   "slider": 0.0,
+   "tol": 0.3,
+   "p_overt_any": 0.075,
+   "dorm_alive_mean": 6.345,
+   "zip_skips": 6.9,
+   "zip_rezips": 0.0,
+   "n_frustrated": 24.76
+  },
+  {
+   "gain": 1.0,
+   "material": 0.7,
+   "slider": 0.5,
+   "tol": 0.3,
+   "p_overt_any": 0.12,
+   "dorm_alive_mean": 6.315,
+   "zip_skips": 6.895,
+   "zip_rezips": 2.315,
+   "n_frustrated": 24.78
+  },
+  {
+   "gain": 1.0,
+   "material": 0.4,
+   "slider": 0.0,
+   "tol": 0.3,
+   "p_overt_any": 0.05,
+   "dorm_alive_mean": 6.355,
+   "zip_skips": 8.44,
+   "zip_rezips": 0.0,
+   "n_frustrated": 24.76
+  },
+  {
+   "gain": 1.0,
+   "material": 0.4,
+   "slider": 0.5,
+   "tol": 0.3,
+   "p_overt_any": 0.115,
+   "dorm_alive_mean": 6.32,
+   "zip_skips": 8.45,
+   "zip_rezips": 3.53,
+   "n_frustrated": 24.78
+  },
+  {
+   "gain": 0.05,
+   "material": 1.0,
+   "slider": 0.0,
+   "tol": 0.3,
+   "p_overt_any": 0.155,
+   "dorm_alive_mean": 10.23,
+   "zip_skips": 6.51,
+   "zip_rezips": 0.0,
+   "n_frustrated": 22.515
+  },
+  {
+   "gain": 0.05,
+   "material": 1.0,
+   "slider": 0.5,
+   "tol": 0.3,
+   "p_overt_any": 0.155,
+   "dorm_alive_mean": 10.23,
+   "zip_skips": 6.51,
+   "zip_rezips": 0.0,
+   "n_frustrated": 22.515
+  },
+  {
+   "gain": 0.05,
+   "material": 0.7,
+   "slider": 0.0,
+   "tol": 0.3,
+   "p_overt_any": 0.105,
+   "dorm_alive_mean": 10.24,
+   "zip_skips": 10.69,
+   "zip_rezips": 0.0,
+   "n_frustrated": 22.515
+  },
+  {
+   "gain": 0.05,
+   "material": 0.7,
+   "slider": 0.5,
+   "tol": 0.3,
+   "p_overt_any": 0.155,
+   "dorm_alive_mean": 10.23,
+   "zip_skips": 10.73,
+   "zip_rezips": 3.66,
+   "n_frustrated": 22.515
+  },
+  {
+   "gain": 0.05,
+   "material": 0.4,
+   "slider": 0.0,
+   "tol": 0.3,
+   "p_overt_any": 0.085,
+   "dorm_alive_mean": 10.305,
+   "zip_skips": 13.05,
+   "zip_rezips": 0.0,
+   "n_frustrated": 22.515
+  },
+  {
+   "gain": 0.05,
+   "material": 0.4,
+   "slider": 0.5,
+   "tol": 0.3,
+   "p_overt_any": 0.145,
+   "dorm_alive_mean": 10.235,
+   "zip_skips": 13.055,
+   "zip_rezips": 5.44,
+   "n_frustrated": 22.515
+  }
+ ],
+ "launch": {
+  "repeater_lock_counts": {
+   "theta0.0_k1": 14,
+   "theta0.0_k2": 14,
+   "theta0.0_k3": 14,
+   "theta0.0_k5": 14,
+   "theta0.1_k1": 14,
+   "theta0.1_k2": 14,
+   "theta0.1_k3": 14,
+   "theta0.1_k5": 14,
+   "theta0.25_k1": 14,
+   "theta0.25_k2": 14,
+   "theta0.25_k3": 14,
+   "theta0.25_k5": 14,
+   "theta0.5_k1": 2,
+   "theta0.5_k2": 14,
+   "theta0.5_k3": 14,
+   "theta0.5_k5": 14,
+   "theta1.0_k1": 0,
+   "theta1.0_k2": 14,
+   "theta1.0_k3": 14,
+   "theta1.0_k5": 14,
+   "theta2.0_k1": 0,
+   "theta2.0_k2": 14,
+   "theta2.0_k3": 14,
+   "theta2.0_k5": 14,
+   "theta5.0_k1": 0,
+   "theta5.0_k2": 5,
+   "theta5.0_k3": 12,
+   "theta5.0_k5": 12,
+   "theta10.0_k1": 0,
+   "theta10.0_k2": 0,
+   "theta10.0_k3": 10,
+   "theta10.0_k5": 10
+  },
+  "n_sites": 15,
+  "theta_max_single_burn_deg": {
+   "equator_ref": 0.275124133577352,
+   "kourou": 0.27772180350692477,
+   "chimborazo": 0.2753269321073334,
+   "kilimanjaro": 0.2760150206759773,
+   "sriharikota": 0.29391401952632246,
+   "wenchang": 0.3162393997778469,
+   "mauna_kea": 0.3172313912783481,
+   "cape_ksc": 0.37871794486502863,
+   "tanegashima": 0.39761281457696507,
+   "spaceport_america": 0.4307290697799506,
+   "vandenberg": 0.45539495347208997,
+   "las_vegas": 0.4825376408384261,
+   "mt_charleston": 0.4862306236163576,
+   "mahia": 0.5566525048438465,
+   "baikonur": 0.8648789590909122
+  },
+  "straw_recycled": [
+   {
+    "attach": 0.999999,
+    "leak": 1e-06,
+    "residual_m_s": 595.0027169119812,
+    "peak_Teq_K": 1579.1385317868628,
+    "source": "recycled plumbing_dynamics.json"
+   },
+   {
+    "attach": 0.9999,
+    "leak": 0.0001,
+    "residual_m_s": 595.0025075831873,
+    "peak_Teq_K": 1579.1733920159895,
+    "source": "recycled plumbing_dynamics.json"
+   },
+   {
+    "attach": 0.999,
+    "leak": 0.001,
+    "residual_m_s": 595.0006955411136,
+    "peak_Teq_K": 1579.490162424912,
+    "source": "recycled plumbing_dynamics.json"
+   },
+   {
+    "attach": 0.99,
+    "leak": 0.01,
+    "residual_m_s": 594.989463760563,
+    "peak_Teq_K": 1581.6933212642468,
+    "source": "recycled plumbing_dynamics.json"
+   },
+   {
+    "attach": 0.9,
+    "leak": 0.1,
+    "residual_m_s": 595.5159998300569,
+    "peak_Teq_K": 2571.404377762355,
+    "source": "recycled plumbing_dynamics.json"
+   },
+   {
+    "attach": 0.0,
+    "leak": 1.0,
+    "residual_m_s": 661.2672903365446,
+    "peak_Teq_K": 5158.162994446436,
+    "source": "recycled plumbing_dynamics.json"
+   }
+  ],
+  "straw_new": [
+   {
+    "leak": 0.05,
+    "rbc_equivalent_of_leak": 0.1,
+    "residual_m_s": 595.0800514950961,
+    "peak_Teq_K": 1828.3187403321433,
+    "h_burnout_km": 108.48940772745479,
+    "locked": false,
+    "source": "new integrate_plumbed_straw"
+   },
+   {
+    "leak": 0.3,
+    "rbc_equivalent_of_leak": 0.6,
+    "residual_m_s": 600.8058369962837,
+    "peak_Teq_K": 5314.15329803695,
+    "h_burnout_km": 104.44896133453399,
+    "locked": false,
+    "source": "new integrate_plumbed_straw"
+   },
+   {
+    "leak": 0.5,
+    "rbc_equivalent_of_leak": 1.0,
+    "residual_m_s": 611.6374326089308,
+    "peak_Teq_K": 5264.366476134658,
+    "h_burnout_km": 101.50897766145505,
+    "locked": false,
+    "source": "new integrate_plumbed_straw"
+   }
+  ],
+  "coupling": [
+   {
+    "leak": 1e-06,
+    "residual_m_s": 595.0027169119812,
+    "fp_needed_450s": 0.12613533371004215,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.0001,
+    "residual_m_s": 595.0025075831873,
+    "fp_needed_450s": 0.1261352922585688,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.001,
+    "residual_m_s": 595.0006955411136,
+    "fp_needed_450s": 0.12613493343630877,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.01,
+    "residual_m_s": 594.989463760563,
+    "fp_needed_450s": 0.12613270930537068,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.1,
+    "residual_m_s": 595.5159998300569,
+    "fp_needed_450s": 0.1262369685353225,
+    "fits_fp005": false
+   },
+   {
+    "leak": 1.0,
+    "residual_m_s": 661.2672903365446,
+    "fp_needed_450s": 0.13915907735707977,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.05,
+    "residual_m_s": 595.0800514950961,
+    "fp_needed_450s": 0.1261506474382038,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.3,
+    "residual_m_s": 600.8058369962837,
+    "fp_needed_450s": 0.12728371743407807,
+    "fits_fp005": false
+   },
+   {
+    "leak": 0.5,
+    "residual_m_s": 611.6374326089308,
+    "fp_needed_450s": 0.12942315419054817,
+    "fits_fp005": false
+   }
+  ],
+  "note": "DNA proofreading = the same PrinciplesGate admit on each burn; mRNA/WBC have no launch dynamics in these scripts (Levy decay and patrol do not change delta-v) and were not applied."
+ },
+ "open_items": {
+  "calibration": "not closed: best g0.05 colony 0.195 (dna) vs 0.175 baseline, pool ~10.2; within binomial SE ~0.027",
+  "principles_gate": "original 4 rules: 0 score mods, 0 vetoes in every condition; only the newly added proofread rule fires",
+  "consensus_4_rows": "closed as bookkeeping: DNA unzip ledger books OVERT->circulation leaks; 1/200 failing run per row -> 0"
+ },
+ "files": {
+  "cancer_csv": "data/cancer_summaries.csv",
+  "launch_json": "data/launch_zdb.json",
+  "figure": "figures/zipper_dna_blood_figure.svg"
+ }
+}

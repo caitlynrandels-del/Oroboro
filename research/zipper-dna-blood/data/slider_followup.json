@@ -1,0 +1,134 @@
+[
+ {
+  "gain": 1.0,
+  "material": 1.0,
+  "slider": 0.0,
+  "tol": 0.3,
+  "p_overt_any": 0.12,
+  "dorm_alive_mean": 6.315,
+  "zip_skips": 4.26,
+  "zip_rezips": 0.0,
+  "n_frustrated": 24.78
+ },
+ {
+  "gain": 1.0,
+  "material": 1.0,
+  "slider": 0.5,
+  "tol": 0.3,
+  "p_overt_any": 0.12,
+  "dorm_alive_mean": 6.315,
+  "zip_skips": 4.26,
+  "zip_rezips": 0.0,
+  "n_frustrated": 24.78
+ },
+ {
+  "gain": 1.0,
+  "material": 0.7,
+  "slider": 0.0,
+  "tol": 0.3,
+  "p_overt_any": 0.075,
+  "dorm_alive_mean": 6.345,
+  "zip_skips": 6.9,
+  "zip_rezips": 0.0,
+  "n_frustrated": 24.76
+ },
+ {
+  "gain": 1.0,
+  "material": 0.7,
+  "slider": 0.5,
+  "tol": 0.3,
+  "p_overt_any": 0.12,
+  "dorm_alive_mean": 6.315,
+  "zip_skips": 6.895,
+  "zip_rezips": 2.315,
+  "n_frustrated": 24.78
+ },
+ {
+  "gain": 1.0,
+  "material": 0.4,
+  "slider": 0.0,
+  "tol": 0.3,
+  "p_overt_any": 0.05,
+  "dorm_alive_mean": 6.355,
+  "zip_skips": 8.44,
+  "zip_rezips": 0.0,
+  "n_frustrated": 24.76
+ },
+ {
+  "gain": 1.0,
+  "material": 0.4,
+  "slider": 0.5,
+  "tol": 0.3,
+  "p_overt_any": 0.115,
+  "dorm_alive_mean": 6.32,
+  "zip_skips": 8.45,
+  "zip_rezips": 3.53,
+  "n_frustrated": 24.78
+ },
+ {
+  "gain": 0.05,
+  "material": 1.0,
+  "slider": 0.0,
+  "tol": 0.3,
+  "p_overt_any": 0.155,
+  "dorm_alive_mean": 10.23,
+  "zip_skips": 6.51,
+  "zip_rezips": 0.0,
+  "n_frustrated": 22.515
+ },
+ {
+  "gain": 0.05,
+  "material": 1.0,
+  "slider": 0.5,
+  "tol": 0.3,
+  "p_overt_any": 0.155,
+  "dorm_alive_mean": 10.23,
+  "zip_skips": 6.51,
+  "zip_rezips": 0.0,
+  "n_frustrated": 22.515
+ },
+ {
+  "gain": 0.05,
+  "material": 0.7,
+  "slider": 0.0,
+  "tol": 0.3,
+  "p_overt_any": 0.105,
+  "dorm_alive_mean": 10.24,
+  "zip_skips": 10.69,
+  "zip_rezips": 0.0,
+  "n_frustrated": 22.515
+ },
+ {
+  "gain": 0.05,
+  "material": 0.7,
+  "slider": 0.5,
+  "tol": 0.3,
+  "p_overt_any": 0.155,
+  "dorm_alive_mean": 10.23,
+  "zip_skips": 10.73,
+  "zip_rezips": 3.66,
+  "n_frustrated": 22.515
+ },
+ {
+  "gain": 0.05,
+  "material": 0.4,
+  "slider": 0.0,
+  "tol": 0.3,
+  "p_overt_any": 0.085,
+  "dorm_alive_mean": 10.305,
+  "zip_skips": 13.05,
+  "zip_rezips": 0.0,
+  "n_frustrated": 22.515
+ },
+ {
+  "gain": 0.05,
+  "material": 0.4,
+  "slider": 0.5,
+  "tol": 0.3,
+  "p_overt_any": 0.145,
+  "dorm_alive_mean": 10.235,
+  "zip_skips": 13.055,
+  "zip_rezips": 5.44,
+  "n_frustrated": 22.515
+ }
+]
