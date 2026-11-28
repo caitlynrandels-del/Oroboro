@@ -64,8 +64,8 @@ The earlier **256 m/s** staged residual is **invalid**. It came from a 900 s coa
 - Cancer hook: **plumbing is off by default** and is a strict no-op (no RNG, no state change) unless `native["plumbing"]` is on. The light-off, no-plumbing signature is unchanged (checked 25/25 against the previously published integrated code before this push).
 - When the sealed channel is on, **Oasis is a restrictive valve**. Perfect seal, upstream, strength 0.5: yield 0.132, p(overt) 0.175 → 0.000, dormant pool 10.215 → 1.270, with a leftover pool. Skipping Oasis on extract hops raises yield to 0.684; that ablation is not a setting to chase. Census, Levy, consensus, inversion and whole-versus-parts checks held. Speculative mesh accounting only; not a therapy.
 
-## In progress (not pushed yet)
-A combined shareable report (`combined_report/`) is in progress and will be pushed when finished.
+## Combined report
+A shareable combined write-up of the whole modeling arc is in [`../combined-report/`](../combined-report/) ([Markdown](../combined-report/Oroboro_Studies_Combined_Report.md), [HTML](../combined-report/Oroboro_Studies_Combined_Report.html), [PDF page view](../combined-report/pdf-pages/view.html)).
 
 ## Conjunctive-use audit
 | Script | Verdict |
