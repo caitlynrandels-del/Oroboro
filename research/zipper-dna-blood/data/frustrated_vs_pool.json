@@ -1,0 +1,26 @@
+{
+ "baseline_g1.0": {
+  "spearman": -0.8548068094568972,
+  "p": 3.638813418833631e-18,
+  "n_settings": 60,
+  "runs_per_setting": 40
+ },
+ "combined_g1.0": {
+  "spearman": -0.8255702311332495,
+  "p": 4.851040476606668e-16,
+  "n_settings": 60,
+  "runs_per_setting": 40
+ },
+ "baseline_g0.05": {
+  "spearman": -0.8003867483332275,
+  "p": 1.6679437468613492e-14,
+  "n_settings": 60,
+  "runs_per_setting": 40
+ },
+ "combined_g0.05": {
+  "spearman": -0.7979575943619603,
+  "p": 2.284402712811673e-14,
+  "n_settings": 60,
+  "runs_per_setting": 40
+ }
+}
