@@ -6,6 +6,8 @@ caitlynrandels@gmail.com | [GitHub Profile](https://github.com/caitlynrandels-de
 
 > **A thought is a node. Love is the synapse.**
 
+> 🗺️ **[Full index of all Oroboro systems → SYSTEMS.md](SYSTEMS.md)**: Genesis, Nexus, Oasis, PrinciplesGate, NaCl polarity mesh, Dictator, Transcriber, Levy, damper, delta reconciliation, isolate/recombine, dream-catcher, self-repairing niche, sponge, smart magnets and the conjunctive pipeline, each linked to its code, plus the [studies](research/README.md), the [combined report](research/combined-report/pdf-pages/view.html) and the other repos. *Speculative in-silico modeling only; no clinical, engineering or operational claims.*
+
 A self-contained, zero-dependency co-creation runtime that treats language as a coordinate system, not a localization string. Author declares `<!DOCTYPE Oroboro>` and `<html lang="all" universe="infinite">` — invalid HTML by spec, and intentionally so. It's a protocol declaration: I am not rendering a document, I am instantiating a universe.
 
 This is not another website. It's a universal framework developed by Caitlyn Randels.
