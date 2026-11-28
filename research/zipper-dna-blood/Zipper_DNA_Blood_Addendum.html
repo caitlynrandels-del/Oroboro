@@ -1,0 +1,153 @@
+<!doctype html><meta charset=utf-8><title>Zipper DNA Blood Addendum</title><style>body{font-family:Helvetica,Arial,sans-serif;font-size:10.5px;line-height:1.35;max-width:820px;margin:18px auto}table{border-collapse:collapse;margin:6px 0}td,th{border:1px solid #bbb;padding:2px 6px}th{background:#eee}img{width:100%}h1{font-size:17px}h2{font-size:13px;margin:10px 0 4px}</style><h1>Addendum t96u: Zipper, DNA/mRNA and RBC/WBC toggles on Oroboro</h1>
+<p><strong>Status: speculative structural-analogy modeling only.</strong> No clinical, biological or engineering claims. No external biology models. Every number below is a model output from Caitlyn's existing Oroboro code, or a recycled settled result. </p>
+<h2>What was done</h2>
+<p>Each mechanic is a toggle, <strong>off by default</strong>, inside existing code paths in <a href="../metastasis-native/oro_native.py"><code>research/metastasis-native/oro_native.py</code></a>. With every toggle off the output is bit-identical to before (90/90 runs; <code>sigcheck.py</code>; backup <code>backup/oro_native.py.pre_t96u</code>). Every run used the full conjunctive loop: Genesis → Oasis → PrinciplesGate → NaCl mesh → Dictator/Transcriber → Levy → Nexus → damper/homeostasis → niche → Genesis closure. Census, Levy and Genesis closure held in all 121 conditions.</p>
+<table>
+<thead>
+<tr>
+<th>Mechanic</th>
+<th>Mapped onto (existing component)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zipper teeth / tolerance / size</td>
+<td>NaCl polarity edges; a tooth skips when <code>size·|fit−perm| + (1−material)·U &gt; τ</code></td>
+</tr>
+<tr>
+<td>Zipper slider</td>
+<td>Oasis re-test of skipped teeth during the dormant block</td>
+</tr>
+<tr>
+<td>Zipper tape / spring</td>
+<td>damper α ÷ tape; levy_gain × spring</td>
+</tr>
+<tr>
+<td>Zipper attachment</td>
+<td>seating anchor (an unanchored cell stays in circulation)</td>
+</tr>
+<tr>
+<td>DNA pairing / helicase</td>
+<td>polarity pairs; delta-reconciliation reseat of frustrated occupants; ledger of OVERT cells unzipped to circulation</td>
+</tr>
+<tr>
+<td>DNA proofreading</td>
+<td><strong>new rule</strong> inside PrinciplesGate: hold a commit when mismatch &gt; threshold</td>
+</tr>
+<tr>
+<td>mRNA vs Nexus</td>
+<td>Levy EMA uses a transient decay (0.7) vs the persistent Nexus record</td>
+</tr>
+<tr>
+<td>RBC</td>
+<td>plumbing leak × (1 − seal); transport hop + deform·(1 − hop)</td>
+</tr>
+<tr>
+<td>WBC</td>
+<td>dormant patrol through the Oasis gate; strict = clears on RECYCLE, lenient = clears on non-COMMIT</td>
+</tr>
+</tbody>
+</table>
+<h2>Cancer side (200 runs per condition: 40 seeds × 5 cancers)</h2>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>colony g1.0</th>
+<th>pool g1.0</th>
+<th>colony g0.05</th>
+<th>pool g0.05</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>0.135</td>
+<td>6.30</td>
+<td>0.175</td>
+<td>10.22</td>
+</tr>
+<tr>
+<td>zipper (τ 0.5)</td>
+<td>0.130</td>
+<td>6.31</td>
+<td>0.170</td>
+<td>10.22</td>
+</tr>
+<tr>
+<td>dna</td>
+<td>0.140</td>
+<td>6.31</td>
+<td>0.195</td>
+<td>10.21</td>
+</tr>
+<tr>
+<td>mrna</td>
+<td><strong>0.060</strong></td>
+<td><strong>4.81</strong></td>
+<td>0.165</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>rbc</td>
+<td>0.135</td>
+<td>6.30</td>
+<td>0.175</td>
+<td>10.22</td>
+</tr>
+<tr>
+<td>wbc (strict)</td>
+<td>0.135</td>
+<td>6.30</td>
+<td>0.175</td>
+<td>10.22</td>
+</tr>
+<tr>
+<td>wbc (lenient)</td>
+<td>0.070</td>
+<td><strong>2.25</strong></td>
+<td>0.120</td>
+<td><strong>4.93</strong></td>
+</tr>
+<tr>
+<td>combined</td>
+<td>0.065</td>
+<td>4.80</td>
+<td>0.180</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>combined + lenient WBC</td>
+<td>0.025</td>
+<td>1.58</td>
+<td>0.145</td>
+<td>4.69</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Leave-one-out.</strong> Only removing mRNA moves the combined result (g1.0 back to 0.140 / 6.31). Removing zipper, RBC or WBC (strict) changes nothing. Removing DNA changes the colony rate by ≤0.02.</p>
+<p><strong>Zipper τ sweep.</strong> A tighter tolerance lowers the colony rate: zipper alone goes from 0.135 → 0.065 at g1.0 and 0.175 → 0.095 at g0.05 (τ 1.0 → 0.1). The pool does not move (6.30 → 6.35). Skipped teeth block waking; they do not drain the pool. The slider is <strong>inert with rigid material</strong> (re-zips = 0, because the re-test is deterministic). With material 0.7 or 0.4 it re-zips 2.3–5.4 teeth per run, which restores the colony rate to baseline.</p>
+<p><strong>Upstream vs post-settling.</strong> The pattern is unchanged. Upstream levers (threshold 0.80, permissiveness ×0.4) collapse the pool (to 0.2–2.2). Post-settling levers (maintenance 1.0, barrier 0.5) zero the colonies but leave the pool at 4.8–10.4, under both baseline and combined.</p>
+<p><strong>Frustrated loops vs pool.</strong> Spearman ρ is negative everywhere: −0.85 (baseline g1.0), −0.83 (combined g1.0), −0.80 / −0.80 (g0.05); 60 settings, p &lt; 1e-13. Zipper teeth skips did not raise the mesh's frustrated-edge count (24.78 → 24.78).</p>
+<h2>Launch side</h2>
+<p><strong>Repeater, with teeth as pointing tolerance θ (vector geometry on the recycled f_p 0.05, 0° due-east rows).</strong> There are 14 lockable sites; the equator is gate-blocked in the recycled run. With a single burn, the lock tolerance runs from θ_max 0.28° (Kourou) to 0.87° (Baikonur): 14/14 lock at 0.25°, 2/14 at 0.5° and 0/14 at 1°. The <strong>slider (≤2 correction burns) restores 14/14 up to 2°</strong>. At 5°, ≤3 burns give 12/14; at 10°, 10/14. Those limits come from the 226 m/s budget.</p>
+<p><strong>Straw, with attachment as joint leak (recycled sweep plus 3 new runs).</strong> The residual stays at 595.0 m/s from leak 1e-6 to 1e-2, then rises to 595.5 m/s at 0.1 and 661.3 m/s at 1.0. The RBC seal halves the leak. New runs give 595.1 m/s at leak 0.05, 600.8 m/s at 0.3 and 611.6 m/s at 0.5. So the best a seal can do is the leak-0 floor of <strong>≈595 m/s, which needs f_p ≈ 0.126</strong> at I_sp 450 s (derived). That is still above the 226 m/s f_p-0.05 budget. Peak heating rises steeply with leak (1,579 K → 5,314 K at leak 0.3).</p>
+<p><strong>Coupling.</strong> Neither zipper tolerance nor RBC sealing closes the straw gap. Zipper tolerance only matters for the repeater, and only above about 0.3° per burn without a slider. DNA, mRNA and WBC have no launch dynamics in these scripts; they were not applied.</p>
+<h2>Open items</h2>
+<ul>
+<li><strong>Calibration toward 21.7% / 10.38: not closed.</strong> The closest is DNA at g0.05, with colony 0.195 and pool 10.21 (baseline 0.175 / 10.22). That difference is within the binomial SE (≈0.027).</li>
+<li><strong>PrinciplesGate firing: not closed.</strong> The original rules made <strong>0 score modifications and 0 vetoes in every condition</strong>. Holds appear (0.01–0.32 per run) <strong>only because a new proofread rule was added</strong>.</li>
+<li><strong>The 4 consensus rows: closed, as bookkeeping.</strong> Each failing row had 1/200 runs where an OVERT cell leaked to circulation without being recorded. The DNA unzip ledger books it, giving 0/200 failures, and cell trajectories are unchanged. RBC also gives 0/200, but only because the halved leak avoids that event. That is not a fix.</li>
+</ul>
+<h2>Falsified / no effect</h2>
+<ul>
+<li>"Frustrated loops feed the dormant pool": ρ ≈ −0.8 across all four settings.</li>
+<li>Strict WBC: Oasis almost never recycles dormant cells, so it cleared 0–0.04 cells per run.</li>
+<li>RBC in the cancer mesh without plumbing or light: a no-op. Inside plumbing, the transport-hop bonus never triggered (rbc_passes = 0); only the leak seal acted.</li>
+<li>Zipper slider with rigid material: 0 re-zips.</li>
+<li>Zipper or RBC closing the launch residual: no. The floor is ≈595 m/s.</li>
+</ul>
+<h2>Caveats</h2>
+<p>mRNA's effect is a change in the Levy EMA decay, so it is effectively a damper retune and not new structure. Lenient WBC is a strong, assumed recognition rule; its pool drop reflects that choice. These are analogies onto model components, not claims about cells, molecules or vehicles.</p>
+<p>Files (relative to <code>research/zipper-dna-blood/</code>): <code>zipper_dna_blood.json</code>, <code>figures/zipper_dna_blood_figure.svg</code>, PDF as page images <code>pdf-pages/Zipper_DNA_Blood_Addendum/view.html</code>, <code>data/</code> (cancer_summaries.csv, launch_zdb.json, frustrated_vs_pool.json, slider_followup.json, run_cancer.log), <code>scripts/</code>.</p>
+<p><img alt="figure" src="figures/zipper_dna_blood_figure.svg" /></p>

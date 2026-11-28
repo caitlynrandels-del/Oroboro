@@ -161,6 +161,10 @@ class PrinciplesGate:
         if S_env.get("H", 1.0) < 0.3:
             g = np.where(g == 2, 1, g)
         return g
+    def proofread(self, g, mismatch, thr):
+        """t96u DNA toggle only (off by default): mismatch-repair proofreading. A commit whose
+        zipper/pairing mismatch exceeds thr is held back to buffer (structural analogy only)."""
+        return np.where((g == 2) & (mismatch > thr), 1, g)
 
 
 class Levy:
@@ -224,6 +228,12 @@ class Part:
         self.plumbing_valve_block = 0
         self.plumbing_valve_commit = 0
         self.plumbing_sealed = 0
+        # t96u counters (stay zero unless a toggle is on)
+        self.skip = np.zeros(n, dtype=np.bool_)
+        self.zip_skips = 0; self.zip_unanchored = 0; self.zip_rezips = 0
+        self.dna_reannealed = 0; self.organ_unzipped_overt = {}
+        self.pg_score_mod = 0; self.pg_veto = 0; self.pg_proof = 0
+        self.wbc_patrolled = 0; self.wbc_cleared = 0; self.rbc_passes = 0
 
     def summary(self):
         a = (self.state == CIRC) | (self.state == DORM)
@@ -234,10 +244,14 @@ class Part:
             return self.oasis.decide(self.epi[idx], self.fit[idx], org_perm, S_env, thr)
         score = self.oasis.score(self.epi[idx], self.fit[idx], org_perm, S_env)
         if S_env.get("principles", True):
+            s0 = score
             score = self.principles.apply_score(score, S_env)
+            self.pg_score_mod += int(np.sum(score != s0))
         g = np.where(score >= thr, OasisGate.COMMIT, np.where(score >= 0.5 * thr, OasisGate.BUFFER, OasisGate.RECYCLE))
         if S_env.get("principles", True):
+            g0 = g
             g = self.principles.veto(g, S_env)
+            self.pg_veto += int(np.sum(g != g0))
         return g
 
     def step(self, m, S_env, cfg, P, lev, seed, mesh, meta, native, record=False):
@@ -305,9 +319,18 @@ class Part:
                                 st[bad] = LOST; self.levy.add("fail", len(bad)); self.lost_seed += len(bad)
                                 if record: self.events += [(m, "fail", int(i), int(o)) for i, o in zip(ids[bad], o2[~ok])]
                             good = ci2[ok]; og = o2[ok]
+                            bc = _bio_cfg(native)
+                            if bc["zipper"] and bc["zip_attach"] < 1.0 and len(good):
+                                # attachment quality: an unanchored cell stays in circulation
+                                anch = U(seed, ids[good], m, 50) < bc["zip_attach"]
+                                self.zip_unanchored += int((~anch).sum()); good = good[anch]; og = og[anch]
                             if len(good):
                                 st[good] = DORM; self.organ[good] = og; self.d[good] = P["dormancy"]["initial_depth"]
                                 self._seat_on_niche(good, og, mesh, meta, native, seed, m)
+                                if bc["zipper"]:
+                                    sk = _mismatch(self, good, perm[og], bc, seed, m, 51) > bc["zip_tol"]
+                                    self.skip[good] = sk; self.frust[good] = self.frust[good] | sk
+                                    self.zip_skips += int(sk.sum())
                                 for o in og:
                                     self.heat[int(o)] = self.heat.get(int(o), 0.0) + 0.1
 
@@ -322,6 +345,35 @@ class Part:
                 self.edge[di[clr]] = -1; self.frust[di[clr]] = False
                 if record: self.events += [(m, "clear", int(i), int(o)) for i, o in zip(ids[di[clr]], self.organ[di[clr]])]
             di = di[~clr]
+        bc = _bio_cfg(native)
+        if len(di) and bc["wbc"] and m >= bc["wbc_start"] and bc["wbc_patrol"] > 0:
+            pat = di[U(seed, ids[di], m, 54) < bc["wbc_patrol"]]
+            if len(pat):
+                self.wbc_patrolled += len(pat)
+                gw = self._gate(pat, perm[self.organ[pat].astype(int)], S_env, seed, m, 54, thr)
+                rc = pat[gw == OasisGate.RECYCLE] if native.get("wbc_recognize", "recycle") == "recycle" else pat[gw != OasisGate.COMMIT]
+                if len(rc):
+                    st[rc] = CLEARED; self.levy.add("clear", len(rc)); self.cleared_by["recycle"] += len(rc)
+                    self.edge[rc] = -1; self.frust[rc] = False; self.skip[rc] = False; self.wbc_cleared += len(rc)
+                    if record: self.events += [(m, "recycle", int(ids[i]), int(self.organ[i])) for i in rc]
+                di = di[st[di] == DORM]
+        if len(di) and bc["zipper"] and bc["zip_slider"] > 0:
+            sk = di[self.skip[di]]
+            if len(sk):
+                tr = sk[U(seed, ids[sk], m, 52) < bc["zip_slider"]]
+                if len(tr):
+                    still = _mismatch(self, tr, perm[self.organ[tr].astype(int)], bc, seed, m, 55) > bc["zip_tol"]
+                    closed = tr[~still]; self.zip_rezips += len(closed)
+                    self.skip[closed] = False
+                    for c_ in closed:
+                        ei = int(self.edge[c_]); self.frust[c_] = (ei < 0) or (not mesh.edges[ei].locked)
+        if len(di) and bc["dna"] and bc["dna_reanneal"] > 0:
+            fr = di[self.frust[di] & ~self.skip[di]]
+            if len(fr):
+                ra = fr[U(seed, ids[fr], m, 56) < bc["dna_reanneal"]]
+                if len(ra):
+                    self._reseat_lockable(ra, self.organ[ra].astype(int), mesh, meta, native)
+                    self.dna_reannealed += int((~self.frust[ra]).sum())
         if len(di):
             mt = lev["dorm_maintenance"]
             self.d[di] = np.minimum(1.0, self.d[di] + P["dormancy"]["restore_rate"] * mt * (1 - self.d[di]))
@@ -332,6 +384,10 @@ class Part:
             if len(wi):
                 ow = self.organ[wi].astype(int)
                 g = self._gate(wi, perm[ow], S_env, seed, m, 14, thr)
+                if bc["dna"] and bc["dna_proof"] and S_env.get("integrated", False) and S_env.get("principles", True):
+                    g0 = g
+                    g = self.principles.proofread(g, _mismatch(self, wi, perm[ow], bc, seed, m, 53), bc["dna_proof_thr"])
+                    self.pg_proof += int(np.sum(g != g0))
                 self.ledger_gate["recycle"] += int((g == 0).sum()); self.ledger_gate["buffer"] += int((g == 1).sum())
                 self.ledger_gate["commit"] += int((g == 2).sum())
                 rec = wi[g == 0]
@@ -540,6 +596,10 @@ class Part:
         locked = [i for i in edge_pool if mesh.edges[i].locked]
         frust = [i for i in edge_pool if not mesh.edges[i].locked]
         hop = float(native.get("hop_from_frustrated", 0.2))
+        bc = _bio_cfg(native)
+        if bc["rbc"]:
+            hop = hop + bc["rbc_deform"] * (1.0 - hop)  # t96u: carrier deforms through narrow passages
+            if (not locked) and frust: self.rbc_passes += len(cm)
         if locked:
             ok = np.ones(len(cm), dtype=bool)
             pool = locked
@@ -565,6 +625,9 @@ class Part:
                 # attempts, niches after settling; 50/50 otherwise for seated cells.
                 to_circ = (prev == CIRC) or (dest_u[k] < (0.7 if pc["timing"] != "post_settling" else 0.3))
                 if to_circ:
+                    if prev == OVERT and org >= 0 and _bio_cfg(native)["dna"] and _bio_cfg(native)["dna_ledger"]:
+                        # t96u helicase-unzip ledger: an overt occupant leaving to circulation is booked
+                        self.organ_unzipped_overt[org] = self.organ_unzipped_overt.get(org, 0) + 1
                     st[cell] = CIRC
                     self.organ[cell] = -1
                     self.edge[cell] = -1
@@ -646,6 +709,10 @@ class Part:
         locked = [i for i in edge_pool if mesh.edges[i].locked]
         frust = [i for i in edge_pool if not mesh.edges[i].locked]
         hop = float(native.get("hop_from_frustrated", 0.2))
+        bc = _bio_cfg(native)
+        if bc["rbc"]:
+            hop = hop + bc["rbc_deform"] * (1.0 - hop)  # t96u: carrier deforms through narrow passages
+            if (not locked) and frust: self.rbc_passes += len(cm)
         if locked:
             ok = np.ones(len(cm), dtype=bool)
             pool = locked
@@ -715,10 +782,49 @@ def _plumbing_cfg(native):
     leak_eff = leak0 * (1.0 - 0.5 * seal) * (1.0 + 0.5 * strength) / float(n_stages)
     if magnet:
         leak_eff *= 0.5  # labeled directional hold in the channel, not a therapy claim
+    bc = _bio_cfg(native)
+    if bc["rbc"]:
+        leak_eff *= (1.0 - bc["rbc_seal"])  # t96u: deformable carrier fills the channel bore
     leak_eff = float(np.clip(leak_eff, 0.0, 0.95))
     return dict(on=on, timing=timing, start=int(start), leak=leak_eff, leak0=leak0,
                 strength=strength, n_stages=n_stages, seal=seal, magnet=magnet,
                 oasis=oasis)
+
+
+def _bio_cfg(native):
+    """t96u structural analogies, each OFF by default and a strict no-op (no RNG) when off.
+    zipper: teeth = niche polarity edges; tolerance = max cell/niche size mismatch before a tooth
+            skips (cell sits frustrated); material = mismatch noise; attach = anchoring at seating;
+            slider = monthly re-closing of skipped teeth; spring x levy_gain; tape: damper alpha / tape.
+    dna:    complementary pairing = polarity locks; reanneal = frustrated occupants re-pair on a
+            locked edge (delta reconciliation); proofread = PrinciplesGate mismatch check before a
+            colonization commit; unzip ledger = book overt cells leaked back to circulation.
+    mrna:   transient message: Levy pulse memory decays at mrna_decay (Nexus record persists).
+    rbc:    deformable carrier in transport channels (light/plumbing extract edges): raises passage
+            through frustrated channel edges and lowers seal leak.
+    wbc:    patrol + Oasis recognition: patrolled dormant cells that Oasis would recycle are cleared.
+    Speculative structural mapping only; no biological model or claim."""
+    z = bool(native.get("zipper", False)); d = bool(native.get("dna", False))
+    return dict(
+        zipper=z, zip_tol=float(native.get("zip_tolerance", 0.5)), zip_material=float(native.get("zip_material", 1.0)),
+        zip_attach=float(native.get("zip_attach", 1.0)), zip_slider=float(native.get("zip_slider", 0.0)),
+        zip_size=float(native.get("zip_size", 1.0)), zip_spring=float(native.get("zip_spring", 1.0)),
+        zip_tape=float(native.get("zip_tape", 1.0)),
+        dna=d, dna_reanneal=float(native.get("dna_reanneal", 0.1)), dna_proof=bool(native.get("dna_proofread", True)),
+        dna_proof_thr=float(native.get("dna_proof_thr", native.get("zip_tolerance", 0.5))),
+        dna_ledger=bool(native.get("dna_unzip_ledger", True)),
+        mrna=bool(native.get("mrna", False)), mrna_decay=float(native.get("mrna_decay", 0.7)),
+        rbc=bool(native.get("rbc", False)), rbc_deform=float(native.get("rbc_deform", 0.5)), rbc_seal=float(native.get("rbc_seal", 0.5)),
+        wbc=bool(native.get("wbc", False)), wbc_patrol=float(native.get("wbc_patrol", 0.05)),
+        wbc_start=int(native.get("wbc_start_month", 1)))
+
+
+def _mismatch(part, idx, perm_o, bc, seed, m, stream):
+    """Zipper size mismatch between a cell (fit) and its niche tooth (organ permissiveness)."""
+    mm = bc["zip_size"] * np.abs(part.fit[idx] - perm_o)
+    if bc["zip_material"] < 1.0:
+        mm = mm + (1.0 - bc["zip_material"]) * U(seed, part.ids[idx], m, stream)
+    return mm
 
 
 def make_cfg(name, P):
@@ -810,7 +916,7 @@ def _adapt_niche(mesh, meta, parts, native, n_organs, month, seed):
             for i in np.nonzero(occ)[0]:
                 ei = int(p.edge[i])
                 if 0 <= ei < len(mesh.edges):
-                    p.frust[i] = (not mesh.edges[ei].locked) and (p.state[i] == DORM)
+                    p.frust[i] = ((not mesh.edges[ei].locked) or bool(p.skip[i])) and (p.state[i] == DORM)
 
 
 def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None, sig=False,
@@ -854,6 +960,11 @@ def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None
     principles_on = bool(native.get("principles_gate", True))
     levy_feedback = bool(native.get("levy_feedback", True))
     levy_gain = float(native.get("levy_gain", 1.0))
+    _bc = _bio_cfg(native)
+    if _bc["zipper"]:
+        levy_gain *= _bc["zip_spring"]                # spring tension -> Levy pulse gain
+        alpha = alpha / max(_bc["zip_tape"], 1e-9)    # tape stability -> smoother damper
+    levy_alpha = _bc["mrna_decay"] if _bc["mrna"] else alpha
     levy_ledger = LevyLedger(P["levy_weights"])
     prev_counts = {k: 0 for k in KINDS}
     n_edges = max(1, len(mesh.edges))
@@ -885,7 +996,7 @@ def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None
             ema = levy_ledger.ema if levy_ledger.ema is not None else pulse
             if levy_feedback and ema > 0:
                 levy_spike = max(0.0, (pulse - ema) / ema)
-            levy_ledger.ema = (1.0 - alpha) * ema + alpha * pulse
+            levy_ledger.ema = (1.0 - levy_alpha) * ema + levy_alpha * pulse
         # Delta reconciliation: damped occupancy spike + (integrated) Levy pulse spike
         pressure = (1.0 - alpha) * pressure + alpha * gain * (spike + levy_gain * levy_spike)
         nexus.metrics["deltas"] += 1
@@ -915,7 +1026,14 @@ def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None
                genesis_closed=bool(nexus.registry["state"].get("genesis_closed", True)),
                pressure_max=float(max(pressure_series) if pressure_series else 0.0),
                pressure_mean=float(np.mean(pressure_series) if pressure_series else 0.0),
-               adapted=sum(p.adapted for p in parts))
+               adapted=sum(p.adapted for p in parts),
+               pg_score_mod=sum(p.pg_score_mod for p in parts), pg_veto=sum(p.pg_veto for p in parts),
+               pg_proof=sum(p.pg_proof for p in parts), zip_skips=sum(p.zip_skips for p in parts),
+               zip_unanchored=sum(p.zip_unanchored for p in parts), zip_rezips=sum(p.zip_rezips for p in parts),
+               dna_reannealed=sum(p.dna_reannealed for p in parts),
+               dna_unzipped_overt=sum(sum(p.organ_unzipped_overt.values()) for p in parts),
+               wbc_patrolled=sum(p.wbc_patrolled for p in parts), wbc_cleared=sum(p.wbc_cleared for p in parts),
+               rbc_passes=sum(p.rbc_passes for p in parts))
     return res
 
 
@@ -941,6 +1059,8 @@ def recombine(parts, cfg, P, nexus, genesis, seed, n_shed, record, name, sig, me
         for k, v in p.heat.items():
             if isinstance(k, tuple): heat_col[k[1]] = heat_col.get(k[1], 0) + v
         for o, c in getattr(p, "organ_extracted_overt", {}).items():
+            ext_overt_org[o] = ext_overt_org.get(o, 0) + c
+        for o, c in getattr(p, "organ_unzipped_overt", {}).items():
             ext_overt_org[o] = ext_overt_org.get(o, 0) + c
         for k in extracted_from:
             extracted_from[k] += getattr(p, "extracted_from", {}).get(k, 0)
