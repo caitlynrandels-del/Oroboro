@@ -76,7 +76,7 @@ Note: launch-side write-up [`../magnetic-launch/Plumbing_Dynamics_Addendum.md`](
 - `charts/`, `outputs/*.log`
 - `notes/Native_Mesh_Restart_HeatTrace.md` (pre-integration write-up; [page view](notes/pdf-pages/Native_Mesh_Restart_HeatTrace/view.html))
 - `run_light_transport.py`, `data/light_transport/`, `notes/Light_Transport_Extraction.md`
-- `data/plumbing/` (`plumbing_summaries.csv`, `plumbing_ledger.json`); plumbing hook in `oro_native.py` (off by default)
+- `data/plumbing/` (`plumbing_summaries.csv`, compact `plumbing_ledger.json` with condition summaries; the 6.5 MB per-run rows stay on the project computer); plumbing hook in `oro_native.py` (off by default)
 - `notes/github_scan_inventory.md`
 
 Run: `python3 run_integrated.py` (numpy, pandas, scipy, matplotlib).
