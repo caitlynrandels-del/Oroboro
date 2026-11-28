@@ -1,0 +1,41 @@
+@page { size: Letter; margin: 0.8in 0.85in 0.85in 0.85in;
+  @bottom-center { content: counter(page); font: 9pt "Source Sans 3", sans-serif; color:#777; }
+  @top-right { content: "Oroboro combined report · speculative modeling only"; font: 8pt "Source Sans 3", sans-serif; color:#999; } }
+@page :first { @bottom-center { content: none } @top-right { content: none } }
+html { font-family: "Source Serif Pro", Georgia, serif; font-size: 10.4pt; line-height: 1.45; color:#1d2430; }
+body { margin:0; }
+h1,h2,h3,h4 { font-family: "Source Sans 3","Inter",sans-serif; color:#16324f; line-height:1.2; break-after: avoid; }
+h2 { font-size: 17pt; border-bottom: 2px solid #c9d6e3; padding-bottom: 4px; margin-top: 1.6em; break-before: page; }
+h3 { font-size: 12.8pt; margin-top: 1.4em; }
+h2.notoc { break-before: avoid; border:none; font-size:14pt }
+p, li { orphans:3; widows:3; }
+a { color:#1f5f99; text-decoration:none; }
+.titlepage { height: 9.1in; display:flex; flex-direction:column; justify-content:center; break-after: page; }
+.titlepage .kicker { font-family:"Source Sans 3",sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#5a7896; font-size:10pt; margin:0 }
+h1.title { font-size: 34pt; margin: .2em 0 .3em; color:#0f2a45; border:none }
+.subtitle { font-size: 13pt; color:#33475b; max-width: 6.2in }
+.meta { font-family:"Source Sans 3",sans-serif; font-size: 11pt; margin-top: 1.4em; }
+.status { margin-top: 2em; border-left: 5px solid #b5553c; background:#fbf1ec; padding: .7em 1em; font-size:10pt }
+.toc { break-after: page; } .toc ol { line-height:1.8 } .toc ul { line-height:1.5; font-size:9.5pt; color:#555 }
+.summary { border-radius:6px; padding: .6em 1.1em .4em; margin: 1em 0; break-inside: auto; }
+.summary h3 { margin-top:.3em }
+.summary.everyone { background:#eef6ef; border:1px solid #b9d8bf }
+.summary.specialist { background:#eef2f8; border:1px solid #c3cfe0; font-size:9.8pt }
+.inshort { background:#fff7e0; border:1px solid #ead9a4; border-left:5px solid #d9a826; border-radius:4px; padding:.55em .95em; margin: .8em 0 1em; font-family:"Source Sans 3",sans-serif; font-size:10.4pt; break-inside: avoid; }
+.inshort p { margin:.35em 0 } .inshort ul { margin:.3em 0 .3em 1.1em; padding:0 }
+.disclaimer { font-family:"Source Sans 3",sans-serif; font-size:9pt; color:#7a3b2a; background:#fbf1ec; padding:.4em .8em; border-radius:3px; margin:.6em 0 }
+table { border-collapse: collapse; width:100%; margin: .8em 0 1em; font-family:"Source Sans 3",sans-serif; font-size: 8.9pt; break-inside: auto; }
+th { background:#16324f; color:#fff; text-align:left; padding:4px 6px; font-weight:600 }
+td { padding: 3.5px 6px; border-bottom: 1px solid #dde3ea; vertical-align: top }
+tr:nth-child(even) td { background:#f6f8fb }
+tr { break-inside: avoid; }
+img { display:block; max-width:100%; margin: .6em auto .2em; break-inside: avoid; }
+img.half { max-width: 72%; } img.tall { max-width: 78%; }
+p:has(> img) { break-inside: avoid; break-after: avoid; margin-bottom:0 }
+.caption { font-family:"Source Sans 3",sans-serif; font-size: 8.8pt; color:#4b5a69; margin: .2em .3in 1.1em; text-align:center; }
+.flow { font-family:"Source Sans 3",sans-serif; font-size:8.6pt; line-height:2.3; text-align:center; margin: 1em 0 .2em; color:#16324f }
+.flow span { display:inline-block; border:1px solid #9fb4ca; background:#eef3f9; border-radius:4px; padding: 1px 7px; line-height:1.25; margin: 2px 1px; text-align:center; vertical-align: middle }
+.flow small { display:block; color:#5b6f84; font-size:7.3pt }
+code { font-family:"Source Code Pro",monospace; font-size: 8.6pt; background:#f1f3f6; padding:0 2px; border-radius:2px }
+.glossary p { margin: .35em 0; font-size: 9.8pt }
+.endnote { margin-top:2em; font-size:9pt; color:#666; text-align:center; font-family:"Source Sans 3",sans-serif }
