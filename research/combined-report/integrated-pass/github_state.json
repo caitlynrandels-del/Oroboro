@@ -1,0 +1,11 @@
+{
+  "_note": "Read-only GitHub API reads (list_commits / get_file_contents) by the integrated pass, 27 Nov 2026 ~18:20 MT. Commit times converted from UTC to MT (UTC-7).",
+  "Oroboro_main_head": "3a3e021 SYSTEMS.md: full index of all Oroboro systems with verified code links; README links it prominently (2026-11-27 18:11 MT)",
+  "Oroboro_prior_heads": "5e0b930 magnetic-launch: fur/fabric adaptive per-run traces (18:09 MT); 34339a5 combined-report: one-page engineering brief (HTML + page-image view) (18:09 MT); d6f2763 combined-report: PDF page images 39-40 (17:58 MT)",
+  "oroboro_relay_head": "d3d0940 Document the conjunctive pipeline (16:02 MT); cc77063 Deterministic delta reconciliation + OroboroPipeline conjunctive loop (16:02 MT): Replaces the Math.random()*0.1 delta stub in oroboro-core.js (and Double.random in the Swift app)",
+  "epilepsy_sim_head": "2be4eac Add Oroboro conjunctive-use audit: partially conjunctive, integrated rebuild pending (16:02 MT). Levy, Transcriber and Genesis are ledger-only, and there is no polarity mesh or PrinciplesGate. Code is unchanged; preflight was re-run at 50/50 PASS.",
+  "metastatic_cascade_analysis_head": "d9f09c8 papers/v5: SVG page images 23-25 (17:49 MT)",
+  "SYSTEMS_md": "Oroboro SYSTEMS.md indexes 17 systems: Conjunctive pipeline, Genesis, Nexus, Oasis, PrinciplesGate / AdaptOrDie, NaCl polarity mesh, Dictator, Transcriber, Levy, Damper, Delta reconciliation, Isolate / recombine, Dream-catcher, Self-repairing niche, Sponge, Smart magnets, Homeostasis",
+  "damper_constants": "alpha 0.35, gain 0.08",
+  "box_tooling": "swiftc not installed on the box (which swiftc: not found); node v24.22.1; relay tests/pipeline.test.js: pipeline tests passed"
+}

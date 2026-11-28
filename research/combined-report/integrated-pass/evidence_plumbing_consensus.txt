@@ -1,0 +1,18 @@
+Copied from magnetic_launch_case_study/outputs/plumbing_dynamics.json cancer.summaries
+light_off_no_plumbing consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_perfect_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.1_seal1_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_seal1_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.6_seal1_up consensus_ok=False census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_seal0.5_up consensus_ok=False census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_seal0_up consensus_ok=False census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_st4_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_st16_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_magnet_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_perfect_post consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_leak0.3_post consensus_ok=False census_ok=True levy_ok=True inversion_holds=True
+plumb_perfect_up_nooasis consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_strength0.2_perfect_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+plumb_strength0.8_perfect_up consensus_ok=True census_ok=True levy_ok=True inversion_holds=True
+consensus_ok False count = 4
+metastasis_native/data/plumbing/plumbing_summaries.csv last written 2026-11-27 17:42 MT (00:42 UTC 28 Nov); no later plumbing rerun in data/plumbing

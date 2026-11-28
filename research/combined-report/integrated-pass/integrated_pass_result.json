@@ -1,0 +1,2582 @@
+{
+ "status": "speculative modeling only; document-selection pass, not new science",
+ "n_nodes": 84,
+ "n_edges": 307,
+ "edge_types": {
+  "contradict": 4,
+  "mirror": 9,
+  "same_lever": 190,
+  "supersede": 8,
+  "support": 96
+ },
+ "iterations": 23,
+ "converged": true,
+ "final_dw": 7.913320398261758e-10,
+ "final_dp": 0.0,
+ "mesh": {
+  "components_seeded_by_genesis": 4,
+  "frustrated_before_repair": [
+   [
+    "L.line",
+    "L.fur",
+    "contradict"
+   ],
+   [
+    "C.frust829",
+    "X.loops",
+    "support"
+   ],
+   [
+    "C.gain1",
+    "C.loo",
+    "support"
+   ],
+   [
+    "S.nonconj",
+    "S.conj",
+    "support"
+   ],
+   [
+    "C.damper_silent",
+    "F.list",
+    "support"
+   ],
+   [
+    "C.tree",
+    "C.frust829",
+    "same_lever"
+   ],
+   [
+    "C.frust819",
+    "C.frust829",
+    "same_lever"
+   ],
+   [
+    "C.gain1",
+    "C.loo",
+    "same_lever"
+   ],
+   [
+    "C.gain1",
+    "X.conj",
+    "same_lever"
+   ],
+   [
+    "C.loo",
+    "O.calib",
+    "same_lever"
+   ],
+   [
+    "C.frust829",
+    "C.light_r",
+    "same_lever"
+   ],
+   [
+    "C.frust829",
+    "L.weave",
+    "same_lever"
+   ],
+   [
+    "C.frust829",
+    "X.loops",
+    "same_lever"
+   ],
+   [
+    "X.conj",
+    "O.calib",
+    "same_lever"
+   ]
+  ],
+  "frustrated_after_repair": [
+   [
+    "C.frust829",
+    "X.loops",
+    "support"
+   ],
+   [
+    "C.gain1",
+    "C.loo",
+    "support"
+   ],
+   [
+    "S.nonconj",
+    "S.conj",
+    "support"
+   ],
+   [
+    "C.damper_silent",
+    "F.list",
+    "support"
+   ],
+   [
+    "C.tree",
+    "C.frust829",
+    "same_lever"
+   ],
+   [
+    "C.frust819",
+    "C.frust829",
+    "same_lever"
+   ],
+   [
+    "C.gain1",
+    "C.loo",
+    "same_lever"
+   ],
+   [
+    "C.gain1",
+    "X.conj",
+    "same_lever"
+   ],
+   [
+    "C.loo",
+    "O.calib",
+    "same_lever"
+   ],
+   [
+    "C.frust829",
+    "C.light_r",
+    "same_lever"
+   ],
+   [
+    "C.frust829",
+    "L.weave",
+    "same_lever"
+   ],
+   [
+    "C.frust829",
+    "X.loops",
+    "same_lever"
+   ],
+   [
+    "X.conj",
+    "O.calib",
+    "same_lever"
+   ]
+  ],
+  "inversion_holds": true,
+  "mesh_nodes": 384,
+  "mesh_edges": 610
+ },
+ "delta_reconciliation": {
+  "superseded": [
+   {
+    "old": "L.256",
+    "new": "L.1148",
+    "why": "incomplete 900 s coast; true Kepler two-burn residual (P3 B4)"
+   },
+   {
+    "old": "C.native_base",
+    "new": "C.gain1",
+    "why": "conjunctive wiring is the working baseline (P2 A3)"
+   },
+   {
+    "old": "C.frust819",
+    "new": "C.frust829",
+    "why": "conjunctive 454-setting rerun (P2 A3)"
+   },
+   {
+    "old": "S.cd_stub_claim",
+    "new": "S.delta_fix",
+    "why": "relay cc77063 replaced the stub after the cross-domain note"
+   },
+   {
+    "old": "S.audit_tree",
+    "new": "S.delta_fix",
+    "why": "audited stub fixed in relay cc77063"
+   },
+   {
+    "old": "C.plumb_claim",
+    "new": "C.plumb_cons",
+    "why": "plumbing_dynamics.json shows consensus_ok False on 4 rows; corrected in P2 A5"
+   },
+   {
+    "old": "C.damper_silent",
+    "new": "C.check200",
+    "why": "damper engages once Levy is wired in (P2 A3)"
+   },
+   {
+    "old": "G.oroboro_v1",
+    "new": "G.oroboro",
+    "why": "later commits on main (GitHub API)"
+   }
+  ],
+  "contradictions": [
+   {
+    "a": "L.line",
+    "b": "L.fur",
+    "note": "fixed line 2,791 (guidance) vs 2,378 (fur integrator)",
+    "resolved_by": [
+     "L.fur_line_note"
+    ]
+   },
+   {
+    "a": "O.calib",
+    "b": "C.sweep",
+    "note": "conjunctive default 9.1%/6.36 vs calibration 21.7%/10.38",
+    "resolved_by": []
+   },
+   {
+    "a": "C.frust829",
+    "b": "C.light_r",
+    "note": "frustrated-vs-pool link absent under light exit",
+    "resolved_by": []
+   },
+   {
+    "a": "L.autopilot",
+    "b": "S.conj",
+    "note": "a conjunctive onboard loop hurt insertion",
+    "resolved_by": []
+   }
+  ]
+ },
+ "principles_gate": {
+  "vetoes_total": 0,
+  "final_H": 1.0,
+  "frust_level": 0.04234527687296417,
+  "note": "apply_score clamps >0.99 to 0.9 and boosts when frust_level>0.6; veto turns commit->buffer when H<0.3"
+ },
+ "relay": {
+  "isolations": 0,
+  "last": {
+   "it": 23,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 7.913320398261758e-10,
+   "dp": 0.0
+  }
+ },
+ "native_transcriber_critical_kinds": [
+  "colonize",
+  "exit"
+ ],
+ "levy_total": 12128.0,
+ "clusters": [
+  {
+   "hub": "C.light45",
+   "label": "C.plumb_leak",
+   "share": 0.1980823366313034,
+   "members": [
+    "C.light45",
+    "C.plumb_leak",
+    "X.gate",
+    "C.plumb",
+    "C.light_oasis",
+    "C.plumb_cons",
+    "C.light_design",
+    "O.plumb",
+    "L.comparator",
+    "L.magnet",
+    "S.oasis",
+    "X.oasis_truth",
+    "S.homeo"
+   ],
+   "domains": [
+    "cancer",
+    "cross",
+    "launch",
+    "open",
+    "sys"
+   ],
+   "L_tgt": 0.04,
+   "votes": [
+    0,
+    1,
+    1
+   ],
+   "detail": "refine"
+  },
+  {
+   "hub": "L.damp",
+   "label": "C.light45",
+   "share": 0.17094253013091018,
+   "members": [
+    "L.damp",
+    "L.1148",
+    "L.repeater",
+    "L.climb",
+    "X.lateburn",
+    "L.rep_limits",
+    "L.straw",
+    "L.plumb",
+    "L.kite",
+    "L.lane",
+    "L.sail",
+    "L.notrack",
+    "L.line",
+    "L.fur",
+    "F.list",
+    "L.fur_line_note"
+   ],
+   "domains": [
+    "cross",
+    "falsified",
+    "launch"
+   ],
+   "L_tgt": 0.06192204067213473,
+   "votes": [
+    1,
+    1,
+    1
+   ],
+   "detail": "refine"
+  },
+  {
+   "hub": "C.upstream",
+   "label": "C.upstream",
+   "share": 0.13285929305723312,
+   "members": [
+    "C.upstream",
+    "X.geo",
+    "X.door",
+    "L.geo",
+    "L.bestaz",
+    "O.pgate",
+    "L.planechg"
+   ],
+   "domains": [
+    "cancer",
+    "cross",
+    "launch",
+    "open"
+   ],
+   "L_tgt": 0.09268358173336527,
+   "votes": [
+    0,
+    1,
+    1
+   ],
+   "detail": "refine"
+  },
+  {
+   "hub": "C.frust829",
+   "label": "C.frust829",
+   "share": 0.1163728622543876,
+   "members": [
+    "C.frust829",
+    "X.loops",
+    "C.tree",
+    "C.native",
+    "L.weave",
+    "C.light_r",
+    "S.workspace"
+   ],
+   "domains": [
+    "cancer",
+    "cross",
+    "launch",
+    "sys"
+   ],
+   "L_tgt": 0.10600041236710901,
+   "votes": [
+    1,
+    1,
+    1
+   ],
+   "detail": "refine"
+  },
+  {
+   "hub": "C.gain1",
+   "label": "C.gain1",
+   "share": 0.10765170428212685,
+   "members": [
+    "C.gain1",
+    "C.loo",
+    "X.conj",
+    "C.wiring",
+    "O.calib",
+    "S.levyw"
+   ],
+   "domains": [
+    "cancer",
+    "cross",
+    "open",
+    "sys"
+   ],
+   "L_tgt": 0.11304488336483857,
+   "votes": [
+    1,
+    0,
+    1
+   ],
+   "detail": "refine"
+  },
+  {
+   "hub": "S.systems17",
+   "label": "S.systems17",
+   "share": 0.08050242317927571,
+   "members": [
+    "S.systems17",
+    "G.oroboro",
+    "G.cascade",
+    "S.sponge",
+    "G.policy"
+   ],
+   "domains": [
+    "repo",
+    "sys"
+   ],
+   "L_tgt": 0.1349745770989224,
+   "votes": [
+    0,
+    0,
+    -1
+   ],
+   "detail": "coarsen"
+  },
+  {
+   "hub": "C.check200",
+   "label": "C.check200",
+   "share": 0.0800709986923267,
+   "members": [
+    "C.check200",
+    "X.tilt",
+    "C.tilt",
+    "L.autopilot"
+   ],
+   "domains": [
+    "cancer",
+    "cross",
+    "launch"
+   ],
+   "L_tgt": 0.13532305803410205,
+   "votes": [
+    1,
+    0,
+    -1
+   ],
+   "detail": "hold"
+  },
+  {
+   "hub": "G.relay",
+   "label": "G.relay",
+   "share": 0.06885909078688217,
+   "members": [
+    "G.relay",
+    "S.delta_fix",
+    "O.swift"
+   ],
+   "domains": [
+    "open",
+    "repo",
+    "sys"
+   ],
+   "L_tgt": 0.14437941962281944,
+   "votes": [
+    0,
+    0,
+    -1
+   ],
+   "detail": "coarsen"
+  },
+  {
+   "hub": "S.conj",
+   "label": "S.conj",
+   "share": 0.0446587609855542,
+   "members": [
+    "S.conj",
+    "S.pipeline",
+    "S.nonconj"
+   ],
+   "domains": [
+    "sys"
+   ],
+   "L_tgt": 0.16392711294097553,
+   "votes": [
+    1,
+    -1,
+    -1
+   ],
+   "detail": "coarsen"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "S.pipeline",
+   "domain": "sys",
+   "kind": "detach",
+   "gate": "buffer",
+   "levy_w": 0.015152153384698339,
+   "nov": 0.7710843373493976,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "S.conj",
+   "text": "Conjunctive loop per step: Genesis → state reduction → Oasis (commit ≥0.65 / buffer ≥0.325 / recycle) → PrinciplesGate/AdaptOrDie → NaCl polarity mesh → Dictator → Transcriber → Levy → Nexus → damped delta reconciliation → homeostasis → Genesis.",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "Genesis → state reduction → Oasis salience gate → PrinciplesGate → NaCl polarity-mesh consensus → Dictator → Transcriber → Levy → Nexus → damped delta reconciliation"
+   ]
+  },
+  {
+   "id": "S.oasis",
+   "domain": "sys",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.008256478338900563,
+   "nov": 0.8072289156626506,
+   "ten": 0.0,
+   "coh": 1.0,
+   "corroboration": 4,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Oasis S=0.30·nov+0.25·tens+0.25·coh+0.20·res.",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "S = 0.30·novelty + 0.25·tension + 0.25·coherence + 0.20·resonance",
+    "Commit at ≥ 0.65, buffer at ≥ 0.325"
+   ]
+  },
+  {
+   "id": "S.levyw",
+   "domain": "sys",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.007320908676334639,
+   "nov": 0.7951807228915663,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.gain1",
+   "text": "Levy weights (bookkeeping): clear 1, detach 7, fail 2, exit 4, colonize 14; relay: critical 10/other 1.",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "clear 1, detach 7, fail 2, exit 4, colonize 14"
+   ]
+  },
+  {
+   "id": "S.homeo",
+   "domain": "sys",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.0009360815693356439,
+   "nov": 0.7831325301204819,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Homeostasis rest load 40, rest bump 0.2; damper α 0.35, gain 0.08.",
+   "src": "/workspace/oroboro-research/combined_report/part1.md|/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "Rest load 40 and rest bump 0.2",
+    "alpha 0.35, gain 0.08"
+   ]
+  },
+  {
+   "id": "S.systems17",
+   "domain": "repo",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.02003834592131154,
+   "nov": 0.9879518072289156,
+   "ten": 0.0,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "S.systems17",
+   "text": "SYSTEMS.md on Oroboro main indexes 17 systems with code links (pipeline, Genesis, Nexus, Oasis, PrinciplesGate, NaCl mesh, Dictator, Transcriber, Levy, damper, delta, isolate/recombine, dream-catcher, self-repairing niche, sponge, smart magnets, homeostasis).",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "indexes 17 systems"
+   ]
+  },
+  {
+   "id": "S.audit_tree",
+   "domain": "sys",
+   "kind": "detach",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.1927710843373494,
+   "ten": 0.5,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Audit: public NaCl mesh was a 4-node tree (no cycles); reconcile() only logged; oroboro-core.js L124 delta = Math.random()*0.1.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "four-node *tree* with no cycles",
+    "line 124 drew `delta: Math.random() * 0.1`"
+   ]
+  },
+  {
+   "id": "S.delta_fix",
+   "domain": "sys",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.024174154716544972,
+   "nov": 0.46987951807228917,
+   "ten": 0.4,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "G.relay",
+   "text": "Relay fix (cc77063): random delta replaced by deterministic delta vs Nexus + OroboroPipeline; node test passes.",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "Replaces the Math.random()*0.1 delta stub in oroboro-core.js",
+    "pipeline tests passed"
+   ]
+  },
+  {
+   "id": "S.cd_stub_claim",
+   "domain": "sys",
+   "kind": "exit",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.3493975903614458,
+   "ten": 0.5,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Cross-domain note (pre-fix) said oroboro-core.js delta still a Math.random stub.",
+   "src": "/workspace/oroboro-research/cross_domain/Oroboro_CrossDomain_Comparison.md",
+   "vals": [
+    "Delta reconciliation in `oroboro-core.js` is still a `Math.random` stub"
+   ]
+  },
+  {
+   "id": "S.nonconj",
+   "domain": "sys",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.007227615578681212,
+   "nov": 0.3373493975903614,
+   "ten": 0.5,
+   "coh": 0.5833333333333333,
+   "corroboration": 2,
+   "lock_frac": 0.5,
+   "cluster": "S.conj",
+   "text": "Not conjunctive: Goldilocks, strings, weave, goal-seek (isolated blocks); geography & tilt (no component calls); first native restart (Dictator/Transcriber/Levy ledger-only, no PrinciplesGate, damper silent).",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "used components as separate blocks",
+    "called no Oroboro component",
+    "PrinciplesGate was absent, and the damper never engaged"
+   ]
+  },
+  {
+   "id": "S.conj",
+   "domain": "sys",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.01866960328523577,
+   "nov": 0.3614457831325301,
+   "ten": 0.45,
+   "coh": 0.5416666666666666,
+   "corroboration": 1,
+   "lock_frac": 0.75,
+   "cluster": "S.conj",
+   "text": "Conjunctive: every launch run from redstone on; cancer model integrated=True by default.",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "From the redstone run onward, every launch run used one loop",
+    "conjunctive by default (`integrated=True`)"
+   ]
+  },
+  {
+   "id": "S.sponge",
+   "domain": "sys",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.010166133538221107,
+   "nov": 0.8554216867469879,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "S.systems17",
+   "text": "Sponge: documented (code in epilepsy-sim/cascade repos) but not used in these studies.",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "Documented in Caitlyn's notes but not used in any study here"
+   ]
+  },
+  {
+   "id": "S.workspace",
+   "domain": "sys",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.006416475224075913,
+   "nov": 0.8433734939759037,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.frust829",
+   "text": "Dream-catcher/odd-loop code lives in the research workspace (now Oroboro research/), not the original public repos.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "The dream-catcher and odd-loop pieces exist in the project workspace, not in the original public repos"
+   ]
+  },
+  {
+   "id": "C.sweep",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "recycle",
+   "levy_w": 0.009491328257080395,
+   "nov": 0.0,
+   "ten": 0.05,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "1.21 M-run sweep (484 cond./454 unique × 2,500) reproduced exactly; baseline p(colony) 21.7% (20.2–23.4), pool 10.38 (10.25–10.51), 94.7% preferred organ.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "All 484 estimates were reproduced exactly",
+    "21.7% of runs colonize (95% CI 20.2–23.4%)",
+    "10.38 cells (10.25–10.51)",
+    "94.7% of colonies"
+   ]
+  },
+  {
+   "id": "C.switch",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "recycle",
+   "levy_w": 0.010224985115720942,
+   "nov": 0.012048192771084338,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Elimination switch: threshold x₅₀ 0.799, x₉₀ 0.854; permissiveness x₉₀ ×0.219; prostate-like stricter (0.872 vs 0.842).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "50% at 0.799",
+    "90% at 0.854",
+    "×0.219",
+    "0.872 vs 0.842"
+   ]
+  },
+  {
+   "id": "C.onset",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "recycle",
+   "levy_w": 0.01022498511572094,
+   "nov": 0.024096385542168676,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Onset half-time: single upstream 15–17 mo, combined 57 mo, dormant clearance effective to 97 mo.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "by months 15–17",
+    "month 57",
+    "month 97"
+   ]
+  },
+  {
+   "id": "C.interact",
+   "domain": "cancer",
+   "kind": "clear",
+   "gate": "recycle",
+   "levy_w": 0.004559106722402436,
+   "nov": 0.03614457831325301,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Interactions mostly independent (74/98 within ±10%).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "74 of 98 within ±10%"
+   ]
+  },
+  {
+   "id": "C.native",
+   "domain": "cancer",
+   "kind": "detach",
+   "gate": "buffer",
+   "levy_w": 0.011985643080615973,
+   "nov": 0.27710843373493976,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.frust829",
+   "text": "Native polarity-mesh restart: 49 nodes, 89 edges, 32 frustrated (dream-catcher niche: 8-hoop + hub + spokes on inverse-Epcot bowl, return edges).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "49 nodes and 89 edges, 32 of them frustrated",
+    "an 8-node hoop, a hub and spokes"
+   ]
+  },
+  {
+   "id": "C.native_base",
+   "domain": "cancer",
+   "kind": "exit",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.26506024096385544,
+   "ten": 0.5,
+   "coh": 1.0,
+   "corroboration": 3,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Native baseline 18.0% / 10.355 (vs orig 21.72/10.380).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "18.00%",
+    "10.355",
+    "21.72% colonies and a pool of 10.380"
+   ]
+  },
+  {
+   "id": "C.tree",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.019577330394455965,
+   "nov": 0.25301204819277107,
+   "ten": 0.125,
+   "coh": 0.6041666666666666,
+   "corroboration": 1,
+   "lock_frac": 0.875,
+   "cluster": "C.frust829",
+   "text": "Tree-niche ablation → 20.6%, pool 10.38: loops tax colonization, don't set pool.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "raises colonies to 20.6% while the pool stays at 10.38",
+    "Loops tax colonization; they do not set pool size."
+   ]
+  },
+  {
+   "id": "C.frust819",
+   "domain": "cancer",
+   "kind": "exit",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.24096385542168675,
+   "ten": 0.3095238095238095,
+   "coh": 0.75,
+   "corroboration": 2,
+   "lock_frac": 0.8333333333333334,
+   "cluster": "_recycled",
+   "text": "Frustrated count vs pool Spearman −0.819 (−0.863, −0.765), opposite of prediction; shuffle +0.007.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "−0.819 (−0.863, −0.765)",
+    "+0.007"
+   ]
+  },
+  {
+   "id": "C.upstream",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.021121999567643553,
+   "nov": 0.2289156626506024,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "Only upstream levers shrink both: threshold 0.80 → 0.000/0.550; permissiveness ×0.4 → 0.000/2.222. Post-settling (maintenance, barrier) clears colonies, leaves ~10.5.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "Valuation threshold 0.80 | 0.001 | 0.000 | 0.530 | 0.550",
+    "Organ permissiveness ×0.4 | 0.002 | 0.000 | 2.275 | 2.222",
+    "leave the ~10.5-cell pool"
+   ]
+  },
+  {
+   "id": "C.tilt",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.02058305134261091,
+   "nov": 0.21686746987951808,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.check200",
+   "text": "Circulation tilt 0/0.3/0.6 → colonies 0.165/0.348/0.438, pool 10.40/13.22/15.19.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "0.165, 0.348 and 0.438",
+    "10.40, 13.22 and 15.19"
+   ]
+  },
+  {
+   "id": "C.damper_silent",
+   "domain": "cancer",
+   "kind": "fail",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.20481927710843373,
+   "ten": 0.5833333333333334,
+   "coh": 0.5,
+   "corroboration": 1,
+   "lock_frac": 0.6666666666666666,
+   "cluster": "_recycled",
+   "text": "First restart: damper silent (occupancy never reached rest load 40).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "the damper was silent"
+   ]
+  },
+  {
+   "id": "C.wiring",
+   "domain": "cancer",
+   "kind": "detach",
+   "gate": "buffer",
+   "levy_w": 0.013861392797845843,
+   "nov": 0.37349397590361444,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.gain1",
+   "text": "Conjunctive wiring (27 Nov): Dictator.stream → Transcriber in-step; LevyLedger pulse → damper (levy_gain); Nexus builds next month; PrinciplesGate after Oasis; monthly Genesis closure; integrated=False reproduces pre-integration exactly.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "`Dictator.stream()` now feeds the Transcriber inside each step.",
+    "`integrated=False` reproduces the pre-integration run exactly."
+   ]
+  },
+  {
+   "id": "C.gain1",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.021611614755222122,
+   "nov": 0.40963855421686746,
+   "ten": 0.5535714285714286,
+   "coh": 0.45238095238095233,
+   "corroboration": 1,
+   "lock_frac": 0.5714285714285714,
+   "cluster": "C.gain1",
+   "text": "Recalibration (1,000 runs): pre 0.180/10.36; levy_gain 0.05 0.175/10.09; 0.5 0.134/8.01; 1.0 (params default) 0.091/6.36.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "Pre-integration | 0.180 | 10.36",
+    "levy_gain 0.05 (closest to calibration targets 0.217 / 10.38) | 0.175 | 10.09",
+    "levy_gain 0.5 | 0.134 | 8.01",
+    "levy_gain 1.0 (working baseline) | 0.091 | 6.36"
+   ]
+  },
+  {
+   "id": "C.loo",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.021267733649954133,
+   "nov": 0.39759036144578314,
+   "ten": 0.5,
+   "coh": 0.41666666666666663,
+   "corroboration": 1,
+   "lock_frac": 0.5,
+   "cluster": "C.gain1",
+   "text": "LOO @1.0: full 0.096/6.37; −Levy feedback or −damper → 0.178/10.41 (load-bearing); −PrinciplesGate unchanged; −adaptive niche 0.080/6.37; tree 0.112/6.36.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "The full loop gives 0.096 and 6.37",
+    "returns 0.178 and 10.41",
+    "Removing PrinciplesGate changes nothing",
+    "0.080 and 6.37",
+    "0.112 and 6.36"
+   ]
+  },
+  {
+   "id": "C.check200",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.022611880978244302,
+   "nov": 0.3253012048192771,
+   "ten": 0.045454545454545456,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.check200",
+   "text": "200-run conjunctive check: damper mean ~0.031, peak ~0.138; commits 16.9→10.6/run; pool 10.480→6.300, colonies 0.175→0.135; post-settling 6.41; tilt still worsens (0.135/0.200/0.295).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "about 0.031 and peak about 0.138",
+    "16.9 to 10.6",
+    "10.480 to 6.300",
+    "0.175 to 0.135",
+    "(6.41)",
+    "0.135, 0.200 and 0.295"
+   ]
+  },
+  {
+   "id": "C.frust829",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.028451125949603157,
+   "nov": 0.3855421686746988,
+   "ten": 0.9722222222222222,
+   "coh": 0.29166666666666663,
+   "corroboration": 1,
+   "lock_frac": 0.25,
+   "cluster": "C.frust829",
+   "text": "Frustrated-vs-pool sign survives wiring: −0.829 conjunctive (454 settings), pool rank ρ=0.988.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "−0.829 conjunctive vs −0.819 before",
+    "ρ = 0.988"
+   ]
+  },
+  {
+   "id": "C.light_design",
+   "domain": "cancer",
+   "kind": "detach",
+   "gate": "buffer",
+   "levy_w": 0.014642728875736777,
+   "nov": 0.5662650602409639,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Light as directed transport: filter+extract nodes; lure / tag+magnet / flush / light+sound / combined × upstream, circulation, post-settling × 0.2/0.5/0.8; 200 runs each; Oasis/PrinciplesGate-gated; off by default, bit-identical when off.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "Two nodes were added, `filter` and `extract`",
+    "Light is off by default"
+   ]
+  },
+  {
+   "id": "C.light45",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.02105599193112441,
+   "nov": 0.5783132530120482,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "45/45 light conditions shrink both (vs 17.5%/10.22); combined upstream 0.5 → 0.0%/0.67 (yield 15.1%); 0.8 → pool 0.045; upstream most efficient, post-settling leaves most.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "45/45 conditions shrank both outcomes",
+    "Combined, upstream, 0.5 | 0.0% | 0.67 | 15.1%",
+    "Combined, upstream, 0.8 | 0.0% | 0.045 | 27.7%"
+   ]
+  },
+  {
+   "id": "C.light_oasis",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020256286742088996,
+   "nov": 0.6024096385542169,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Oasis load-bearing on the exit: skip Oasis → yield 77.2% (ungated drain); threshold 0.80 starves exit (0.7%).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "15.1% to 77.2%",
+    "(yield 0.7%)"
+   ]
+  },
+  {
+   "id": "C.light_r",
+   "domain": "cancer",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.008147543739306842,
+   "nov": 0.5903614457831325,
+   "ten": 0.2361111111111111,
+   "coh": 0.6041666666666666,
+   "corroboration": 1,
+   "lock_frac": 0.875,
+   "cluster": "C.frust829",
+   "text": "Frustrated-vs-pool link does not survive the light exit (Spearman 0.09); ring stays locked.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "Spearman 0.09, CI −0.25 to 0.44"
+   ]
+  },
+  {
+   "id": "C.plumb",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020559596000709578,
+   "nov": 0.7590361445783133,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Plumbing (Oasis = valve): perfect seal upstream p(overt) 0.175→0.000, pool 10.215→1.270, yield 0.132 (valve blocks 253.8/285.5).",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "Perfect seal, upstream | 0.000 | 1.270 | 0.132",
+    "blocked 253.8 of 285.5 attempts"
+   ]
+  },
+  {
+   "id": "C.plumb_leak",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020995229764296734,
+   "nov": 0.7469879518072289,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Leak 0.3 → 6.33 leaked (5.88 back to circulation), pool 1.415; 16 stages 0.38 leaked; smart-magnet hold 2.97; post-settling 0.010/1.950; no-Oasis ablation yield 0.684.",
+   "src": "/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "Leak 0.3, upstream | 0.000 | 1.415 | 0.116 | 6.33",
+    "Leak 0.3, 16 stages | 0.000 | 1.315 | 0.131 | 0.38",
+    "Leak 0.3, smart-magnet hold | 0.000 | 1.335 | 0.125 | 2.97",
+    "Perfect seal, post-settling | 0.010 | 1.950",
+    "0.684"
+   ]
+  },
+  {
+   "id": "C.plumb_claim",
+   "domain": "cancer",
+   "kind": "exit",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.7228915662650602,
+   "ten": 0.5,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Plumbing addendum text: consensus held on every condition.",
+   "src": "/workspace/oroboro-research/magnetic_launch_case_study/Plumbing_Dynamics_Addendum.md",
+   "vals": [
+    "Census, levy, consensus, and inversion checks held on every condition."
+   ]
+  },
+  {
+   "id": "C.plumb_cons",
+   "domain": "cancer",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.019774217749642293,
+   "nov": 0.7108433734939759,
+   "ten": 0.3333333333333333,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "consensus_ok = False on 4 plumbing rows (leak 0.6/seal 1 up; leak 0.3/seal 0.5 up; leak 0.3/seal 0 up; leak 0.3 post); census/Levy/inversion pass.",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/evidence_plumbing_consensus.txt",
+   "vals": [
+    "plumb_leak0.6_seal1_up consensus_ok=False",
+    "plumb_leak0.3_seal0.5_up consensus_ok=False",
+    "plumb_leak0.3_seal0_up consensus_ok=False",
+    "plumb_leak0.3_post consensus_ok=False",
+    "consensus_ok False count = 4"
+   ]
+  },
+  {
+   "id": "L.metric",
+   "domain": "launch",
+   "kind": "clear",
+   "gate": "recycle",
+   "levy_w": 0.006779725501327992,
+   "nov": 0.04819277108433735,
+   "ten": 0.0,
+   "coh": 1.0,
+   "corroboration": 3,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Target 7,788.5 m/s (200 km circ). Metric: vacuum two-burn residual; lock = residual ≤1 m/s & perigee ≥100 km (redstone) / ≥200 km (later).",
+   "src": "/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "7,788.5 m/s",
+    "at most 1 m/s",
+    "100 km (redstone note) or 200 km (all later notes)"
+   ]
+  },
+  {
+   "id": "L.track",
+   "domain": "launch",
+   "kind": "clear",
+   "gate": "recycle",
+   "levy_w": 0.008647935333002517,
+   "nov": 0.060240963855421686,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "17,000 mph at 3 g needs 981.6 km rail (1,963 km at 50% duty); Goldilocks 1,000–3,000 mph = 5.74–17.22% of v_circ.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "981.6 km",
+    "1,963 km with 50% duty",
+    "5.74%, 11.48% and 17.22%"
+   ]
+  },
+  {
+   "id": "L.sealevel",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "recycle",
+   "levy_w": 0.004063894674634867,
+   "nov": 0.07228915662650602,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Sea-level drag 13.5 g at 3,000 mph; best sea-level apogee 34.2 km.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "13.5 g at 3,000 mph",
+    "34.2 km"
+   ]
+  },
+  {
+   "id": "L.climb",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.018368132349893346,
+   "nov": 0.08433734939759036,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Climbing 80° rail: release ~182 km, apogee 278 km; convex geometry stalls (2.07 km).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "releasing at about 182 km with apogees of 278 and 277 km",
+    "2.07 km"
+   ]
+  },
+  {
+   "id": "L.damp",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.021565860989834405,
+   "nov": 0.0963855421686747,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Dampers meter peaks (0.0202 of 10 Hz pulse), don't change Δv.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "0.0202 of a 10 Hz pulse",
+    "Dampers meter peaks; they do not change the Δv budget."
+   ]
+  },
+  {
+   "id": "L.strings",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "recycle",
+   "levy_w": 0.004170290695439901,
+   "nov": 0.10843373493975904,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Strings: pulse train chirped (ratio 2.118); no single uniform mode fits.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "ratio of 2.118"
+   ]
+  },
+  {
+   "id": "L.weave",
+   "domain": "launch",
+   "kind": "detach",
+   "gate": "buffer",
+   "levy_w": 0.011897877217960885,
+   "nov": 0.12048192771084337,
+   "ten": 0.11111111111111116,
+   "coh": 0.9444444444444444,
+   "corroboration": 9,
+   "lock_frac": 0.8888888888888888,
+   "cluster": "C.frust829",
+   "text": "Dream-catcher weave: tree → 101 loops, 59 frustrated, Fiedler 0.122→0.177 (skeleton only; no video).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "101",
+    "59",
+    "0.122 to 0.177",
+    "No video frames or stills are reproduced anywhere"
+   ]
+  },
+  {
+   "id": "L.dart407",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "recycle",
+   "levy_w": 0.008825594440857462,
+   "nov": 0.13253012048192772,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Goal-seek best no-stage: 12.56 kg evac-tube hollow dart 407 m/s (held pusher, 80 km, 5°); 5° tilt 431; 0° 333 (no climb).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "407 m/s, no stage.",
+    "431 m/s, no stage.",
+    "A 0° release leaves 333 m/s"
+   ]
+  },
+  {
+   "id": "L.256",
+   "domain": "launch",
+   "kind": "exit",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.18072289156626506,
+   "ten": 0.5,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Staged residual 256 m/s (incomplete 900 s coast).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "256 m/s, staged: invalid."
+   ]
+  },
+  {
+   "id": "L.1148",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020466617117986897,
+   "nov": 0.1686746987951807,
+   "ten": 0.25,
+   "coh": 1.0,
+   "corroboration": 7,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "True Kepler two-burn residual of the staged state: 1,148 m/s (apogee 5,436 km, perigee underground).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "1,148 m/s",
+    "apogee 5,436 km"
+   ]
+  },
+  {
+   "id": "L.autopilot",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.009312242806159388,
+   "nov": 0.1566265060240964,
+   "ten": 0.2,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.check200",
+   "text": "Onboard conjunctive Oroboro autopilot hurt: apogee 115.1→50.2 km; staged residual 325→744 m/s (n=24).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "115.1 to 50.2 km",
+    "from 325 to 744 m/s"
+   ]
+  },
+  {
+   "id": "L.heat",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "recycle",
+   "levy_w": 0.003910220201812865,
+   "nov": 0.14457831325301204,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Heat-driven regrowth only in a narrow window (PLA 280 s); ablates ~3,700 °C at 17,000 mph.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "280 s",
+    "about 3,700 °C"
+   ]
+  },
+  {
+   "id": "L.geo",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020034933470429308,
+   "nov": 0.30120481927710846,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "Geography (boost 465.1·cos lat): 0° exit due-east Baikonur 66, Māhia 103, Mt Charleston 118, LAS 119, KSC 151, Kourou 206, Chimborazo 208 m/s; elevation irrelevant at 80 km mouth.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "465.1·cos(lat)",
+    "Baikonur 66, Māhia 103, Mount Charleston 118, Las Vegas 119",
+    "Cape Canaveral 151",
+    "Kourou 206",
+    "Chimborazo 208 m/s",
+    "Elevation does not change the residual at an 80 km mouth"
+   ]
+  },
+  {
+   "id": "L.equator",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "recycle",
+   "levy_w": 0.006237264206764534,
+   "nov": 0.3132530120481928,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Equator does not close the gap: 5° residual 375, dart 398 (boost overshoots).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "375 m/s and the evac dart 398 m/s"
+   ]
+  },
+  {
+   "id": "L.planechg",
+   "domain": "launch",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.010164561605020613,
+   "nov": 0.2891566265060241,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "LAS → equatorial plane change ≈4.82 km/s.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "4.82 km/s"
+   ]
+  },
+  {
+   "id": "L.repeater",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.01979894230458249,
+   "nov": 0.5421686746987951,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Redstone repeater = paid impulsive late two-burn (rocket eq., I_sp 450 s): f_p 0.05/0.30/0.85 → 226/1,574/8,372 m/s. f_p 0.05 locks the 0° exit at all 14 sites (Baikonur 0.015, LAS 0.027); f_p 0.30 locks every due-east setup incl. staged.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "226, 1,574 and 8,372 m/s",
+    "locks all 14 real sites on the 0°/80 km exit",
+    "Baikonur needing only 0.015 and Las Vegas 0.027",
+    "locks every due-east setup"
+   ]
+  },
+  {
+   "id": "L.rep_limits",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.00782134547561722,
+   "nov": 0.5301204819277109,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Repeater f_p 0.05 does not circularize 5° darts (338→112); 407 m/s gap needs 1.11 kg > 0.63 kg filament budget.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "338 → 112 m/s",
+    "1.11 kg of the 12.56 kg dart",
+    "0.63 kg filament budget"
+   ]
+  },
+  {
+   "id": "L.comparator",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.008912871279768928,
+   "nov": 0.5180722891566265,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Comparator never beats best azimuth (0/14). Mean over 14 sites, due E / comparator / best az: 0° 153/336/42; 5° dart 372/409/328; staged 1,507/1,144/834.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "0 of 14",
+    "0° / 80 km | 153 m/s | 336 m/s (climb lost) | 42 m/s",
+    "5° evac dart | 372 | 409 | 328",
+    "Staged (true 1,148) | 1,507 | 1,144 | 834"
+   ]
+  },
+  {
+   "id": "L.bestaz",
+   "domain": "launch",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.018080196872918942,
+   "nov": 0.5060240963855421,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "Best azimuth 40–65° off east: Baikonur 37, LAS 38 m/s; AdaptOrDie blocked only the zero-coordinate idealized equator.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "40–65° off due east gives 37 m/s at Baikonur and 38 m/s at Las Vegas",
+    "AdaptOrDie blocked only the zero-coordinate"
+   ]
+  },
+  {
+   "id": "L.notrack",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.005079947840753826,
+   "nov": 0.4939759036144578,
+   "ten": 0.0,
+   "coh": 1.0,
+   "corroboration": 3,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "No-track pad ascent 0/240: f_p 0.85 leaves 661 (Kourou)/708 (LAS)/756 (Baikonur)/631 m/s, q 384–406 kPa, ~5,160–5,240 K; binding = thick-air drag/heating.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "No track (240 runs, 0 locks)",
+    "661 m/s (Kourou), 708 (Las Vegas), 756 (Baikonur) and 631 (Mauna Kea)",
+    "5,160–5,240 K",
+    "thick-air drag and heating"
+   ]
+  },
+  {
+   "id": "L.sail",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.005080481130835415,
+   "nov": 0.5542168674698795,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Light sail 0/864 (≤100 GW): drag ~90 kN @80 km vs 63 N photon @10 GW; LOS ~134 s; sails 2,176–4,696 K; best staged 682→519 (12,990 GJ), no-track 661→514; second downrange laser not modeled.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "0 of 864",
+    "about 90 kN at 80 km",
+    "63 N of photon force at 10 GW",
+    "about 134 s",
+    "2,176 K at 10 GW and 4,696 K at 100 GW",
+    "682 m/s (coast) to 519 m/s, using 12,990 GJ",
+    "661 to 514 m/s",
+    "A second, downrange laser was not modeled."
+   ]
+  },
+  {
+   "id": "L.kite",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.005317456554892355,
+   "nov": 0.6626506024096386,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Kite 10 m² reefed: 1,333 m/s (brake).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Kite, 10 m², reefed | 1,333"
+   ]
+  },
+  {
+   "id": "L.line",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.004966398738380343,
+   "nov": 0.6506024096385542,
+   "ten": 0.09090909090909091,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Fishing line 500 m from 60 km: 2,791 m/s; from pad 7,551.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Line, 500 m, from 60 km | 2,791",
+    "Line, 500 m, from pad | 7,551"
+   ]
+  },
+  {
+   "id": "L.lane",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.005317456554892355,
+   "nov": 0.6144578313253012,
+   "ten": 0.0,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Gated lane-keeping 644 m/s (871 commits, 0.01 s thrust-cosine waste).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Gated lane-keeping | 644",
+    "871 commits"
+   ]
+  },
+  {
+   "id": "L.magnet",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.008338655373625823,
+   "nov": 0.6265060240963856,
+   "ten": 0.0,
+   "coh": 1.0,
+   "corroboration": 3,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Smart magnet vs Earth field: F≈1.4×10⁻⁸ N (661 m/s unchanged); magnetorquer gives torque 0.030 N·m.",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Force ≈ 1.4×10⁻⁸ N",
+    "0.030 N·m"
+   ]
+  },
+  {
+   "id": "L.straw",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.007081139268887031,
+   "nov": 0.6385542168674698,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Evacuated straw 595 m/s (0/46 guidance); vacuum to 7,788 m/s at T/W 3 needs 1,031 km channel (1.34× 767.6 km tube).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Evacuated straw | 595",
+    "0 of 46",
+    "1,031 km of channel, 1.34× the recycled 767.6 km"
+   ]
+  },
+  {
+   "id": "L.fur",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.004966398738380343,
+   "nov": 0.6867469879518072,
+   "ten": 0.09090909090909091,
+   "coh": 0.8333333333333333,
+   "corroboration": 2,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Adaptive fur/fabric (Waggoner–de Goes-form remesh, Oroboro-gated): kite 1,344; line adaptive 1,361 (vs fixed 2,378 in this integrator); straw liner 595; sail 554 (3,378 K); refining wrinkled cloth locks the wrinkle (~0.74 vs ~0.63 m).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Kite, adaptive gated | 1,344",
+    "Line, fixed (this integrator) | 2,378",
+    "Line, adaptive gated | 1,361",
+    "Sail, adaptive gated | 554",
+    "(3,378 K)",
+    "~0.74 m vs ~0.63 m"
+   ]
+  },
+  {
+   "id": "L.fur_line_note",
+   "domain": "launch",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.003223701428598864,
+   "nov": 0.6746987951807228,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Line 2,791 (guidance) vs 2,378 (fur integrator): same failure mode, different projected-area bookkeeping.",
+   "src": "/workspace/oroboro-research/magnetic_launch_case_study/Fur_Fabric_Adaptive_Addendum.md",
+   "vals": [
+    "same failure mode, a slightly different projected-area bookkeeping"
+   ]
+  },
+  {
+   "id": "L.plumb",
+   "domain": "launch",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.0069519864039789365,
+   "nov": 0.7349397590361446,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Plumbing straw 0/49: leak 0 595.0; leak 0.1 595.5 (heat 2,571 K first); leak 1 = no-track 661.3; 0.1 bar late 666, pad 791; 1 bar 2,934; longer vacuum unchanged (burnout at 109 km).",
+   "src": "/workspace/oroboro-research/combined_report/part3.md",
+   "vals": [
+    "Evacuated to 80 km, leak 0 | 595.0 m/s",
+    "Leak 0.1 | 595.5 | 502 km | 2,571 K",
+    "Leak 1, or open air | 661.3",
+    "0.1 bar, late valve | 666",
+    "0.1 bar, from the pad | 791",
+    "1 bar | 2,934",
+    "0 of 49 locked",
+    "burning at 109 km"
+   ]
+  },
+  {
+   "id": "X.door",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020393636524954878,
+   "nov": 0.9518072289156626,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "Common rule: leftovers are set at admission/release; downstream correction rarely empties them.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "What is left over is mostly decided at the door."
+   ]
+  },
+  {
+   "id": "X.lateburn",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.01653717193433877,
+   "nov": 0.9397590361445783,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.light45",
+   "text": "Only the small paid late burn closed the launch gap; nothing else locked (best leftovers ~514–661 m/s on the no-track baseline).",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "The small late burn is the only thing that closed the launch gap.",
+    "between about 514 and 661 m/s"
+   ]
+  },
+  {
+   "id": "X.gate",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.02066279692541508,
+   "nov": 0.9156626506024096,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "The gate is load-bearing both ways: Oasis keeps the cancer exit from an ungated drain (15% vs 77%); the comparator form of a gate is wrong when the side pulse makes the craft climb.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "The gate is load-bearing, in both directions.",
+    "(15% vs 77% yield)"
+   ]
+  },
+  {
+   "id": "X.tilt",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.021092364114634186,
+   "nov": 0.9036144578313253,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.check200",
+   "text": "Same name, opposite sign: 5° release tilt helps launch; circulation tilt doubles colonies.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "The same name can have opposite effects."
+   ]
+  },
+  {
+   "id": "X.geo",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020399298171676582,
+   "nov": 0.891566265060241,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "Geography plays the role of organ permissiveness (an admission condition, not a free subtraction).",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "Geography plays the part of organ permissiveness."
+   ]
+  },
+  {
+   "id": "X.loops",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.020491435574224327,
+   "nov": 0.8795180722891566,
+   "ten": 0.25,
+   "coh": 0.5416666666666666,
+   "corroboration": 1,
+   "lock_frac": 0.75,
+   "cluster": "C.frust829",
+   "text": "Loops are not the reservoir.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "Loops are not the reservoir."
+   ]
+  },
+  {
+   "id": "X.conj",
+   "domain": "cross",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.02126146506270743,
+   "nov": 0.8674698795180723,
+   "ten": 0.33333333333333337,
+   "coh": 0.5,
+   "corroboration": 1,
+   "lock_frac": 0.6666666666666666,
+   "cluster": "C.gain1",
+   "text": "Wiring together is not automatically better: lowers cancer leftovers without flipping findings; the onboard conjunctive launch loop hurt insertion.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "Wiring things together is not automatically better; it has to be tested."
+   ]
+  },
+  {
+   "id": "X.oasis_truth",
+   "domain": "cross",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.004829371638283489,
+   "nov": 0.927710843373494,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Oasis committed true and false closure claims alike at 0.65: it routes, it doesn't verify.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "It committed true and false closure claims alike at exactly 0.65"
+   ]
+  },
+  {
+   "id": "O.calib",
+   "domain": "open",
+   "kind": "extract",
+   "gate": "buffer",
+   "levy_w": 0.013628015468927526,
+   "nov": 0.43373493975903615,
+   "ten": 0.5666666666666667,
+   "coh": 0.3,
+   "corroboration": 0,
+   "lock_frac": 0.6,
+   "cluster": "C.gain1",
+   "text": "Calibration: params.json levy_gain = 1.0 (9.1%/6.36); calibration-best 0.05 (17.5%/10.09) used by the light and plumbing runs but never set as default; remaining 17.5 vs 21.7 gap tracks the loop tax (tree 20.6%).",
+   "src": "/workspace/oroboro-research/metastasis_native/params.json|/workspace/oroboro-research/metastasis_native/outputs/run_integrated.log|/workspace/oroboro-research/combined_report/part2.md|/workspace/oroboro-research/combined_report/part1.md",
+   "vals": [
+    "\"levy_gain\": 1.0",
+    "USING levy_gain 1.0 (calibration-best 0.05 )"
+   ]
+  },
+  {
+   "id": "O.pgate",
+   "domain": "open",
+   "kind": "extract",
+   "gate": "buffer",
+   "levy_w": 0.011926777450085996,
+   "nov": 0.42168674698795183,
+   "ten": 0.0,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "C.upstream",
+   "text": "PrinciplesGate: wired after Oasis; LOO −PrinciplesGate identical at both gains (0.096/6.366 @1.0; 0.176/10.138 @0.05) — H never <0.3, frustration ≤0.36.",
+   "src": "/workspace/oroboro-research/metastasis_native/outputs/run_integrated.log|/workspace/oroboro-research/metastasis_native/outputs/run_integrated_levy_gain_0.05.log|/workspace/oroboro-research/combined_report/part2.md",
+   "vals": [
+    "LOO baseline minus_principles_gate 0.096 6.366",
+    "LOO baseline minus_principles_gate 0.176 10.138"
+   ]
+  },
+  {
+   "id": "O.epi",
+   "domain": "open",
+   "kind": "extract",
+   "gate": "recycle",
+   "levy_w": 0.003686185094929234,
+   "nov": 0.4819277108433735,
+   "ten": 0.0,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "epilepsy-sim @2be4eac: audit only — Nexus→salience/homeostasis loop real; Levy/Transcriber/Genesis ledger-only; no polarity mesh or PrinciplesGate; code unchanged; 50/50 preflight.",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "partially conjunctive, integrated rebuild pending",
+    "there is no polarity mesh or PrinciplesGate",
+    "50/50 PASS"
+   ]
+  },
+  {
+   "id": "O.swift",
+   "domain": "open",
+   "kind": "extract",
+   "gate": "buffer",
+   "levy_w": 0.014879412156647093,
+   "nov": 0.4457831325301205,
+   "ten": 0.0,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "G.relay",
+   "text": "Swift port: deterministic delta patched (OroboroRelayApp.swift L68) but never compiled; no swiftc on the box.",
+   "src": "/tmp/verify_oroboro-relay/swift/Sources/OroboroRelay/OroboroRelayApp.swift|/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "Replaces Double.random.",
+    "swiftc not installed on the box"
+   ]
+  },
+  {
+   "id": "O.plumb",
+   "domain": "open",
+   "kind": "extract",
+   "gate": "buffer",
+   "levy_w": 0.0128527158298441,
+   "nov": 0.6987951807228916,
+   "ten": 0.0,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "C.plumb_leak",
+   "text": "Plumbing consensus: data written 17:42 MT, not rerun; 4 rows provisional.",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/evidence_plumbing_consensus.txt",
+   "vals": [
+    "consensus_ok False count = 4"
+   ]
+  },
+  {
+   "id": "G.oroboro",
+   "domain": "repo",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.019937693130340623,
+   "nov": 1.0,
+   "ten": 0.25,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "S.systems17",
+   "text": "Oroboro main @ 3a3e021 (SYSTEMS.md, 18:11 MT): research/ metastasis-native, magnetic-launch (all addenda), cross-domain, PIPELINE.md, combined-report, one-page brief v1.",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "3a3e021 SYSTEMS.md",
+    "34339a5 combined-report: one-page engineering brief"
+   ]
+  },
+  {
+   "id": "G.oroboro_v1",
+   "domain": "repo",
+   "kind": "exit",
+   "gate": "recycle",
+   "levy_w": 0.0,
+   "nov": 0.9759036144578314,
+   "ten": 0.5,
+   "coh": 0.5,
+   "corroboration": 0,
+   "lock_frac": 1.0,
+   "cluster": "_recycled",
+   "text": "Oroboro main @ d6f2763 (v1 brief).",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "d6f2763"
+   ]
+  },
+  {
+   "id": "G.relay",
+   "domain": "repo",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.024240227850003536,
+   "nov": 0.4578313253012048,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "G.relay",
+   "text": "oroboro-relay @ d3d0940 (cc77063 deterministic delta + OroboroPipeline).",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "d3d0940",
+    "cc77063"
+   ]
+  },
+  {
+   "id": "G.cascade",
+   "domain": "repo",
+   "kind": "colonize",
+   "gate": "buffer",
+   "levy_w": 0.01747703237923432,
+   "nov": 0.8192771084337349,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "S.systems17",
+   "text": "metastatic-cascade-analysis @ d9f09c8 (v1–v5 papers; old model superseded).",
+   "src": "/workspace/oroboro-research/combined_report/integrated_pass/github_state.json",
+   "vals": [
+    "d9f09c8"
+   ]
+  },
+  {
+   "id": "G.policy",
+   "domain": "repo",
+   "kind": "clear",
+   "gate": "buffer",
+   "levy_w": 0.006376890378691698,
+   "nov": 0.8313253012048193,
+   "ten": 0.0,
+   "coh": 0.6666666666666666,
+   "corroboration": 1,
+   "lock_frac": 1.0,
+   "cluster": "S.systems17",
+   "text": "Text-only connector: PDF/PNG/DOCX as SVG page images; no force pushes; secret scans; no video or raw pose landmarks published.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "no force pushes",
+    "raw pose landmarks, and anything from the personal-use video"
+   ]
+  },
+  {
+   "id": "F.list",
+   "domain": "falsified",
+   "kind": "fail",
+   "gate": "buffer",
+   "levy_w": 0.00458365897445729,
+   "nov": 0.963855421686747,
+   "ten": 0.050000000000000044,
+   "coh": 0.8083333333333333,
+   "corroboration": 2,
+   "lock_frac": 0.95,
+   "cluster": "C.light45",
+   "text": "Falsified: frustrated loops ↑ pool; loop ablation empties pool; damper matters pre-wiring; onboard autopilot helps; 256 m/s; equator closes gap; comparator beats best-az; no-track with fuel; light sail; kite/line lift; Earth-field magnets; adaptive mesh / longer vacuum / pressure push; frustrated link with light exit; Oasis as truth test.",
+   "src": "/workspace/oroboro-research/combined_report/part4.md",
+   "vals": [
+    "Predictions that failed"
+   ]
+  }
+ ],
+ "history": [
+  {
+   "it": 1,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 4,
+   "buffered": 62,
+   "recycled": 18,
+   "vetoes": 0,
+   "pulse": 576.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 6,
+   "dw": 0.012661007335203764,
+   "dp": 0.0
+  },
+  {
+   "it": 2,
+   "thr": 0.65,
+   "H": 0.95,
+   "committed": 0,
+   "buffered": 66,
+   "recycled": 18,
+   "vetoes": 0,
+   "pulse": 527.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 8,
+   "dw": 0.01021081913390824,
+   "dp": 0.0
+  },
+  {
+   "it": 3,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 0.00430176318047748,
+   "dp": 0.0
+  },
+  {
+   "it": 4,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 0.002054681413043106,
+   "dp": 0.0
+  },
+  {
+   "it": 5,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 0.0008880243314639616,
+   "dp": 0.0
+  },
+  {
+   "it": 6,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 0.00042937529757557796,
+   "dp": 0.0
+  },
+  {
+   "it": 7,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 0.00018848284682777307,
+   "dp": 0.0
+  },
+  {
+   "it": 8,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 9.091943076971684e-05,
+   "dp": 0.0
+  },
+  {
+   "it": 9,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 4.015557267030359e-05,
+   "dp": 0.0
+  },
+  {
+   "it": 10,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 1.9292479750344232e-05,
+   "dp": 0.0
+  },
+  {
+   "it": 11,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 8.552834594454523e-06,
+   "dp": 0.0
+  },
+  {
+   "it": 12,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 4.094467022673631e-06,
+   "dp": 0.0
+  },
+  {
+   "it": 13,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 1.8205455390198078e-06,
+   "dp": 0.0
+  },
+  {
+   "it": 14,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 8.689254350283115e-07,
+   "dp": 0.0
+  },
+  {
+   "it": 15,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 3.873316150489192e-07,
+   "dp": 0.0
+  },
+  {
+   "it": 16,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 1.8439343630466398e-07,
+   "dp": 0.0
+  },
+  {
+   "it": 17,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 8.237814294598245e-08,
+   "dp": 0.0
+  },
+  {
+   "it": 18,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 3.912860121330075e-08,
+   "dp": 0.0
+  },
+  {
+   "it": 19,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 1.7515501051293403e-08,
+   "dp": 0.0
+  },
+  {
+   "it": 20,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 8.302966286732882e-09,
+   "dp": 0.0
+  },
+  {
+   "it": 21,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 3.723351370277239e-09,
+   "dp": 0.0
+  },
+  {
+   "it": 22,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 1.76183009500952e-09,
+   "dp": 0.0
+  },
+  {
+   "it": 23,
+   "thr": 0.65,
+   "H": 1.0,
+   "committed": 0,
+   "buffered": 64,
+   "recycled": 20,
+   "vetoes": 0,
+   "pulse": 525.0,
+   "pressure": 0.0,
+   "relay_pressure": 0,
+   "relay_limit": 0.2,
+   "relay_coherent": true,
+   "isolated": null,
+   "n_clusters": 9,
+   "dw": 7.913320398261758e-10,
+   "dp": 0.0
+  }
+ ],
+ "components": {
+  "ran": {
+   "Genesis": "seeds every node (mirror) and anchors every mesh component",
+   "Nexus": "registers every node + per-iteration state; telemeter each iteration",
+   "Oasis": "S = w·[nov,ten,coh,res] with params.json weights; commit/buffer/recycle at make_env threshold (0.65 base, +0.2 rest bump, + damper pressure)",
+   "PrinciplesGate": "oro_native.PrinciplesGate.apply_score + veto, unchanged",
+   "NaCl polarity mesh": "oro_mesh.PolarityMesh: BFS charges from Genesis, process_polarities, frustrated edges, inversion_holds",
+   "Dictator/Transcriber": "native Dictator.stream + Transcriber (critical = colonize/exit); relay Dictator/Transcriber keyword flags",
+   "Levy": "native LevyLedger.assess pulse; relay OroboroLevy; Levy kind weights drive salience",
+   "Damper": "native formula p=(1-a)p+a*g*(spike+levy_gain*levy_spike), a=0.35, g=0.08; relay pipeline damped pressure",
+   "Delta reconciliation": "deterministic: superseded figures exit and pass weight to the later/corrected node; contradictions flagged; relay computeDelta per cluster",
+   "Isolate/recombine": "relay OroboroPipeline isolates most-drifted cluster when incoherent; isolated cluster cut from outside propagation next iteration",
+   "Homeostasis": "make_env rest_load 40 / rest_bump 0.2 on committed count",
+   "Self-repair flag": "Edge.repaired set on contradictions resolved by delta reconciliation (heat model of _adapt_niche not applicable)",
+   "Adaptive surface (ported rule)": "AdaptiveFurn.maybe_adapt L_tgt interpolation + _nacl_votes 3-vote majority sets per-cluster detail"
+  },
+  "not_applicable": {
+   "Dream-catcher weave": "build_system_mesh / run_dreamcatcher_weave build a fixed niche/skeleton geometry; no clustering operation exists to apply to a findings graph. Its purpose (odd-loop frustration) is used via PolarityMesh.",
+   "Smart magnets": "defined only as a physical force (guidance) and a leak-halving hold (plumbing); nothing applies to a findings graph",
+   "Sponge": "not used in any study; not applied here",
+   "Self-repairing niche heat model": "_adapt_niche needs fail/exit/colonize heat on niche edges; no analogue",
+   "Clustering": "Levy-weighted label propagation is glue code, not an Oroboro component"
+  }
+ },
+ "mapping": {
+  "nov": "recency rank of the finding in the chat arc (origin file mtime or commit time, nodes.ORIGIN)",
+  "ten": "oppose-edge share + mesh frustration",
+  "coh": "0.5*min(1,corroborating corpus files/3) + 0.5*mesh lock fraction",
+  "res": "Levy salience / max (from previous iteration)",
+  "levy_kind": "colonize=settled result, detach=modification, fail=failed/falsified, exit=superseded, extract=open item, clear=context",
+  "n_active": "committed node count (homeostasis load)"
+ }
+}
