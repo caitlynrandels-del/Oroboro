@@ -1,0 +1,99 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Oroboro one-page engineer brief</title><style>
+@page{size:Letter;margin:0.3in 0.32in 0.28in}
+html{font-family:"Source Sans 3","Inter",sans-serif;font-size:7.05pt;line-height:1.2;color:#111}
+body{margin:0}
+.hdr{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid #16324f;padding-bottom:2px;margin-bottom:3px}
+.hdr h1{font-size:11.5pt;margin:0;color:#0f2a45}
+.hdr .m{font-size:6.8pt;color:#333;text-align:right}
+.scope{background:#fbf1ec;border-left:3px solid #b5553c;padding:2px 5px;margin-bottom:3px;font-size:6.8pt}
+.cols{column-count:3;column-gap:9px;column-rule:0.5px solid #ccd}
+h2{font-size:7.6pt;margin:3px 0 1px;color:#fff;background:#16324f;padding:1px 4px;break-after:avoid}
+h3{font-size:7pt;margin:2px 0 0;color:#16324f;break-after:avoid}
+p{margin:1px 0 2px}
+ul{margin:0 0 2px 9px;padding:0} li{margin:0}
+table{border-collapse:collapse;width:100%;margin:1px 0 3px;font-size:6.6pt;break-inside:avoid}
+th{background:#e3eaf2;text-align:left;padding:0.5px 2px;font-weight:600}
+td{padding:0.5px 2px;border-bottom:0.5px solid #dde}
+td.n,th.n{text-align:right}
+b{color:#0f2a45}
+.key{background:#eef6ef;border:0.5px solid #9cc7a5;padding:2px 4px;margin:2px 0;break-inside:avoid}
+code{font-family:"Source Code Pro",monospace;font-size:6.3pt}
+.bar{display:flex;align-items:center;font-size:6.2pt;height:7.2pt}
+.bar span.l{width:38%;flex:none;white-space:nowrap;overflow:hidden}
+.bar span.b{flex:none;height:5pt;background:#b5553c;margin-right:2px}
+.bar span.b.k{background:#2e7d4f}.bar span.b.t{background:#2f5d8a}
+.foot{font-size:6.1pt;color:#555;margin-top:2px}
+</style></head><body>
+<div class="hdr"><h1>Oroboro studies — one-page engineering brief</h1><div class="m">Caitlyn Randels · prepared with AI modeling assistance · 27 Nov 2026 · full report: <code>research/combined-report</code></div></div>
+<div class="scope"><b>Scope:</b> speculative in-silico modeling only. All numbers are model outputs on labeled assumptions. No clinical/biological/medical claims; no engineering, flight, siting or operational claims. Levy weights and Oasis scores are bookkeeping/routing, not energies or truth tests. Bootstrap CIs = Monte Carlo error only.</div>
+<div class="cols">
+
+<h2>1 · Systems & conjunctive wiring</h2>
+<p>One loop per step: <b>Genesis</b> (origin; Levy +7 detach) → state reduction (independent parts, bit-identical whole-vs-parts) → <b>Oasis</b> salience S=0.30·nov+0.25·tens+0.25·coh+0.20·res, commit ≥0.65 / buffer ≥0.325 / recycle → <b>PrinciplesGate</b> (AdaptOrDie blocks zero/null coordinate) → <b>NaCl polarity mesh</b> (opposite charges lock; odd loops leave frustrated edges; invert-and-restabilize preserves lock set) → <b>Dictator</b> stream → <b>Transcriber</b> (critical flags) → <b>Levy</b> (clear 1, detach 7, fail 2, exit 4, colonize 14) → <b>Nexus</b> register/recombine → <b>damped delta reconciliation</b> (occupancy + Levy-pulse spike → next Oasis threshold) → homeostasis (rest load 40) → niche repair → Genesis closure. Checks every run: census, Levy, pipeline-Levy, mesh consensus, closure.</p>
+<p><b>Audit.</b> Public NaCl mesh was a 4-node tree (no cycles); metastasis sims' <code>reconcile()</code> only logged; <code>oroboro-core.js</code> L124 delta = <code>Math.random()*0.1</code> → replaced by deterministic delta vs Nexus + <code>OroboroPipeline</code> (test passes; Swift port patched, not compiled). Non-conjunctive: Goldilocks/strings/weave/goal-seek (isolated blocks), geography & tilt (no component calls), first native restart (Dictator/Transcriber/Levy ledger-only, no PrinciplesGate, damper silent). Conjunctive: native cascade (<code>integrated=True</code> default) and every launch run from redstone on. PrinciplesGate wired but never fires at these loads; sponge documented, never used; dream-catcher/odd-loop code lives in workspace, not original public repos.</p>
+
+<h2>2 · Cancer cascade (agent-based, monthly, 120 mo, 5 organotropisms)</h2>
+<h3>1.21 M-run sweep (484 cond. / 454 unique × 2,500)</h3>
+<p>Reanalysis reproduced all 484 estimates exactly (block recombine Δ=0). Baseline p(colony) <b>21.7%</b> (20.2–23.4), 94.7% preferred organ, dormant pool <b>10.38</b> (10.25–10.51). Full elimination vs establishment threshold x₅₀ 0.799, x₉₀ 0.854; permissiveness x₉₀ ×0.219; prostate-like stricter (0.872 vs 0.842). Onset half-time: upstream 15–17 mo, combined 57 mo, dormant clearance 97 mo. Interactions mostly independent (74/98 ±10%). Colony suppression and pool clearance are separable.</p>
+<h3>Native polarity-mesh restart</h3>
+<p>4-organ mesh: 49 nodes, 89 edges, 32 frustrated (dream-catcher niche: 8-hoop+hub+spokes on inverse-Epcot bowl + return edges). Baseline <b>18.0% / 10.355</b> (orig 21.72/10.380); tree ablation → 20.6%, pool unchanged (loops tax colonization, don't set pool). Over 454 settings, dynamic frustrated count vs pool Spearman <b>−0.819</b> (−0.863,−0.765) — opposite of prediction (heat-driven repair unlocks loops in busy settings); shuffle +0.007. Only upstream levers shrink both (threshold 0.80 → 0%/0.55; permissiveness ×0.4 → 0%/2.22); post-settling (maintenance, barrier) clear colonies, leave ~10.5. Tilt 0/0.3/0.6 → colonies .165/.348/.438, pool 10.40/13.22/15.19.</p>
+<h3>Conjunctive recalibration (1,000 runs)</h3>
+<table><tr><th>Wiring</th><th class="n">p(col)</th><th class="n">pool</th></tr>
+<tr><td>Pre-integration</td><td class="n">0.180</td><td class="n">10.36</td></tr>
+<tr><td><code>levy_gain</code> 0.05 (≈calibration)</td><td class="n">0.175</td><td class="n">10.09</td></tr>
+<tr><td><code>levy_gain</code> 0.5</td><td class="n">0.134</td><td class="n">8.01</td></tr>
+<tr><td><b><code>levy_gain</code> 1.0 (working baseline)</b></td><td class="n">0.091</td><td class="n">6.36</td></tr></table>
+<p>Damper engages (mean pressure ~0.03, peak ~0.14); LOO: removing Levy feedback or damper → 0.178/10.41; PrinciplesGate inert. Frustrated-vs-pool −0.829 (rank order ρ=0.988). 200-run check: 0.175→0.135, 10.48→6.30; post-settling still 6.41; tilt still worsens. No finding flipped.</p>
+<h3>Light as directed transport (Oasis-gated extract branch)</h3>
+<p>Lure / tag+magnet / flush / photoacoustic / combined × upstream, circulation, post-settling × 0.2/0.5/0.8; 200 runs each vs 17.5%/10.22. <b>45/45 shrink both</b>. Combined upstream 0.5 → 0.0%/0.67 (yield 15.1%); 0.8 → pool 0.045. Upstream most efficient; post-settling leaves most. Ring stays locked; frustrated-vs-pool r=0.09 (n.s.). <b>Oasis load-bearing</b>: skip on extract → yield 77.2% (ungated drain). Off by default; 25/25 bit-identical when off.</p>
+<h3>Plumbing: sealed, valved exit (Oasis = valve)</h3>
+<p>Perfect seal upstream: p(overt) <b>0.175→0.000</b>, pool <b>10.215→1.270</b>, yield 0.132 (valve blocks 253.8/285.5 attempts). Leak 0.3 → 6.33 leaked (mostly to circ), pool 1.415; 16 stages ≈ restore seal (0.38 leaked); smart-magnet hold 2.97; post-settling weaker (0.010/1.95). No-Oasis ablation yield 0.684. <b>Caveat:</b> <code>consensus_ok</code>=False on 4 rows (leak 0.6; seal 0.5; seal 0; leak 0.3 post) — census/Levy/inversion pass; treat provisional. Light-off signature unchanged.</p>
+
+<h2>3 · Magnetic-assist launch (2-D point mass)</h2>
+<p>Target 7,788.5 m/s (200 km circ). Metric: vacuum two-burn residual. <b>Lock</b> = residual ≤1 m/s & perigee ≥100 km (redstone) / ≥200 km (later).</p>
+<h3>Goldilocks · strings · weave · goal-seek</h3>
+<ul><li>17,000 mph at 3 g needs 981.6 km rail (1,963 km at 50% duty). 1,000–3,000 mph = 5.7–17.2% of v_circ; sea-level drag 13.5 g at 3,000 mph; best sea-level hop 34.2 km. Climbing 80° rail → release ~182 km, apogee 278 km. Dampers meter peaks (T=0.0202 @10 Hz) but don't change Δv.</li>
+<li>Strings: pulse lattice chirped (ratio 2.118) — no uniform mode fits. Weave: tree→101 loops, 59 frustrated edges, Fiedler 0.122→0.177 (skeleton only; no video).</li>
+<li>Goal-seek: best no-stage evac-tube hollow dart (12.56 kg, k=0.8) <b>407 m/s</b> (held pusher, 80 km, 5°); 5° tilt <b>431</b>; 0° 333 (no climb). <b>256 m/s staged figure invalid</b> (incomplete coast) → true Kepler <b>1,148 m/s</b>. Onboard Oroboro autopilot hurt: apogee 115→50 km; staged 325→744 m/s. Feathers/tiers: glide only; heat regrowth narrow window (PLA 280 s on mid-speed climb), ablates at 17,000 mph (~3,700 °C).</li></ul>
+<h3>Geography (boost 465.1·cos lat; 470.9 at 80 km)</h3>
+<p>Not additive: equator overshoots, 5° residual still 375 / dart 398. 0° exit (perigee 80 km) due-east: <b>Baikonur 66</b>, Māhia 103, Mt Charleston 118, <b>LAS 119</b>, KSC 151, Kourou 206, Chimborazo 208. Elevation irrelevant at 80 km mouth; coastal = downrange safety; LAS→equatorial plane change 4.82 km/s.</p>
+<h3>Redstone repeater + comparator</h3>
+<p>Repeater = paid impulsive two-burn, rocket eq., I_sp 450 s: f_p 0.05/0.30/0.85 → 226/1,574/8,372 m/s. <b>f_p 0.05 locks 0° exit at all 14 sites</b> (Baikonur needs 0.015, LAS 0.027); not 5° darts (338→112). <b>f_p 0.30 locks every due-east setup</b> incl. staged (0.28 of 18.84 kg). 407 m/s gap = 1.11 kg > 0.63 kg filament budget.</p>
+<table><tr><th>Mean over 14 sites</th><th class="n">due E</th><th class="n">comparator</th><th class="n">best az</th></tr>
+<tr><td>0°/80 km</td><td class="n">153</td><td class="n">336</td><td class="n"><b>42</b></td></tr>
+<tr><td>5° dart / 5° tilt</td><td class="n">372/353</td><td class="n">409/433</td><td class="n"><b>328/326</b></td></tr>
+<tr><td>Staged (1,148)</td><td class="n">1,507</td><td class="n">1,144</td><td class="n"><b>834</b></td></tr></table>
+<p>Comparator <b>0/14</b> vs best azimuth; best az 40–65° → Baikonur <b>37</b>, LAS <b>38</b> m/s.</p>
+<h3>Variants (f_p 0.85, Kourou unless noted)</h3>
+<table><colgroup><col style="width:30%"><col style="width:33%"><col style="width:37%"></colgroup><tr><th>Variant</th><th class="n">resid. m/s</th><th>binding</th></tr>
+<tr><td>No-track pad ascent (0/240)</td><td class="n">661 (LAS 708, Bai 756)</td><td>drag/heat ~5,200 K</td></tr>
+<tr><td>Light sail ≤100 GW (0/864)</td><td class="n">best 514 (no-track); staged 682→519</td><td>drag (90 kN@80 km vs 63 N@10 GW), LOS ~134 s, sail 2,176–4,696 K</td></tr>
+<tr><td>Kite 10 m²</td><td class="n">1,333</td><td>sheet drag/mass</td></tr>
+<tr><td>Fishing line 500 m (60 km)</td><td class="n">2,791</td><td>line drag</td></tr>
+<tr><td>Gated lane-keeping</td><td class="n">644</td><td>still drag/heat</td></tr>
+<tr><td>Smart magnet vs Earth field</td><td class="n">661</td><td>F≈1.4×10⁻⁸ N</td></tr>
+<tr><td>Evac straw (0/46 all guidance)</td><td class="n">595</td><td>propellant+gravity; = tall evac tube (1,031 km)</td></tr>
+<tr><td>Adaptive fur/fabric (Pixar-style remesh, Oroboro-gated)</td><td class="n">line 2,378→1,361; kite 1,344; sail 554</td><td>no locks; refining wrinkled cloth locks wrinkle</td></tr>
+<tr><td>Plumbing straw (0/49)</td><td class="n">595 (leak 1 → 661); 0.1 bar late 666, pad 791; 1 bar 2,934</td><td>leaks heat first; push lofts</td></tr></table>
+
+<div class="key"><b>Headline.</b> Launch: the <b>only</b> locks were a small paid late-stage burn (redstone repeater) on a high-altitude evac-tube exit; every other add-on (comparator, sail, kite, line, lane-keeping, magnets, straw, adaptive meshes, plumbing) left ≥514 m/s or widened the gap. Cancer: <b>upstream admission</b> (Oasis threshold, permissiveness) is the lever that shrinks both colonies and pool; Oasis-gated exits (light, sealed plumbing) also shrink both, best upstream. Common rule: leftovers are set at admission/release; downstream correction rarely empties them. Same name, opposite sign: 5° release tilt helps launch; circulation tilt doubles colonies.</div>
+<div class="bar"><span class="l">Repeater f_p .05, 0° exit</span><span class="b k" style="width:2px"></span>0 = lock, all 14 sites</div>
+<div class="bar"><span class="l">Best-az 0° exit (Baikonur)</span><span class="b t" style="width:0.9%"></span>37</div>
+<div class="bar"><span class="l">Evac dart 5° / 5° tilt</span><span class="b t" style="width:10.2%"></span>407/431</div>
+<div class="bar"><span class="l">Light sail · straw · lane</span><span class="b" style="width:12.9%"></span>514/595/644</div>
+<div class="bar"><span class="l">No-track</span><span class="b" style="width:16.6%"></span>661</div>
+<div class="bar"><span class="l">Staged (true)</span><span class="b t" style="width:28.7%"></span>1,148</div>
+<div class="bar"><span class="l">Kite / adaptive line</span><span class="b" style="width:33.6%"></span>1,333/1,361</div>
+<div class="bar"><span class="l">Line (60 km)</span><span class="b" style="width:41.3%"></span>2,791 m/s</div>
+
+<h2>4 · Falsified predictions</h2>
+<p>Frustrated loops ↑ pool (actual −0.819) · loop ablation empties pool (no) · damper matters pre-wiring (silent) · onboard autopilot helps (hurt) · 256 m/s (invalid; 1,148) · equator closes gap (375–398 left) · comparator beats best-az (0/14) · no-track with fuel (0/240) · light sail (0/864) · kite/line lift (brakes) · Earth-field magnets (~10⁻⁸ N) · adaptive mesh / longer vacuum / pressure push close gap (no) · frustrated-pool link survives light exit (r=0.09) · Oasis separates true/false (both 0.65).</p>
+
+<h2>5 · GitHub state (text-only connector; PDF/PNG/DOCX as SVG copies)</h2>
+<ul><li><b>Oroboro</b> <code>main</code> @ <code>d6f2763</code> — <code>research/</code>: metastasis-native, magnetic-launch (all addenda incl. guidance, fur, plumbing), cross-domain, PIPELINE.md, combined-report.</li>
+<li><b>oroboro-relay</b> <code>cc77063</code>/<code>d3d0940</code> — deterministic delta + OroboroPipeline.</li>
+<li><b>metastatic-cascade-analysis</b> @ <code>d9f09c8</code> — v1–v5 papers/page views; old model superseded.</li>
+<li><b>epilepsy-sim</b> <code>2be4eac</code> — audit only; partially conjunctive; 50/50 tests pass.</li></ul>
+<p>No force pushes; fresh-clone verified; secret scans clean; no video or raw pose landmarks published.</p>
+<p class="foot"><b>Open next steps:</b> joint recalibration at levy_gain 1.0; resolve plumbing consensus rows; Miura even-faced niche vs dream-catcher; geography on the loop; second downrange laser (unmodeled); sponge compartment unused; epilepsy-sim integration pending.</p>
+</div></body></html>
