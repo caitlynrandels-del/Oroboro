@@ -218,6 +218,12 @@ class Part:
         self.extracted_from = dict(circ=0, dorm=0, overt=0)
         self.n_tagged_ever = 0; self.n_leaky_ever = 0; self.n_located_ever = 0
         self.extract_attempts = 0; self.extract_commits = 0
+        # Plumbing counters (no-op unless native['plumbing'] is on)
+        self.plumbing_leaked_circ = 0
+        self.plumbing_leaked_niche = 0
+        self.plumbing_valve_block = 0
+        self.plumbing_valve_commit = 0
+        self.plumbing_sealed = 0
 
     def summary(self):
         a = (self.state == CIRC) | (self.state == DORM)
@@ -242,6 +248,7 @@ class Part:
             st[new] = CIRC; self.levy.add("detach", int(new.sum()))
             if record: self.events += [(m, "detach", int(i), -1) for i in ids[new]]
         self._light_step(m, S_env, cfg, P, lev, seed, mesh, meta, native, record)
+        self._plumbing_step(m, S_env, cfg, P, lev, seed, mesh, meta, native, record)
         organs = cfg["organs"]; perm = cfg["perm_eff"](lev)
         # tilt / torque: rotational bias on the circulation loop's organ encounter weights
         tilt = float(native.get("tilt", 0.0)); phase = float(native.get("torque_phase", 0.0))
@@ -487,6 +494,126 @@ class Part:
             pool = (meta.get("lure_idx") or []) + (meta.get("flush_idx") or [])
             self._try_extract(idx, pool, S_env, P, seed, m, 37, mesh, meta, native, record, p=strength)
 
+    def _plumbing_step(self, m, S_env, cfg, P, lev, seed, mesh, meta, native, record):
+        """Sealed-channel transport. Strict no-op (no RNG) unless plumbing is on."""
+        pc = _plumbing_cfg(native)
+        if (not pc["on"]) or (not meta.get("extraction")) or m < pc["start"] or pc["strength"] <= 0:
+            return
+        st = self.state
+        elig = (st == CIRC) | (st == DORM) | (st == OVERT)
+        if pc["timing"] == "post_settling":
+            elig = (st == DORM) | (st == OVERT)
+        idx = np.nonzero(elig & (st != EXTRACTED) & (st != CLEARED) & (st != LOST))[0]
+        if len(idx) == 0:
+            return
+        pool = (meta.get("lure_idx") or []) + (meta.get("magnet_idx") or []) + (meta.get("flush_idx") or [])
+        self._try_plumb(idx, pool, S_env, P, seed, m, 40, mesh, meta, native, record, pc)
+
+    def _try_plumb(self, idx, edge_pool, S_env, P, seed, m, stream, mesh, meta, native, record, pc):
+        """Oasis-valve + pressure-gradient hop onto an extract edge, then a seal check."""
+        if len(idx) == 0 or not edge_pool:
+            return
+        st = self.state; ids = self.ids
+        live = idx[st[idx] != EXTRACTED]
+        if len(live) == 0:
+            return
+        att = U(seed, ids[live], m, stream) < float(pc["strength"])
+        live = live[att]
+        if len(live) == 0:
+            return
+        self.extract_attempts += len(live)
+        extract_perm = float(np.clip(pc["strength"], 1e-6, 1.0))
+        if pc["oasis"]:
+            g = self._gate(live, np.full(len(live), extract_perm), S_env, seed, m, stream, S_env["thr"])
+            self.ledger_gate["recycle"] += int((g == 0).sum())
+            self.ledger_gate["buffer"] += int((g == 1).sum())
+            self.ledger_gate["commit"] += int((g == 2).sum())
+            self.plumbing_valve_block += int((g != 2).sum())
+            self.plumbing_valve_commit += int((g == 2).sum())
+            cm = live[g == 2]
+        else:
+            self.ledger_gate["commit"] += len(live)
+            self.plumbing_valve_commit += len(live)
+            cm = live
+        if len(cm) == 0:
+            return
+        locked = [i for i in edge_pool if mesh.edges[i].locked]
+        frust = [i for i in edge_pool if not mesh.edges[i].locked]
+        hop = float(native.get("hop_from_frustrated", 0.2))
+        if locked:
+            ok = np.ones(len(cm), dtype=bool)
+            pool = locked
+        elif frust:
+            ok = U(seed, ids[cm], m, stream + 1) < hop
+            pool = frust
+        else:
+            return
+        use = cm[ok]
+        if len(use) == 0:
+            return
+        # Seal check: leak returns the cell to circulation or to its niche.
+        leak_u = U(seed, ids[use], m, stream + 3)
+        dest_u = U(seed, ids[use], m, stream + 4)
+        leak_p = float(pc["leak"])
+        stay = []
+        for k, cell in enumerate(use):
+            cell = int(cell)
+            prev = int(st[cell])
+            org = int(self.organ[cell])
+            if leak_u[k] < leak_p:
+                # Leaked transport: not extracted. Prefer circulation on upstream
+                # attempts, niches after settling; 50/50 otherwise for seated cells.
+                to_circ = (prev == CIRC) or (dest_u[k] < (0.7 if pc["timing"] != "post_settling" else 0.3))
+                if to_circ:
+                    st[cell] = CIRC
+                    self.organ[cell] = -1
+                    self.edge[cell] = -1
+                    self.frust[cell] = False
+                    self.plumbing_leaked_circ += 1
+                else:
+                    # remain seated in the niche if already there; otherwise a
+                    # circulating leak into a random already-permitted organ is
+                    # not invented — sit back in CIRC.
+                    if prev in (DORM, OVERT):
+                        st[cell] = prev
+                        self.plumbing_leaked_niche += 1
+                    else:
+                        st[cell] = CIRC
+                        self.organ[cell] = -1
+                        self.edge[cell] = -1
+                        self.frust[cell] = False
+                        self.plumbing_leaked_circ += 1
+                self.levy.add("fail", 1)
+                if record:
+                    self.events.append((m, "fail", int(ids[cell]), org))
+            else:
+                stay.append(cell)
+        if not stay:
+            return
+        stay = np.array(stay, dtype=int)
+        upick = U(seed, ids[stay], m, stream + 2)
+        for k, cell in enumerate(stay):
+            ei = pool[int(upick[k] * len(pool)) % len(pool)]
+            self.edge[int(cell)] = int(ei)
+            self.frust[int(cell)] = (not mesh.edges[ei].locked)
+        for cell in stay:
+            prev = int(st[int(cell)])
+            org = int(self.organ[int(cell)])
+            if prev == CIRC:
+                self.extracted_from["circ"] += 1
+            elif prev == DORM:
+                self.extracted_from["dorm"] += 1
+            elif prev == OVERT:
+                self.extracted_from["overt"] += 1
+                if org >= 0:
+                    self.organ_extracted_overt[org] = self.organ_extracted_overt.get(org, 0) + 1
+        self.extract_commits += len(stay)
+        self.plumbing_sealed += len(stay)
+        st[stay] = EXTRACTED
+        self.levy.add("extract", len(stay))
+        if record:
+            self.events += [(m, "extract", int(ids[i]), int(self.organ[i])) for i in stay]
+
     def _try_extract(self, idx, edge_pool, S_env, P, seed, m, stream, mesh, meta, native, record,
                      p=1.0, attempt_all=False):
         """Oasis-gated move onto a directed extract edge. Prefers lockable polarity paths."""
@@ -568,6 +695,30 @@ def _light_cfg(native):
                 do_tag=mode in ("tag_magnet", "combined"),
                 do_flush=mode in ("flush", "combined"),
                 do_pa=mode in ("photoacoustic", "combined"))
+
+
+
+def _plumbing_cfg(native):
+    """Resolve plumbing flags. Off unless native['plumbing'] is true. No side effects."""
+    on = bool(native.get("plumbing", False))
+    timing = str(native.get("plumbing_timing") or "upstream")
+    start = native.get("plumbing_start_month")
+    if start is None:
+        start = 61 if timing == "post_settling" else 1
+    leak0 = float(native.get("plumbing_leak", 0.0) or 0.0)
+    strength = float(native.get("plumbing_strength", 0.0) or 0.0)
+    n_stages = max(1, int(native.get("plumbing_stages", 1) or 1))
+    seal = float(np.clip(native.get("plumbing_seal", 1.0) or 0.0, 0.0, 1.0))
+    magnet = bool(native.get("plumbing_magnet", False))
+    oasis = bool(native.get("plumbing_oasis", True))
+    # Higher pressure and a poorer seal raise leak; staged isolation lowers it.
+    leak_eff = leak0 * (1.0 - 0.5 * seal) * (1.0 + 0.5 * strength) / float(n_stages)
+    if magnet:
+        leak_eff *= 0.5  # labeled directional hold in the channel, not a therapy claim
+    leak_eff = float(np.clip(leak_eff, 0.0, 0.95))
+    return dict(on=on, timing=timing, start=int(start), leak=leak_eff, leak0=leak0,
+                strength=strength, n_stages=n_stages, seal=seal, magnet=magnet,
+                oasis=oasis)
 
 
 def make_cfg(name, P):
@@ -668,7 +819,7 @@ def run(name, seed, P, lever=None, mode="whole", K=4, record=False, isolate=None
     lev = dict(NEUTRAL); lev.update(lever or {}); base_lev = dict(NEUTRAL)
     cfg = make_cfg(name, P); sd = seed if seed is not None else cfg["seed"]
     native = _native_flags(P, native_overrides)
-    extraction = bool(native.get("light", False) or native.get("extraction", False))
+    extraction = bool(native.get("light", False) or native.get("extraction", False) or native.get("plumbing", False))
     extraction_coloring = str(native.get("extraction_coloring") or "preserve")
     mesh, meta = build_system_mesh(cfg["organs"], hoop_n=int(native.get("hoop_n", 8)),
                                    circulation_nodes=int(native.get("circulation_nodes", 8)),
@@ -798,6 +949,11 @@ def recombine(parts, cfg, P, nexus, genesis, seed, n_shed, record, name, sig, me
         n_located_ever += int(getattr(p, "n_located_ever", 0))
         extract_attempts += int(getattr(p, "extract_attempts", 0))
         extract_commits += int(getattr(p, "extract_commits", 0))
+    plumbing_leaked_circ = sum(int(getattr(p, "plumbing_leaked_circ", 0)) for p in parts)
+    plumbing_leaked_niche = sum(int(getattr(p, "plumbing_leaked_niche", 0)) for p in parts)
+    plumbing_valve_block = sum(int(getattr(p, "plumbing_valve_block", 0)) for p in parts)
+    plumbing_valve_commit = sum(int(getattr(p, "plumbing_valve_commit", 0)) for p in parts)
+    plumbing_sealed = sum(int(getattr(p, "plumbing_sealed", 0)) for p in parts)
     census_org = {int(o): int(((state == OVERT) & (organ == o)).sum()) for o in set(organ[state == OVERT].tolist()) if len(state)}
     # Current overt occupancy = cumulative colonize minus overt-to-extract; heat stays cumulative.
     agree = {o: (census_org.get(o, 0) == col_org.get(o, 0) - ext_overt_org.get(o, 0)
@@ -840,7 +996,13 @@ def recombine(parts, cfg, P, nexus, genesis, seed, n_shed, record, name, sig, me
                extraction_mesh=bool(meta.get("extraction", False)),
                n_frustrated_circ=int(n_frust_circ), n_frustrated_niche=int(n_frust_niche),
                n_frustrated_extract=int(n_frust_extract), n_locked_extract=int(n_lock_extract),
-               n_extract_edges=int(n_extract_edges))
+               n_extract_edges=int(n_extract_edges),
+               plumbing_leaked_circ=plumbing_leaked_circ,
+               plumbing_leaked_niche=plumbing_leaked_niche,
+               plumbing_leaked=plumbing_leaked_circ + plumbing_leaked_niche,
+               plumbing_valve_block=plumbing_valve_block,
+               plumbing_valve_commit=plumbing_valve_commit,
+               plumbing_sealed=plumbing_sealed)
     if sig:
         import hashlib
         allids = np.concatenate([p.ids for p in parts]); o = np.argsort(allids, kind="stable")

@@ -59,6 +59,15 @@ Speculative modeling only. This is not a treatment, protocol or clinical claim. 
 
 Note: [`notes/Light_Transport_Extraction.md`](notes/Light_Transport_Extraction.md) ([page view](notes/pdf-pages/Light_Transport_Extraction/view.html)). Figure: [`charts/fig_light_transport.svg`](charts/fig_light_transport.svg). Data: `data/light_transport/`. Run: `python3 run_light_transport.py`.
 
+## Plumbing / sealed-channel hook (27 Nov 2026; model outputs)
+Speculative modeling only. This is not a treatment, protocol or clinical claim. Plumbing is a sealed-channel transport path on the native extraction mesh. **It is off by default** and is a strict no-op (no RNG, no state change) unless `native["plumbing"]` is on. With it off, the light-off code reproduces the earlier integrated run bit-for-bit (checked on 25 seeds before this push).
+- When it is on, Oasis acts as a restrictive valve. Perfect seal, upstream, strength 0.5, gain 0.05: p(overt) 0.175 → 0.000, dormant pool 10.215 → 1.270, sealed yield 0.132. A leftover dormant pool remains.
+- Leakage returns occupancy mostly to circulation when the attempt is upstream, and mostly to the niche after settling. Sixteen airlock stages at leak 0.3 almost restore the perfect-seal yield.
+- Skipping Oasis on extract hops raises yield to 0.684 and is not a setting to chase.
+- Census, Levy, consensus, inversion and whole-versus-parts checks held on every reported condition, including plumbing-on (re-checked 6/6 whole-versus-parts before this push).
+
+Note: launch-side write-up [`../magnetic-launch/Plumbing_Dynamics_Addendum.md`](../magnetic-launch/Plumbing_Dynamics_Addendum.md) ([page view](../magnetic-launch/pdf-pages/Plumbing_Dynamics_Addendum/view.html)). Data: `data/plumbing/`.
+
 ## Files
 - `oro_native.py` (sim and components), `oro_mesh.py` (looped polarity mesh), `params.json`
 - `run_integrated.py`: conjunctive rerun (`--calibrate` picks the calibration-best gain)
@@ -67,6 +76,7 @@ Note: [`notes/Light_Transport_Extraction.md`](notes/Light_Transport_Extraction.m
 - `charts/`, `outputs/*.log`
 - `notes/Native_Mesh_Restart_HeatTrace.md` (pre-integration write-up; [page view](notes/pdf-pages/Native_Mesh_Restart_HeatTrace/view.html))
 - `run_light_transport.py`, `data/light_transport/`, `notes/Light_Transport_Extraction.md`
+- `data/plumbing/` (`plumbing_summaries.csv`, `plumbing_ledger.json`); plumbing hook in `oro_native.py` (off by default)
 - `notes/github_scan_inventory.md`
 
 Run: `python3 run_integrated.py` (numpy, pandas, scipy, matplotlib).
